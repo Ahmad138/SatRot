@@ -23,7 +23,7 @@ The GUI has 2 main modes. A manual mode that a user can use to manually track a 
 <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Block%20Diagrams/Satellite%20Rotator%20Block%20Diagram.jpg?raw=true" width="110%" >
 </p>
 
-##Applications/Usefulness
+## Applications/Usefulness
 - Can be used to track fast moving satellites. Especially those in LEO with short fly by times.
 - Solar panel can be mounted to track the sun and increase its efficiency
 - Can be used as a teaching aid for young students about satellite technologies
@@ -44,9 +44,9 @@ The device used for the project is a [raspberry pi 3 B](https://www.raspberrypi.
 ### Build and install
 ### Use
 ### Maintain
-#Screenshots
-#Examples and Videos
-#Documentation
+# Screenshots
+# Examples and Videos
+# Documentation
 A detailed documentation is outlined in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section of the repository. Files, documents, construction materials, instructions, costs and others are all listed and defined over in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section.
 #Issue Tracking
 If there is any issue or suggestions (including spelling/grammatical errors) to the development of the project, feel free to open an 'issue' on the [issue](https://github.com/Ahmad138/satRot/issues "issue") tab and properly define the issue. The problem will be rectified as soon as possible by the community.
@@ -61,16 +61,16 @@ src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social
  &#64;sat_rot
 </p>
 
-#Authors :fa-users:
+# Authors :fa-users:
 - Ahmad Muhammad | :fa-github: [Github](https://github.com/Ahmad138 "Github") | :fa-twitter: [Twitter](https://twitter.com/ahmadmf01 "Twitter") | :fa-facebook: [Facebook](http://www.facebook.com/amfaruk01 "Facebook")
 
 - Mohamed Salih | :fa-github: [Github](https://github.com/sonOFsalah-2425778 "Github") 
 
 - Mohamed Salim | :fa-github: [Github](https://github.com/2302420a "Github")
 
-#Support Us :tw-2764:
+# Support Us :tw-2764:
 You can support us by sending us a thank you note or bringing someone into the vast world of satellite technology. Your support gives us boost to continue maintaining this project. Also give us a shout out whenever possible.  
-#License 
+# License 
 
 <p align="center">
 **The MIT License **
