@@ -30,6 +30,7 @@ The GUI has 2 main modes. A manual mode that a user can use to manually track a 
 - Can be used as a teaching aid for young students about satellite technologies
 - Telescope can be mounted on it and used to track a celestrial body in the sky
 - Tracking the ISS and the activities on-board becomes possible 
+- When Starlink becomes fully operational, SatRot could be used to gain internet access anywhere in the world.
 
 # Who is SatRot for?
 **SatRot** is for anyone interested in the realm of satellite technology, telecommunications, amateur radio, application of raspberry pi. In short, anyone is free to join, use and participate in the SatRot project. 
