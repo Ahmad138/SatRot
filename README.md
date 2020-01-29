@@ -1,25 +1,25 @@
-# SatRot - Taking Everyone to Space  :tw-1f680:
+# SatRot - Taking Everyone to Space  
 <p align="center">
 <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="30%" height="30%" alt="SatRot Logo">
 </p>
 
-# Table of Contents :tw-1f4cb:
+# Table of Contents 
 
 [//]:[TOCM]
 
 [TOC]
 
-# Motivation :tw-1f4aa:
+# Motivation 
 There has being alot of interest buzzing around ever since the space race started in 1955. Equipments and materials to communicate with satellites especially low earth orbit (LEO) satellites have being expensive and inaccessible. These satellites (both natural and artificial) move really fast across the sky. Hand tracking becomes tedious and tiring. Solar panels also need to follow the sun across the sky for 90&deg; incident rays so as to increase it's efficiency.
 
 This is where **satRot** comes in. SatRot takes everyone interested into the domain of the amateur satellite observation or communication community. 
 
-# What is SatRot? :tw-1f611:
+# What is SatRot? 
 **SatRot** is a very cheap, modular and smart satellite rotator. It has the ability to automatically and manually control a load device such as an antenna for satellite communications, solar panel to track sun, telescope to observe patch of the night sky and others. The construction materials are so cheap and easy to build that high school students can DIY build the system.
 
 The GUI has 2 main modes. A manual mode that a user can use to manually track a celestrial body using a mouse on the system. this provides a solid flexiblity for serach and observation of the sky. The second mode is the automatic mode. This mode allows the user to set a satellite to track whenever the satellite comes into view. This can be used to automatically transmit or receive information from satellite when it rises and before setting. This uses a kernal interrupt so as not to monopolize CPU resources. Ability to search and predict which and when satellites are coming over your location anywhere on earth.
 
-# How SatRot works :fa-cog:
+# How SatRot works 
 <p align="center">
 <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Block%20Diagrams/Satellite%20Rotator%20Block%20Diagram.jpg?raw=true" width="110%" >
 </p>
@@ -71,14 +71,14 @@ src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"> </a> 
 </p>
 
-# Authors :fa-users:
+# Authors 
 - Ahmad Muhammad | :fa-github: [Github](https://github.com/Ahmad138 "Github") | :fa-twitter: [Twitter](https://twitter.com/ahmadmf01 "Twitter") | :fa-facebook: [Facebook](http://www.facebook.com/amfaruk01 "Facebook")
 
 - Mohamed Salih | :fa-github: [Github](https://github.com/sonOFsalah-2425778 "Github") 
 
 - Mohamed Salim | :fa-github: [Github](https://github.com/2302420a "Github")
 
-# Support Us :tw-2764:
+# Support Us 
 You can support us by sending us a thank you note or bringing someone into the vast world of satellite technology. Your support gives us boost to continue maintaining this project. Also give us a shout out whenever possible.  
 # License 
 
