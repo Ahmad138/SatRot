@@ -1,0 +1,4 @@
+/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot/build-SatRot_Main-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot/build-SatRot_Main-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/SatRot_Main.dir
+/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot/build-SatRot_Main-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot/build-SatRot_Main-Desktop_Qt_5_14_1_GCC_64bit-Debug/CMakeFiles/SatRot_Main_autogen.dir
