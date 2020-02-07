@@ -13,6 +13,8 @@ install:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
 
 script: 
+  - cd Software/SatRot/
   - qmake
   - make
-  - ./travis_qmake_gcc_cpp17
+  - cd SatRot_Main/
+  - ./SatRot_Main
