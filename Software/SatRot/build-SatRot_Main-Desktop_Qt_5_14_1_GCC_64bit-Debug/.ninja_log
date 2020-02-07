@@ -1,9 +1,0 @@
-# ninja log v5
-0	310	0	CMakeFiles/SatRot_Main_autogen	ae42e81c6c267640
-0	310	0	SatRot_Main_autogen/mocs_compilation.cpp	ae42e81c6c267640
-310	334	1580847612201819876	/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot/SatRot_Main/SatRot_Main_en_GB.ts	452b1c7a62cf702d
-310	334	1580847612201819876	CMakeFiles/SatRot_Main_en_GB.ts_lst_file	452b1c7a62cf702d
-344	4441	1580847628882349541	CMakeFiles/SatRot_Main.dir/SatRot_Main_autogen/mocs_compilation.cpp.o	cb01dac20f4768a4
-336	4703	1580847629146357929	CMakeFiles/SatRot_Main.dir/mainwindow.cpp.o	1878e4f84f3a7925
-335	4893	1580847629338364030	CMakeFiles/SatRot_Main.dir/main.cpp.o	e93be560e5334d44
-4893	5456	1580847629898381825	SatRot_Main	ad2dc17d9cb337b7
