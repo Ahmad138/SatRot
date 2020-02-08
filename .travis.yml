@@ -23,5 +23,5 @@ script:
   - cd Software/SatRot/
   - qmake
   - make
-  - cd SatRot_Main/
-  - ./SatRot_Main
+#  - cd SatRot_Main/
+#  - ./SatRot_Main
