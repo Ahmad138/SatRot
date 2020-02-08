@@ -1,4 +1,5 @@
 # SatRot - Taking Everyone to Space  
+[![Build Status](https://travis-ci.org/Ahmad138/SatRot.svg?branch=master)](https://travis-ci.org/Ahmad138/SatRot)
 <p align="center">
 <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="30%" height="30%" alt="SatRot Logo">
 </p>
