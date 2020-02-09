@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.4
+** Created by: Qt User Interface Compiler version 5.11.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -15,6 +15,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -27,6 +28,8 @@ public:
     QWidget *centralWidget;
     QPushButton *clickMe;
     QLabel *displayText;
+    QRadioButton *radioButton;
+    QLabel *ledStatus;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -34,27 +37,33 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+            MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(1613, 1290);
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
         clickMe = new QPushButton(centralWidget);
-        clickMe->setObjectName(QString::fromUtf8("clickMe"));
+        clickMe->setObjectName(QStringLiteral("clickMe"));
         clickMe->setGeometry(QRect(330, 490, 170, 48));
         displayText = new QLabel(centralWidget);
-        displayText->setObjectName(QString::fromUtf8("displayText"));
+        displayText->setObjectName(QStringLiteral("displayText"));
         displayText->setGeometry(QRect(730, 490, 1000, 34));
         displayText->setWordWrap(true);
+        radioButton = new QRadioButton(centralWidget);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setGeometry(QRect(470, 230, 151, 31));
+        ledStatus = new QLabel(centralWidget);
+        ledStatus->setObjectName(QStringLiteral("ledStatus"));
+        ledStatus->setGeometry(QRect(460, 270, 141, 21));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1613, 39));
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1613, 28));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
@@ -67,6 +76,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot - Taking everyone to space", nullptr));
         clickMe->setText(QApplication::translate("MainWindow", "OK", nullptr));
         displayText->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        radioButton->setText(QApplication::translate("MainWindow", "Toggle to Blink", nullptr));
+        ledStatus->setText(QApplication::translate("MainWindow", "Led Status", nullptr));
     } // retranslateUi
 
 };

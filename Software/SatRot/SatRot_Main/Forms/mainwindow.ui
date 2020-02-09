@@ -43,6 +43,32 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>230</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Toggle to Blink</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ledStatus">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>270</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Led Status</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -50,7 +76,7 @@
      <x>0</x>
      <y>0</y>
      <width>1613</width>
-     <height>39</height>
+     <height>28</height>
     </rect>
    </property>
   </widget>

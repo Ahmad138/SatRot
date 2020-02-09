@@ -1,5 +1,5 @@
 #include "Headers/blink.h"
-#include "wiringpi.h"
+#include <wiringPi.h>
 
 blink::blink()
 {
@@ -8,9 +8,9 @@ blink::blink()
 }
 
 void blink::ledOn(){
-    digitalWrite (0, HIGH) ; delay (500) ;
+    digitalWrite (0, HIGH) ;
 }
 
 void blink::ledOff(){
-    digitalWrite (0,  LOW) ; delay (500) ;
+    digitalWrite (0,  LOW) ;
 }
