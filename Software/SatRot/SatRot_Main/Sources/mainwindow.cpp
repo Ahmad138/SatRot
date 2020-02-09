@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_clickMe_clicked()
+{
+    ui->displayText->clear();
+    ui->displayText->setText("Welcome to satrot everyone");
+}

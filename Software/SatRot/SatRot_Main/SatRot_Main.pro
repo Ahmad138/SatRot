@@ -24,15 +24,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+# So wiringPi include files can be found during compile
+INCLUDEPATH    += /usr/local/include
+
+# To link the wiringPi library when making the executable
+LIBS += -L/usr/local/lib -lwiringPi
+
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp
+        Sources/main.cpp \
+        Sources/mainwindow.cpp \
+        Sources/api.cpp \
+        Sources/stepperdriver.cpp \
+        Sources/raspgpio.cpp \
+        Sources/blink.cpp
 
 HEADERS += \
-        mainwindow.h
+        Headers/mainwindow.h \
+        Headers/api.h \
+        Headers/stepperdriver.h \
+        Headers/raspgpio.h \
+        Headers/blink.h
 
 FORMS += \
-        mainwindow.ui
+        Forms/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
