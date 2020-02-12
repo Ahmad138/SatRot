@@ -16,7 +16,7 @@
 #include <stdint.h> //to use uint8_t
 #include <wiringPi.h> //to control the GPIO of raspberry pi 3
 #include <math.h>
-#include "helper.h" //Some helper functions and variables
+#include "Headers/helper.h" //Some helper functions and variables
 
 //Defining some constants for the controller
 

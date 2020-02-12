@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ui_mainwindow.h"
+#include "Headers/blink.h"
+#include "Headers/stepperdriver.h"
 
 namespace Ui {
 class MainWindow;
