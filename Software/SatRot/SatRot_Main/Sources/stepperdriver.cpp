@@ -13,6 +13,8 @@ stepperDriver::stepperDriver(uint8_t enablePin, uint8_t dirPin, uint8_t stepPin,
     _speed = 50;
     _direction = CW;
 
+    wiringPiSetup () ;
+
     pinMode(_enable, OUTPUT);
     pinMode(_dir, OUTPUT);
     pinMode(_step, OUTPUT);
@@ -24,7 +26,7 @@ stepperDriver::stepperDriver(uint8_t enablePin, uint8_t dirPin, uint8_t stepPin,
 }
 
 void stepperDriver::setMode(uint8_t mode) {
-  if ((mode < 0 || mode > 5) && mode != 4) {
+  if ((mode < 0 || mode > 5) || mode != 4) {
     std::cout<<"[a4988] Invalid mode supplied to driver! Ignoring...(must be between 0 to 4 inclusive)";
     return;
   }
@@ -60,11 +62,12 @@ void stepperDriver::stepDegrees(float degrees) {
   uint8_t newSteps = (int)round(steps);
   uint8_t delay = h.map(100 - _speed, 0, 100, 300, 4000);
 
+
   for (uint8_t i = 0; i < newSteps; i++) {
     digitalWrite(_step, HIGH);
-    h.re_routeResources(delay);
+    h.re_routeResources(1000);
     digitalWrite(_step, LOW);
-    h.re_routeResources(delay);
+    h.re_routeResources(1000);
   }
 }
 

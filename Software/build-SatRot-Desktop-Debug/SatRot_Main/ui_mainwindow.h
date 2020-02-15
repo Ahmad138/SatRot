@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.4
+** Created by: Qt User Interface Compiler version 5.11.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,8 +14,10 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -30,6 +32,9 @@ public:
     QLabel *displayText;
     QRadioButton *radioButton;
     QLabel *ledStatus;
+    QSlider *azSlider;
+    QSlider *elSlider;
+    QProgressBar *progressBar;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -37,36 +42,49 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+            MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(1613, 1290);
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
         clickMe = new QPushButton(centralWidget);
-        clickMe->setObjectName(QString::fromUtf8("clickMe"));
-        clickMe->setGeometry(QRect(330, 490, 170, 48));
+        clickMe->setObjectName(QStringLiteral("clickMe"));
+        clickMe->setGeometry(QRect(350, 100, 170, 48));
         displayText = new QLabel(centralWidget);
-        displayText->setObjectName(QString::fromUtf8("displayText"));
-        displayText->setGeometry(QRect(730, 490, 1000, 34));
+        displayText->setObjectName(QStringLiteral("displayText"));
+        displayText->setGeometry(QRect(350, 50, 1000, 34));
         displayText->setWordWrap(true);
         radioButton = new QRadioButton(centralWidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(470, 230, 151, 31));
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setGeometry(QRect(360, 190, 251, 31));
         ledStatus = new QLabel(centralWidget);
-        ledStatus->setObjectName(QString::fromUtf8("ledStatus"));
-        ledStatus->setGeometry(QRect(460, 270, 141, 21));
+        ledStatus->setObjectName(QStringLiteral("ledStatus"));
+        ledStatus->setGeometry(QRect(410, 230, 141, 21));
+        azSlider = new QSlider(centralWidget);
+        azSlider->setObjectName(QStringLiteral("azSlider"));
+        azSlider->setGeometry(QRect(450, 1040, 731, 111));
+        azSlider->setOrientation(Qt::Horizontal);
+        elSlider = new QSlider(centralWidget);
+        elSlider->setObjectName(QStringLiteral("elSlider"));
+        elSlider->setGeometry(QRect(279, 429, 81, 681));
+        elSlider->setOrientation(Qt::Vertical);
+        progressBar = new QProgressBar(centralWidget);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setGeometry(QRect(560, 630, 771, 36));
+        progressBar->setValue(24);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1613, 28));
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1613, 39));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
+        QObject::connect(elSlider, SIGNAL(valueChanged(int)), progressBar, SLOT(setValue(int)));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
