@@ -108,6 +108,19 @@
      <number>24</number>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>820</y>
+      <width>129</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -145,6 +158,22 @@
     <hint type="destinationlabel">
      <x>637</x>
      <y>717</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>elSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>910</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>685</x>
+     <y>915</y>
     </hint>
    </hints>
   </connection>

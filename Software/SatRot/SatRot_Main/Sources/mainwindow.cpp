@@ -1,6 +1,4 @@
 #include "Headers/mainwindow.h"
-#include "ui_mainwindow.h"
-#include "Headers/blink.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,13 +20,31 @@ void MainWindow::on_clickMe_clicked()
 
 void MainWindow::on_radioButton_toggled(bool checked)
 {
-    blink b;
+    //blink b;
+    stepperDriver AzDriver(0, 1, 2, 3, 4, 5);
 
+    helper hh;
+    int i;
     if(checked){
-        b.ledOn();
-        ui->ledStatus->setText("Led is ON");
+        AzDriver.setDirection(CW);
+        AzDriver.stepDegrees(90);
+        //b.ledOn();
+        //ui->ledStatus->setText("Led is ON");
+        //AzDriver.setDirection(CW);
+        //for(i = 0; i<360; i+=10){
+            //AzDriver.stepDegrees(i);
+            //hh.re_routeResources(10000);
+        //}
+
     }else {
-        b.ledOff();
-        ui->ledStatus->setText("Led is OFF");
+        AzDriver.setDirection(CCW);
+        AzDriver.stepDegrees(180);
+        //b.ledOff();
+        //ui->ledStatus->setText("Led is OFF");
+        //AzDriver.setDirection(CCW);
+        //for(i = 360; i>0; i-=10){
+         //   AzDriver.stepDegrees(i);
+         //   hh.re_routeResources(10000);
+       // }
     }
 }

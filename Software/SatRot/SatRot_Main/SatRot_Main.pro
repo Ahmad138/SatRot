@@ -36,14 +36,16 @@ SOURCES += \
         Sources/api.cpp \
         Sources/stepperdriver.cpp \
         Sources/raspgpio.cpp \
-        Sources/blink.cpp
+        Sources/blink.cpp \
+        Sources/helper.cpp
 
 HEADERS += \
         Headers/mainwindow.h \
         Headers/api.h \
         Headers/stepperdriver.h \
         Headers/raspgpio.h \
-        Headers/blink.h
+        Headers/blink.h \
+        Headers/helper.h
 
 FORMS += \
         Forms/mainwindow.ui

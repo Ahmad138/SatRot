@@ -55,13 +55,15 @@ SOURCES       = ../../SatRot/SatRot_Main/Sources/main.cpp \
 		../../SatRot/SatRot_Main/Sources/api.cpp \
 		../../SatRot/SatRot_Main/Sources/stepperdriver.cpp \
 		../../SatRot/SatRot_Main/Sources/raspgpio.cpp \
-		../../SatRot/SatRot_Main/Sources/blink.cpp moc_mainwindow.cpp
+		../../SatRot/SatRot_Main/Sources/blink.cpp \
+		../../SatRot/SatRot_Main/Sources/helper.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		api.o \
 		stepperdriver.o \
 		raspgpio.o \
 		blink.o \
+		helper.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/common/unix.conf \
@@ -146,12 +148,14 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		../../SatRot/SatRot_Main/Headers/api.h \
 		../../SatRot/SatRot_Main/Headers/stepperdriver.h \
 		../../SatRot/SatRot_Main/Headers/raspgpio.h \
-		../../SatRot/SatRot_Main/Headers/blink.h ../../SatRot/SatRot_Main/Sources/main.cpp \
+		../../SatRot/SatRot_Main/Headers/blink.h \
+		../../SatRot/SatRot_Main/Headers/helper.h ../../SatRot/SatRot_Main/Sources/main.cpp \
 		../../SatRot/SatRot_Main/Sources/mainwindow.cpp \
 		../../SatRot/SatRot_Main/Sources/api.cpp \
 		../../SatRot/SatRot_Main/Sources/stepperdriver.cpp \
 		../../SatRot/SatRot_Main/Sources/raspgpio.cpp \
-		../../SatRot/SatRot_Main/Sources/blink.cpp
+		../../SatRot/SatRot_Main/Sources/blink.cpp \
+		../../SatRot/SatRot_Main/Sources/helper.cpp
 QMAKE_TARGET  = SatRot_Main
 DESTDIR       = 
 TARGET        = SatRot_Main
@@ -345,8 +349,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot/SatRot_Main/Headers/mainwindow.h ../../SatRot/SatRot_Main/Headers/api.h ../../SatRot/SatRot_Main/Headers/stepperdriver.h ../../SatRot/SatRot_Main/Headers/raspgpio.h ../../SatRot/SatRot_Main/Headers/blink.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot/SatRot_Main/Sources/main.cpp ../../SatRot/SatRot_Main/Sources/mainwindow.cpp ../../SatRot/SatRot_Main/Sources/api.cpp ../../SatRot/SatRot_Main/Sources/stepperdriver.cpp ../../SatRot/SatRot_Main/Sources/raspgpio.cpp ../../SatRot/SatRot_Main/Sources/blink.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot/SatRot_Main/Headers/mainwindow.h ../../SatRot/SatRot_Main/Headers/api.h ../../SatRot/SatRot_Main/Headers/stepperdriver.h ../../SatRot/SatRot_Main/Headers/raspgpio.h ../../SatRot/SatRot_Main/Headers/blink.h ../../SatRot/SatRot_Main/Headers/helper.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot/SatRot_Main/Sources/main.cpp ../../SatRot/SatRot_Main/Sources/mainwindow.cpp ../../SatRot/SatRot_Main/Sources/api.cpp ../../SatRot/SatRot_Main/Sources/stepperdriver.cpp ../../SatRot/SatRot_Main/Sources/raspgpio.cpp ../../SatRot/SatRot_Main/Sources/blink.cpp ../../SatRot/SatRot_Main/Sources/helper.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../SatRot/SatRot_Main/Forms/mainwindow.ui $(DISTDIR)/
 
 
@@ -381,7 +385,11 @@ moc_predefs.h: /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: ../../SatRot/SatRot_Main/Headers/mainwindow.h \
+moc_mainwindow.cpp: ui_mainwindow.h \
+		../../SatRot/SatRot_Main/Headers/blink.h \
+		../../SatRot/SatRot_Main/Headers/stepperdriver.h \
+		../../SatRot/SatRot_Main/Headers/helper.h \
+		../../SatRot/SatRot_Main/Headers/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/pi/Desktop/SatRot/Software/build-SatRot-Desktop-Debug/SatRot_Main/moc_predefs.h -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Desktop/SatRot/Software/SatRot/SatRot_Main -I/usr/local/include -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/8 -I/usr/include/arm-linux-gnueabihf/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/arm-linux-gnueabihf/8/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../../SatRot/SatRot_Main/Headers/mainwindow.h -o moc_mainwindow.cpp
@@ -407,17 +415,25 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../../SatRot/SatRot_Main/Sources/main.cpp 
+main.o: ../../SatRot/SatRot_Main/Sources/main.cpp ../../SatRot/SatRot_Main/Headers/mainwindow.h \
+		ui_mainwindow.h \
+		../../SatRot/SatRot_Main/Headers/blink.h \
+		../../SatRot/SatRot_Main/Headers/stepperdriver.h \
+		../../SatRot/SatRot_Main/Headers/helper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../SatRot/SatRot_Main/Sources/main.cpp
 
 mainwindow.o: ../../SatRot/SatRot_Main/Sources/mainwindow.cpp ../../SatRot/SatRot_Main/Headers/mainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../SatRot/SatRot_Main/Headers/blink.h \
+		../../SatRot/SatRot_Main/Headers/stepperdriver.h \
+		../../SatRot/SatRot_Main/Headers/helper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../SatRot/SatRot_Main/Sources/mainwindow.cpp
 
 api.o: ../../SatRot/SatRot_Main/Sources/api.cpp ../../SatRot/SatRot_Main/Headers/api.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o api.o ../../SatRot/SatRot_Main/Sources/api.cpp
 
-stepperdriver.o: ../../SatRot/SatRot_Main/Sources/stepperdriver.cpp ../../SatRot/SatRot_Main/Headers/stepperdriver.h
+stepperdriver.o: ../../SatRot/SatRot_Main/Sources/stepperdriver.cpp ../../SatRot/SatRot_Main/Headers/stepperdriver.h \
+		../../SatRot/SatRot_Main/Headers/helper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o stepperdriver.o ../../SatRot/SatRot_Main/Sources/stepperdriver.cpp
 
 raspgpio.o: ../../SatRot/SatRot_Main/Sources/raspgpio.cpp ../../SatRot/SatRot_Main/Headers/raspgpio.h
@@ -425,6 +441,9 @@ raspgpio.o: ../../SatRot/SatRot_Main/Sources/raspgpio.cpp ../../SatRot/SatRot_Ma
 
 blink.o: ../../SatRot/SatRot_Main/Sources/blink.cpp ../../SatRot/SatRot_Main/Headers/blink.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o blink.o ../../SatRot/SatRot_Main/Sources/blink.cpp
+
+helper.o: ../../SatRot/SatRot_Main/Sources/helper.cpp ../../SatRot/SatRot_Main/Headers/helper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o helper.o ../../SatRot/SatRot_Main/Sources/helper.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
