@@ -5,7 +5,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //api a;
+    
+    a
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +18,6 @@ void MainWindow::on_clickMe_clicked()
 {
     ui->displayText->clear();
     ui->displayText->setText("Welcome to satrot everyone");
-    //a.apiHello();
 }
 
 void MainWindow::on_radioButton_toggled(bool checked)
