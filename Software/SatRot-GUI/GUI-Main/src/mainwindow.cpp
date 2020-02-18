@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
+
+    api a;
+    a.sample();
 }
 
 MainWindow::~MainWindow()
