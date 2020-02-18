@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DBOOST_LOG_DYN_LINK -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1y -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../SatRot-GUI/GUI-Main -I. -I/opt/Qt5.14.1/5.14.1/gcc_64/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../SatRot-GUI/GUI-Main -I. -isystem /usr/local/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt5.14.1/5.14.1/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = GUI-Main1.0.0
 DISTDIR = /home/ahmad/Documents/UofG/Semester\ 2/Real\ Time\ Embedded\ Programming/satRot/Software/build-SatRot-GUI-Desktop_Qt_5_14_1_GCC_64bit-Debug/GUI-Main/.tmp/GUI-Main1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt5.14.1/5.14.1/gcc_64/lib
-LIBS          = $(SUBLIBS) /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Widgets.so /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Gui.so /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/usr/lib/x86_64-linux-gnu -lboost_log_setup /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Widgets.so /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Gui.so /opt/Qt5.14.1/5.14.1/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,9 +52,11 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../SatRot-GUI/GUI-Main/src/main.cpp \
+SOURCES       = ../../SatRot-GUI/GUI-Main/src/api.cpp \
+		../../SatRot-GUI/GUI-Main/src/main.cpp \
 		../../SatRot-GUI/GUI-Main/src/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = api.o \
+		main.o \
 		mainwindow.o \
 		moc_mainwindow.o
 DIST          = /opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
@@ -268,7 +270,9 @@ DIST          = /opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/lex.prf \
-		../../SatRot-GUI/GUI-Main/GUI-Main.pro ../../SatRot-GUI/GUI-Main/includes/mainwindow.h ../../SatRot-GUI/GUI-Main/src/main.cpp \
+		../../SatRot-GUI/GUI-Main/GUI-Main.pro ../../SatRot-GUI/GUI-Main/includes/api.h \
+		../../SatRot-GUI/GUI-Main/includes/mainwindow.h ../../SatRot-GUI/GUI-Main/src/api.cpp \
+		../../SatRot-GUI/GUI-Main/src/main.cpp \
 		../../SatRot-GUI/GUI-Main/src/mainwindow.cpp
 QMAKE_TARGET  = GUI-Main
 DESTDIR       = 
@@ -721,8 +725,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/includes/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/includes/api.h ../../SatRot-GUI/GUI-Main/includes/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/forms/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents lang/GUI-Main_en_GB.ts $(DISTDIR)/
 
@@ -866,9 +870,10 @@ moc_mainwindow.cpp: ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qicon.h \
+		../../SatRot-GUI/GUI-Main/includes/api.h \
 		moc_predefs.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/bin/moc
-	/opt/Qt5.14.1/5.14.1/gcc_64/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/build-SatRot-GUI-Desktop_Qt_5_14_1_GCC_64bit-Debug/GUI-Main/moc_predefs.h' -I/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/opt/Qt5.14.1/5.14.1/gcc_64/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/mainwindow.h -o moc_mainwindow.cpp
+	/opt/Qt5.14.1/5.14.1/gcc_64/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/build-SatRot-GUI-Desktop_Qt_5_14_1_GCC_64bit-Debug/GUI-Main/moc_predefs.h' -I/opt/Qt5.14.1/5.14.1/gcc_64/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/local/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui -I/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -890,6 +895,9 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+api.o: ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/includes/api.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o api.o ../../SatRot-GUI/GUI-Main/src/api.cpp
 
 main.o: ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QMainWindow \
@@ -999,6 +1007,7 @@ main.o: ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/include
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qicon.h \
+		../../SatRot-GUI/GUI-Main/includes/api.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1116,7 +1125,44 @@ mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		../../SatRot-GUI/GUI-Main/includes/api.h \
+		ui_mainwindow.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/QIcon \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QGridLayout \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QGroupBox \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qgroupbox.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QMenu \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qmenu.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QMenuBar \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qmenubar.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QScrollArea \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qscrollarea.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QSlider \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QStatusBar \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/qstatusbar.h \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QTabWidget \
+		/opt/Qt5.14.1/5.14.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

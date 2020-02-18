@@ -15,11 +15,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+# So -lboost_log_setup include files can be found during compile
+INCLUDEPATH    += /usr/local/include
+
+# To link the -lboost_log_setup library when making the executable
+LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_log_setup
+
+DEFINES += BOOST_LOG_DYN_LINK
+
 SOURCES += \
+    src/api.cpp \
     src/main.cpp \
     src/mainwindow.cpp
 
 HEADERS += \
+    includes/api.h \
     includes/mainwindow.h
 
 FORMS += \
@@ -27,7 +37,7 @@ FORMS += \
 
 TRANSLATIONS += \
     lang/GUI-Main_en_GB.ts
-    
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
