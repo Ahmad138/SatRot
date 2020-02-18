@@ -21,8 +21,8 @@ before_script:
     - source /opt/qt55/bin/qt55-env.sh
 
 script: 
-  - cd Software/SatRot/
-#  - qmake
-#  - make
+  - cd Software/SatRot-GUI/
+  - qmake
+  - make
 #  - cd SatRot_Main/
 #  - ./SatRot_Main
