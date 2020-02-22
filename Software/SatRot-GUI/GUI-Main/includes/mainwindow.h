@@ -3,9 +3,10 @@
 
 #include <QMainWindow>
 #include <string>
+#include <iostream>
 
 #include "includes/api.h"
-#include <iostream>
+#include "includes/webappview.h"
 
 using namespace std;
 
@@ -30,6 +31,8 @@ private slots:
     void on_pushButton_clicked();
 
 
+
+    void on_webView_loadStarted();
 
 private:
     Ui::MainWindow *ui;

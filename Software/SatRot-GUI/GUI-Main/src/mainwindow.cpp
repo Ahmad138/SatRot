@@ -18,6 +18,11 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
+//    QWebEngineView *view = new QWebEngineView(parent);
+//        view->load(QUrl("http://qt-project.org/"));
+//        view->show();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -49,7 +54,7 @@ void MainWindow::on_pushButton_clicked()
 
     api::handleFunc getData = [this](const QJsonObject &o) {
             //cout << "Got data " << endl;
-            QString r= o.value("name").toString();
+            QString r= o.value("company")["name"].toString();
             ui->label->setText(r);
      };
 
@@ -61,5 +66,10 @@ void MainWindow::on_pushButton_clicked()
 
     QString url2 = "users/3";
     a->sendRequest(url2, getData, errData);
+
+}
+
+void MainWindow::on_webView_loadStarted()
+{
 
 }

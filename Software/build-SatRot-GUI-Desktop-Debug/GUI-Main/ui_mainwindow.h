@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
+#include <QtWebKitWidgets/QWebView>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -50,11 +51,13 @@ public:
     QGridLayout *gridLayout_4;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
+    QPushButton *pushButton;
+    QLabel *label;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_5;
     QWidget *widget;
-    QLabel *label;
-    QPushButton *pushButton;
+    QGridLayout *gridLayout_6;
+    QWebView *webView;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menu_View;
@@ -135,7 +138,13 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 919, 269));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 919, 200));
+        pushButton = new QPushButton(scrollAreaWidgetContents);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(360, 190, 170, 48));
+        label = new QLabel(scrollAreaWidgetContents);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(210, 80, 461, 34));
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         gridLayout_4->addWidget(scrollArea, 0, 0, 1, 1);
@@ -149,12 +158,14 @@ public:
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         widget = new QWidget(groupBox);
         widget->setObjectName(QString::fromUtf8("widget"));
-        label = new QLabel(widget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(240, 230, 461, 34));
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(350, 370, 170, 48));
+        gridLayout_6 = new QGridLayout(widget);
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        webView = new QWebView(widget);
+        webView->setObjectName(QString::fromUtf8("webView"));
+        webView->setUrl(QUrl(QString::fromUtf8("https://www.qt.io/developers")));
+
+        gridLayout_6->addWidget(webView, 0, 0, 1, 1);
+
 
         gridLayout_5->addWidget(widget, 0, 0, 1, 1);
 
@@ -206,9 +217,9 @@ public:
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Manual", nullptr));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellites", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menu_View->setTitle(QApplication::translate("MainWindow", "&View", nullptr));
         menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));
