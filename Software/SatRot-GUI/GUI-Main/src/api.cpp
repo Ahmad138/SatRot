@@ -1,77 +1,205 @@
 #include "includes/api.h"
 
-using namespace std;
-using namespace restc_cpp;
-namespace logging = boost::log;
+const QString api::httpTemplate = "http://%1:%2/%3";
+//const QString api::httpTemplate = "http://%1:%2/api/%3";
+const QString api::httpsTemplate = "https://%1:%2/api/%3";
+const QString api::KEY_QNETWORK_REPLY_ERROR = "QNetworkReplyError";
+const QString api::KEY_CONTENT_NOT_FOUND = "ContentNotFoundError";
 
-// C++ structure that match the JSON entries received
-// from http://jsonplaceholder.typicode.com/posts/{id}
-struct Post {
-    int userId = 0;
-    int id = 0;
-    string title;
-    string body;
-};
-
-// Since C++ does not (yet) offer reflection, we need to tell the library how
-// to map json members to a type. We are doing this by declaring the
-// structs/classes with BOOST_FUSION_ADAPT_STRUCT from the boost libraries.
-// This allows us to convert the C++ classes to and from JSON.
-
-BOOST_FUSION_ADAPT_STRUCT(
-    Post,
-    (int, userId)
-    (int, id)
-    (string, title)
-    (string, body)
-)
-
-api::api()
+api::api(QObject *parent) : QObject(parent)
 {
+    manager = new QNetworkAccessManager(this);
+}
+
+void api::initRequester(const QString &host, int port, QSslConfiguration *value)
+{
+    this->host = host;
+    this->port = port;
+    sslConfig = value;
+    if (sslConfig != nullptr)
+        pathTemplate = httpsTemplate;
+    else
+        pathTemplate = httpTemplate;
+}
+
+void api::sendRequest(const QString &apiStr,
+                            const handleFunc &funcSuccess,
+                            const handleFunc &funcError,
+                            api::Type type,
+                            const QVariantMap &data)
+{
+    QNetworkRequest request = createRequest(apiStr);
+
+    QNetworkReply *reply;
+    switch (type) {
+    case Type::POST: {
+        QByteArray postDataByteArray = variantMapToJson(data);
+        reply = manager->post(request, postDataByteArray);
+        break;
+    } case Type::GET: {
+        reply = manager->get(request);
+        break;
+    } case Type::DELET: {
+        if (data.isEmpty())
+            reply = manager->deleteResource(request);
+        else
+            reply = sendCustomRequest(manager, request, "DELETE", data);
+        break;
+    } case Type::PATCH: {
+        reply = sendCustomRequest(manager, request, "PATCH", data);
+        break;
+    } default:
+        reply = nullptr;
+        Q_ASSERT(false);
+    }
+
+    connect(reply, &QNetworkReply::finished, this,
+            [this, funcSuccess, funcError, reply]() {
+        QJsonObject obj = parseReply(reply);
+
+        if (onFinishRequest(reply)) {
+            if (funcSuccess != nullptr)
+                funcSuccess(obj);
+        } else {
+            if (funcError != nullptr) {
+                handleQtNetworkErrors(reply, obj);
+                funcError(obj);
+            }
+        }
+        reply->close();
+        reply->deleteLater();
+    } );
 
 }
 
-void api::sample(){
-    // Set the log-level to a reasonable value
-       logging::core::get()->set_filter
-       (
-           logging::trivial::severity >= logging::trivial::info
-       );
+void api::sendMulishGetRequest(const QString &apiStr, //а ничего что здесь нигде не проверяется func != nullptr?
+                                     const handleFunc &funcSuccess,
+                                     const handleFunc &funcError,
+                                     const finishFunc &funcFinish)
+{
+    QNetworkRequest request = createRequest(apiStr);
+    //    QNetworkReply *reply;
+    qInfo() << "GET REQUEST " << request.url().toString() << "\n";
+    auto reply = manager->get(request);
 
-       // Create an instance of the rest client
-       auto rest_client = RestClient::Create();
+    connect(reply, &QNetworkReply::finished, this,
+            [this, funcSuccess, funcError, funcFinish, reply]() {
+        QJsonObject obj = parseReply(reply);
+        if (onFinishRequest(reply)) {
+            if (funcSuccess != nullptr)
+                funcSuccess(obj);
+            QString nextPage = obj.value("next").toString();
+            if (!nextPage.isEmpty()) {
+                QStringList apiMethodWithPage = nextPage.split("api/");
+                sendMulishGetRequest(apiMethodWithPage.value(1),
+                                     funcSuccess,
+                                     funcError,
+                                     funcFinish
+                                     );
+            } else {
+                if (funcFinish != nullptr)
+                    funcFinish();
+            }
+        } else {
+            handleQtNetworkErrors(reply, obj);
+            if (funcError != nullptr)
+                funcError(obj);
+        }
+        reply->close();
+        reply->deleteLater();
+    });
+}
 
-       // Create and instantiate a Post from data received from the server.
-       Post my_post = rest_client->ProcessWithPromiseT<Post>([&](Context& ctx) {
-           // This is a co-routine, running in a worker-thread
 
-           // Instantiate a Post structure.
-           Post post;
+QString api::getToken() const
+{
+    return token;
+}
 
-           // Serialize it asynchronously. The asynchronously part does not really matter
-           // here, but it may if you receive huge data structures.
-           SerializeFromJson(post,
+void api::setToken(const QString &value)
+{
+    token = value;
+}
 
-               // Construct a request to the server
-               RequestBuilder(ctx)
-                   .Get("http://jsonplaceholder.typicode.com/posts/1")
+QByteArray api::variantMapToJson(QVariantMap data)
+{
+    QJsonDocument postDataDoc = QJsonDocument::fromVariant(data);
+    QByteArray postDataByteArray = postDataDoc.toJson();
 
-                   // Add some headers for good taste
-                   .Header("X-Client", "RESTC_CPP")
-                   .Header("X-Client-Purpose", "Testing")
+    return postDataByteArray;
+}
 
-                   // Send the request
-                   .Execute());
+QNetworkRequest api::createRequest(const QString &apiStr)
+{
+    QNetworkRequest request;
+    QString url = pathTemplate.arg(host).arg(port).arg(apiStr);
+    //std::cout<<url.toUtf8().constData();
+    request.setUrl(QUrl(url));
+    request.setRawHeader("Content-Type","application/json");
+    if(!token.isEmpty())
+        request.setRawHeader("Authorization",QString("token %1").arg(token).toUtf8());
+    if (sslConfig != nullptr)
+        request.setSslConfiguration(*sslConfig);
 
-           // Return the post instance trough a C++ future<>
-           return post;
-       })
+    return request;
+}
 
-       // Get the Post instance from the future<>, or any C++ exception thrown
-       // within the lambda.
-       .get();
+QNetworkReply* api::sendCustomRequest(QNetworkAccessManager* manager,
+                                            QNetworkRequest &request,
+                                            const QString &type,
+                                            const QVariantMap &data)
+{
+    request.setRawHeader("HTTP", type.toUtf8());
+    QByteArray postDataByteArray = variantMapToJson(data);
+    QBuffer *buff = new QBuffer;
+    buff->setData(postDataByteArray);
+    buff->open(QIODevice::ReadOnly);
+    QNetworkReply* reply =  manager->sendCustomRequest(request, type.toUtf8(), buff);
+    buff->setParent(reply);
+    return reply;
+}
 
-       // Print the result for everyone to see.
-       cout << "Received post# " << my_post.id << ", title: " << my_post.title
-           << endl;
+QJsonObject api::parseReply(QNetworkReply *reply)
+{
+    QJsonObject jsonObj;
+    QJsonDocument jsonDoc;
+    QJsonParseError parseError;
+    auto replyText = reply->readAll();
+    jsonDoc = QJsonDocument::fromJson(replyText, &parseError);
+    if(parseError.error != QJsonParseError::NoError){
+        qDebug() << replyText;
+        qWarning() << "Json parse error: " << parseError.errorString();
+    }else{
+        if(jsonDoc.isObject())
+            jsonObj  = jsonDoc.object();
+        else if (jsonDoc.isArray())
+            jsonObj["non_field_errors"] = jsonDoc.array();
+    }
+    return jsonObj;
+}
+
+bool api::onFinishRequest(QNetworkReply *reply)
+{
+    auto replyError = reply->error();
+    if (replyError == QNetworkReply::NoError ) {
+        int code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        if ((code >=200) && (code < 300)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void api::handleQtNetworkErrors(QNetworkReply *reply, QJsonObject &obj)
+{
+    auto replyError = reply->error();
+    if (!(replyError == QNetworkReply::NoError ||
+          replyError == QNetworkReply::ContentNotFoundError ||
+          replyError == QNetworkReply::ContentAccessDenied ||
+          replyError == QNetworkReply::ProtocolInvalidOperationError
+          ) ) {
+        qDebug() << reply->error();
+        obj[KEY_QNETWORK_REPLY_ERROR] = reply->errorString();
+    } else if (replyError == QNetworkReply::ContentNotFoundError)
+        obj[KEY_CONTENT_NOT_FOUND] = reply->errorString();
 }
