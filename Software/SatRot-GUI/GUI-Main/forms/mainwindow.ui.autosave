@@ -172,6 +172,32 @@
               <height>269</height>
              </rect>
             </property>
+            <widget class="QPushButton" name="pushButton">
+             <property name="geometry">
+              <rect>
+               <x>360</x>
+               <y>190</y>
+               <width>170</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label">
+             <property name="geometry">
+              <rect>
+               <x>210</x>
+               <y>80</y>
+               <width>461</width>
+               <height>34</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
            </widget>
           </widget>
          </item>
@@ -185,34 +211,7 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_5">
          <item row="0" column="0">
-          <widget class="QWidget" name="widget" native="true">
-           <widget class="QLabel" name="label">
-            <property name="geometry">
-             <rect>
-              <x>240</x>
-              <y>230</y>
-              <width>461</width>
-              <height>34</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton">
-            <property name="geometry">
-             <rect>
-              <x>350</x>
-              <y>370</y>
-              <width>170</width>
-              <height>48</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-          </widget>
+          <widget class="QWidget" name="widget" native="true"/>
          </item>
         </layout>
        </widget>

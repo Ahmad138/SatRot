@@ -5,6 +5,9 @@
 #include <string>
 
 #include "includes/api.h"
+#include <iostream>
+
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +26,10 @@ private slots:
 
 
     void on_verticalSlider_valueChanged(int value);
+
+    void on_pushButton_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;
