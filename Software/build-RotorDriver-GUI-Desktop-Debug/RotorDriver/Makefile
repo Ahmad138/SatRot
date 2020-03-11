@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++1y -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../../RotorDriver-GUI/RotorDriver -I. -isystem /usr/include/arm-linux-gnueabihf/qt5 -isystem /usr/include/arm-linux-gnueabihf/qt5/QtWidgets -isystem /usr/include/arm-linux-gnueabihf/qt5/QtGui -isystem /usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I. -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -50,8 +50,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../RotorDriver-GUI/RotorDriver/main.cpp \
-		../../RotorDriver-GUI/RotorDriver/mainwindow.cpp moc_mainwindow.cpp
+SOURCES       = ../../RotorDriver-GUI/RotorDriver/src/main.cpp \
+		../../RotorDriver-GUI/RotorDriver/src/mainwindow.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		moc_mainwindow.o
@@ -110,7 +110,7 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf \
-		../../RotorDriver-GUI/.qmake.stash \
+		../../RotorDriver-GUI/RotorDriver/.qmake.stash \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf \
@@ -130,8 +130,8 @@ DIST          = /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/lex.prf \
-		../../RotorDriver-GUI/RotorDriver/RotorDriver.pro ../../RotorDriver-GUI/RotorDriver/mainwindow.h ../../RotorDriver-GUI/RotorDriver/main.cpp \
-		../../RotorDriver-GUI/RotorDriver/mainwindow.cpp
+		../../RotorDriver-GUI/RotorDriver/RotorDriver.pro ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h ../../RotorDriver-GUI/RotorDriver/src/main.cpp \
+		../../RotorDriver-GUI/RotorDriver/src/mainwindow.cpp
 QMAKE_TARGET  = RotorDriver
 DESTDIR       = 
 TARGET        = RotorDriver
@@ -198,7 +198,7 @@ Makefile: ../../RotorDriver-GUI/RotorDriver/RotorDriver.pro /usr/lib/arm-linux-g
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		.qmake.stash \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf \
@@ -278,7 +278,7 @@ Makefile: ../../RotorDriver-GUI/RotorDriver/RotorDriver.pro /usr/lib/arm-linux-g
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_post.prf:
-../.qmake.stash:
+.qmake.stash:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/default_pre.prf:
@@ -317,9 +317,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/main.cpp ../../RotorDriver-GUI/RotorDriver/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/src/main.cpp ../../RotorDriver-GUI/RotorDriver/src/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../RotorDriver-GUI/RotorDriver/forms/mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -329,6 +329,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -348,15 +349,15 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++1y -Wall -W -dM -E -o moc_predefs.h /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: ../../RotorDriver-GUI/RotorDriver/mainwindow.h \
+moc_mainwindow.cpp: ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/pi/Desktop/satrot/Software/build-RotorDriver-GUI-Desktop-Debug/RotorDriver/moc_predefs.h -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/8 -I/usr/include/arm-linux-gnueabihf/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/arm-linux-gnueabihf/8/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../../RotorDriver-GUI/RotorDriver/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/pi/Desktop/satrot/Software/build-RotorDriver-GUI-Desktop-Debug/RotorDriver/moc_predefs.h -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/8 -I/usr/include/arm-linux-gnueabihf/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/arm-linux-gnueabihf/8/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/8/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -365,9 +366,9 @@ compiler_moc_source_clean:
 compiler_uic_make_all: ui_mainwindow.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_mainwindow.h
-ui_mainwindow.h: ../../RotorDriver-GUI/RotorDriver/mainwindow.ui \
+ui_mainwindow.h: ../../RotorDriver-GUI/RotorDriver/forms/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
-	/usr/lib/qt5/bin/uic ../../RotorDriver-GUI/RotorDriver/mainwindow.ui -o ui_mainwindow.h
+	/usr/lib/qt5/bin/uic ../../RotorDriver-GUI/RotorDriver/forms/mainwindow.ui -o ui_mainwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -379,12 +380,12 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../../RotorDriver-GUI/RotorDriver/main.cpp ../../RotorDriver-GUI/RotorDriver/mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../RotorDriver-GUI/RotorDriver/main.cpp
+main.o: ../../RotorDriver-GUI/RotorDriver/src/main.cpp ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../RotorDriver-GUI/RotorDriver/src/main.cpp
 
-mainwindow.o: ../../RotorDriver-GUI/RotorDriver/mainwindow.cpp ../../RotorDriver-GUI/RotorDriver/mainwindow.h \
+mainwindow.o: ../../RotorDriver-GUI/RotorDriver/src/mainwindow.cpp ../../RotorDriver-GUI/RotorDriver/includes/mainwindow.h \
 		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../RotorDriver-GUI/RotorDriver/mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../RotorDriver-GUI/RotorDriver/src/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
