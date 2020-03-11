@@ -1,5 +1,7 @@
-QT       += core gui
+QT += core gui
 QT += network
+QT += webenginewidgets
+QT += webkit webkitwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,11 +31,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/api.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/webappview.cpp \
+    src/tcpsockets.cpp
 
 HEADERS += \
     includes/api.h \
-    includes/mainwindow.h
+    includes/mainwindow.h \
+    includes/webappview.h \
+    includes/tcpsockets.h
 
 FORMS += \
     forms/mainwindow.ui

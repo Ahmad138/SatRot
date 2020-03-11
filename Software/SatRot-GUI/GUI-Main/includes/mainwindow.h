@@ -3,9 +3,18 @@
 
 #include <QMainWindow>
 #include <string>
+#include <iostream>
 
 #include "includes/api.h"
-#include <iostream>
+#include "includes/webappview.h"
+#include "includes/tcpsockets.h"
+
+// this_thread::sleep_for example
+#include <iostream>       // std::cout
+#include <iomanip>        // std::put_time
+#include <thread>         // std::this_thread::sleep_until
+#include <chrono>         // std::chrono::system_clock
+#include <ctime>          // std::time_t, std::tm, std::localtime, std::mktime
 
 using namespace std;
 
@@ -29,6 +38,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+
+
+    void on_webView_loadStarted();
+    void on_pushButton_2_clicked();
 
 
 private:

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
+#include <QtWebKitWidgets/QWebView>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -20,7 +21,6 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
@@ -35,26 +35,35 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
-    QGroupBox *groupBox_4;
-    QLabel *logo;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_4;
+    QTabWidget *tabWidget_2;
+    QWidget *tab_4;
+    QWidget *tab_5;
+    QWidget *tab_6;
+    QWidget *tab_7;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_5;
+    QWidget *widget;
+    QGridLayout *gridLayout_6;
+    QWebView *webView;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_3;
     QTabWidget *tabWidget;
+    QWidget *tab_3;
+    QLabel *label;
+    QPushButton *pushButton;
+    QWidget *tab_8;
+    QPushButton *pushButton_2;
+    QLabel *statusBar;
     QWidget *tab;
     QWidget *tab_2;
     QSlider *horizontalSlider;
     QSlider *verticalSlider;
     QLabel *Az;
     QLabel *El;
-    QGroupBox *groupBox_3;
-    QGridLayout *gridLayout_4;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_5;
-    QWidget *widget;
-    QLabel *label;
-    QPushButton *pushButton;
+    QGroupBox *groupBox_4;
+    QLabel *logo;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menu_View;
@@ -78,14 +87,50 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        groupBox_4 = new QGroupBox(centralwidget);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        logo = new QLabel(groupBox_4);
-        logo->setObjectName(QString::fromUtf8("logo"));
-        logo->setGeometry(QRect(10, 90, 100, 198));
-        logo->setPixmap(QPixmap(QString::fromUtf8("../res/img/SatRot logo2.png")));
+        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setMaximumSize(QSize(16777215, 350));
+        gridLayout_4 = new QGridLayout(groupBox_3);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        tabWidget_2 = new QTabWidget(groupBox_3);
+        tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        tabWidget_2->addTab(tab_4, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        tabWidget_2->addTab(tab_5, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QString::fromUtf8("tab_6"));
+        tabWidget_2->addTab(tab_6, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName(QString::fromUtf8("tab_7"));
+        tabWidget_2->addTab(tab_7, QString());
 
-        gridLayout->addWidget(groupBox_4, 2, 2, 1, 1);
+        gridLayout_4->addWidget(tabWidget_2, 0, 0, 1, 1);
+
+
+        gridLayout->addWidget(groupBox_3, 2, 0, 1, 2);
+
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        gridLayout_5 = new QGridLayout(groupBox);
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        widget = new QWidget(groupBox);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        gridLayout_6 = new QGridLayout(widget);
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        webView = new QWebView(widget);
+        webView->setObjectName(QString::fromUtf8("webView"));
+        webView->setUrl(QUrl(QString::fromUtf8("about:blank")));
+
+        gridLayout_6->addWidget(webView, 0, 0, 1, 1);
+
+
+        gridLayout_5->addWidget(widget, 0, 0, 1, 1);
+
+
+        gridLayout->addWidget(groupBox, 0, 0, 1, 2);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
@@ -95,6 +140,24 @@ public:
         tabWidget = new QTabWidget(groupBox_2);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setMaximumSize(QSize(16777215, 16777215));
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        label = new QLabel(tab_3);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(90, 80, 461, 34));
+        pushButton = new QPushButton(tab_3);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(90, 150, 170, 48));
+        tabWidget->addTab(tab_3, QString());
+        tab_8 = new QWidget();
+        tab_8->setObjectName(QString::fromUtf8("tab_8"));
+        pushButton_2 = new QPushButton(tab_8);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(280, 290, 170, 48));
+        statusBar = new QLabel(tab_8);
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setGeometry(QRect(300, 190, 129, 34));
+        tabWidget->addTab(tab_8, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         tabWidget->addTab(tab, QString());
@@ -125,41 +188,14 @@ public:
 
         gridLayout->addWidget(groupBox_2, 0, 2, 1, 1);
 
-        groupBox_3 = new QGroupBox(centralwidget);
-        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setMaximumSize(QSize(16777215, 350));
-        gridLayout_4 = new QGridLayout(groupBox_3);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        scrollArea = new QScrollArea(groupBox_3);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 919, 269));
-        scrollArea->setWidget(scrollAreaWidgetContents);
+        groupBox_4 = new QGroupBox(centralwidget);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        logo = new QLabel(groupBox_4);
+        logo->setObjectName(QString::fromUtf8("logo"));
+        logo->setGeometry(QRect(10, 60, 100, 198));
+        logo->setPixmap(QPixmap(QString::fromUtf8("../res/img/SatRot logo2.png")));
 
-        gridLayout_4->addWidget(scrollArea, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox_3, 2, 0, 1, 2);
-
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        gridLayout_5 = new QGridLayout(groupBox);
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        label = new QLabel(widget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(240, 230, 461, 34));
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(350, 370, 170, 48));
-
-        gridLayout_5->addWidget(widget, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox, 0, 0, 1, 2);
+        gridLayout->addWidget(groupBox_4, 2, 2, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
@@ -188,7 +224,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -198,17 +235,25 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot", nullptr));
         actionView->setText(QApplication::translate("MainWindow", "View", nullptr));
-        groupBox_4->setTitle(QApplication::translate("MainWindow", "Home Base", nullptr));
-        logo->setText(QString());
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "TLE", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Controls", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        statusBar->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Manual", nullptr));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellites", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        groupBox_4->setTitle(QApplication::translate("MainWindow", "Home Base", nullptr));
+        logo->setText(QString());
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menu_View->setTitle(QApplication::translate("MainWindow", "&View", nullptr));
         menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));

@@ -18,6 +18,22 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
+//    QWebEngineView *view = new QWebEngineView(parent);
+//        view->load(QUrl("http://qt-project.org/"));
+//        view->show();
+
+//     using std::chrono::system_clock;
+//     std::time_t tt = system_clock::to_time_t (system_clock::now());
+
+//     struct std::tm * ptm = std::localtime(&tt);
+//     std::cout << "Current time: " << std::put_time(ptm,"%X") << '\n';
+
+//     std::cout << "Waiting for the next minute to begin...\n";
+//     ++ptm->tm_min; ptm->tm_sec=0;
+//     std::this_thread::sleep_until (system_clock::from_time_t (mktime(ptm)));
+
+//     std::cout << std::put_time(ptm,"%X") << " reached!\n";
+
 }
 
 MainWindow::~MainWindow()
@@ -48,13 +64,14 @@ void MainWindow::on_pushButton_clicked()
     a->initRequester(url, 80, nullptr);
 
     api::handleFunc getData = [this](const QJsonObject &o) {
-            //cout << "Got data " << endl;
-            QString r= o.value("name").toString();
-            ui->label->setText(r);
+        //cout << "Got data " << endl;
+        QString r= o.value("company")["name"].toString();
+        ui->label->setText(r);
      };
 
     api::handleFunc errData = [this](const QJsonObject &o) {
         //cout << "Error: connection dropped";
+        QString r= o.value("company")["name"].toString();
         ui->label->setText("Error: connection dropped");
     };
 
@@ -62,4 +79,25 @@ void MainWindow::on_pushButton_clicked()
     QString url2 = "users/3";
     a->sendRequest(url2, getData, errData);
 
+}
+
+void MainWindow::on_webView_loadStarted()
+{
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QTcpSocket *socket = new QTcpSocket(this);
+
+        connect(this,SIGNAL(newMessage(QString)),this,SLOT(displayMessage(QString)));
+        connect(socket,SIGNAL(readyRead()),this,SLOT(readSocket()));
+        connect(socket,SIGNAL(disconnected()),this,SLOT(discardSocket()));
+        socket->connectToHost(QHostAddress::LocalHost,8080);
+        if(socket->waitForConnected())
+            this->ui->statusbar->showMessage("Connected to Server");
+        else{
+            QMessageBox::critical(this,"Connecting to Rotor", QString("The following error occurred: %1.").arg(socket->errorString()));
+            //exit(EXIT_FAILURE);
+        }
 }
