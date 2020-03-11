@@ -54,6 +54,8 @@ public:
     QLabel *label;
     QPushButton *pushButton;
     QWidget *tab_8;
+    QPushButton *pushButton_2;
+    QLabel *statusBar;
     QWidget *tab;
     QWidget *tab_2;
     QSlider *horizontalSlider;
@@ -120,7 +122,7 @@ public:
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         webView = new QWebView(widget);
         webView->setObjectName(QString::fromUtf8("webView"));
-        webView->setUrl(QUrl(QString::fromUtf8("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html")));
+        webView->setUrl(QUrl(QString::fromUtf8("about:blank")));
 
         gridLayout_6->addWidget(webView, 0, 0, 1, 1);
 
@@ -149,6 +151,12 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QString::fromUtf8("tab_8"));
+        pushButton_2 = new QPushButton(tab_8);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(280, 290, 170, 48));
+        statusBar = new QLabel(tab_8);
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setGeometry(QRect(300, 190, 129, 34));
         tabWidget->addTab(tab_8, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -217,7 +225,7 @@ public:
         retranslateUi(MainWindow);
 
         tabWidget_2->setCurrentIndex(3);
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -237,6 +245,8 @@ public:
         label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        statusBar->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));

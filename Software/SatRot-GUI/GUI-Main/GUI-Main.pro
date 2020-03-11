@@ -32,12 +32,14 @@ SOURCES += \
     src/api.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/webappview.cpp
+    src/webappview.cpp \
+    src/tcpsockets.cpp
 
 HEADERS += \
     includes/api.h \
     includes/mainwindow.h \
-    includes/webappview.h
+    includes/webappview.h \
+    includes/tcpsockets.h
 
 FORMS += \
     forms/mainwindow.ui

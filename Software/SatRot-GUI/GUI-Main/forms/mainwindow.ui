@@ -36,7 +36,7 @@
          <item row="0" column="0">
           <widget class="QTabWidget" name="tabWidget_2">
            <property name="currentIndex">
-            <number>3</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab_4">
             <attribute name="title">
@@ -76,7 +76,7 @@
              <widget class="QWebView" name="webView">
               <property name="url">
                <url>
-                <string>file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html</string>
+                <string>about:blank</string>
                </url>
               </property>
              </widget>
@@ -108,30 +108,22 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
              <string>Satellites</string>
             </attribute>
-            <widget class="QLabel" name="label">
+           </widget>
+           <widget class="QWidget" name="tab_8">
+            <attribute name="title">
+             <string>Rotator</string>
+            </attribute>
+            <widget class="QPushButton" name="pushButton_2">
              <property name="geometry">
               <rect>
-               <x>90</x>
-               <y>80</y>
-               <width>461</width>
-               <height>34</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="pushButton">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>150</y>
+               <x>280</x>
+               <y>290</y>
                <width>170</width>
                <height>48</height>
               </rect>
@@ -140,16 +132,50 @@
               <string>PushButton</string>
              </property>
             </widget>
-           </widget>
-           <widget class="QWidget" name="tab_8">
-            <attribute name="title">
-             <string>Rotator</string>
-            </attribute>
+            <widget class="QLabel" name="statusBar">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>190</y>
+               <width>129</width>
+               <height>34</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="tab">
             <attribute name="title">
              <string>Automatic</string>
             </attribute>
+            <widget class="QPushButton" name="pushButton">
+             <property name="geometry">
+              <rect>
+               <x>170</x>
+               <y>220</y>
+               <width>170</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="label">
+             <property name="geometry">
+              <rect>
+               <x>170</x>
+               <y>150</y>
+               <width>461</width>
+               <height>34</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="tab_2">
             <attribute name="title">

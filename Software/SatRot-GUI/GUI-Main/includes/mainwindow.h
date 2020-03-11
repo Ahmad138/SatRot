@@ -7,6 +7,7 @@
 
 #include "includes/api.h"
 #include "includes/webappview.h"
+#include "includes/tcpsockets.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -40,6 +41,8 @@ private slots:
 
 
     void on_webView_loadStarted();
+    void on_pushButton_2_clicked();
+
 
 private:
     Ui::MainWindow *ui;

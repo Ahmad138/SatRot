@@ -64,13 +64,14 @@ void MainWindow::on_pushButton_clicked()
     a->initRequester(url, 80, nullptr);
 
     api::handleFunc getData = [this](const QJsonObject &o) {
-            //cout << "Got data " << endl;
-            QString r= o.value("company")["name"].toString();
-            ui->label->setText(r);
+        //cout << "Got data " << endl;
+        QString r= o.value("company")["name"].toString();
+        ui->label->setText(r);
      };
 
     api::handleFunc errData = [this](const QJsonObject &o) {
         //cout << "Error: connection dropped";
+        QString r= o.value("company")["name"].toString();
         ui->label->setText("Error: connection dropped");
     };
 
@@ -83,4 +84,20 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_webView_loadStarted()
 {
 
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QTcpSocket *socket = new QTcpSocket(this);
+
+        connect(this,SIGNAL(newMessage(QString)),this,SLOT(displayMessage(QString)));
+        connect(socket,SIGNAL(readyRead()),this,SLOT(readSocket()));
+        connect(socket,SIGNAL(disconnected()),this,SLOT(discardSocket()));
+        socket->connectToHost(QHostAddress::LocalHost,8080);
+        if(socket->waitForConnected())
+            this->ui->statusbar->showMessage("Connected to Server");
+        else{
+            QMessageBox::critical(this,"Connecting to Rotor", QString("The following error occurred: %1.").arg(socket->errorString()));
+            //exit(EXIT_FAILURE);
+        }
 }
