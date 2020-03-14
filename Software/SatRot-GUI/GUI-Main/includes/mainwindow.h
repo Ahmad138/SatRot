@@ -7,9 +7,8 @@
 
 #include "includes/api.h"
 #include "includes/webappview.h"
-//#include "includes/tcpsocketsserver.h"
-//#include "includes/tcpsocketsclient.h"
 #include "includes/tcpserver.h"
+#include "includes/tcpclient.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -42,9 +41,6 @@ private slots:
     void on_verticalSlider_valueChanged(int value);
 
     void on_pushButton_clicked();
-
-
-
     void on_webView_loadStarted();
     void on_pushButton_2_clicked();
 
@@ -54,5 +50,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     TCPServer server;
+    TCPClient client;
 };
 #endif // MAINWINDOW_H

@@ -34,14 +34,16 @@ SOURCES += \
     src/mainwindow.cpp \
     src/webappview.cpp \
     src/tcpserver.cpp \
-    src/tcpthread.cpp
+    src/tcpthread.cpp \
+    src/tcpclient.cpp
 
 HEADERS += \
     includes/api.h \
     includes/mainwindow.h \
     includes/webappview.h \
     includes/tcpserver.h \
-    includes/tcpthread.h
+    includes/tcpthread.h \
+    includes/tcpclient.h
 
 FORMS += \
     forms/mainwindow.ui
