@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 //     std::cout << std::put_time(ptm,"%X") << " reached!\n";
 
+    //connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(on_pushButton_4_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -88,16 +89,32 @@ void MainWindow::on_webView_loadStarted()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    QTcpSocket *socket = new QTcpSocket(this);
 
-        connect(this,SIGNAL(newMessage(QString)),this,SLOT(displayMessage(QString)));
-        connect(socket,SIGNAL(readyRead()),this,SLOT(readSocket()));
-        connect(socket,SIGNAL(disconnected()),this,SLOT(discardSocket()));
-        socket->connectToHost(QHostAddress::LocalHost,8080);
-        if(socket->waitForConnected())
-            this->ui->statusbar->showMessage("Connected to Server");
-        else{
-            QMessageBox::critical(this,"Connecting to Rotor", QString("The following error occurred: %1.").arg(socket->errorString()));
-            //exit(EXIT_FAILURE);
-        }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    if (!server.listen()) {
+            QMessageBox::critical(this, tr("Rotator Serevr"),
+                                  tr("Unable to start the server: %1.")
+                                  .arg(server.errorString()));
+        }
+
+        QString ipAddress;
+        QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+        // use the first non-localhost IPv4 address
+        for (int i = 0; i < ipAddressesList.size(); ++i) {
+            if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
+                ipAddressesList.at(i).toIPv4Address()) {
+                ipAddress = ipAddressesList.at(i).toString();
+                break;
+            }
+        }
+        // if we did not find one, use IPv4 localhost
+        if (ipAddress.isEmpty())
+            ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+        ui->msg->setText(tr("The server is running on\n\nIP: %1\nport: %2\n\n"
+                                "Run the SatRot Controller Software Client now.")
+                             .arg(ipAddress).arg(server.serverPort()));
+}
+

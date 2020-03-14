@@ -51,12 +51,15 @@ public:
     QGridLayout *gridLayout_3;
     QTabWidget *tabWidget;
     QWidget *tab_3;
-    QLabel *label;
-    QPushButton *pushButton;
     QWidget *tab_8;
     QPushButton *pushButton_2;
     QLabel *statusBar;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QLabel *msg;
     QWidget *tab;
+    QPushButton *pushButton;
+    QLabel *label;
     QWidget *tab_2;
     QSlider *horizontalSlider;
     QSlider *verticalSlider;
@@ -142,24 +145,33 @@ public:
         tabWidget->setMaximumSize(QSize(16777215, 16777215));
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
-        label = new QLabel(tab_3);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(90, 80, 461, 34));
-        pushButton = new QPushButton(tab_3);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(90, 150, 170, 48));
         tabWidget->addTab(tab_3, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QString::fromUtf8("tab_8"));
         pushButton_2 = new QPushButton(tab_8);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(280, 290, 170, 48));
+        pushButton_2->setGeometry(QRect(70, 60, 170, 48));
         statusBar = new QLabel(tab_8);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        statusBar->setGeometry(QRect(300, 190, 129, 34));
+        statusBar->setGeometry(QRect(330, 70, 129, 34));
+        pushButton_3 = new QPushButton(tab_8);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(70, 190, 170, 48));
+        pushButton_4 = new QPushButton(tab_8);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setGeometry(QRect(80, 310, 170, 48));
+        msg = new QLabel(tab_8);
+        msg->setObjectName(QString::fromUtf8("msg"));
+        msg->setGeometry(QRect(270, 210, 461, 331));
         tabWidget->addTab(tab_8, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(170, 220, 170, 48));
+        label = new QLabel(tab);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(170, 150, 461, 34));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -224,7 +236,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(3);
+        tabWidget_2->setCurrentIndex(0);
         tabWidget->setCurrentIndex(1);
 
 
@@ -242,12 +254,15 @@ public:
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "TLE", nullptr));
         groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Controls", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "client", nullptr));
         statusBar->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "server", nullptr));
+        pushButton_4->setText(QApplication::translate("MainWindow", "send", nullptr));
+        msg->setText(QApplication::translate("MainWindow", "msg", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
