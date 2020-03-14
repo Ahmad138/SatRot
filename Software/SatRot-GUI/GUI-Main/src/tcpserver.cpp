@@ -22,7 +22,9 @@ TCPServer::TCPServer(QObject *parent)
 //! [1]
 void TCPServer::incomingConnection(qintptr socketDescriptor)
 {
-    QString tcp_lines = tcp_lines.at(QRandomGenerator::global()->bounded(tcp_lines.size()));
+    //QString tcp_lines = tcp_lines.at(QRandomGenerator::global()->bounded(tcp_lines.size()));
+    QString tcp_lines = "send my name is Ahmad";
+
     TCPThread *thread = new TCPThread(socketDescriptor, tcp_lines, this);
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
     thread->start();

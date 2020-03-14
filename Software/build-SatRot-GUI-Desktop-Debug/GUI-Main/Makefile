@@ -429,6 +429,7 @@ moc_mainwindow.cpp: ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/api.h \
 		../../SatRot-GUI/GUI-Main/includes/webappview.h \
 		../../SatRot-GUI/GUI-Main/includes/tcpserver.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/build-SatRot-GUI-Desktop-Debug/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWebKitWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebKit -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/mainwindow.h -o moc_mainwindow.cpp
@@ -476,13 +477,15 @@ api.o: ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/includes/
 main.o: ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/api.h \
 		../../SatRot-GUI/GUI-Main/includes/webappview.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpserver.h
+		../../SatRot-GUI/GUI-Main/includes/tcpserver.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../SatRot-GUI/GUI-Main/src/main.cpp
 
 mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/api.h \
 		../../SatRot-GUI/GUI-Main/includes/webappview.h \
 		../../SatRot-GUI/GUI-Main/includes/tcpserver.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp
 
