@@ -7,7 +7,9 @@
 
 #include "includes/api.h"
 #include "includes/webappview.h"
-#include "includes/tcpsockets.h"
+//#include "includes/tcpsocketsserver.h"
+//#include "includes/tcpsocketsclient.h"
+#include "includes/tcpserver.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -15,6 +17,9 @@
 #include <thread>         // std::this_thread::sleep_until
 #include <chrono>         // std::chrono::system_clock
 #include <ctime>          // std::time_t, std::tm, std::localtime, std::mktime
+
+#include <QMessageBox>
+#include <QNetworkInterface>
 
 using namespace std;
 
@@ -44,7 +49,10 @@ private slots:
     void on_pushButton_2_clicked();
 
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
+    TCPServer server;
 };
 #endif // MAINWINDOW_H

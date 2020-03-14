@@ -108,7 +108,7 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
@@ -122,27 +122,66 @@
             <widget class="QPushButton" name="pushButton_2">
              <property name="geometry">
               <rect>
-               <x>280</x>
-               <y>290</y>
+               <x>70</x>
+               <y>60</y>
                <width>170</width>
                <height>48</height>
               </rect>
              </property>
              <property name="text">
-              <string>PushButton</string>
+              <string>client</string>
              </property>
             </widget>
             <widget class="QLabel" name="statusBar">
              <property name="geometry">
               <rect>
-               <x>300</x>
-               <y>190</y>
+               <x>330</x>
+               <y>70</y>
                <width>129</width>
                <height>34</height>
               </rect>
              </property>
              <property name="text">
               <string>TextLabel</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton_3">
+             <property name="geometry">
+              <rect>
+               <x>70</x>
+               <y>190</y>
+               <width>170</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>server</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="geometry">
+              <rect>
+               <x>80</x>
+               <y>310</y>
+               <width>170</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>send</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="msg">
+             <property name="geometry">
+              <rect>
+               <x>270</x>
+               <y>210</y>
+               <width>461</width>
+               <height>331</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>msg</string>
              </property>
             </widget>
            </widget>
