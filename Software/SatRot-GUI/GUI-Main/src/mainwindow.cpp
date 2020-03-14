@@ -89,7 +89,7 @@ void MainWindow::on_webView_loadStarted()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-
+    client.show();
 }
 
 void MainWindow::on_pushButton_3_clicked()
