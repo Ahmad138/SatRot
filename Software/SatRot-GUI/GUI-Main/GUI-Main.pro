@@ -1,6 +1,6 @@
 QT += core gui
 QT += network
-QT += webenginewidgets
+#QT += webenginewidgets
 QT += webkit webkitwidgets
 
 requires(qtConfig(combobox))
