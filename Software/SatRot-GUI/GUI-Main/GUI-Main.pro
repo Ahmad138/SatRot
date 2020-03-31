@@ -1,7 +1,8 @@
 QT += core gui
 QT += network
-QT += webenginewidgets
-QT += webkit webkitwidgets
+#QT += webenginewidgets
+#QT += webkit
+QT += webkitwidgets
 
 requires(qtConfig(combobox))
 
@@ -34,7 +35,6 @@ SOURCES += \
     src/api.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/webappview.cpp \
     src/tcpserver.cpp \
     src/tcpthread.cpp \
     src/tcpclient.cpp
@@ -42,7 +42,6 @@ SOURCES += \
 HEADERS += \
     includes/api.h \
     includes/mainwindow.h \
-    includes/webappview.h \
     includes/tcpserver.h \
     includes/tcpthread.h \
     includes/tcpclient.h

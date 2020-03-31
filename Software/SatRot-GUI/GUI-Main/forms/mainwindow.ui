@@ -76,7 +76,7 @@
              <widget class="QWebView" name="webView">
               <property name="url">
                <url>
-                <string>about:blank</string>
+                <string>https://www.google.com/?gws_rd=ssl</string>
                </url>
               </property>
              </widget>

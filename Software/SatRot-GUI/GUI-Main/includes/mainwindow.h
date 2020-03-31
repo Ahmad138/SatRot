@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include "includes/api.h"
-#include "includes/webappview.h"
 #include "includes/tcpserver.h"
 #include "includes/tcpclient.h"
 

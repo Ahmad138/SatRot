@@ -125,7 +125,7 @@ public:
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         webView = new QWebView(widget);
         webView->setObjectName(QString::fromUtf8("webView"));
-        webView->setUrl(QUrl(QString::fromUtf8("about:blank")));
+        webView->setUrl(QUrl(QString::fromUtf8("https://www.google.com/?gws_rd=ssl")));
 
         gridLayout_6->addWidget(webView, 0, 0, 1, 1);
 
