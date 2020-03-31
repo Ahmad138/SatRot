@@ -8,6 +8,9 @@
 #include "includes/api.h"
 #include "includes/tcpserver.h"
 #include "includes/tcpclient.h"
+#include "includes/testmodel.h"
+#include "includes/customlistmodel.h"
+#include "includes/satellitelist.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -18,6 +21,7 @@
 
 #include <QMessageBox>
 #include <QNetworkInterface>
+#include <QWebEngineView>
 
 using namespace std;
 
@@ -46,9 +50,14 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_getSatData_clicked();
+
 private:
     Ui::MainWindow *ui;
     TCPServer server;
     TCPClient client;
+
+    CustomListModel *model = new CustomListModel(this);
+    satelliteList sl;
 };
 #endif // MAINWINDOW_H

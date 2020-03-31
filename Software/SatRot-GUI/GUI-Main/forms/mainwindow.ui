@@ -70,18 +70,13 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_5">
          <item row="0" column="0">
-          <widget class="QWidget" name="widget" native="true">
-           <layout class="QGridLayout" name="gridLayout_6">
-            <item row="0" column="0">
-             <widget class="QWebView" name="webView">
-              <property name="url">
-               <url>
-                <string>https://www.google.com/?gws_rd=ssl</string>
-               </url>
-              </property>
-             </widget>
-            </item>
-           </layout>
+          <widget class="QFrame" name="frame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
           </widget>
          </item>
         </layout>
@@ -108,12 +103,46 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
              <string>Satellites</string>
             </attribute>
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Click the checkbox of a particular satellite and to get the data</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QListView" name="satView"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="getSatData">
+               <property name="text">
+                <string>Get Satellite Data</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
            <widget class="QWidget" name="tab_8">
             <attribute name="title">
@@ -358,13 +387,6 @@
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header location="global">QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,10 +1,10 @@
 QT += core gui
 QT += network
-#QT += webenginewidgets
+QT += webenginewidgets
 #QT += webkit
-QT += webkitwidgets
+#QT += webkitwidgets
 
-requires(qtConfig(combobox))
+#requires(qtConfig(combobox))
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,16 +35,22 @@ SOURCES += \
     src/api.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/satellitelist.cpp \
     src/tcpserver.cpp \
     src/tcpthread.cpp \
-    src/tcpclient.cpp
+    src/tcpclient.cpp \
+    src/testmodel.cpp \
+    src/customlistmodel.cpp
 
 HEADERS += \
     includes/api.h \
     includes/mainwindow.h \
+    includes/satellitelist.h \
     includes/tcpserver.h \
     includes/tcpthread.h \
-    includes/tcpclient.h
+    includes/tcpclient.h \
+    includes/testmodel.h \
+    includes/customlistmodel.h
 
 FORMS += \
     forms/mainwindow.ui
