@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1582107236 source:/home/pi/Desktop/SatRot/Software/RotorDriverPi/src/a4988Driver.cpp
+	"a4988Driver.h"
+
+1582107407 /home/pi/Desktop/SatRot/Software/RotorDriverPi/include/a4988Driver.h
+	<iostream>
+	<stdint.h>
+	<wiringPi.h>
+	<math.h>
+	"helper.h"
+
+1582107236 /home/pi/Desktop/SatRot/Software/RotorDriverPi/include/helper.h
+	<iostream>
+	<chrono>
+	<thread>
+
+1582107236 source:/home/pi/Desktop/SatRot/Software/RotorDriverPi/src/helper.cpp
+	"helper.h"
+
+1582107463 source:/home/pi/Desktop/SatRot/Software/RotorDriverPi/src/main.cpp
+	"main.h"
+
+1582107236 /home/pi/Desktop/SatRot/Software/RotorDriverPi/include/main.h
+	"a4988Driver.h"
+	"helper.h"
+
