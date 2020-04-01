@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
-    QWebEngineView *view = new QWebEngineView(ui->frame);
+    QWebEngineView *view = new QWebEngineView(ui->widget);
 
     view->resize(1024, 746);
 //    view->setMaximumSize(ui->frame->size());
@@ -48,6 +48,17 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->satView->setModel(model);
         model->setStringList(sl.getList());
+
+//        QDateTime now = QDateTime::currentDateTime();
+//        ui->myDateTime->setText(now.toString("ddd dd-MMM-yyyy hh:mm:ss"));
+
+        QTimer *timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+        timer->start(250);
+
+//        showTime();
+        on_pushButton_6_clicked();
+
 }
 
 MainWindow::~MainWindow()
@@ -74,7 +85,7 @@ void MainWindow::on_pushButton_clicked()
 {
      api *a = new api(this);
 
-    QString url = "jsonplaceholder.typicode.com";
+    QString url = "jsonplaceholder.typicode.com/users/3";
     a->initRequester(url, 80, nullptr);
 
     api::handleFunc getData = [this](const QJsonObject &o) {
@@ -89,9 +100,7 @@ void MainWindow::on_pushButton_clicked()
         ui->label->setText("Error: connection dropped");
     };
 
-
-    QString url2 = "users/3";
-    a->sendRequest(url2, getData, errData);
+    a->sendRequest(url, getData, errData);
 
 }
 
@@ -135,4 +144,120 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_getSatData_clicked()
 {
     this->model->save();
+}
+
+void MainWindow::on_checkBox_toggled(bool checked)
+{
+    if(checked){
+        QDateTime now = QDateTime::currentDateTime();
+        ui->startDateTime->setDateTime(now.currentDateTime());
+        ui->stopDateTime->setDateTime(now.currentDateTime());
+    }else{
+//        QDateTime def_DateTime(QDate(2020, 01, 01), QTime(0, 0, 0));
+//        ui->startDateTime->setDateTime(def_DateTime);
+//        ui->stopDateTime->setDateTime(def_DateTime);
+    }
+}
+
+
+void MainWindow::showTime()
+{
+    QDateTime now = QDateTime::currentDateTime();
+    ui->myDateTime->setStyleSheet("font-weight: bold; font-size: 12pt;");
+    ui->myDateTime->setText(now.toString("ddd dd-MMM-yyyy hh:mm:ss"));
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    double lat = ui->latBox->value();
+    double lon = ui->longBox->value();
+    QString latt = QString::number(lat,'f', 6);
+    QString longg = QString::number(lon,'f', 6);
+
+    ui->latBox->setValue(lat);
+    ui->longBox->setValue(lon);
+    ui->latTxT->setText("Lat: "+latt);
+    ui->longTxT->setText("Long: "+longg);
+
+    api *a = new api(this);
+
+   QString url = "geocode.xyz/"+latt+","+longg+"?json=1";
+   a->initRequester(url, 80, nullptr);
+
+   api::handleFunc getData = [this](const QJsonObject &o) {
+       //cout << "Got data " << endl;
+
+       ui->city->setText("City: "+o.value("city").toString());
+       ui->region->setText("Region: "+o.value("region").toString());
+       ui->country->setText("Country: "+o.value("country").toString());
+       ui->zone->setText("Zone: "+o.value("timezone").toString());
+
+    };
+
+   api::handleFunc errData = [this](const QJsonObject &o) {
+       //cout << "Error: connection dropped";
+       QString r = "Error: connection dropped";
+       qDebug()<< r;
+   };
+
+   a->sendRequest(url, getData, errData);
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    api *b = new api(this);
+
+   QString url = "api.ipify.org?format=json";
+
+   b->initRequester(url, 80, nullptr);
+
+   api::handleFunc getData = [this](const QJsonObject &o) {
+       //cout << "Got data " << endl;
+       QString r= o.value("ip").toString();
+       //std::cout<<r.toUtf8().constData();
+
+       api *c = new api(this);
+       QString url2 = "ip-api.com/json/"+r;
+       qDebug()<<url2;
+       c->initRequester(url2, 80, nullptr);
+
+       api::handleFunc getData2 = [this](const QJsonObject &o) {
+           //cout << "Got data " << endl;
+//           QString r2= o.value("city").toString();
+           double lat = o.value("lat").toDouble();
+           double lon = o.value("lon").toDouble();
+           QString latt = QString::number(lat,'f', 6);
+           QString longg = QString::number(lon,'f', 6);
+
+           ui->city->setText("City: "+o.value("city").toString());
+           ui->region->setText("Region: "+o.value("regionName").toString());
+           ui->country->setText("Country: "+o.value("country").toString());
+           ui->zone->setText("Zone: "+o.value("timezone").toString());
+
+           ui->latBox->setValue(lat);
+           ui->longBox->setValue(lon);
+           ui->latTxT->setText("Lat: "+latt);
+           ui->longTxT->setText("Long: "+longg);
+
+//           qDebug()<< f;
+//           ui->label_7->setText(r2);
+        };
+
+       api::handleFunc errData2 = [this](const QJsonObject &o) {
+           //cout << "Error: connection dropped";
+           QString r2 = "Error: connection dropped";
+           qDebug()<< r2;
+       };
+
+       c->sendRequest(url2, getData2, errData2);
+
+    };
+
+   api::handleFunc errData = [this](const QJsonObject &o) {
+       //cout << "Error: connection dropped";
+       QString r = "Error: connection dropped";
+       qDebug()<< r;
+   };
+
+   b->sendRequest(url, getData, errData);
 }

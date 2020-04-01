@@ -25,6 +25,6 @@ before_script:
 script: 
   - cd Software/SatRot-GUI/
   - qmake
-#  - make
+  - make
 #  - cd SatRot_Main/
 #  - ./SatRot_Main

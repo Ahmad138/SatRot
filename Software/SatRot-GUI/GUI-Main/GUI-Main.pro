@@ -34,6 +34,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/api.cpp \
+    src/digitalclock.cpp \
+    src/getgeolocation.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/satellitelist.cpp \
@@ -45,6 +47,8 @@ SOURCES += \
 
 HEADERS += \
     includes/api.h \
+    includes/digitalclock.h \
+    includes/getgeolocation.h \
     includes/mainwindow.h \
     includes/satellitelist.h \
     includes/tcpserver.h \

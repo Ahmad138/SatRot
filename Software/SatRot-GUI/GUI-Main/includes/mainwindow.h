@@ -11,6 +11,8 @@
 #include "includes/testmodel.h"
 #include "includes/customlistmodel.h"
 #include "includes/satellitelist.h"
+#include "includes/digitalclock.h"
+#include "getgeolocation.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -51,6 +53,13 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_getSatData_clicked();
+
+    void on_checkBox_toggled(bool checked);
+    void showTime();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::MainWindow *ui;
