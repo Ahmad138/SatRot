@@ -1,5 +1,6 @@
 QT += core gui
 QT += network
+
 QT += webenginewidgets
 #QT += webkit
 #QT += webkitwidgets

@@ -12,8 +12,10 @@ install:
   # C++14
   - sudo apt-get install -qq g++-6
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  - sudo apt-get --yes install qt55base qt55imageformats qt55svg
+  - sudo apt-get --yes install qt55base qt55imageformats qt55svg libqt5webkit5-dev
  # - sudo apt-get install wiringpi
+  - sudo apt-get install zlib1g-dev g++ cmake doxygen graphviz libboost-all-dev libssl-dev
+ # - sudo apt-get install libqt5webkit5-dev
  
 before_script:
     - QTDIR="/opt/qt55"
@@ -21,7 +23,7 @@ before_script:
     - source /opt/qt55/bin/qt55-env.sh
 
 script: 
-  - cd Software/SatRot/
+  - cd Software/SatRot-GUI/
   - qmake
 #  - make
 #  - cd SatRot_Main/
