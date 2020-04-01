@@ -67,6 +67,26 @@ void CustomListModel::save(){
 
     QTextStream out(&file);
     out << "Required components:" << "\n";
-    foreach(QPersistentModelIndex index, checkedItems)
-        out << index.data().toString() << "\n";
+    foreach(QPersistentModelIndex index, checkedItems){
+        QString s = index.data().toString();
+        const std::string z = s.toStdString();
+
+        unsigned first = z.find("[");
+        unsigned last = z.find("]");
+        const std::string str = z.substr (first+1,(last-1)-first);
+
+        QString strNew = QString::fromStdString(str);
+        out << strNew << "\n";
+
+    }
+
+
+//    QFile file("required_components.txt");
+//    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+//        return;
+
+//    QTextStream out(&file);
+//    out << "Required components:" << "\n";
+//    foreach(QPersistentModelIndex index, checkedItems)
+//        out << index.data().toString() << "\n";
 }

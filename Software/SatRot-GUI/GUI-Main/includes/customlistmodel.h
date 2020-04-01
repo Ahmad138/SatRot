@@ -1,6 +1,9 @@
 #ifndef CUSTOMLISTMODEL_H
 #define CUSTOMLISTMODEL_H
 
+#include <regex>
+#include <string>
+
 #include <QStringListModel>
 #include <QFile>
 #include <QTextStream>

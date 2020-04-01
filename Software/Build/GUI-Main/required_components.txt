@@ -1,4 +1,5 @@
 Required components:
-0 AAAC - 65544
-0 DMC3-FM3 - 40717
-0 ASTRO E2 - 28773
+44368
+44369
+43728
+45544
