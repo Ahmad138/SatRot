@@ -9,10 +9,13 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -36,24 +39,23 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
-    QGroupBox *groupBox_3;
-    QGridLayout *gridLayout_4;
-    QTabWidget *tabWidget_2;
-    QWidget *tab_4;
-    QWidget *tab_5;
-    QWidget *tab_6;
-    QWidget *tab_7;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_5;
-    QFrame *frame;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_3;
     QTabWidget *tabWidget;
     QWidget *tab_3;
     QGridLayout *gridLayout_9;
     QLabel *label_2;
+    QFrame *line_2;
     QListView *satView;
+    QGridLayout *gridLayout_6;
+    QLabel *label_4;
+    QDateTimeEdit *stopDateTime;
+    QLabel *label_3;
+    QDateTimeEdit *startDateTime;
+    QCheckBox *checkBox;
+    QFrame *line;
     QPushButton *getSatData;
+    QFrame *line_3;
     QWidget *tab_8;
     QPushButton *pushButton_2;
     QLabel *statusBar;
@@ -70,6 +72,17 @@ public:
     QLabel *El;
     QGroupBox *groupBox_4;
     QLabel *logo;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_4;
+    QTabWidget *tabWidget_2;
+    QWidget *tab_4;
+    QWidget *tab_5;
+    QWidget *tab_6;
+    QWidget *tab_7;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_5;
+    QFrame *frame;
+    QGridLayout *gridLayout_7;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menu_View;
@@ -93,45 +106,6 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        groupBox_3 = new QGroupBox(centralwidget);
-        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setMaximumSize(QSize(16777215, 350));
-        gridLayout_4 = new QGridLayout(groupBox_3);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        tabWidget_2 = new QTabWidget(groupBox_3);
-        tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
-        tab_4 = new QWidget();
-        tab_4->setObjectName(QString::fromUtf8("tab_4"));
-        tabWidget_2->addTab(tab_4, QString());
-        tab_5 = new QWidget();
-        tab_5->setObjectName(QString::fromUtf8("tab_5"));
-        tabWidget_2->addTab(tab_5, QString());
-        tab_6 = new QWidget();
-        tab_6->setObjectName(QString::fromUtf8("tab_6"));
-        tabWidget_2->addTab(tab_6, QString());
-        tab_7 = new QWidget();
-        tab_7->setObjectName(QString::fromUtf8("tab_7"));
-        tabWidget_2->addTab(tab_7, QString());
-
-        gridLayout_4->addWidget(tabWidget_2, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox_3, 2, 0, 1, 2);
-
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        gridLayout_5 = new QGridLayout(groupBox);
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        frame = new QFrame(groupBox);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-
-        gridLayout_5->addWidget(frame, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox, 0, 0, 1, 2);
-
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setMaximumSize(QSize(800, 16777215));
@@ -154,17 +128,70 @@ public:
         label_2->setMinimumSize(QSize(0, 50));
         label_2->setWordWrap(true);
 
-        gridLayout_9->addWidget(label_2, 0, 0, 1, 1);
+        gridLayout_9->addWidget(label_2, 1, 0, 1, 1);
+
+        line_2 = new QFrame(tab_3);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_9->addWidget(line_2, 4, 0, 1, 1);
 
         satView = new QListView(tab_3);
         satView->setObjectName(QString::fromUtf8("satView"));
 
-        gridLayout_9->addWidget(satView, 2, 0, 1, 1);
+        gridLayout_9->addWidget(satView, 5, 0, 1, 1);
+
+        gridLayout_6 = new QGridLayout();
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        label_4 = new QLabel(tab_3);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout_6->addWidget(label_4, 1, 1, 1, 1);
+
+        stopDateTime = new QDateTimeEdit(tab_3);
+        stopDateTime->setObjectName(QString::fromUtf8("stopDateTime"));
+
+        gridLayout_6->addWidget(stopDateTime, 2, 1, 1, 1);
+
+        label_3 = new QLabel(tab_3);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        gridLayout_6->addWidget(label_3, 1, 0, 1, 1);
+
+        startDateTime = new QDateTimeEdit(tab_3);
+        startDateTime->setObjectName(QString::fromUtf8("startDateTime"));
+        startDateTime->setDate(QDate(2020, 1, 1));
+        startDateTime->setCurrentSection(QDateTimeEdit::DaySection);
+
+        gridLayout_6->addWidget(startDateTime, 2, 0, 1, 1);
+
+        checkBox = new QCheckBox(tab_3);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+
+        gridLayout_6->addWidget(checkBox, 3, 0, 1, 1);
+
+        line = new QFrame(tab_3);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_6->addWidget(line, 0, 0, 1, 2);
+
+
+        gridLayout_9->addLayout(gridLayout_6, 2, 0, 1, 1);
 
         getSatData = new QPushButton(tab_3);
         getSatData->setObjectName(QString::fromUtf8("getSatData"));
 
-        gridLayout_9->addWidget(getSatData, 1, 0, 1, 1);
+        gridLayout_9->addWidget(getSatData, 3, 0, 1, 1);
+
+        line_3 = new QFrame(tab_3);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_9->addWidget(line_3, 0, 0, 1, 1);
 
         tabWidget->addTab(tab_3, QString());
         tab_8 = new QWidget();
@@ -230,6 +257,47 @@ public:
 
         gridLayout->addWidget(groupBox_4, 2, 2, 1, 1);
 
+        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setMaximumSize(QSize(16777215, 350));
+        gridLayout_4 = new QGridLayout(groupBox_3);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        tabWidget_2 = new QTabWidget(groupBox_3);
+        tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        tabWidget_2->addTab(tab_4, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        tabWidget_2->addTab(tab_5, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QString::fromUtf8("tab_6"));
+        tabWidget_2->addTab(tab_6, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName(QString::fromUtf8("tab_7"));
+        tabWidget_2->addTab(tab_7, QString());
+
+        gridLayout_4->addWidget(tabWidget_2, 0, 0, 1, 1);
+
+
+        gridLayout->addWidget(groupBox_3, 2, 0, 1, 2);
+
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        gridLayout_5 = new QGridLayout(groupBox);
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        frame = new QFrame(groupBox);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        gridLayout_7 = new QGridLayout(frame);
+        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
+
+        gridLayout_5->addWidget(frame, 0, 0, 1, 1);
+
+
+        gridLayout->addWidget(groupBox, 0, 0, 1, 2);
+
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
@@ -257,8 +325,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(0);
         tabWidget->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -268,15 +336,12 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot", nullptr));
         actionView->setText(QApplication::translate("MainWindow", "View", nullptr));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "TLE", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Controls", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Click the checkbox of a particular satellite and to get the data", nullptr));
-        getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Data", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Checkbox satellite(s), set start and stop datetime and get the telemetry", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "Stop", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "Start", nullptr));
+        checkBox->setText(QApplication::translate("MainWindow", "Current datetime", nullptr));
+        getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Telemetry", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "client", nullptr));
         statusBar->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
@@ -292,6 +357,12 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Manual", nullptr));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Home Base", nullptr));
         logo->setText(QString());
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "TLE", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menu_View->setTitle(QApplication::translate("MainWindow", "&View", nullptr));
         menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));

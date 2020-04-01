@@ -18,8 +18,13 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
+    QWebEngineView *view = new QWebEngineView(ui->frame);
 
-    QWebEngineView *view = new QWebEngineView(parent);
+    view->resize(1024, 746);
+//    view->setMaximumSize(ui->frame->size());
+//    view->resize(ui->frame->size());
+    //connect(view, &QWebEngineView::loadFinished, [this]() {this->ui->webView->resize(this->ui->frame->size());});
+
     view->load(QUrl("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html"));
     view->show();
 
@@ -41,32 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     //connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(on_pushButton_4_clicked()));
 
-//        QList<QString> satNames;
-//        QList<QString> satIds;
-
-
-//        // Create some data that is tabular in nature:
-//        satNames.append("Thomas");
-//        satNames.append("Richard");
-//        satNames.append("Harrison");
-//        satIds.append("123-456-7890");
-//        satIds.append("222-333-4444");
-//        satIds.append("333-444-5555");
-
-//        // Create model:
-//        TestModel *satelliteLists = new TestModel(this);
-
-//        // Populate model with data:
-//        satelliteLists->populateData(satIds,satNames);
-
-//        // Connect model to table view:
-//        ui->tableView->setModel(satelliteLists);
-
-//        // Make table header visible and display table:
-//        ui->tableView->horizontalHeader()->setVisible(true);
-//        ui->tableView->show();
-
-        //QListView *view = new QListView(this); //deals with pointer creator instances
         ui->satView->setModel(model);
         model->setStringList(sl.getList());
 }
