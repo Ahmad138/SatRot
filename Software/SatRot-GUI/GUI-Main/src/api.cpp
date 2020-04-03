@@ -1,6 +1,7 @@
 #include "includes/api.h"
 
-const QString api::httpTemplate = "http://%1:%2/%3";
+const QString api::httpTemplate = "http://%1";
+//const QString api::httpTemplate = "http://%1:%2/%3";
 //const QString api::httpTemplate = "http://%1:%2/api/%3";
 const QString api::httpsTemplate = "https://%1:%2/api/%3";
 const QString api::KEY_QNETWORK_REPLY_ERROR = "QNetworkReplyError";
@@ -132,7 +133,9 @@ QByteArray api::variantMapToJson(QVariantMap data)
 QNetworkRequest api::createRequest(const QString &apiStr)
 {
     QNetworkRequest request;
-    QString url = pathTemplate.arg(host).arg(port).arg(apiStr);
+    //QString url = pathTemplate.arg(host).arg(port).arg(apiStr);
+    QString url = pathTemplate.arg(host);
+    //qDebug() << url;
     //std::cout<<url.toUtf8().constData();
     request.setUrl(QUrl(url));
     request.setRawHeader("Content-Type","application/json");
@@ -166,6 +169,7 @@ QJsonObject api::parseReply(QNetworkReply *reply)
     QJsonParseError parseError;
     auto replyText = reply->readAll();
     jsonDoc = QJsonDocument::fromJson(replyText, &parseError);
+    qDebug() << replyText;
     if(parseError.error != QJsonParseError::NoError){
         qDebug() << replyText;
         qWarning() << "Json parse error: " << parseError.errorString();
