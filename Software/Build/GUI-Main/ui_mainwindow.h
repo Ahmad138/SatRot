@@ -184,6 +184,7 @@ public:
 
         stopDateTime = new QDateTimeEdit(tab_3);
         stopDateTime->setObjectName(QString::fromUtf8("stopDateTime"));
+        stopDateTime->setDate(QDate(2020, 1, 1));
 
         gridLayout_6->addWidget(stopDateTime, 2, 1, 1, 1);
 

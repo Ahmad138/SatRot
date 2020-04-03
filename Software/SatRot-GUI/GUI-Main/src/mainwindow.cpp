@@ -143,7 +143,36 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_getSatData_clicked()
 {
-    this->model->save();
+    startDate = ui->startDateTime->dateTime().toString("yyyy-MM-dd_hh:mm:ss");
+    stopDate = ui->stopDateTime->dateTime().toString("yyyy-MM-dd_hh:mm:ss");
+    norad = this->model->getNORAD();
+
+//    qDebug() << startDate;
+
+    api *a = new api(this);
+
+   QString url = "http://www.orbitalpredictor.com/api/predict_orbit/?sats="+norad+"&start="+startDate+"&end="+stopDate+"&format=czml&type=orbit";
+   qDebug() << url;
+   a->initRequester(url, 80, nullptr);
+
+   api::handleFunc getData = [this](const QJsonObject &o) {
+       //cout << "Got data " << endl;
+       QString r= o.value("company")["name"].toString();
+       ui->label->setText(r);
+    };
+
+   api::handleFunc errData = [this](const QJsonObject &o) {
+       //cout << "Error: connection dropped";
+       QString r= o.value("company")["name"].toString();
+       ui->label->setText("Error: connection dropped");
+   };
+
+   a->sendRequest(url, getData, errData);
+
+
+//    this->model->getNORAD();
+
+    //this->model->save();
 }
 
 void MainWindow::on_checkBox_toggled(bool checked)
@@ -173,6 +202,9 @@ void MainWindow::on_pushButton_5_clicked()
     double lon = ui->longBox->value();
     QString latt = QString::number(lat,'f', 6);
     QString longg = QString::number(lon,'f', 6);
+
+    latitude = latt;
+    longitude = longg;
 
     ui->latBox->setValue(lat);
     ui->longBox->setValue(lon);
@@ -218,7 +250,7 @@ void MainWindow::on_pushButton_6_clicked()
 
        api *c = new api(this);
        QString url2 = "ip-api.com/json/"+r;
-       qDebug()<<url2;
+//       qDebug()<<url2;
        c->initRequester(url2, 80, nullptr);
 
        api::handleFunc getData2 = [this](const QJsonObject &o) {
@@ -238,6 +270,9 @@ void MainWindow::on_pushButton_6_clicked()
            ui->longBox->setValue(lon);
            ui->latTxT->setText("Lat: "+latt);
            ui->longTxT->setText("Long: "+longg);
+
+           latitude = latt;
+           longitude = longg;
 
 //           qDebug()<< f;
 //           ui->label_7->setText(r2);

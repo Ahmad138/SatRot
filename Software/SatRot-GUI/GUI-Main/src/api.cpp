@@ -169,7 +169,7 @@ QJsonObject api::parseReply(QNetworkReply *reply)
     QJsonParseError parseError;
     auto replyText = reply->readAll();
     jsonDoc = QJsonDocument::fromJson(replyText, &parseError);
-    //qDebug() << replyText;
+    qDebug() << replyText;
     if(parseError.error != QJsonParseError::NoError){
         qDebug() << replyText;
         qWarning() << "Json parse error: " << parseError.errorString();

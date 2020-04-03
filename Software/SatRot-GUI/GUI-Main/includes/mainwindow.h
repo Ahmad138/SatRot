@@ -68,5 +68,8 @@ private:
 
     CustomListModel *model = new CustomListModel(this);
     satelliteList sl;
+
+    QString startDate, stopDate, latitude, longitude, norad;
+
 };
 #endif // MAINWINDOW_H

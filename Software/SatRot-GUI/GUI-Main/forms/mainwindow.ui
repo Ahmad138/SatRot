@@ -91,7 +91,15 @@
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QDateTimeEdit" name="stopDateTime"/>
+                <widget class="QDateTimeEdit" name="stopDateTime">
+                 <property name="date">
+                  <date>
+                   <year>2020</year>
+                   <month>1</month>
+                   <day>1</day>
+                  </date>
+                 </property>
+                </widget>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_3">
