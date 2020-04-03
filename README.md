@@ -88,7 +88,7 @@ You can support us by sending us a thank you note or bringing someone into the v
  
  **The MIT License **
  
-<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/OSIApproved.png?raw=true" width="30%" height="30%">
+<!---<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/OSIApproved.png?raw=true" width="30%" height="30%">--->
 
 </p>
 
