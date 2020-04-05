@@ -18,15 +18,8 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
-    QWebEngineView *view = new QWebEngineView(ui->widget);
 
-    view->resize(1024, 746);
-//    view->setMaximumSize(ui->frame->size());
-//    view->resize(ui->frame->size());
-    //connect(view, &QWebEngineView::loadFinished, [this]() {this->ui->webView->resize(this->ui->frame->size());});
-
-    view->load(QUrl("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html"));
-    view->show();
+    webView();
 
 //    QWebEngineView *view = new QWebEngineView(parent);
 //        view->load(QUrl("http://qt-project.org/"));
@@ -147,32 +140,10 @@ void MainWindow::on_getSatData_clicked()
     stopDate = ui->stopDateTime->dateTime().toString("yyyy-MM-dd_hh:mm:ss");
     norad = this->model->getNORAD();
 
-//    qDebug() << startDate;
+   QString urlCZML = "http://www.orbitalpredictor.com/api/predict_orbit/?sats="+norad+"&start="+startDate+"&end="+stopDate+"&format=czml&type=orbit";
+   QString urln2yo = "";
 
-    api *a = new api(this);
-
-   QString url = "http://www.orbitalpredictor.com/api/predict_orbit/?sats="+norad+"&start="+startDate+"&end="+stopDate+"&format=czml&type=orbit";
-   qDebug() << url;
-   a->initRequester(url, 80, nullptr);
-
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
-       QString r= o.value("company")["name"].toString();
-       ui->label->setText(r);
-    };
-
-   api::handleFunc errData = [this](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QString r= o.value("company")["name"].toString();
-       ui->label->setText("Error: connection dropped");
-   };
-
-   a->sendRequest(url, getData, errData);
-
-
-//    this->model->getNORAD();
-
-    //this->model->save();
+   getCZML(urlCZML);
 }
 
 void MainWindow::on_checkBox_toggled(bool checked)
@@ -295,4 +266,42 @@ void MainWindow::on_pushButton_6_clicked()
    };
 
    b->sendRequest(url, getData, errData);
+}
+
+
+void MainWindow::getCZML(QString endpoint)
+{
+    auto czml = new HttpWindow(this);
+
+    czml->urlSpec = endpoint;
+    czml->downloadFile();
+
+    webView();
+
+}
+
+void MainWindow::webView(){
+    view = new QWebEngineView(ui->widget);
+
+    //view->resize(1024, 746);
+    //const QRect availableSize = ui->frame->geometry();
+    //view->resize(availableSize.width() * 15, availableSize.height() * 35);
+    //view->setGeometry(ui->widget->geometry());
+
+    qDebug()<< ui->groupBox->size();
+//    view->setMaximumSize(ui->frame->size());
+//    view->resize(ui->frame->size());
+    //connect(view, &QWebEngineView::loadFinished, [this]() {this->ui->webView->resize(this->ui->frame->size());});
+
+    view->load(QUrl("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html"));
+    view->show();
+
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
+   QMainWindow::resizeEvent(event);
+   // Your code here.
+   //qDebug()<< ui->frame->size();
+   view->resize(ui->widget->size());
 }
