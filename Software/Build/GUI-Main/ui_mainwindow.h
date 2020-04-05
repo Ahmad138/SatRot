@@ -127,7 +127,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1813, 1124);
+        MainWindow->resize(2027, 1124);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../../../Documents/Images/Logo/SatRot logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -493,6 +493,7 @@ public:
         gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
         widget = new QWidget(frame);
         widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setMinimumSize(QSize(1236, 509));
 
         gridLayout_7->addWidget(widget, 0, 0, 1, 1);
 
@@ -508,7 +509,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1813, 39));
+        menubar->setGeometry(QRect(0, 0, 2027, 39));
         menu_File = new QMenu(menubar);
         menu_File->setObjectName(QString::fromUtf8("menu_File"));
         menu_View = new QMenu(menubar);

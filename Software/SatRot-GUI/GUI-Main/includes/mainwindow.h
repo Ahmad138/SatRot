@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <string>
 #include <iostream>
+#include <QDir>
 
 #include "includes/api.h"
 #include "includes/tcpserver.h"
@@ -13,6 +14,7 @@
 #include "includes/satellitelist.h"
 #include "includes/digitalclock.h"
 #include "getgeolocation.h"
+#include "includes/httpwindow.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -57,14 +59,20 @@ private slots:
     void on_checkBox_toggled(bool checked);
     void showTime();
 
+    void webView();
+
     void on_pushButton_5_clicked();
 
     void on_pushButton_6_clicked();
+    void getCZML(QString endpoint);
+    void resizeEvent(QResizeEvent* event);
 
 private:
     Ui::MainWindow *ui;
     TCPServer server;
     TCPClient client;
+
+    QWebEngineView *view;
 
     CustomListModel *model = new CustomListModel(this);
     satelliteList sl;

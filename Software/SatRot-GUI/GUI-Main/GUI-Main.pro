@@ -36,6 +36,7 @@ SOURCES += \
     src/api.cpp \
     src/digitalclock.cpp \
     src/getgeolocation.cpp \
+    src/httpwindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/satellitelist.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     includes/api.h \
     includes/digitalclock.h \
     includes/getgeolocation.h \
+    includes/httpwindow.h \
     includes/mainwindow.h \
     includes/satellitelist.h \
     includes/tcpserver.h \

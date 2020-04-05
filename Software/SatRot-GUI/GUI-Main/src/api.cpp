@@ -54,6 +54,8 @@ void api::sendRequest(const QString &apiStr,
         Q_ASSERT(false);
     }
 
+    //qDebug() << reply->readAll();
+
     connect(reply, &QNetworkReply::finished, this,
             [this, funcSuccess, funcError, reply]() {
         QJsonObject obj = parseReply(reply);
@@ -169,7 +171,7 @@ QJsonObject api::parseReply(QNetworkReply *reply)
     QJsonParseError parseError;
     auto replyText = reply->readAll();
     jsonDoc = QJsonDocument::fromJson(replyText, &parseError);
-    qDebug() << replyText;
+    //qDebug() << replyText;
     if(parseError.error != QJsonParseError::NoError){
         qDebug() << replyText;
         qWarning() << "Json parse error: " << parseError.errorString();
