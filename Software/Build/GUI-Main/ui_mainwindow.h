@@ -15,6 +15,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
@@ -61,14 +62,26 @@ public:
     QPushButton *getSatData;
     QFrame *line_3;
     QWidget *tab_8;
-    QPushButton *pushButton_2;
-    QLabel *statusBar;
+    QGridLayout *gridLayout_12;
+    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QSpacerItem *verticalSpacer_3;
+    QPushButton *pushButton_2;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer_3;
     QLabel *msg;
+    QSpacerItem *verticalSpacer_2;
     QWidget *tab;
-    QPushButton *pushButton;
-    QLabel *label;
+    QGridLayout *gridLayout_13;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_7;
+    QHBoxLayout *horizontalLayout_5;
+    QComboBox *comboBox;
+    QPushButton *pushButton_4;
+    QSpacerItem *verticalSpacer_4;
+    QLabel *label_9;
+    QLabel *label_10;
     QWidget *tab_2;
     QSlider *horizontalSlider;
     QSlider *verticalSlider;
@@ -108,6 +121,8 @@ public:
     QGridLayout *gridLayout_4;
     QTabWidget *tabWidget_2;
     QWidget *tab_4;
+    QPushButton *pushButton;
+    QLabel *label;
     QWidget *tab_5;
     QWidget *tab_6;
     QWidget *tab_7;
@@ -230,30 +245,104 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QString::fromUtf8("tab_8"));
-        pushButton_2 = new QPushButton(tab_8);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(70, 60, 170, 48));
-        statusBar = new QLabel(tab_8);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        statusBar->setGeometry(QRect(330, 70, 129, 34));
+        gridLayout_12 = new QGridLayout(tab_8);
+        gridLayout_12->setObjectName(QString::fromUtf8("gridLayout_12"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         pushButton_3 = new QPushButton(tab_8);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(70, 190, 170, 48));
-        pushButton_4 = new QPushButton(tab_8);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(80, 310, 170, 48));
+
+        verticalLayout_2->addWidget(pushButton_3);
+
+        verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_2->addItem(verticalSpacer_3);
+
+        pushButton_2 = new QPushButton(tab_8);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+
+        verticalLayout_2->addWidget(pushButton_2);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_2);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_3);
+
         msg = new QLabel(tab_8);
         msg->setObjectName(QString::fromUtf8("msg"));
-        msg->setGeometry(QRect(270, 210, 461, 331));
+        msg->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        msg->setWordWrap(true);
+
+        horizontalLayout_4->addWidget(msg);
+
+
+        gridLayout_12->addLayout(horizontalLayout_4, 1, 0, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_12->addItem(verticalSpacer_2, 0, 0, 1, 1);
+
         tabWidget->addTab(tab_8, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        pushButton = new QPushButton(tab);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(170, 220, 170, 48));
-        label = new QLabel(tab);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(170, 150, 461, 34));
+        gridLayout_13 = new QGridLayout(tab);
+        gridLayout_13->setObjectName(QString::fromUtf8("gridLayout_13"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        label_7 = new QLabel(tab);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMaximumSize(QSize(16777215, 40));
+        label_7->setWordWrap(true);
+
+        verticalLayout_3->addWidget(label_7);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setSizeConstraint(QLayout::SetMaximumSize);
+        comboBox = new QComboBox(tab);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        horizontalLayout_5->addWidget(comboBox);
+
+        pushButton_4 = new QPushButton(tab);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setMaximumSize(QSize(250, 16777215));
+
+        horizontalLayout_5->addWidget(pushButton_4);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_5);
+
+        verticalSpacer_4 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer_4);
+
+        label_9 = new QLabel(tab);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setMinimumSize(QSize(0, 0));
+        label_9->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        label_9->setWordWrap(true);
+
+        verticalLayout_3->addWidget(label_9);
+
+        label_10 = new QLabel(tab);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setMaximumSize(QSize(16777215, 40));
+        label_10->setWordWrap(true);
+
+        verticalLayout_3->addWidget(label_10);
+
+
+        gridLayout_13->addLayout(verticalLayout_3, 0, 0, 1, 1);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -464,6 +553,12 @@ public:
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        pushButton = new QPushButton(tab_4);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(480, 170, 170, 48));
+        label = new QLabel(tab_4);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(410, 80, 461, 34));
         tabWidget_2->addTab(tab_4, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
@@ -530,7 +625,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
         tabWidget_2->setCurrentIndex(0);
 
 
@@ -548,14 +643,14 @@ public:
         checkBox->setText(QApplication::translate("MainWindow", "Current datetime", nullptr));
         getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Telemetry", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "client", nullptr));
-        statusBar->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "server", nullptr));
-        pushButton_4->setText(QApplication::translate("MainWindow", "send", nullptr));
-        msg->setText(QApplication::translate("MainWindow", "msg", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Start TCP Server", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Connect to a TCP Client", nullptr));
+        msg->setText(QApplication::translate("MainWindow", "Start a TCP Server or connect as a TCP Client Rotator.", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_7->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Send and Track", nullptr));
+        label_9->setText(QApplication::translate("MainWindow", "Details", nullptr));
+        label_10->setText(QApplication::translate("MainWindow", "Status: ", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
@@ -575,6 +670,8 @@ public:
         latTxT->setText(QApplication::translate("MainWindow", "Lat: ", nullptr));
         longTxT->setText(QApplication::translate("MainWindow", "Long:", nullptr));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));

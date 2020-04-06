@@ -33,51 +33,125 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/**
+ * @brief
+ *
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief
+     *
+     * @param parent
+     */
     MainWindow(QWidget *parent = nullptr);
+    /**
+     * @brief
+     *
+     */
     ~MainWindow();
 
 private slots:
+    /**
+     * @brief
+     *
+     * @param value
+     */
     void on_horizontalSlider_valueChanged(int value);
 
 
+    /**
+     * @brief
+     *
+     * @param value
+     */
     void on_verticalSlider_valueChanged(int value);
 
+    /**
+     * @brief
+     *
+     */
     void on_pushButton_clicked();
+    /**
+     * @brief
+     *
+     */
     void on_webView_loadStarted();
+    /**
+     * @brief
+     *
+     */
     void on_pushButton_2_clicked();
 
 
+    /**
+     * @brief
+     *
+     */
     void on_pushButton_3_clicked();
 
+    /**
+     * @brief
+     *
+     */
     void on_getSatData_clicked();
 
+    /**
+     * @brief
+     *
+     * @param checked
+     */
     void on_checkBox_toggled(bool checked);
+    /**
+     * @brief
+     *
+     */
     void showTime();
 
+    /**
+     * @brief
+     *
+     */
     void webView();
 
+    /**
+     * @brief
+     *
+     */
     void on_pushButton_5_clicked();
 
+    /**
+     * @brief
+     *
+     */
     void on_pushButton_6_clicked();
+    /**
+     * @brief
+     *
+     * @param endpoint
+     */
     void getCZML(QString endpoint);
+    /**
+     * @brief
+     *
+     * @param event
+     */
     void resizeEvent(QResizeEvent* event);
 
 private:
-    Ui::MainWindow *ui;
-    TCPServer server;
-    TCPClient client;
+    Ui::MainWindow *ui; /**< TODO: describe */
+    TCPServer server; /**< TODO: describe */
+    TCPClient client; /**< TODO: describe */
 
-    QWebEngineView *view;
+    QWebEngineView *view; /**< TODO: describe */
 
-    CustomListModel *model = new CustomListModel(this);
-    satelliteList sl;
+    CustomListModel *model = new CustomListModel(this); /**< TODO: describe */
+    satelliteList sl; /**< TODO: describe */
 
-    QString startDate, stopDate, latitude, longitude, norad;
+    QString startDate, stopDate, latitude, longitude, norad; /**< TODO: describe */
 
 };
 #endif // MAINWINDOW_H

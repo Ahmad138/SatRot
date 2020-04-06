@@ -1,17 +1,29 @@
 #include "includes/api.h"
 
-const QString api::httpTemplate = "http://%1";
+const QString api::httpTemplate = "http://%1"; /**< TODO: describe */
 //const QString api::httpTemplate = "http://%1:%2/%3";
 //const QString api::httpTemplate = "http://%1:%2/api/%3";
-const QString api::httpsTemplate = "https://%1:%2/api/%3";
-const QString api::KEY_QNETWORK_REPLY_ERROR = "QNetworkReplyError";
-const QString api::KEY_CONTENT_NOT_FOUND = "ContentNotFoundError";
+const QString api::httpsTemplate = "https://%1:%2/api/%3"; /**< TODO: describe */
+const QString api::KEY_QNETWORK_REPLY_ERROR = "QNetworkReplyError"; /**< TODO: describe */
+const QString api::KEY_CONTENT_NOT_FOUND = "ContentNotFoundError"; /**< TODO: describe */
 
+/**
+ * @brief
+ *
+ * @param parent
+ */
 api::api(QObject *parent) : QObject(parent)
 {
     manager = new QNetworkAccessManager(this);
 }
 
+/**
+ * @brief
+ *
+ * @param host
+ * @param port
+ * @param value
+ */
 void api::initRequester(const QString &host, int port, QSslConfiguration *value)
 {
     this->host = host;
@@ -23,6 +35,15 @@ void api::initRequester(const QString &host, int port, QSslConfiguration *value)
         pathTemplate = httpTemplate;
 }
 
+/**
+ * @brief
+ *
+ * @param apiStr
+ * @param funcSuccess
+ * @param funcError
+ * @param type
+ * @param data
+ */
 void api::sendRequest(const QString &apiStr,
                             const handleFunc &funcSuccess,
                             const handleFunc &funcError,
@@ -75,6 +96,14 @@ void api::sendRequest(const QString &apiStr,
 
 }
 
+/**
+ * @brief
+ *
+ * @param apiStr
+ * @param funcSuccess
+ * @param funcError
+ * @param funcFinish
+ */
 void api::sendMulishGetRequest(const QString &apiStr, //а ничего что здесь нигде не проверяется func != nullptr?
                                      const handleFunc &funcSuccess,
                                      const handleFunc &funcError,
@@ -114,16 +143,32 @@ void api::sendMulishGetRequest(const QString &apiStr, //а ничего что �
 }
 
 
+/**
+ * @brief
+ *
+ * @return QString
+ */
 QString api::getToken() const
 {
     return token;
 }
 
+/**
+ * @brief
+ *
+ * @param value
+ */
 void api::setToken(const QString &value)
 {
     token = value;
 }
 
+/**
+ * @brief
+ *
+ * @param data
+ * @return QByteArray
+ */
 QByteArray api::variantMapToJson(QVariantMap data)
 {
     QJsonDocument postDataDoc = QJsonDocument::fromVariant(data);
@@ -132,6 +177,12 @@ QByteArray api::variantMapToJson(QVariantMap data)
     return postDataByteArray;
 }
 
+/**
+ * @brief
+ *
+ * @param apiStr
+ * @return QNetworkRequest
+ */
 QNetworkRequest api::createRequest(const QString &apiStr)
 {
     QNetworkRequest request;
@@ -149,6 +200,15 @@ QNetworkRequest api::createRequest(const QString &apiStr)
     return request;
 }
 
+/**
+ * @brief
+ *
+ * @param manager
+ * @param request
+ * @param type
+ * @param data
+ * @return QNetworkReply
+ */
 QNetworkReply* api::sendCustomRequest(QNetworkAccessManager* manager,
                                             QNetworkRequest &request,
                                             const QString &type,
@@ -164,6 +224,12 @@ QNetworkReply* api::sendCustomRequest(QNetworkAccessManager* manager,
     return reply;
 }
 
+/**
+ * @brief
+ *
+ * @param reply
+ * @return QJsonObject
+ */
 QJsonObject api::parseReply(QNetworkReply *reply)
 {
     QJsonObject jsonObj;
@@ -184,6 +250,12 @@ QJsonObject api::parseReply(QNetworkReply *reply)
     return jsonObj;
 }
 
+/**
+ * @brief
+ *
+ * @param reply
+ * @return bool
+ */
 bool api::onFinishRequest(QNetworkReply *reply)
 {
     auto replyError = reply->error();
@@ -196,6 +268,12 @@ bool api::onFinishRequest(QNetworkReply *reply)
     return false;
 }
 
+/**
+ * @brief
+ *
+ * @param reply
+ * @param obj
+ */
 void api::handleQtNetworkErrors(QNetworkReply *reply, QJsonObject &obj)
 {
     auto replyError = reply->error();

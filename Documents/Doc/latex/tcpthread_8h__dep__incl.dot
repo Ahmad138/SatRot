@@ -1,0 +1,10 @@
+digraph "GUI-Main/includes/tcpthread.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node3 [label="GUI-Main/includes/tcpthread.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="GUI-Main/src/tcpserver.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tcpserver_8cpp.html"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="GUI-Main/src/tcpthread.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tcpthread_8cpp.html"];
+}

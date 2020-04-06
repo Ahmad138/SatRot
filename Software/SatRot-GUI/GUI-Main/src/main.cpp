@@ -2,6 +2,13 @@
 
 #include <QApplication>
 
+/**
+ * @brief This here is the main
+ *
+ * @param argc
+ * @param argv[]
+ * @return int
+ */
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

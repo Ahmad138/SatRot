@@ -1,0 +1,267 @@
+\hypertarget{classapi}{}\section{api Class Reference}
+\label{classapi}\index{api@{api}}
+
+
+api class for api requests to api serves  
+
+
+
+
+{\ttfamily \#include $<$api.\+h$>$}
+
+
+
+Inheritance diagram for api\+:
+% FIG 0
+
+
+Collaboration diagram for api\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9}{Type} \{ \hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9aa02439ec229d8be0e74b0c1602392310}{Type\+::\+P\+O\+ST}, 
+\hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9a7528035a93ee69cedb1dbddb2f0bfcc8}{Type\+::\+G\+ET}, 
+\hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9a63bc9a3997d66d835d9f3ec29451407d}{Type\+::\+P\+A\+T\+CH}, 
+\hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9aa66ccb41361ea301c34b3ea85c7ae7a6}{Type\+::\+D\+E\+L\+ET}
+ \}
+\item 
+typedef std\+::function$<$ void(const Q\+Json\+Object \&)$>$ \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func}
+\item 
+typedef std\+::function$<$ void()$>$ \hyperlink{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}{finish\+Func}
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classapi_a859bdfdc9c9a77412443862ef24a438a}{network\+Error} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classapi_a9f11e9765a217f8f00b033db1592240d}{api} (Q\+Object $\ast$parent=0)
+\item 
+void \hyperlink{classapi_a40e8532ca785ffc40fbb3817634f5c47}{init\+Requester} (const Q\+String \&host, int port, Q\+Ssl\+Configuration $\ast$value)
+\item 
+void \hyperlink{classapi_a9ad02a2accb85926d1fe90097accc449}{send\+Request} (const Q\+String \&api\+Str, const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&func\+Success, const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&func\+Error, \hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9}{Type} type=\hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9a7528035a93ee69cedb1dbddb2f0bfcc8}{Type\+::\+G\+ET}, const Q\+Variant\+Map \&data=Q\+Variant\+Map())
+\item 
+void \hyperlink{classapi_a6c6d36ada6917ef547c09008b84d9207}{send\+Mulish\+Get\+Request} (const Q\+String \&api\+Str, const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&func\+Success, const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&func\+Error, const \hyperlink{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}{finish\+Func} \&func\+Finish)
+\item 
+Q\+String \hyperlink{classapi_a9758ebb4b428a4b34d6281785e24dfba}{get\+Token} () const
+\item 
+void \hyperlink{classapi_a9094273ad3a3e9455e22ebcb47ce4773}{set\+Token} (const Q\+String \&value)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\+String \hyperlink{classapi_a697932895aadaf71414e4a12c9edc339}{K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR} = \char`\"{}Q\+Network\+Reply\+Error\char`\"{}
+\item 
+static const Q\+String \hyperlink{classapi_a027285454c3fa18bdab800db4ec9a632}{K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND} = \char`\"{}Content\+Not\+Found\+Error\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+api class for api requests to api serves 
+
+Definition at line 19 of file api.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}\label{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}} 
+\index{api@{api}!finish\+Func@{finish\+Func}}
+\index{finish\+Func@{finish\+Func}!api@{api}}
+\subsubsection{\texorpdfstring{finish\+Func}{finishFunc}}
+{\footnotesize\ttfamily typedef std\+::function$<$void()$>$ \hyperlink{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}{api\+::finish\+Func}}
+
+
+
+Definition at line 32 of file api.\+h.
+
+\mbox{\Hypertarget{classapi_ae177be144c99e5b642bc435ff14f91eb}\label{classapi_ae177be144c99e5b642bc435ff14f91eb}} 
+\index{api@{api}!handle\+Func@{handle\+Func}}
+\index{handle\+Func@{handle\+Func}!api@{api}}
+\subsubsection{\texorpdfstring{handle\+Func}{handleFunc}}
+{\footnotesize\ttfamily typedef std\+::function$<$void(const Q\+Json\+Object \&)$>$ \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{api\+::handle\+Func}}
+
+
+
+Definition at line 27 of file api.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classapi_a4d626d9c11b80e532928299e68ff5bd9}\label{classapi_a4d626d9c11b80e532928299e68ff5bd9}} 
+\index{api@{api}!Type@{Type}}
+\index{Type@{Type}!api@{api}}
+\subsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9}{api\+::\+Type}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+O\+ST@{P\+O\+ST}!api@{api}}\index{api@{api}!P\+O\+ST@{P\+O\+ST}}}\mbox{\Hypertarget{classapi_a4d626d9c11b80e532928299e68ff5bd9aa02439ec229d8be0e74b0c1602392310}\label{classapi_a4d626d9c11b80e532928299e68ff5bd9aa02439ec229d8be0e74b0c1602392310}} 
+P\+O\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G\+ET@{G\+ET}!api@{api}}\index{api@{api}!G\+ET@{G\+ET}}}\mbox{\Hypertarget{classapi_a4d626d9c11b80e532928299e68ff5bd9a7528035a93ee69cedb1dbddb2f0bfcc8}\label{classapi_a4d626d9c11b80e532928299e68ff5bd9a7528035a93ee69cedb1dbddb2f0bfcc8}} 
+G\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+A\+T\+CH@{P\+A\+T\+CH}!api@{api}}\index{api@{api}!P\+A\+T\+CH@{P\+A\+T\+CH}}}\mbox{\Hypertarget{classapi_a4d626d9c11b80e532928299e68ff5bd9a63bc9a3997d66d835d9f3ec29451407d}\label{classapi_a4d626d9c11b80e532928299e68ff5bd9a63bc9a3997d66d835d9f3ec29451407d}} 
+P\+A\+T\+CH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+L\+ET@{D\+E\+L\+ET}!api@{api}}\index{api@{api}!D\+E\+L\+ET@{D\+E\+L\+ET}}}\mbox{\Hypertarget{classapi_a4d626d9c11b80e532928299e68ff5bd9aa66ccb41361ea301c34b3ea85c7ae7a6}\label{classapi_a4d626d9c11b80e532928299e68ff5bd9aa66ccb41361ea301c34b3ea85c7ae7a6}} 
+D\+E\+L\+ET&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 41 of file api.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classapi_a9f11e9765a217f8f00b033db1592240d}\label{classapi_a9f11e9765a217f8f00b033db1592240d}} 
+\index{api@{api}!api@{api}}
+\index{api@{api}!api@{api}}
+\subsubsection{\texorpdfstring{api()}{api()}}
+{\footnotesize\ttfamily api\+::api (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file api.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classapi_a9758ebb4b428a4b34d6281785e24dfba}\label{classapi_a9758ebb4b428a4b34d6281785e24dfba}} 
+\index{api@{api}!get\+Token@{get\+Token}}
+\index{get\+Token@{get\+Token}!api@{api}}
+\subsubsection{\texorpdfstring{get\+Token()}{getToken()}}
+{\footnotesize\ttfamily Q\+String api\+::get\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file api.\+cpp.
+
+\mbox{\Hypertarget{classapi_a40e8532ca785ffc40fbb3817634f5c47}\label{classapi_a40e8532ca785ffc40fbb3817634f5c47}} 
+\index{api@{api}!init\+Requester@{init\+Requester}}
+\index{init\+Requester@{init\+Requester}!api@{api}}
+\subsubsection{\texorpdfstring{init\+Requester()}{initRequester()}}
+{\footnotesize\ttfamily void api\+::init\+Requester (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{host,  }\item[{int}]{port,  }\item[{Q\+Ssl\+Configuration $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em host} & \\
+\hline
+{\em port} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file api.\+cpp.
+
+\mbox{\Hypertarget{classapi_a859bdfdc9c9a77412443862ef24a438a}\label{classapi_a859bdfdc9c9a77412443862ef24a438a}} 
+\index{api@{api}!network\+Error@{network\+Error}}
+\index{network\+Error@{network\+Error}!api@{api}}
+\subsubsection{\texorpdfstring{network\+Error}{networkError}}
+{\footnotesize\ttfamily void api\+::network\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classapi_a6c6d36ada6917ef547c09008b84d9207}\label{classapi_a6c6d36ada6917ef547c09008b84d9207}} 
+\index{api@{api}!send\+Mulish\+Get\+Request@{send\+Mulish\+Get\+Request}}
+\index{send\+Mulish\+Get\+Request@{send\+Mulish\+Get\+Request}!api@{api}}
+\subsubsection{\texorpdfstring{send\+Mulish\+Get\+Request()}{sendMulishGetRequest()}}
+{\footnotesize\ttfamily void api\+::send\+Mulish\+Get\+Request (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{api\+Str,  }\item[{const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&}]{func\+Success,  }\item[{const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&}]{func\+Error,  }\item[{const \hyperlink{classapi_ac68be0fe2ba36f25c4f776b1eeff0482}{finish\+Func} \&}]{func\+Finish }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em api\+Str} & \\
+\hline
+{\em func\+Success} & \\
+\hline
+{\em func\+Error} & \\
+\hline
+{\em func\+Finish} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file api.\+cpp.
+
+\mbox{\Hypertarget{classapi_a9ad02a2accb85926d1fe90097accc449}\label{classapi_a9ad02a2accb85926d1fe90097accc449}} 
+\index{api@{api}!send\+Request@{send\+Request}}
+\index{send\+Request@{send\+Request}!api@{api}}
+\subsubsection{\texorpdfstring{send\+Request()}{sendRequest()}}
+{\footnotesize\ttfamily void api\+::send\+Request (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{api\+Str,  }\item[{const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&}]{func\+Success,  }\item[{const \hyperlink{classapi_ae177be144c99e5b642bc435ff14f91eb}{handle\+Func} \&}]{func\+Error,  }\item[{\hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9}{api\+::\+Type}}]{type = {\ttfamily \hyperlink{classapi_a4d626d9c11b80e532928299e68ff5bd9a7528035a93ee69cedb1dbddb2f0bfcc8}{Type\+::\+G\+ET}},  }\item[{const Q\+Variant\+Map \&}]{data = {\ttfamily QVariantMap()} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em api\+Str} & \\
+\hline
+{\em func\+Success} & \\
+\hline
+{\em func\+Error} & \\
+\hline
+{\em type} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file api.\+cpp.
+
+\mbox{\Hypertarget{classapi_a9094273ad3a3e9455e22ebcb47ce4773}\label{classapi_a9094273ad3a3e9455e22ebcb47ce4773}} 
+\index{api@{api}!set\+Token@{set\+Token}}
+\index{set\+Token@{set\+Token}!api@{api}}
+\subsubsection{\texorpdfstring{set\+Token()}{setToken()}}
+{\footnotesize\ttfamily void api\+::set\+Token (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file api.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classapi_a027285454c3fa18bdab800db4ec9a632}\label{classapi_a027285454c3fa18bdab800db4ec9a632}} 
+\index{api@{api}!K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND@{K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}}
+\index{K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND@{K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}!api@{api}}
+\subsubsection{\texorpdfstring{K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}{KEY\_CONTENT\_NOT\_FOUND}}
+{\footnotesize\ttfamily const Q\+String api\+::\+K\+E\+Y\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND = \char`\"{}Content\+Not\+Found\+Error\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: describe 
+
+Definition at line 35 of file api.\+h.
+
+\mbox{\Hypertarget{classapi_a697932895aadaf71414e4a12c9edc339}\label{classapi_a697932895aadaf71414e4a12c9edc339}} 
+\index{api@{api}!K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR@{K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR}}
+\index{K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR@{K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR}!api@{api}}
+\subsubsection{\texorpdfstring{K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR}{KEY\_QNETWORK\_REPLY\_ERROR}}
+{\footnotesize\ttfamily const Q\+String api\+::\+K\+E\+Y\+\_\+\+Q\+N\+E\+T\+W\+O\+R\+K\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+E\+R\+R\+OR = \char`\"{}Q\+Network\+Reply\+Error\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: describe 
+
+Definition at line 34 of file api.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+G\+U\+I-\/\+Main/includes/\hyperlink{api_8h}{api.\+h}\item 
+G\+U\+I-\/\+Main/src/\hyperlink{api_8cpp}{api.\+cpp}\end{DoxyCompactItemize}

@@ -1,11 +1,18 @@
 #include "includes/mainwindow.h"
 #include "ui_mainwindow.h"
 
+/**
+ * @brief
+ *
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QGuiApplication::setApplicationDisplayName(tr("SatRot - Taking Everyone to Space"));
 
     //init Sliders
     ui->Az->setNum(0);
@@ -54,11 +61,20 @@ MainWindow::MainWindow(QWidget *parent)
 
 }
 
+/**
+ * @brief
+ *
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/**
+ * @brief
+ *
+ * @param value
+ */
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     float val = value*0.05;
@@ -67,6 +83,11 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 }
 
 
+/**
+ * @brief
+ *
+ * @param value
+ */
 void MainWindow::on_verticalSlider_valueChanged(int value)
 {
     float val = value*0.05;
@@ -74,6 +95,10 @@ void MainWindow::on_verticalSlider_valueChanged(int value)
     ui->El->setText("El: "+ s + "°");
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_pushButton_clicked()
 {
      api *a = new api(this);
@@ -97,20 +122,32 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_webView_loadStarted()
 {
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_pushButton_2_clicked()
 {
     client.show();
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_pushButton_3_clicked()
 {
     if (!server.listen()) {
-            QMessageBox::critical(this, tr("Rotator Serevr"),
+            QMessageBox::critical(this, tr("Rotator Server"),
                                   tr("Unable to start the server: %1.")
                                   .arg(server.errorString()));
         }
@@ -129,11 +166,15 @@ void MainWindow::on_pushButton_3_clicked()
         if (ipAddress.isEmpty())
             ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
         ui->msg->setText(tr("The server is running on\n\nIP: %1\nport: %2\n\n"
-                                "Run the SatRot Controller Software Client now.")
+                                "Run the SatRot Controller Software Client now and connect.")
                              .arg(ipAddress).arg(server.serverPort()));
 }
 
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_getSatData_clicked()
 {
     startDate = ui->startDateTime->dateTime().toString("yyyy-MM-dd_hh:mm:ss");
@@ -146,6 +187,11 @@ void MainWindow::on_getSatData_clicked()
    getCZML(urlCZML);
 }
 
+/**
+ * @brief
+ *
+ * @param checked
+ */
 void MainWindow::on_checkBox_toggled(bool checked)
 {
     if(checked){
@@ -160,6 +206,10 @@ void MainWindow::on_checkBox_toggled(bool checked)
 }
 
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::showTime()
 {
     QDateTime now = QDateTime::currentDateTime();
@@ -167,6 +217,10 @@ void MainWindow::showTime()
     ui->myDateTime->setText(now.toString("ddd dd-MMM-yyyy hh:mm:ss"));
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_pushButton_5_clicked()
 {
     double lat = ui->latBox->value();
@@ -206,6 +260,10 @@ void MainWindow::on_pushButton_5_clicked()
    a->sendRequest(url, getData, errData);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_pushButton_6_clicked()
 {
     api *b = new api(this);
@@ -269,6 +327,11 @@ void MainWindow::on_pushButton_6_clicked()
 }
 
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getCZML(QString endpoint)
 {
     auto czml = new HttpWindow(this);
@@ -280,6 +343,10 @@ void MainWindow::getCZML(QString endpoint)
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::webView(){
     view = new QWebEngineView(ui->widget);
 
@@ -288,16 +355,21 @@ void MainWindow::webView(){
     //view->resize(availableSize.width() * 15, availableSize.height() * 35);
     //view->setGeometry(ui->widget->geometry());
 
-    qDebug()<< ui->groupBox->size();
+    //qDebug()<< ui->groupBox->size();
 //    view->setMaximumSize(ui->frame->size());
 //    view->resize(ui->frame->size());
     //connect(view, &QWebEngineView::loadFinished, [this]() {this->ui->webView->resize(this->ui->frame->size());});
 
     view->load(QUrl("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html"));
     view->show();
-
+    view->resize(ui->widget->size());
 }
 
+/**
+ * @brief
+ *
+ * @param event
+ */
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
    QMainWindow::resizeEvent(event);
