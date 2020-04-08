@@ -8,6 +8,8 @@ TCPClient::TCPClient(QWidget *parent)
     , getFortuneButton(new QPushButton(tr("Connect")))
     , tcpSocket(new QTcpSocket(this))
 {
+    //QGuiApplication::setApplicationDisplayName(tr("SatRot TCP Client"));
+    setWindowTitle(tr("TCP Client"));
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 //! [0]
     hostCombo->setEditable(true);
@@ -79,7 +81,7 @@ TCPClient::TCPClient(QWidget *parent)
         outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
         auto outerHorizontalLayout = new QHBoxLayout;
         outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
-        auto groupBox = new QGroupBox(QGuiApplication::applicationDisplayName());
+        auto groupBox = new QGroupBox(tr("TCP Client"));
         mainLayout = new QGridLayout(groupBox);
         outerHorizontalLayout->addWidget(groupBox);
         outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
@@ -95,7 +97,8 @@ TCPClient::TCPClient(QWidget *parent)
     mainLayout->addWidget(statusLabel, 2, 0, 1, 2);
     mainLayout->addWidget(buttonBox, 3, 0, 1, 2);
 
-    setWindowTitle(QGuiApplication::applicationDisplayName());
+    //setWindowTitle(QGuiApplication::applicationDisplayName());
+    //setWindowTitle(tr("SatRot TCP Client"));
     portLineEdit->setFocus();
 
     QNetworkConfigurationManager manager;

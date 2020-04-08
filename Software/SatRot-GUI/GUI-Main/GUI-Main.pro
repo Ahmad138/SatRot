@@ -39,12 +39,16 @@ SOURCES += \
     src/httpwindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/positionmodel.cpp \
+    src/radiopassmodel.cpp \
     src/satellitelist.cpp \
     src/tcpserver.cpp \
     src/tcpthread.cpp \
     src/tcpclient.cpp \
     src/testmodel.cpp \
-    src/customlistmodel.cpp
+    src/customlistmodel.cpp \
+    src/tlemodel.cpp \
+    src/visualpassmodel.cpp
 
 HEADERS += \
     includes/api.h \
@@ -52,12 +56,16 @@ HEADERS += \
     includes/getgeolocation.h \
     includes/httpwindow.h \
     includes/mainwindow.h \
+    includes/positionmodel.h \
+    includes/radiopassmodel.h \
     includes/satellitelist.h \
     includes/tcpserver.h \
     includes/tcpthread.h \
     includes/tcpclient.h \
     includes/testmodel.h \
-    includes/customlistmodel.h
+    includes/customlistmodel.h \
+    includes/tlemodel.h \
+    includes/visualpassmodel.h
 
 FORMS += \
     forms/mainwindow.ui

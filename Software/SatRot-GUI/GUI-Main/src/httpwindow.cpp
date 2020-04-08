@@ -38,7 +38,7 @@ void HttpWindow::startRequest(const QUrl &requestedUrl)
     connect(reply, &QIODevice::readyRead, this, &HttpWindow::httpReadyRead);
     //httpFinished();
     //httpReadyRead();
-    qDebug()<<tr("Downloading %1...").arg(url.toString());
+    //qDebug()<<tr("Downloading %1...").arg(url.toString());
 }
 
 void HttpWindow::downloadFile()
