@@ -22,6 +22,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
@@ -32,6 +33,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -49,18 +51,19 @@ public:
     QTabWidget *tabWidget;
     QWidget *tab_3;
     QGridLayout *gridLayout_9;
-    QLabel *label_2;
-    QFrame *line_2;
     QListView *satView;
     QGridLayout *gridLayout_6;
-    QLabel *label_4;
     QDateTimeEdit *stopDateTime;
     QLabel *label_3;
+    QLabel *label_4;
     QDateTimeEdit *startDateTime;
-    QCheckBox *checkBox;
     QFrame *line;
+    QCheckBox *checkBox;
+    QFrame *line_2;
+    QLabel *label_2;
     QPushButton *getSatData;
     QFrame *line_3;
+    QFrame *line_8;
     QWidget *tab_8;
     QGridLayout *gridLayout_12;
     QHBoxLayout *horizontalLayout_4;
@@ -87,6 +90,8 @@ public:
     QSlider *verticalSlider;
     QLabel *Az;
     QLabel *El;
+    QLabel *label;
+    QPushButton *pushButton;
     QGroupBox *groupBox_4;
     QGridLayout *gridLayout_8;
     QFrame *frame_2;
@@ -121,11 +126,17 @@ public:
     QGridLayout *gridLayout_4;
     QTabWidget *tabWidget_2;
     QWidget *tab_4;
-    QPushButton *pushButton;
-    QLabel *label;
+    QGridLayout *gridLayout_14;
+    QTableView *tableViewPosition;
     QWidget *tab_5;
+    QGridLayout *gridLayout_15;
+    QTableView *tableViewVisualPass;
     QWidget *tab_6;
+    QGridLayout *gridLayout_16;
+    QTableView *tableViewRadioPass;
     QWidget *tab_7;
+    QGridLayout *gridLayout_17;
+    QTableView *tableViewTLE;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_5;
     QFrame *frame;
@@ -142,7 +153,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(2027, 1124);
+        MainWindow->resize(2027, 1230);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../../../Documents/Images/Logo/SatRot logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -166,6 +177,58 @@ public:
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         gridLayout_9 = new QGridLayout(tab_3);
         gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
+        satView = new QListView(tab_3);
+        satView->setObjectName(QString::fromUtf8("satView"));
+
+        gridLayout_9->addWidget(satView, 5, 0, 1, 1);
+
+        gridLayout_6 = new QGridLayout();
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        stopDateTime = new QDateTimeEdit(tab_3);
+        stopDateTime->setObjectName(QString::fromUtf8("stopDateTime"));
+        stopDateTime->setDate(QDate(2020, 1, 1));
+
+        gridLayout_6->addWidget(stopDateTime, 3, 1, 1, 1);
+
+        label_3 = new QLabel(tab_3);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        gridLayout_6->addWidget(label_3, 2, 0, 1, 1);
+
+        label_4 = new QLabel(tab_3);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout_6->addWidget(label_4, 2, 1, 1, 1);
+
+        startDateTime = new QDateTimeEdit(tab_3);
+        startDateTime->setObjectName(QString::fromUtf8("startDateTime"));
+        startDateTime->setDate(QDate(2020, 1, 1));
+        startDateTime->setCurrentSection(QDateTimeEdit::DaySection);
+
+        gridLayout_6->addWidget(startDateTime, 3, 0, 1, 1);
+
+        line = new QFrame(tab_3);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_6->addWidget(line, 0, 0, 1, 2);
+
+        checkBox = new QCheckBox(tab_3);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+
+        gridLayout_6->addWidget(checkBox, 1, 0, 1, 1);
+
+
+        gridLayout_9->addLayout(gridLayout_6, 2, 0, 1, 1);
+
+        line_2 = new QFrame(tab_3);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_9->addWidget(line_2, 4, 0, 1, 1);
+
         label_2 = new QLabel(tab_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -178,62 +241,10 @@ public:
 
         gridLayout_9->addWidget(label_2, 1, 0, 1, 1);
 
-        line_2 = new QFrame(tab_3);
-        line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setFrameShape(QFrame::HLine);
-        line_2->setFrameShadow(QFrame::Sunken);
-
-        gridLayout_9->addWidget(line_2, 4, 0, 1, 1);
-
-        satView = new QListView(tab_3);
-        satView->setObjectName(QString::fromUtf8("satView"));
-
-        gridLayout_9->addWidget(satView, 5, 0, 1, 1);
-
-        gridLayout_6 = new QGridLayout();
-        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
-        label_4 = new QLabel(tab_3);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout_6->addWidget(label_4, 1, 1, 1, 1);
-
-        stopDateTime = new QDateTimeEdit(tab_3);
-        stopDateTime->setObjectName(QString::fromUtf8("stopDateTime"));
-        stopDateTime->setDate(QDate(2020, 1, 1));
-
-        gridLayout_6->addWidget(stopDateTime, 2, 1, 1, 1);
-
-        label_3 = new QLabel(tab_3);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        gridLayout_6->addWidget(label_3, 1, 0, 1, 1);
-
-        startDateTime = new QDateTimeEdit(tab_3);
-        startDateTime->setObjectName(QString::fromUtf8("startDateTime"));
-        startDateTime->setDate(QDate(2020, 1, 1));
-        startDateTime->setCurrentSection(QDateTimeEdit::DaySection);
-
-        gridLayout_6->addWidget(startDateTime, 2, 0, 1, 1);
-
-        checkBox = new QCheckBox(tab_3);
-        checkBox->setObjectName(QString::fromUtf8("checkBox"));
-
-        gridLayout_6->addWidget(checkBox, 3, 0, 1, 1);
-
-        line = new QFrame(tab_3);
-        line->setObjectName(QString::fromUtf8("line"));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        gridLayout_6->addWidget(line, 0, 0, 1, 2);
-
-
-        gridLayout_9->addLayout(gridLayout_6, 2, 0, 1, 1);
-
         getSatData = new QPushButton(tab_3);
         getSatData->setObjectName(QString::fromUtf8("getSatData"));
 
-        gridLayout_9->addWidget(getSatData, 3, 0, 1, 1);
+        gridLayout_9->addWidget(getSatData, 7, 0, 1, 1);
 
         line_3 = new QFrame(tab_3);
         line_3->setObjectName(QString::fromUtf8("line_3"));
@@ -241,6 +252,13 @@ public:
         line_3->setFrameShadow(QFrame::Sunken);
 
         gridLayout_9->addWidget(line_3, 0, 0, 1, 1);
+
+        line_8 = new QFrame(tab_3);
+        line_8->setObjectName(QString::fromUtf8("line_8"));
+        line_8->setFrameShape(QFrame::HLine);
+        line_8->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_9->addWidget(line_8, 6, 0, 1, 1);
 
         tabWidget->addTab(tab_3, QString());
         tab_8 = new QWidget();
@@ -364,6 +382,12 @@ public:
         El = new QLabel(tab_2);
         El->setObjectName(QString::fromUtf8("El"));
         El->setGeometry(QRect(90, 200, 171, 34));
+        label = new QLabel(tab_2);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(160, 140, 461, 34));
+        pushButton = new QPushButton(tab_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(300, 230, 170, 48));
         tabWidget->addTab(tab_2, QString());
 
         gridLayout_3->addWidget(tabWidget, 0, 0, 1, 1);
@@ -402,6 +426,7 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         myDateTime = new QLabel(frame_2);
         myDateTime->setObjectName(QString::fromUtf8("myDateTime"));
+        myDateTime->setMaximumSize(QSize(16777215, 40));
         myDateTime->setTextFormat(Qt::AutoText);
         myDateTime->setAlignment(Qt::AlignCenter);
         myDateTime->setWordWrap(true);
@@ -417,6 +442,7 @@ public:
 
         label_8 = new QLabel(frame_2);
         label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setMaximumSize(QSize(16777215, 40));
         label_8->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_8);
@@ -432,11 +458,13 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label_5 = new QLabel(frame_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setMaximumSize(QSize(16777215, 40));
 
         horizontalLayout->addWidget(label_5);
 
         latBox = new QDoubleSpinBox(frame_2);
         latBox->setObjectName(QString::fromUtf8("latBox"));
+        latBox->setMaximumSize(QSize(16777215, 40));
         latBox->setDecimals(6);
         latBox->setMinimum(-180.000000000000000);
         latBox->setMaximum(180.000000000000000);
@@ -450,11 +478,13 @@ public:
 
         label_6 = new QLabel(frame_2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setMaximumSize(QSize(16777215, 40));
 
         horizontalLayout->addWidget(label_6);
 
         longBox = new QDoubleSpinBox(frame_2);
         longBox->setObjectName(QString::fromUtf8("longBox"));
+        longBox->setMaximumSize(QSize(16777215, 40));
         longBox->setDecimals(6);
         longBox->setMinimum(-180.000000000000000);
         longBox->setMaximum(180.000000000000000);
@@ -553,21 +583,43 @@ public:
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
-        pushButton = new QPushButton(tab_4);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(480, 170, 170, 48));
-        label = new QLabel(tab_4);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(410, 80, 461, 34));
+        gridLayout_14 = new QGridLayout(tab_4);
+        gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
+        tableViewPosition = new QTableView(tab_4);
+        tableViewPosition->setObjectName(QString::fromUtf8("tableViewPosition"));
+
+        gridLayout_14->addWidget(tableViewPosition, 0, 0, 1, 1);
+
         tabWidget_2->addTab(tab_4, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        gridLayout_15 = new QGridLayout(tab_5);
+        gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
+        tableViewVisualPass = new QTableView(tab_5);
+        tableViewVisualPass->setObjectName(QString::fromUtf8("tableViewVisualPass"));
+
+        gridLayout_15->addWidget(tableViewVisualPass, 0, 0, 1, 1);
+
         tabWidget_2->addTab(tab_5, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QString::fromUtf8("tab_6"));
+        gridLayout_16 = new QGridLayout(tab_6);
+        gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
+        tableViewRadioPass = new QTableView(tab_6);
+        tableViewRadioPass->setObjectName(QString::fromUtf8("tableViewRadioPass"));
+
+        gridLayout_16->addWidget(tableViewRadioPass, 0, 0, 1, 1);
+
         tabWidget_2->addTab(tab_6, QString());
         tab_7 = new QWidget();
         tab_7->setObjectName(QString::fromUtf8("tab_7"));
+        gridLayout_17 = new QGridLayout(tab_7);
+        gridLayout_17->setObjectName(QString::fromUtf8("gridLayout_17"));
+        tableViewTLE = new QTableView(tab_7);
+        tableViewTLE->setObjectName(QString::fromUtf8("tableViewTLE"));
+
+        gridLayout_17->addWidget(tableViewTLE, 0, 0, 1, 1);
+
         tabWidget_2->addTab(tab_7, QString());
 
         gridLayout_4->addWidget(tabWidget_2, 0, 0, 1, 1);
@@ -604,7 +656,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 2027, 39));
+        menubar->setGeometry(QRect(0, 0, 2027, 50));
         menu_File = new QMenu(menubar);
         menu_File->setObjectName(QString::fromUtf8("menu_File"));
         menu_View = new QMenu(menubar);
@@ -625,7 +677,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(0);
 
 
@@ -637,10 +689,10 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot", nullptr));
         actionView->setText(QApplication::translate("MainWindow", "View", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Controls", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Checkbox satellite(s), set start and stop datetime and get the telemetry", nullptr));
-        label_4->setText(QApplication::translate("MainWindow", "Stop", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Start", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "Stop", nullptr));
         checkBox->setText(QApplication::translate("MainWindow", "Current datetime", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Checkbox satellite(s), set start and stop datetime and get the telemetry", nullptr));
         getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Telemetry", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
         pushButton_3->setText(QApplication::translate("MainWindow", "Start TCP Server", nullptr));
@@ -654,6 +706,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Manual", nullptr));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "Ground Station", nullptr));
         logo->setText(QString());
@@ -670,8 +724,6 @@ public:
         latTxT->setText(QApplication::translate("MainWindow", "Lat: ", nullptr));
         longTxT->setText(QApplication::translate("MainWindow", "Long:", nullptr));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));

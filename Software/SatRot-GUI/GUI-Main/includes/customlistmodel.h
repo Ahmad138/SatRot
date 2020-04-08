@@ -23,6 +23,7 @@ public:
 
     void save();
     QString getNORAD();
+    QList<QString> getNORADObj();
 private:
     QSet<QPersistentModelIndex> checkedItems;
 };

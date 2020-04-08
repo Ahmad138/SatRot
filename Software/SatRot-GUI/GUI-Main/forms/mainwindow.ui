@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>2027</width>
-    <height>1124</height>
+    <height>1230</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,13 +42,80 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
              <string>Satellites</string>
             </attribute>
             <layout class="QGridLayout" name="gridLayout_9">
+             <item row="5" column="0">
+              <widget class="QListView" name="satView"/>
+             </item>
+             <item row="2" column="0">
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="3" column="1">
+                <widget class="QDateTimeEdit" name="stopDateTime">
+                 <property name="date">
+                  <date>
+                   <year>2020</year>
+                   <month>1</month>
+                   <day>1</day>
+                  </date>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Start</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>Stop</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QDateTimeEdit" name="startDateTime">
+                 <property name="date">
+                  <date>
+                   <year>2020</year>
+                   <month>1</month>
+                   <day>1</day>
+                  </date>
+                 </property>
+                 <property name="currentSection">
+                  <enum>QDateTimeEdit::DaySection</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="Line" name="line">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBox">
+                 <property name="text">
+                  <string>Current datetime</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="4" column="0">
+              <widget class="Line" name="line_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_2">
                <property name="sizePolicy">
@@ -71,74 +138,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0">
-              <widget class="Line" name="line_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QListView" name="satView"/>
-             </item>
-             <item row="2" column="0">
-              <layout class="QGridLayout" name="gridLayout_6">
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>Stop</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QDateTimeEdit" name="stopDateTime">
-                 <property name="date">
-                  <date>
-                   <year>2020</year>
-                   <month>1</month>
-                   <day>1</day>
-                  </date>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_3">
-                 <property name="text">
-                  <string>Start</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QDateTimeEdit" name="startDateTime">
-                 <property name="date">
-                  <date>
-                   <year>2020</year>
-                   <month>1</month>
-                   <day>1</day>
-                  </date>
-                 </property>
-                 <property name="currentSection">
-                  <enum>QDateTimeEdit::DaySection</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QCheckBox" name="checkBox">
-                 <property name="text">
-                  <string>Current datetime</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="Line" name="line">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="3" column="0">
+             <item row="7" column="0">
               <widget class="QPushButton" name="getSatData">
                <property name="text">
                 <string>Get Satellite Telemetry</string>
@@ -147,6 +147,13 @@
              </item>
              <item row="0" column="0">
               <widget class="Line" name="line_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="Line" name="line_8">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -426,6 +433,32 @@
               <string>El</string>
              </property>
             </widget>
+            <widget class="QLabel" name="label">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>140</y>
+               <width>461</width>
+               <height>34</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pushButton">
+             <property name="geometry">
+              <rect>
+               <x>300</x>
+               <y>230</y>
+               <width>170</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
            </widget>
           </widget>
          </item>
@@ -482,6 +515,12 @@
                <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
                  <widget class="QLabel" name="myDateTime">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Current Local Date-Time&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
@@ -505,6 +544,12 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="label_8">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Set your Ground Station coordinates</string>
                   </property>
@@ -524,6 +569,12 @@
                  <layout class="QHBoxLayout" name="horizontalLayout">
                   <item>
                    <widget class="QLabel" name="label_5">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="text">
                      <string>Lat</string>
                     </property>
@@ -531,6 +582,12 @@
                   </item>
                   <item>
                    <widget class="QDoubleSpinBox" name="latBox">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="decimals">
                      <number>6</number>
                     </property>
@@ -563,6 +620,12 @@
                   </item>
                   <item>
                    <widget class="QLabel" name="label_6">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="text">
                      <string>Long</string>
                     </property>
@@ -570,6 +633,12 @@
                   </item>
                   <item>
                    <widget class="QDoubleSpinBox" name="longBox">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="decimals">
                      <number>6</number>
                     </property>
@@ -722,47 +791,41 @@
             <attribute name="title">
              <string>Position</string>
             </attribute>
-            <widget class="QPushButton" name="pushButton">
-             <property name="geometry">
-              <rect>
-               <x>480</x>
-               <y>170</y>
-               <width>170</width>
-               <height>48</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label">
-             <property name="geometry">
-              <rect>
-               <x>410</x>
-               <y>80</y>
-               <width>461</width>
-               <height>34</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_14">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewPosition"/>
+             </item>
+            </layout>
            </widget>
            <widget class="QWidget" name="tab_5">
             <attribute name="title">
              <string>Visual Pass</string>
             </attribute>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewVisualPass"/>
+             </item>
+            </layout>
            </widget>
            <widget class="QWidget" name="tab_6">
             <attribute name="title">
              <string>Radio Pass</string>
             </attribute>
+            <layout class="QGridLayout" name="gridLayout_16">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewRadioPass"/>
+             </item>
+            </layout>
            </widget>
            <widget class="QWidget" name="tab_7">
             <attribute name="title">
              <string>TLE</string>
             </attribute>
+            <layout class="QGridLayout" name="gridLayout_17">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewTLE"/>
+             </item>
+            </layout>
            </widget>
           </widget>
          </item>
@@ -816,7 +879,7 @@
      <x>0</x>
      <y>0</y>
      <width>2027</width>
-     <height>39</height>
+     <height>50</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
