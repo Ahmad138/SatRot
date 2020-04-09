@@ -70,6 +70,8 @@ MainWindow::MainWindow(QWidget *parent)
         QTimer *timerT = new QTimer(this);
         connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
         timerT->start(250);
+
+        //c.send();
 }
 
 /**
@@ -848,4 +850,10 @@ void MainWindow::tableTimer(){
                             tm_timestamp);
     //qDebug()<<tm_satidPos;
     ui->tableViewPosition->viewport()->update();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    //server.sendMsg(server.socketDescriptor(),"hello from the other side!!");
+
 }

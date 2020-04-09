@@ -34,6 +34,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/api.cpp \
+    src/clientthread.cpp \
     src/digitalclock.cpp \
     src/getgeolocation.cpp \
     src/httpwindow.cpp \
@@ -42,6 +43,9 @@ SOURCES += \
     src/positionmodel.cpp \
     src/radiopassmodel.cpp \
     src/satellitelist.cpp \
+    src/serverthread.cpp \
+    src/tcpc.cpp \
+    src/tcps.cpp \
     src/tcpserver.cpp \
     src/tcpthread.cpp \
     src/tcpclient.cpp \
@@ -52,6 +56,7 @@ SOURCES += \
 
 HEADERS += \
     includes/api.h \
+    includes/clientthread.h \
     includes/digitalclock.h \
     includes/getgeolocation.h \
     includes/httpwindow.h \
@@ -59,6 +64,9 @@ HEADERS += \
     includes/positionmodel.h \
     includes/radiopassmodel.h \
     includes/satellitelist.h \
+    includes/serverthread.h \
+    includes/tcpc.h \
+    includes/tcps.h \
     includes/tcpserver.h \
     includes/tcpthread.h \
     includes/tcpclient.h \
