@@ -29,6 +29,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     webView();
 
+    ui->latTxT->setStyleSheet("font-size: 9pt;");
+    ui->longTxT->setStyleSheet("font-size: 9pt;");
+    ui->city->setStyleSheet("font-size: 9pt;");
+    ui->region->setStyleSheet("font-size: 9pt;");
+    ui->country->setStyleSheet("font-size: 9pt;");
+    ui->zone->setStyleSheet("font-size: 9pt;");
+
 //    QWebEngineView *view = new QWebEngineView(parent);
 //        view->load(QUrl("http://qt-project.org/"));
 //        view->show();
@@ -229,7 +236,7 @@ void MainWindow::on_checkBox_toggled(bool checked)
 void MainWindow::showTime()
 {
     QDateTime now = QDateTime::currentDateTime();
-    ui->myDateTime->setStyleSheet("font-weight: bold; font-size: 12pt;");
+    ui->myDateTime->setStyleSheet("font-weight: bold; font-size: 9pt;");
     ui->myDateTime->setText(now.toString("ddd dd-MMM-yyyy hh:mm:ss"));
 }
 
@@ -247,6 +254,9 @@ void MainWindow::on_pushButton_5_clicked()
     latitude = latt;
     longitude = longg;
 
+//    ui->latTxT->setStyleSheet("font-size: 9pt;");
+//    ui->longTxT->setStyleSheet("font-size: 9pt;");
+
     ui->latBox->setValue(lat);
     ui->longBox->setValue(lon);
     ui->latTxT->setText("Lat: "+latt);
@@ -259,6 +269,11 @@ void MainWindow::on_pushButton_5_clicked()
 
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;
+
+//       ui->city->setStyleSheet("font-size: 9pt;");
+//       ui->region->setStyleSheet("font-size: 9pt;");
+//       ui->country->setStyleSheet("font-size: 9pt;");
+//       ui->zone->setStyleSheet("font-size: 9pt;");
 
        ui->city->setText("City: "+o.value("city").toString());
        ui->region->setText("Region: "+o.value("region").toString());
