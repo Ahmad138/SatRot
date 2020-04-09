@@ -1,17 +1,19 @@
+#include <QtWidgets>
+#include <QtNetwork>
+
 #include "includes/tcpclient.h"
+#include "includes/tcpthread.h"
 
 //! [0]
 TCPClient::TCPClient(QWidget *parent)
     : QDialog(parent)
     , hostCombo(new QComboBox)
     , portLineEdit(new QLineEdit)
-    , getFortuneButton(new QPushButton(tr("Connect")))
+    , getFortuneButton(new QPushButton(tr("Get Fortune")))
     , tcpSocket(new QTcpSocket(this))
 {
-    //QGuiApplication::setApplicationDisplayName(tr("SatRot TCP Client"));
-    setWindowTitle(tr("TCP Client"));
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
-//! [0]
+    //! [0]
     hostCombo->setEditable(true);
     // find out name of this machine
     QString name = QHostInfo::localHostName();
@@ -40,11 +42,11 @@ TCPClient::TCPClient(QWidget *parent)
 
     auto hostLabel = new QLabel(tr("&Server name:"));
     hostLabel->setBuddy(hostCombo);
-    auto portLabel = new QLabel(tr("&Server port:"));
+    auto portLabel = new QLabel(tr("S&erver port:"));
     portLabel->setBuddy(portLineEdit);
 
-    statusLabel = new QLabel(tr("Type the Satrot Rotator Server host address and port, then hit 'connect'. \n"
-                                "Satrot Server must be running to make connection."));
+    statusLabel = new QLabel(tr("This examples requires that you run the "
+                                "Fortune Server example as well."));
 
     getFortuneButton->setDefault(true);
     getFortuneButton->setEnabled(false);
@@ -55,10 +57,10 @@ TCPClient::TCPClient(QWidget *parent)
     buttonBox->addButton(getFortuneButton, QDialogButtonBox::ActionRole);
     buttonBox->addButton(quitButton, QDialogButtonBox::RejectRole);
 
-//! [1]
+    //! [1]
     in.setDevice(tcpSocket);
     in.setVersion(QDataStream::Qt_4_0);
-//! [1]
+    //! [1]
 
     connect(hostCombo, &QComboBox::editTextChanged,
             this, &TCPClient::enableGetFortuneButton);
@@ -67,13 +69,13 @@ TCPClient::TCPClient(QWidget *parent)
     connect(getFortuneButton, &QAbstractButton::clicked,
             this, &TCPClient::requestNewFortune);
     connect(quitButton, &QAbstractButton::clicked, this, &QWidget::close);
-//! [2] //! [3]
+    //! [2] //! [3]
     connect(tcpSocket, &QIODevice::readyRead, this, &TCPClient::readFortune);
-//! [2] //! [4]
+    //! [2] //! [4]
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error),
-//! [3]
+            //! [3]
             this, &TCPClient::displayError);
-//! [4]
+    //! [4]
 
     QGridLayout *mainLayout = nullptr;
     if (QGuiApplication::styleHints()->showIsFullScreen() || QGuiApplication::styleHints()->showIsMaximized()) {
@@ -81,7 +83,7 @@ TCPClient::TCPClient(QWidget *parent)
         outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
         auto outerHorizontalLayout = new QHBoxLayout;
         outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
-        auto groupBox = new QGroupBox(tr("TCP Client"));
+        auto groupBox = new QGroupBox(QGuiApplication::applicationDisplayName());
         mainLayout = new QGridLayout(groupBox);
         outerHorizontalLayout->addWidget(groupBox);
         outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
@@ -97,8 +99,7 @@ TCPClient::TCPClient(QWidget *parent)
     mainLayout->addWidget(statusLabel, 2, 0, 1, 2);
     mainLayout->addWidget(buttonBox, 3, 0, 1, 2);
 
-    //setWindowTitle(QGuiApplication::applicationDisplayName());
-    //setWindowTitle(tr("SatRot TCP Client"));
+    setWindowTitle(QGuiApplication::applicationDisplayName());
     portLineEdit->setFocus();
 
     QNetworkConfigurationManager manager;
@@ -123,7 +124,7 @@ TCPClient::TCPClient(QWidget *parent)
         statusLabel->setText(tr("Opening network session."));
         networkSession->open();
     }
-//! [5]
+    //! [5]
 }
 //! [5]
 
@@ -132,14 +133,29 @@ void TCPClient::requestNewFortune()
 {
     getFortuneButton->setEnabled(false);
     tcpSocket->abort();
-//! [7]
+    //! [7]
     tcpSocket->connectToHost(hostCombo->currentText(),
                              portLineEdit->text().toInt());
-//! [7]
+    //! [7]
 }
 //! [6]
 
 //! [8]
+void TCPClient::send(){
+        QString tcp_line = "sending from client to server";
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        out << tcp_line;
+
+        tcpSocket->write(block);
+        tcpSocket->disconnectFromHost();
+        tcpSocket->waitForDisconnected();
+
+
+}
+
 void TCPClient::readFortune()
 {
     in.startTransaction();
@@ -150,14 +166,15 @@ void TCPClient::readFortune()
     if (!in.commitTransaction())
         return;
 
-    if (nextFortune == currentFortune) {
-        QTimer::singleShot(0, this, &TCPClient::requestNewFortune);
-        return;
-    }
+//    if (nextFortune == currentFortune) {
+//        QTimer::singleShot(0, this, &TCPClient::requestNewFortune);
+//        return;
+//    }
 
     currentFortune = nextFortune;
     statusLabel->setText(currentFortune);
     getFortuneButton->setEnabled(true);
+    send();
 }
 //! [8]
 
@@ -168,21 +185,21 @@ void TCPClient::displayError(QAbstractSocket::SocketError socketError)
     case QAbstractSocket::RemoteHostClosedError:
         break;
     case QAbstractSocket::HostNotFoundError:
-        QMessageBox::information(this, tr("Satrot Client"),
+        QMessageBox::information(this, tr("Fortune Client"),
                                  tr("The host was not found. Please check the "
                                     "host name and port settings."));
         break;
     case QAbstractSocket::ConnectionRefusedError:
-        QMessageBox::information(this, tr("Satrot Client"),
+        QMessageBox::information(this, tr("Fortune Client"),
                                  tr("The connection was refused by the peer. "
-                                    "Make sure the Satrot server is running, "
+                                    "Make sure the fortune server is running, "
                                     "and check that the host name and port "
                                     "settings are correct."));
         break;
     default:
-        QMessageBox::information(this, tr("Satrot Client"),
+        QMessageBox::information(this, tr("Fortune Client"),
                                  tr("The following error occurred: %1.")
-                                 .arg(tcpSocket->errorString()));
+                                     .arg(tcpSocket->errorString()));
     }
 
     getFortuneButton->setEnabled(true);
@@ -212,8 +229,8 @@ void TCPClient::sessionOpened()
     settings.setValue(QLatin1String("DefaultNetworkConfiguration"), id);
     settings.endGroup();
 
-    statusLabel->setText(tr("This client requires that you run the "
-                            "Satrot Server as well."));
+    statusLabel->setText(tr("This examples requires that you run the "
+                            "Fortune Server example as well."));
 
     enableGetFortuneButton();
 }

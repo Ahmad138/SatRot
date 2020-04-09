@@ -19,6 +19,8 @@
 #include "includes/visualpassmodel.h"
 #include "includes/radiopassmodel.h"
 #include "includes/tlemodel.h"
+#include "includes/tcpc.h"
+#include "includes/tcps.h"
 
 
 // this_thread::sleep_for example
@@ -161,10 +163,14 @@ private slots:
 
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
     TCPServer server; /**< TODO: describe */
     TCPClient client; /**< TODO: describe */
+    //TCPc c;
+    //TCPs s;
 
     QWebEngineView *view; /**< TODO: describe */
 

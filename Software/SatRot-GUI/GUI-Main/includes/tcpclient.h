@@ -23,6 +23,7 @@ class TCPClient : public QDialog
 
 public:
     explicit TCPClient(QWidget *parent = nullptr);
+    void send();
 
 private slots:
     void requestNewFortune();

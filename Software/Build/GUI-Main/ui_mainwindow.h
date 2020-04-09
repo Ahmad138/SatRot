@@ -24,10 +24,12 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
@@ -46,6 +48,11 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_5;
+    QFrame *frame;
+    QGridLayout *gridLayout_7;
+    QWidget *widget;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_3;
     QTabWidget *tabWidget;
@@ -66,15 +73,18 @@ public:
     QFrame *line_8;
     QWidget *tab_8;
     QGridLayout *gridLayout_12;
-    QHBoxLayout *horizontalLayout_4;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton_3;
-    QSpacerItem *verticalSpacer_3;
-    QPushButton *pushButton_2;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_3;
+    QGridLayout *gridLayout_18;
     QLabel *msg;
-    QSpacerItem *verticalSpacer_2;
+    QHBoxLayout *horizontalLayout_4;
+    QLineEdit *lineEdit;
+    QPushButton *pushButton_7;
+    QListView *listView;
+    QPlainTextEdit *plainTextEdit;
+    QPushButton *pushButton_2;
+    QLabel *label_11;
+    QPushButton *pushButton_3;
+    QLabel *label_12;
+    QFrame *line_9;
     QWidget *tab;
     QGridLayout *gridLayout_13;
     QVBoxLayout *verticalLayout_3;
@@ -137,11 +147,6 @@ public:
     QWidget *tab_7;
     QGridLayout *gridLayout_17;
     QTableView *tableViewTLE;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_5;
-    QFrame *frame;
-    QGridLayout *gridLayout_7;
-    QWidget *widget;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menu_View;
@@ -153,7 +158,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(2027, 1230);
+        MainWindow->resize(1552, 1239);
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../../../Documents/Images/Logo/SatRot logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -165,6 +170,29 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setMinimumSize(QSize(0, 0));
+        gridLayout_5 = new QGridLayout(groupBox);
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        frame = new QFrame(groupBox);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        gridLayout_7 = new QGridLayout(frame);
+        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
+        widget = new QWidget(frame);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setMinimumSize(QSize(768, 0));
+
+        gridLayout_7->addWidget(widget, 0, 0, 1, 1);
+
+
+        gridLayout_5->addWidget(frame, 0, 0, 1, 1);
+
+
+        gridLayout->addWidget(groupBox, 0, 0, 2, 2);
+
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setMaximumSize(QSize(800, 16777215));
@@ -265,48 +293,69 @@ public:
         tab_8->setObjectName(QString::fromUtf8("tab_8"));
         gridLayout_12 = new QGridLayout(tab_8);
         gridLayout_12->setObjectName(QString::fromUtf8("gridLayout_12"));
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        pushButton_3 = new QPushButton(tab_8);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        verticalLayout_2->addWidget(pushButton_3);
-
-        verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        verticalLayout_2->addItem(verticalSpacer_3);
-
-        pushButton_2 = new QPushButton(tab_8);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        verticalLayout_2->addWidget(pushButton_2);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer);
-
-
-        horizontalLayout_4->addLayout(verticalLayout_2);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_3);
-
+        gridLayout_18 = new QGridLayout();
+        gridLayout_18->setObjectName(QString::fromUtf8("gridLayout_18"));
         msg = new QLabel(tab_8);
         msg->setObjectName(QString::fromUtf8("msg"));
         msg->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         msg->setWordWrap(true);
 
-        horizontalLayout_4->addWidget(msg);
+        gridLayout_18->addWidget(msg, 0, 0, 1, 1);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        lineEdit = new QLineEdit(tab_8);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        horizontalLayout_4->addWidget(lineEdit);
+
+        pushButton_7 = new QPushButton(tab_8);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+
+        horizontalLayout_4->addWidget(pushButton_7);
 
 
-        gridLayout_12->addLayout(horizontalLayout_4, 1, 0, 1, 1);
+        gridLayout_18->addLayout(horizontalLayout_4, 8, 0, 1, 1);
 
-        verticalSpacer_2 = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        listView = new QListView(tab_8);
+        listView->setObjectName(QString::fromUtf8("listView"));
 
-        gridLayout_12->addItem(verticalSpacer_2, 0, 0, 1, 1);
+        gridLayout_18->addWidget(listView, 7, 0, 1, 1);
+
+        plainTextEdit = new QPlainTextEdit(tab_8);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+
+        gridLayout_18->addWidget(plainTextEdit, 3, 0, 1, 1);
+
+        pushButton_2 = new QPushButton(tab_8);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+
+        gridLayout_18->addWidget(pushButton_2, 5, 0, 1, 1);
+
+        label_11 = new QLabel(tab_8);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+
+        gridLayout_18->addWidget(label_11, 2, 0, 1, 1);
+
+        pushButton_3 = new QPushButton(tab_8);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        gridLayout_18->addWidget(pushButton_3, 1, 0, 1, 1);
+
+        label_12 = new QLabel(tab_8);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+
+        gridLayout_18->addWidget(label_12, 6, 0, 1, 1);
+
+        line_9 = new QFrame(tab_8);
+        line_9->setObjectName(QString::fromUtf8("line_9"));
+        line_9->setFrameShape(QFrame::HLine);
+        line_9->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_18->addWidget(line_9, 4, 0, 1, 1);
+
+
+        gridLayout_12->addLayout(gridLayout_18, 0, 0, 1, 1);
 
         tabWidget->addTab(tab_8, QString());
         tab = new QWidget();
@@ -627,36 +676,13 @@ public:
 
         gridLayout->addWidget(groupBox_3, 2, 0, 1, 2);
 
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setMinimumSize(QSize(1280, 0));
-        gridLayout_5 = new QGridLayout(groupBox);
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        frame = new QFrame(groupBox);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        gridLayout_7 = new QGridLayout(frame);
-        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
-        widget = new QWidget(frame);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setMinimumSize(QSize(1236, 509));
-
-        gridLayout_7->addWidget(widget, 0, 0, 1, 1);
-
-
-        gridLayout_5->addWidget(frame, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox, 0, 0, 2, 2);
-
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 2027, 50));
+        menubar->setGeometry(QRect(0, 0, 1552, 50));
         menu_File = new QMenu(menubar);
         menu_File->setObjectName(QString::fromUtf8("menu_File"));
         menu_View = new QMenu(menubar);
@@ -677,7 +703,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(0);
 
 
@@ -688,6 +714,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot", nullptr));
         actionView->setText(QApplication::translate("MainWindow", "View", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Controls", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Start", nullptr));
         label_4->setText(QApplication::translate("MainWindow", "Stop", nullptr));
@@ -695,9 +722,12 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "Checkbox satellite(s), set start and stop datetime and get the telemetry", nullptr));
         getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Telemetry", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
+        msg->setText(QApplication::translate("MainWindow", "Start a TCP Server or connect to a TCP Client Rotator.", nullptr));
+        pushButton_7->setText(QApplication::translate("MainWindow", "Send Instructions", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Connect to a TCP Client (rock)", nullptr));
+        label_11->setText(QApplication::translate("MainWindow", "Server Log:", nullptr));
         pushButton_3->setText(QApplication::translate("MainWindow", "Start TCP Server", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Connect to a TCP Client", nullptr));
-        msg->setText(QApplication::translate("MainWindow", "Start a TCP Server or connect as a TCP Client Rotator.", nullptr));
+        label_12->setText(QApplication::translate("MainWindow", "Client Log:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
         label_7->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton_4->setText(QApplication::translate("MainWindow", "Send and Track", nullptr));
@@ -728,7 +758,6 @@ public:
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_6), QApplication::translate("MainWindow", "Radio Pass", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "TLE", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menu_View->setTitle(QApplication::translate("MainWindow", "&View", nullptr));
         menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));
