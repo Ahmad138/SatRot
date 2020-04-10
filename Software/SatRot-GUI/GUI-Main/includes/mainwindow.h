@@ -19,7 +19,7 @@
 #include "includes/visualpassmodel.h"
 #include "includes/radiopassmodel.h"
 #include "includes/tlemodel.h"
-
+#include "includes/customdialog.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -31,6 +31,7 @@
 #include <QMessageBox>
 #include <QNetworkInterface>
 #include <QWebEngineView>
+#include <QHostInfo>
 
 /***********TCPClient***********/
 #include <QAbstractSocket>
@@ -155,7 +156,7 @@ private slots:
      */
     void resizeEvent(QResizeEvent* event);
 
-    void on_comboBox_currentIndexChanged(const QString &arg1);
+    void on_sat_currentIndexChanged(const QString &arg1);
 
     void clientInit();
     /***********TCPClient***********/
@@ -171,6 +172,8 @@ private slots:
     void userLeft(const QString &username);
     void error(QAbstractSocket::SocketError socketError);
     /***********TCPClient***********/
+
+    void on_sendTrack_clicked();
 
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
@@ -212,6 +215,7 @@ private:
 
     //List for Position data
     QList<QJsonObject> positions;
+    QJsonObject satPDetails;
 
     QList<QString> tm_satidPos;
     QList<QString> tm_satnamePos;
@@ -259,6 +263,12 @@ private:
     QList<QString> tm_startAzCompassR;
     QList<QString> tm_maxAzCompassR;
     QList<QString> tm_endAzCompassR;
+
+    QJsonObject AzEl
+        {
+            {"Az", "0"},
+            {"El", "0"}
+        };
 
 signals:
     void valueChanged();

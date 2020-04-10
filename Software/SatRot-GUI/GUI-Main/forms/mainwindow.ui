@@ -56,11 +56,50 @@
                 <height>0</height>
                </size>
               </property>
+              <widget class="QWidget" name="">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>163</width>
+                 <height>112</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="text">
+                   <string>PushButton</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QListView" name="chatView">
+               <property name="geometry">
+                <rect>
+                 <x>230</x>
+                 <y>30</y>
+                 <width>171</width>
+                 <height>131</height>
+                </rect>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+              </widget>
               <widget class="QLabel" name="logo">
                <property name="geometry">
                 <rect>
-                 <x>480</x>
-                 <y>70</y>
+                 <x>650</x>
+                 <y>0</y>
                  <width>100</width>
                  <height>385</height>
                 </rect>
@@ -119,7 +158,7 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>3</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
@@ -341,7 +380,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Select a satellite to track and send</string>
                  </property>
                  <property name="wordWrap">
                   <bool>true</bool>
@@ -349,43 +388,44 @@
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
-                 <property name="sizeConstraint">
-                  <enum>QLayout::SetMaximumSize</enum>
+                <widget class="Line" name="line_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
-                 <item>
-                  <widget class="QComboBox" name="comboBox"/>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_4">
-                   <property name="maximumSize">
-                    <size>
-                     <width>250</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Send and Track</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
+                <widget class="QComboBox" name="sat">
+                 <property name="maximumSize">
                   <size>
-                   <width>20</width>
-                   <height>20</height>
+                   <width>16777215</width>
+                   <height>50</height>
                   </size>
                  </property>
-                </spacer>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="sendTrack">
+                 <property name="maximumSize">
+                  <size>
+                   <width>225</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::RightToLeft</enum>
+                 </property>
+                 <property name="text">
+                  <string>Send and Track</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="Line" name="line_7">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
                </item>
                <item>
                 <widget class="QLabel" name="label_9">
@@ -395,8 +435,14 @@
                    <height>0</height>
                   </size>
                  </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>40</height>
+                  </size>
+                 </property>
                  <property name="text">
-                  <string>Details</string>
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -407,18 +453,18 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_10">
-                 <property name="maximumSize">
+                <widget class="QLabel" name="satDetails">
+                 <property name="minimumSize">
                   <size>
-                   <width>16777215</width>
-                   <height>40</height>
+                   <width>0</width>
+                   <height>200</height>
                   </size>
                  </property>
                  <property name="text">
-                  <string>Status: </string>
+                  <string/>
                  </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                  </property>
                 </widget>
                </item>
@@ -430,109 +476,157 @@
             <attribute name="title">
              <string>Manual</string>
             </attribute>
-            <widget class="QSlider" name="horizontalSlider">
-             <property name="geometry">
-              <rect>
-               <x>80</x>
-               <y>480</y>
-               <width>611</width>
-               <height>41</height>
-              </rect>
-             </property>
-             <property name="maximum">
-              <number>7200</number>
-             </property>
-             <property name="singleStep">
-              <number>1</number>
-             </property>
-             <property name="pageStep">
-              <number>4</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="verticalSlider">
-             <property name="geometry">
-              <rect>
-               <x>40</x>
-               <y>20</y>
-               <width>41</width>
-               <height>461</height>
-              </rect>
-             </property>
-             <property name="maximum">
-              <number>3600</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-            <widget class="QLabel" name="Az">
-             <property name="geometry">
-              <rect>
-               <x>250</x>
-               <y>510</y>
-               <width>271</width>
-               <height>34</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Az</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="El">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>200</y>
-               <width>171</width>
-               <height>34</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>El</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label">
-             <property name="geometry">
-              <rect>
-               <x>80</x>
-               <y>10</y>
-               <width>461</width>
-               <height>34</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="pushButton">
-             <property name="geometry">
-              <rect>
-               <x>310</x>
-               <y>50</y>
-               <width>170</width>
-               <height>48</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
-            <widget class="QListView" name="chatView">
-             <property name="geometry">
-              <rect>
-               <x>160</x>
-               <y>230</y>
-               <width>321</width>
-               <height>211</height>
-              </rect>
-             </property>
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_10">
+             <item row="0" column="0">
+              <layout class="QGridLayout" name="gridLayout_21">
+               <item row="0" column="0">
+                <widget class="QLabel" name="El">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>El</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QSlider" name="verticalSlider">
+                   <property name="maximum">
+                    <number>3600</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGraphicsView" name="graphicsView">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>450</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QLabel" name="label_10">
+                   <property name="minimumSize">
+                    <size>
+                     <width>50</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>0,0</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSlider" name="horizontalSlider">
+                   <property name="maximum">
+                    <number>7200</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>1</number>
+                   </property>
+                   <property name="pageStep">
+                    <number>4</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="Az">
+                 <property name="text">
+                  <string>Az</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>400</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>Satellite Details</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QTabWidget" name="tabWidget_2">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="tab_4">
+            <attribute name="title">
+             <string>Position</string>
+            </attribute>
+            <layout class="QGridLayout" name="gridLayout_14">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewPosition"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_5">
+            <attribute name="title">
+             <string>Visual Pass</string>
+            </attribute>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewVisualPass"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_6">
+            <attribute name="title">
+             <string>Radio Pass</string>
+            </attribute>
+            <layout class="QGridLayout" name="gridLayout_16">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewRadioPass"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab_7">
+            <attribute name="title">
+             <string>TLE</string>
+            </attribute>
+            <layout class="QGridLayout" name="gridLayout_17">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tableViewTLE"/>
+             </item>
+            </layout>
            </widget>
           </widget>
          </item>
@@ -554,7 +648,7 @@
          <item row="0" column="0">
           <widget class="QTabWidget" name="tabWidget_3">
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab_9">
             <attribute name="title">
@@ -830,68 +924,6 @@
                 </layout>
                </item>
               </layout>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QGroupBox" name="groupBox_3">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>400</height>
-         </size>
-        </property>
-        <property name="title">
-         <string>Satellite Details</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
-          <widget class="QTabWidget" name="tabWidget_2">
-           <property name="currentIndex">
-            <number>0</number>
-           </property>
-           <widget class="QWidget" name="tab_4">
-            <attribute name="title">
-             <string>Position</string>
-            </attribute>
-            <layout class="QGridLayout" name="gridLayout_14">
-             <item row="0" column="0">
-              <widget class="QTableView" name="tableViewPosition"/>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="tab_5">
-            <attribute name="title">
-             <string>Visual Pass</string>
-            </attribute>
-            <layout class="QGridLayout" name="gridLayout_15">
-             <item row="0" column="0">
-              <widget class="QTableView" name="tableViewVisualPass"/>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="tab_6">
-            <attribute name="title">
-             <string>Radio Pass</string>
-            </attribute>
-            <layout class="QGridLayout" name="gridLayout_16">
-             <item row="0" column="0">
-              <widget class="QTableView" name="tableViewRadioPass"/>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="tab_7">
-            <attribute name="title">
-             <string>TLE</string>
-            </attribute>
-            <layout class="QGridLayout" name="gridLayout_17">
-             <item row="0" column="0">
-              <widget class="QTableView" name="tableViewTLE"/>
              </item>
             </layout>
            </widget>

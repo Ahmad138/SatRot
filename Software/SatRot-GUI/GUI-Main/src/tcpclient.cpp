@@ -55,6 +55,32 @@ void TCPClient::sendMessage(const QString &text)
     clientStream << QJsonDocument(message).toJson();
 }
 
+void TCPClient::sendTrackingDetails(QJsonObject &text, QString satDataType, bool mode)
+{
+    if (text.isEmpty())
+        return; // We don't send empty messages
+    // create a QDataStream operating on the socket
+    QDataStream clientStream(m_clientSocket);
+    // set the version so that programs compiled with different versions of Qt can agree on how to serialise
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    // Create the JSON we want to send
+
+    text.insert("type", "message");
+    text.insert("satDataType", satDataType);
+
+    if(mode){
+        text.insert("mode", "Automatic");
+    }else{
+        text.insert("mode", "Manual");
+    }
+
+//    QJsonObject message;
+//    message["type"] = QStringLiteral("message");
+//    message["text"] = text;
+    // send the JSON using QDataStream
+    clientStream << QJsonDocument(text).toJson();
+}
+
 void TCPClient::disconnectFromHost()
 {
     m_clientSocket->disconnectFromHost();

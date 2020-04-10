@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_TCPClient_t {
-    QByteArrayData data[25];
-    char stringdata0[265];
+    QByteArrayData data[29];
+    char stringdata0[315];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -55,7 +55,11 @@ QT_MOC_LITERAL(20, 207, 5), // "login"
 QT_MOC_LITERAL(21, 213, 8), // "userName"
 QT_MOC_LITERAL(22, 222, 11), // "sendMessage"
 QT_MOC_LITERAL(23, 234, 18), // "disconnectFromHost"
-QT_MOC_LITERAL(24, 253, 11) // "onReadyRead"
+QT_MOC_LITERAL(24, 253, 19), // "sendTrackingDetails"
+QT_MOC_LITERAL(25, 273, 12), // "QJsonObject&"
+QT_MOC_LITERAL(26, 286, 11), // "satDataType"
+QT_MOC_LITERAL(27, 298, 4), // "mode"
+QT_MOC_LITERAL(28, 303, 11) // "onReadyRead"
 
     },
     "TCPClient\0connected\0\0loggedIn\0loginError\0"
@@ -64,7 +68,8 @@ QT_MOC_LITERAL(24, 253, 11) // "onReadyRead"
     "socketError\0userJoined\0username\0"
     "userLeft\0connectToServer\0QHostAddress\0"
     "address\0port\0login\0userName\0sendMessage\0"
-    "disconnectFromHost\0onReadyRead"
+    "disconnectFromHost\0sendTrackingDetails\0"
+    "QJsonObject&\0satDataType\0mode\0onReadyRead"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,7 +79,7 @@ static const uint qt_meta_data_TCPClient[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -82,21 +87,23 @@ static const uint qt_meta_data_TCPClient[] = {
        8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x06 /* Public */,
-       3,    0,   80,    2, 0x06 /* Public */,
-       4,    1,   81,    2, 0x06 /* Public */,
-       6,    0,   84,    2, 0x06 /* Public */,
-       7,    2,   85,    2, 0x06 /* Public */,
-      10,    1,   90,    2, 0x06 /* Public */,
-      13,    1,   93,    2, 0x06 /* Public */,
-      15,    1,   96,    2, 0x06 /* Public */,
+       1,    0,   89,    2, 0x06 /* Public */,
+       3,    0,   90,    2, 0x06 /* Public */,
+       4,    1,   91,    2, 0x06 /* Public */,
+       6,    0,   94,    2, 0x06 /* Public */,
+       7,    2,   95,    2, 0x06 /* Public */,
+      10,    1,  100,    2, 0x06 /* Public */,
+      13,    1,  103,    2, 0x06 /* Public */,
+      15,    1,  106,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      16,    2,   99,    2, 0x0a /* Public */,
-      20,    1,  104,    2, 0x0a /* Public */,
-      22,    1,  107,    2, 0x0a /* Public */,
-      23,    0,  110,    2, 0x0a /* Public */,
-      24,    0,  111,    2, 0x08 /* Private */,
+      16,    2,  109,    2, 0x0a /* Public */,
+      20,    1,  114,    2, 0x0a /* Public */,
+      22,    1,  117,    2, 0x0a /* Public */,
+      23,    0,  120,    2, 0x0a /* Public */,
+      24,    3,  121,    2, 0x0a /* Public */,
+      24,    2,  128,    2, 0x2a /* Public | MethodCloned */,
+      28,    0,  133,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -113,6 +120,8 @@ static const uint qt_meta_data_TCPClient[] = {
     QMetaType::Void, QMetaType::QString,   21,
     QMetaType::Void, QMetaType::QString,    9,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 25, QMetaType::QString, QMetaType::Bool,    9,   26,   27,
+    QMetaType::Void, 0x80000000 | 25, QMetaType::QString,    9,   26,
     QMetaType::Void,
 
        0        // eod
@@ -136,7 +145,9 @@ void TCPClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 9: _t->login((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 10: _t->sendMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 11: _t->disconnectFromHost(); break;
-        case 12: _t->onReadyRead(); break;
+        case 12: _t->sendTrackingDetails((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
+        case 13: _t->sendTrackingDetails((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 14: _t->onReadyRead(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -240,13 +251,13 @@ int TCPClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }

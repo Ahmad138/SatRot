@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
-    ui->comboBox->addItems(sl.getList());
+    ui->sat->addItems(sl.getList());
 
     tables();
 
@@ -111,7 +111,7 @@ MainWindow::MainWindow(QWidget *parent)
         on_pushButton_6_clicked();
         on_checkBox_toggled(true);
 
-        connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));        
+        connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
 
 //        QDateTime UTC(QDateTime::currentDateTimeUtc());
 //        //QDateTime local(UTC.toLocalTime());
@@ -143,6 +143,9 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
     float val = value*0.05;
     QString s = QString::number(val);
     ui->Az->setText("Az: "+ s + "°");
+
+    AzEl["Az"] = s;
+    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
 
@@ -156,6 +159,9 @@ void MainWindow::on_verticalSlider_valueChanged(int value)
     float val = value*0.05;
     QString s = QString::number(val);
     ui->El->setText("El: "+ s + "°");
+
+    AzEl["El"] = s;
+    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
 /**
@@ -398,6 +404,7 @@ void MainWindow::getSatPos(QString endpoint)
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;
        positions.append(o);
+       satPDetails = o;
 
        QString a = QString::number(o.value("info")["satid"].toInt());
        QString b = o.value("info")["satname"].toString();
@@ -649,9 +656,26 @@ void MainWindow::resizeEvent(QResizeEvent* event)
    view->resize(ui->widget->size());
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+void MainWindow::on_sat_currentIndexChanged(const QString &arg1)
 {
-    //qDebug()<<arg1;
+    if(arg1 != "Satellite Name - NORAD Id" && arg1 != "------------------------------------"){
+        const std::string z = arg1.toStdString();
+
+        unsigned first = z.find("[");
+        unsigned last = z.find("]");
+        const std::string str = z.substr (first+1,(last-1)-first);
+
+        QString strNew = QString::fromStdString(str);
+
+        //qDebug() << strNew;
+
+        getSatTLE(strNew);
+        getSatPos(strNew);
+        getSatVisPass(strNew);
+        getSatRadPass(strNew);
+
+        emit valueChanged();
+    }
 }
 
 void MainWindow::tables()
@@ -860,6 +884,13 @@ void MainWindow::tableTimer(){
                             tm_timestamp);
     //qDebug()<<tm_satidPos;
     ui->tableViewPosition->viewport()->update();
+
+    if(!positions.isEmpty()){
+        int lm = positions[0].value("positions").toArray().size();
+        if(UTC.toSecsSinceEpoch() > (positions[0].value("positions")[lm-1]["timestamp"].toInt() + 0)){
+            getSatDetails(noradL);
+        }
+    }
 }
 
 void MainWindow::toggleStartServer()
@@ -869,11 +900,33 @@ void MainWindow::toggleStartServer()
         ui->startStopButton->setText(tr("Start Server"));
         logMessage(QStringLiteral("Server Stopped"));
     } else {
-        if (!m_TCPServer->listen(QHostAddress::Any, 1967)) {
+
+        QString ipAddress;
+        QHostAddress ip;
+        QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+        // use the first non-localhost IPv4 address
+        for (int i = 0; i < ipAddressesList.size(); ++i) {
+            if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
+                ipAddressesList.at(i).toIPv4Address()) {
+                ipAddress = ipAddressesList.at(i).toString();
+                ip = ipAddressesList.at(i);
+                break;
+            }
+        }
+        // if we did not find one, use IPv4 localhost
+        if (ipAddress.isEmpty()){
+            ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+            ip = QHostAddress::LocalHost;
+        }
+        if (!m_TCPServer->listen(ip, 1967)) {
             QMessageBox::critical(this, tr("Error"), tr("Unable to start the server"));
             return;
         }
-        logMessage(QStringLiteral("Server Started"));
+
+        logMessage(QStringLiteral("The server is running on\n\nIP: %1\nport: %2\n\n"
+                                  "Run the SatRot Controller Software Client now and connect.")
+                       .arg(ipAddress).arg(m_TCPServer->serverPort()));
+
         ui->startStopButton->setText(tr("Stop Server"));
     }
 }
@@ -890,13 +943,48 @@ void MainWindow::clientInit(){
 void MainWindow::attemptConnection()
 {
     // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
-    const QString hostAddress = QInputDialog::getText(
-        this
-        , tr("Choose Server")
-            , tr("Server Address")
-            , QLineEdit::Normal
-        , QStringLiteral("127.0.0.1")
-        );
+//    const QString hostAddress = QInputDialog::getText(
+//        this
+//        , tr("Choose Server")
+//            , tr("Server Address")
+//            , QLineEdit::Normal
+//        , QStringLiteral("127.0.0.1")
+//        );
+    QString hostAddress;
+    QStringList hosts;
+//    QComboBox *hostCombo(new QComboBox);
+//    hostCombo->setEditable(true);
+    // find out name of this machine
+    QString name = QHostInfo::localHostName();
+    if (!name.isEmpty()) {
+        hosts.append(name);
+        QString domain = QHostInfo::localDomainName();
+        if (!domain.isEmpty())
+            hosts.append(name + QChar('.') + domain);
+    }
+    if (name != QLatin1String("localhost"))
+        hosts.append(QString("localhost"));
+    // find out IP addresses of this machine
+    QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+    // add non-localhost addresses
+    for (int i = 0; i < ipAddressesList.size(); ++i) {
+        if (!ipAddressesList.at(i).isLoopback())
+           hosts.append(ipAddressesList.at(i).toString());
+    }
+    // add localhost addresses
+    for (int i = 0; i < ipAddressesList.size(); ++i) {
+        if (ipAddressesList.at(i).isLoopback())
+            hosts.append(ipAddressesList.at(i).toString());
+    }
+
+    CustomDialog dialog(hosts);
+
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        // take proper action here
+        hostAddress = dialog.comboBox()->currentText();
+    }
+
     if (hostAddress.isEmpty())
         return; // the user pressed cancel or typed nothing
     // disable the connect button to prevent the user clicking it again
@@ -908,7 +996,7 @@ void MainWindow::attemptConnection()
 void MainWindow::connectedToServer()
 {
     // once we connected to the server we ask the user for what username they would like to use
-    const QString newUsername = QInputDialog::getText(this, tr("Choose Username"), tr("Username"));
+    const QString newUsername = QInputDialog::getText(this, tr("Set Device Name"), tr("Device name"));
     if (newUsername.isEmpty()){
         // if the user clicked cancel or typed nothing, we just disconnect from the server
         return m_TCPClient->disconnectFromHost();
@@ -1124,4 +1212,10 @@ void MainWindow::error(QAbstractSocket::SocketError socketError)
     ui->chatView->setEnabled(false);
     // reset the last printed username
     m_lastUserName.clear();
+}
+
+void MainWindow::on_sendTrack_clicked()
+{
+    //Mode of control, True if automatic and False if Manual
+    m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
 }

@@ -151,8 +151,8 @@ void HttpWindow::httpFinished()
         return;
     }
 
-    qDebug() << tr("Downloaded %1 bytes to %2\nin\n%3")
-                         .arg(fi.size()).arg(fi.fileName(), QDir::toNativeSeparators(fi.absolutePath()));
+//    qDebug() << tr("Downloaded %1 bytes to %2\nin\n%3")
+//                         .arg(fi.size()).arg(fi.fileName(), QDir::toNativeSeparators(fi.absolutePath()));
 
 }
 

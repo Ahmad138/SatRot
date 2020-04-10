@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[54];
-    char stringdata0[714];
+    QByteArrayData data[55];
+    char stringdata0[730];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -65,27 +65,28 @@ QT_MOC_LITERAL(29, 405, 3), // "msg"
 QT_MOC_LITERAL(30, 409, 11), // "resizeEvent"
 QT_MOC_LITERAL(31, 421, 13), // "QResizeEvent*"
 QT_MOC_LITERAL(32, 435, 5), // "event"
-QT_MOC_LITERAL(33, 441, 31), // "on_comboBox_currentIndexChanged"
-QT_MOC_LITERAL(34, 473, 4), // "arg1"
-QT_MOC_LITERAL(35, 478, 10), // "clientInit"
-QT_MOC_LITERAL(36, 489, 17), // "attemptConnection"
-QT_MOC_LITERAL(37, 507, 17), // "connectedToServer"
-QT_MOC_LITERAL(38, 525, 12), // "attemptLogin"
-QT_MOC_LITERAL(39, 538, 8), // "userName"
-QT_MOC_LITERAL(40, 547, 8), // "loggedIn"
-QT_MOC_LITERAL(41, 556, 11), // "loginFailed"
-QT_MOC_LITERAL(42, 568, 6), // "reason"
-QT_MOC_LITERAL(43, 575, 15), // "messageReceived"
-QT_MOC_LITERAL(44, 591, 6), // "sender"
-QT_MOC_LITERAL(45, 598, 4), // "text"
-QT_MOC_LITERAL(46, 603, 11), // "sendMessage"
-QT_MOC_LITERAL(47, 615, 22), // "disconnectedFromServer"
-QT_MOC_LITERAL(48, 638, 10), // "userJoined"
-QT_MOC_LITERAL(49, 649, 8), // "username"
-QT_MOC_LITERAL(50, 658, 8), // "userLeft"
-QT_MOC_LITERAL(51, 667, 5), // "error"
-QT_MOC_LITERAL(52, 673, 28), // "QAbstractSocket::SocketError"
-QT_MOC_LITERAL(53, 702, 11) // "socketError"
+QT_MOC_LITERAL(33, 441, 26), // "on_sat_currentIndexChanged"
+QT_MOC_LITERAL(34, 468, 4), // "arg1"
+QT_MOC_LITERAL(35, 473, 10), // "clientInit"
+QT_MOC_LITERAL(36, 484, 17), // "attemptConnection"
+QT_MOC_LITERAL(37, 502, 17), // "connectedToServer"
+QT_MOC_LITERAL(38, 520, 12), // "attemptLogin"
+QT_MOC_LITERAL(39, 533, 8), // "userName"
+QT_MOC_LITERAL(40, 542, 8), // "loggedIn"
+QT_MOC_LITERAL(41, 551, 11), // "loginFailed"
+QT_MOC_LITERAL(42, 563, 6), // "reason"
+QT_MOC_LITERAL(43, 570, 15), // "messageReceived"
+QT_MOC_LITERAL(44, 586, 6), // "sender"
+QT_MOC_LITERAL(45, 593, 4), // "text"
+QT_MOC_LITERAL(46, 598, 11), // "sendMessage"
+QT_MOC_LITERAL(47, 610, 22), // "disconnectedFromServer"
+QT_MOC_LITERAL(48, 633, 10), // "userJoined"
+QT_MOC_LITERAL(49, 644, 8), // "username"
+QT_MOC_LITERAL(50, 653, 8), // "userLeft"
+QT_MOC_LITERAL(51, 662, 5), // "error"
+QT_MOC_LITERAL(52, 668, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(53, 697, 11), // "socketError"
+QT_MOC_LITERAL(54, 709, 20) // "on_sendTrack_clicked"
 
     },
     "MainWindow\0valueChanged\0\0"
@@ -100,13 +101,14 @@ QT_MOC_LITERAL(53, 702, 11) // "socketError"
     "getSatTLE\0tables\0updateTable\0clearTable\0"
     "setValue\0tableTimer\0toggleStartServer\0"
     "logMessage\0msg\0resizeEvent\0QResizeEvent*\0"
-    "event\0on_comboBox_currentIndexChanged\0"
-    "arg1\0clientInit\0attemptConnection\0"
+    "event\0on_sat_currentIndexChanged\0arg1\0"
+    "clientInit\0attemptConnection\0"
     "connectedToServer\0attemptLogin\0userName\0"
     "loggedIn\0loginFailed\0reason\0messageReceived\0"
     "sender\0text\0sendMessage\0disconnectedFromServer\0"
     "userJoined\0username\0userLeft\0error\0"
-    "QAbstractSocket::SocketError\0socketError"
+    "QAbstractSocket::SocketError\0socketError\0"
+    "on_sendTrack_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -116,7 +118,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      37,   14, // methods
+      38,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -124,45 +126,46 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  199,    2, 0x06 /* Public */,
+       1,    0,  204,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,  200,    2, 0x08 /* Private */,
-       5,    1,  203,    2, 0x08 /* Private */,
-       6,    0,  206,    2, 0x08 /* Private */,
-       7,    0,  207,    2, 0x08 /* Private */,
-       8,    1,  208,    2, 0x08 /* Private */,
-      10,    0,  211,    2, 0x08 /* Private */,
-      11,    0,  212,    2, 0x08 /* Private */,
-      12,    0,  213,    2, 0x08 /* Private */,
-      13,    0,  214,    2, 0x08 /* Private */,
-      14,    1,  215,    2, 0x08 /* Private */,
-      16,    1,  218,    2, 0x08 /* Private */,
-      18,    1,  221,    2, 0x08 /* Private */,
-      19,    1,  224,    2, 0x08 /* Private */,
-      20,    1,  227,    2, 0x08 /* Private */,
-      21,    1,  230,    2, 0x08 /* Private */,
-      22,    0,  233,    2, 0x08 /* Private */,
-      23,    0,  234,    2, 0x08 /* Private */,
-      24,    0,  235,    2, 0x08 /* Private */,
-      25,    1,  236,    2, 0x08 /* Private */,
-      26,    0,  239,    2, 0x08 /* Private */,
-      27,    0,  240,    2, 0x08 /* Private */,
-      28,    1,  241,    2, 0x08 /* Private */,
-      30,    1,  244,    2, 0x08 /* Private */,
-      33,    1,  247,    2, 0x08 /* Private */,
-      35,    0,  250,    2, 0x08 /* Private */,
-      36,    0,  251,    2, 0x08 /* Private */,
-      37,    0,  252,    2, 0x08 /* Private */,
-      38,    1,  253,    2, 0x08 /* Private */,
-      40,    0,  256,    2, 0x08 /* Private */,
-      41,    1,  257,    2, 0x08 /* Private */,
-      43,    2,  260,    2, 0x08 /* Private */,
-      46,    0,  265,    2, 0x08 /* Private */,
-      47,    0,  266,    2, 0x08 /* Private */,
-      48,    1,  267,    2, 0x08 /* Private */,
-      50,    1,  270,    2, 0x08 /* Private */,
-      51,    1,  273,    2, 0x08 /* Private */,
+       3,    1,  205,    2, 0x08 /* Private */,
+       5,    1,  208,    2, 0x08 /* Private */,
+       6,    0,  211,    2, 0x08 /* Private */,
+       7,    0,  212,    2, 0x08 /* Private */,
+       8,    1,  213,    2, 0x08 /* Private */,
+      10,    0,  216,    2, 0x08 /* Private */,
+      11,    0,  217,    2, 0x08 /* Private */,
+      12,    0,  218,    2, 0x08 /* Private */,
+      13,    0,  219,    2, 0x08 /* Private */,
+      14,    1,  220,    2, 0x08 /* Private */,
+      16,    1,  223,    2, 0x08 /* Private */,
+      18,    1,  226,    2, 0x08 /* Private */,
+      19,    1,  229,    2, 0x08 /* Private */,
+      20,    1,  232,    2, 0x08 /* Private */,
+      21,    1,  235,    2, 0x08 /* Private */,
+      22,    0,  238,    2, 0x08 /* Private */,
+      23,    0,  239,    2, 0x08 /* Private */,
+      24,    0,  240,    2, 0x08 /* Private */,
+      25,    1,  241,    2, 0x08 /* Private */,
+      26,    0,  244,    2, 0x08 /* Private */,
+      27,    0,  245,    2, 0x08 /* Private */,
+      28,    1,  246,    2, 0x08 /* Private */,
+      30,    1,  249,    2, 0x08 /* Private */,
+      33,    1,  252,    2, 0x08 /* Private */,
+      35,    0,  255,    2, 0x08 /* Private */,
+      36,    0,  256,    2, 0x08 /* Private */,
+      37,    0,  257,    2, 0x08 /* Private */,
+      38,    1,  258,    2, 0x08 /* Private */,
+      40,    0,  261,    2, 0x08 /* Private */,
+      41,    1,  262,    2, 0x08 /* Private */,
+      43,    2,  265,    2, 0x08 /* Private */,
+      46,    0,  270,    2, 0x08 /* Private */,
+      47,    0,  271,    2, 0x08 /* Private */,
+      48,    1,  272,    2, 0x08 /* Private */,
+      50,    1,  275,    2, 0x08 /* Private */,
+      51,    1,  278,    2, 0x08 /* Private */,
+      54,    0,  281,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -204,6 +207,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,   49,
     QMetaType::Void, QMetaType::QString,   49,
     QMetaType::Void, 0x80000000 | 52,   53,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -238,7 +242,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 21: _t->toggleStartServer(); break;
         case 22: _t->logMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 23: _t->resizeEvent((*reinterpret_cast< QResizeEvent*(*)>(_a[1]))); break;
-        case 24: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 24: _t->on_sat_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 25: _t->clientInit(); break;
         case 26: _t->attemptConnection(); break;
         case 27: _t->connectedToServer(); break;
@@ -251,6 +255,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 34: _t->userJoined((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 35: _t->userLeft((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 36: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 37: _t->on_sendTrack_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -319,13 +324,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 37)
+        if (_id < 38)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 37;
+        _id -= 38;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 37)
+        if (_id < 38)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 37;
+        _id -= 38;
     }
     return _id;
 }
