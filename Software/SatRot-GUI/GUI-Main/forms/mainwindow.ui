@@ -261,10 +261,10 @@
                <item row="8" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
-                  <widget class="QLineEdit" name="lineEdit"/>
+                  <widget class="QLineEdit" name="messageEdit"/>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_7">
+                  <widget class="QPushButton" name="sendButton">
                    <property name="text">
                     <string>Send</string>
                    </property>
@@ -272,16 +272,31 @@
                  </item>
                 </layout>
                </item>
-               <item row="7" column="0">
-                <widget class="QListView" name="listView"/>
+               <item row="4" column="0">
+                <widget class="Line" name="line_9">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
                </item>
                <item row="3" column="0">
-                <widget class="QPlainTextEdit" name="plainTextEdit"/>
+                <widget class="QPlainTextEdit" name="logEditor">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="5" column="0">
-                <widget class="QPushButton" name="pushButton_2">
+                <widget class="QPushButton" name="connectButton">
                  <property name="text">
                   <string>Connect to a TCP Client (rock)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QPlainTextEdit" name="clientView">
+                 <property name="readOnly">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -293,7 +308,7 @@
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="startStopButton">
                  <property name="text">
                   <string>Start TCP Server</string>
                  </property>
@@ -303,13 +318,6 @@
                 <widget class="QLabel" name="label_12">
                  <property name="text">
                   <string>Client Log:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="Line" name="line_9">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
@@ -489,8 +497,8 @@
             <widget class="QLabel" name="label">
              <property name="geometry">
               <rect>
-               <x>160</x>
-               <y>140</y>
+               <x>80</x>
+               <y>10</y>
                <width>461</width>
                <height>34</height>
               </rect>
@@ -502,14 +510,27 @@
             <widget class="QPushButton" name="pushButton">
              <property name="geometry">
               <rect>
-               <x>300</x>
-               <y>230</y>
+               <x>310</x>
+               <y>50</y>
                <width>170</width>
                <height>48</height>
               </rect>
              </property>
              <property name="text">
               <string>PushButton</string>
+             </property>
+            </widget>
+            <widget class="QListView" name="chatView">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>230</y>
+               <width>321</width>
+               <height>211</height>
+              </rect>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
              </property>
             </widget>
            </widget>

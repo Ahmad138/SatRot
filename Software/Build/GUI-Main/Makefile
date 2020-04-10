@@ -500,6 +500,7 @@ moc_api.cpp: ../../SatRot-GUI/GUI-Main/includes/api.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/api.h -o moc_api.cpp
 
 moc_clientthread.cpp: ../../SatRot-GUI/GUI-Main/includes/clientthread.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/clientthread.h -o moc_clientthread.cpp
@@ -528,8 +529,6 @@ moc_mainwindow.cpp: ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/mainwindow.h -o moc_mainwindow.cpp
@@ -613,7 +612,8 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 api.o: ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/includes/api.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o api.o ../../SatRot-GUI/GUI-Main/src/api.cpp
 
-clientthread.o: ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/includes/clientthread.h
+clientthread.o: ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/includes/clientthread.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clientthread.o ../../SatRot-GUI/GUI-Main/src/clientthread.cpp
 
 digitalclock.o: ../../SatRot-GUI/GUI-Main/src/digitalclock.cpp ../../SatRot-GUI/GUI-Main/includes/digitalclock.h
@@ -639,9 +639,7 @@ main.o: ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/include
 		../../SatRot-GUI/GUI-Main/includes/positionmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h
+		../../SatRot-GUI/GUI-Main/includes/tlemodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../SatRot-GUI/GUI-Main/src/main.cpp
 
 mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
@@ -658,8 +656,6 @@ mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp
 
@@ -682,14 +678,13 @@ tcps.o: ../../SatRot-GUI/GUI-Main/src/tcps.cpp ../../SatRot-GUI/GUI-Main/include
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcps.o ../../SatRot-GUI/GUI-Main/src/tcps.cpp
 
 tcpserver.o: ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp ../../SatRot-GUI/GUI-Main/includes/tcpserver.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpthread.h
+		../../SatRot-GUI/GUI-Main/includes/serverthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpserver.o ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp
 
 tcpthread.o: ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp ../../SatRot-GUI/GUI-Main/includes/tcpthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpthread.o ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp
 
-tcpclient.o: ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpthread.h
+tcpclient.o: ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/includes/tcpclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpclient.o ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp
 
 testmodel.o: ../../SatRot-GUI/GUI-Main/src/testmodel.cpp ../../SatRot-GUI/GUI-Main/includes/testmodel.h

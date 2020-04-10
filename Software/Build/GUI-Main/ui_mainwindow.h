@@ -83,15 +83,15 @@ public:
     QGridLayout *gridLayout_18;
     QLabel *msg;
     QHBoxLayout *horizontalLayout_4;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton_7;
-    QListView *listView;
-    QPlainTextEdit *plainTextEdit;
-    QPushButton *pushButton_2;
-    QLabel *label_11;
-    QPushButton *pushButton_3;
-    QLabel *label_12;
+    QLineEdit *messageEdit;
+    QPushButton *sendButton;
     QFrame *line_9;
+    QPlainTextEdit *logEditor;
+    QPushButton *connectButton;
+    QPlainTextEdit *clientView;
+    QLabel *label_11;
+    QPushButton *startStopButton;
+    QLabel *label_12;
     QWidget *tab;
     QGridLayout *gridLayout_13;
     QVBoxLayout *verticalLayout_3;
@@ -109,6 +109,7 @@ public:
     QLabel *El;
     QLabel *label;
     QPushButton *pushButton;
+    QListView *chatView;
     QGroupBox *groupBox_4;
     QGridLayout *gridLayout_8;
     QTabWidget *tabWidget_3;
@@ -334,48 +335,18 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        lineEdit = new QLineEdit(tab_8);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        messageEdit = new QLineEdit(tab_8);
+        messageEdit->setObjectName(QString::fromUtf8("messageEdit"));
 
-        horizontalLayout_4->addWidget(lineEdit);
+        horizontalLayout_4->addWidget(messageEdit);
 
-        pushButton_7 = new QPushButton(tab_8);
-        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        sendButton = new QPushButton(tab_8);
+        sendButton->setObjectName(QString::fromUtf8("sendButton"));
 
-        horizontalLayout_4->addWidget(pushButton_7);
+        horizontalLayout_4->addWidget(sendButton);
 
 
         gridLayout_18->addLayout(horizontalLayout_4, 8, 0, 1, 1);
-
-        listView = new QListView(tab_8);
-        listView->setObjectName(QString::fromUtf8("listView"));
-
-        gridLayout_18->addWidget(listView, 7, 0, 1, 1);
-
-        plainTextEdit = new QPlainTextEdit(tab_8);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-
-        gridLayout_18->addWidget(plainTextEdit, 3, 0, 1, 1);
-
-        pushButton_2 = new QPushButton(tab_8);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        gridLayout_18->addWidget(pushButton_2, 5, 0, 1, 1);
-
-        label_11 = new QLabel(tab_8);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-
-        gridLayout_18->addWidget(label_11, 2, 0, 1, 1);
-
-        pushButton_3 = new QPushButton(tab_8);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        gridLayout_18->addWidget(pushButton_3, 1, 0, 1, 1);
-
-        label_12 = new QLabel(tab_8);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-
-        gridLayout_18->addWidget(label_12, 6, 0, 1, 1);
 
         line_9 = new QFrame(tab_8);
         line_9->setObjectName(QString::fromUtf8("line_9"));
@@ -383,6 +354,37 @@ public:
         line_9->setFrameShadow(QFrame::Sunken);
 
         gridLayout_18->addWidget(line_9, 4, 0, 1, 1);
+
+        logEditor = new QPlainTextEdit(tab_8);
+        logEditor->setObjectName(QString::fromUtf8("logEditor"));
+
+        gridLayout_18->addWidget(logEditor, 3, 0, 1, 1);
+
+        connectButton = new QPushButton(tab_8);
+        connectButton->setObjectName(QString::fromUtf8("connectButton"));
+
+        gridLayout_18->addWidget(connectButton, 5, 0, 1, 1);
+
+        clientView = new QPlainTextEdit(tab_8);
+        clientView->setObjectName(QString::fromUtf8("clientView"));
+        clientView->setReadOnly(true);
+
+        gridLayout_18->addWidget(clientView, 7, 0, 1, 1);
+
+        label_11 = new QLabel(tab_8);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+
+        gridLayout_18->addWidget(label_11, 2, 0, 1, 1);
+
+        startStopButton = new QPushButton(tab_8);
+        startStopButton->setObjectName(QString::fromUtf8("startStopButton"));
+
+        gridLayout_18->addWidget(startStopButton, 1, 0, 1, 1);
+
+        label_12 = new QLabel(tab_8);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+
+        gridLayout_18->addWidget(label_12, 6, 0, 1, 1);
 
 
         gridLayout_12->addLayout(gridLayout_18, 0, 0, 1, 1);
@@ -463,10 +465,14 @@ public:
         El->setGeometry(QRect(90, 200, 171, 34));
         label = new QLabel(tab_2);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(160, 140, 461, 34));
+        label->setGeometry(QRect(80, 10, 461, 34));
         pushButton = new QPushButton(tab_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(300, 230, 170, 48));
+        pushButton->setGeometry(QRect(310, 50, 170, 48));
+        chatView = new QListView(tab_2);
+        chatView->setObjectName(QString::fromUtf8("chatView"));
+        chatView->setGeometry(QRect(160, 230, 321, 211));
+        chatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tabWidget->addTab(tab_2, QString());
 
         gridLayout_3->addWidget(tabWidget, 0, 0, 1, 1);
@@ -770,10 +776,10 @@ public:
         getSatData->setText(QApplication::translate("MainWindow", "Get Satellite Telemetry", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Satellites", nullptr));
         msg->setText(QApplication::translate("MainWindow", "Start a TCP Server or connect to a TCP Client Rotator.", nullptr));
-        pushButton_7->setText(QApplication::translate("MainWindow", "Send Instructions", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Connect to a TCP Client (rock)", nullptr));
+        sendButton->setText(QApplication::translate("MainWindow", "Send", nullptr));
+        connectButton->setText(QApplication::translate("MainWindow", "Connect to a TCP Client (rock)", nullptr));
         label_11->setText(QApplication::translate("MainWindow", "Server Log:", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Start TCP Server", nullptr));
+        startStopButton->setText(QApplication::translate("MainWindow", "Start TCP Server", nullptr));
         label_12->setText(QApplication::translate("MainWindow", "Client Log:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Rotator", nullptr));
         label_7->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));

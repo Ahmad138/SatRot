@@ -19,8 +19,6 @@
 #include "includes/visualpassmodel.h"
 #include "includes/radiopassmodel.h"
 #include "includes/tlemodel.h"
-#include "includes/tcpc.h"
-#include "includes/tcps.h"
 
 
 // this_thread::sleep_for example
@@ -33,6 +31,12 @@
 #include <QMessageBox>
 #include <QNetworkInterface>
 #include <QWebEngineView>
+
+/***********TCPClient***********/
+#include <QAbstractSocket>
+class TCPClient;
+class QStandardItemModel;
+/***********TCPClient***********/
 
 using namespace std;
 
@@ -86,19 +90,6 @@ private slots:
      * @brief
      *
      */
-    void on_webView_loadStarted();
-    /**
-     * @brief
-     *
-     */
-    void on_pushButton_2_clicked();
-
-
-    /**
-     * @brief
-     *
-     */
-    void on_pushButton_3_clicked();
 
     /**
      * @brief
@@ -154,6 +145,9 @@ private slots:
     void setValue(QList<QString> value);
     void tableTimer();
 
+    void toggleStartServer();
+    void logMessage(const QString &msg);
+
     /**
      * @brief
      *
@@ -163,14 +157,30 @@ private slots:
 
     void on_comboBox_currentIndexChanged(const QString &arg1);
 
-    void on_pushButton_4_clicked();
+    void clientInit();
+    /***********TCPClient***********/
+    void attemptConnection();
+    void connectedToServer();
+    void attemptLogin(const QString &userName);
+    void loggedIn();
+    void loginFailed(const QString &reason);
+    void messageReceived(const QString &sender, const QString &text);
+    void sendMessage();
+    void disconnectedFromServer();
+    void userJoined(const QString &username);
+    void userLeft(const QString &username);
+    void error(QAbstractSocket::SocketError socketError);
+    /***********TCPClient***********/
 
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
-    TCPServer server; /**< TODO: describe */
-    TCPClient client; /**< TODO: describe */
-    //TCPc c;
-    //TCPs s;
+    TCPServer *m_TCPServer;; /**< TODO: describe */
+    TCPClient *m_TCPClient; /**< TODO: describe */
+
+    /***********TCPClient***********/
+    QStandardItemModel *m_chatModel;
+    QString m_lastUserName;
+    /***********TCPClient***********/
 
     QWebEngineView *view; /**< TODO: describe */
 
