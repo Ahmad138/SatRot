@@ -39,6 +39,9 @@ class TCPClient;
 class QStandardItemModel;
 /***********TCPClient***********/
 
+//Manual Scribble
+class ManualScribble;
+
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -52,6 +55,9 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 public:
     /**
@@ -72,15 +78,15 @@ private slots:
      *
      * @param value
      */
-    void on_horizontalSlider_valueChanged(int value);
+//    void on_horizontalSlider_valueChanged(int value);
 
 
-    /**
-     * @brief
-     *
-     * @param value
-     */
-    void on_verticalSlider_valueChanged(int value);
+//    /**
+//     * @brief
+//     *
+//     * @param value
+//     */
+//    void on_verticalSlider_valueChanged(int value);
 
     /**
      * @brief
@@ -174,6 +180,16 @@ private slots:
     /***********TCPClient***********/
 
     void on_sendTrack_clicked();
+
+    //Manual scribble
+    void open();
+    void save();
+    void penColor();
+    void penWidth();
+    void about();
+    void clearRadar();
+
+    void logAngles(QMap<QString, double> &angles);
 
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
@@ -270,6 +286,32 @@ private:
             {"El", "0"}
         };
 
+    //Manual Scribble
+    void createActions();
+    void createMenus();
+    bool maybeSave();
+    bool saveFile(const QByteArray &fileFormat);
+    void documentation();
+
+    ManualScribble *MScribble;
+
+    QMenu *saveAsMenu;
+    QMenu *fileMenu;
+    QMenu *optionMenu;
+    QMenu *helpMenu;
+
+    QAction *openAct;
+    QList<QAction *> saveAsActs;
+    QAction *exitAct;
+    QAction *penColorAct;
+    QAction *penWidthAct;
+    QAction *printAct;
+    QAction *clearScreenAct;
+    QAction *aboutAct;
+//    QAction *aboutQtAct;
+    QAction *documentationAct;
+
+    QString radarFileName = "/home/ahmad/Downloads/46188.png";
 signals:
     void valueChanged();
 

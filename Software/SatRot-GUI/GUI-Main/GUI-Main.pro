@@ -36,11 +36,13 @@ SOURCES += \
     src/api.cpp \
     src/clientthread.cpp \
     src/customdialog.cpp \
+    src/customscene.cpp \
     src/digitalclock.cpp \
     src/getgeolocation.cpp \
     src/httpwindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/manualscribble.cpp \
     src/positionmodel.cpp \
     src/radiopassmodel.cpp \
     src/satellitelist.cpp \
@@ -59,10 +61,12 @@ HEADERS += \
     includes/api.h \
     includes/clientthread.h \
     includes/customdialog.h \
+    includes/customscene.h \
     includes/digitalclock.h \
     includes/getgeolocation.h \
     includes/httpwindow.h \
     includes/mainwindow.h \
+    includes/manualscribble.h \
     includes/positionmodel.h \
     includes/radiopassmodel.h \
     includes/satellitelist.h \

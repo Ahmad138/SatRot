@@ -12,14 +12,12 @@
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -28,7 +26,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
@@ -45,13 +42,6 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionView;
-    QAction *actionAbout_Satrot;
-    QAction *actionFullscreen;
-    QAction *actionCopy;
-    QAction *actionClose;
-    QAction *actionAbout_Satrot_2;
-    QAction *actionDocumentation;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
@@ -112,13 +102,15 @@ public:
     QGridLayout *gridLayout_10;
     QGridLayout *gridLayout_21;
     QLabel *El;
-    QHBoxLayout *horizontalLayout_5;
-    QSlider *verticalSlider;
-    QGraphicsView *graphicsView;
+    QLabel *Az;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_10;
     QSlider *horizontalSlider;
-    QLabel *Az;
+    QHBoxLayout *horizontalLayout_5;
+    QSlider *verticalSlider;
+    QHBoxLayout *horizontalLayout_10;
+    QSpacerItem *verticalSpacer;
+    QWidget *tab_11;
     QGroupBox *groupBox_3;
     QGridLayout *gridLayout_4;
     QTabWidget *tabWidget_2;
@@ -164,39 +156,18 @@ public:
     QPushButton *pushButton_5;
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_6;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *statusBar;
-    QLabel *status;
-    QMenuBar *menubar;
-    QMenu *menu_File;
-    QMenu *menu_View;
-    QMenu *menu_Help;
-    QMenu *menu_Edit;
     QStatusBar *statusbar;
+    QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1438, 1239);
+        MainWindow->resize(1445, 1086);
         MainWindow->setMinimumSize(QSize(0, 768));
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../../../Documents/Images/Logo/SatRot logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
-        actionView = new QAction(MainWindow);
-        actionView->setObjectName(QString::fromUtf8("actionView"));
-        actionAbout_Satrot = new QAction(MainWindow);
-        actionAbout_Satrot->setObjectName(QString::fromUtf8("actionAbout_Satrot"));
-        actionFullscreen = new QAction(MainWindow);
-        actionFullscreen->setObjectName(QString::fromUtf8("actionFullscreen"));
-        actionCopy = new QAction(MainWindow);
-        actionCopy->setObjectName(QString::fromUtf8("actionCopy"));
-        actionClose = new QAction(MainWindow);
-        actionClose->setObjectName(QString::fromUtf8("actionClose"));
-        actionAbout_Satrot_2 = new QAction(MainWindow);
-        actionAbout_Satrot_2->setObjectName(QString::fromUtf8("actionAbout_Satrot_2"));
-        actionDocumentation = new QAction(MainWindow);
-        actionDocumentation->setObjectName(QString::fromUtf8("actionDocumentation"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -239,7 +210,7 @@ public:
         chatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         logo = new QLabel(widget);
         logo->setObjectName(QString::fromUtf8("logo"));
-        logo->setGeometry(QRect(650, 0, 100, 385));
+        logo->setGeometry(QRect(470, 234, 100, 221));
         logo->setMinimumSize(QSize(0, 0));
         logo->setMaximumSize(QSize(110, 16777215));
         logo->setPixmap(QPixmap(QString::fromUtf8("../res/img/SatRot logo2.png")));
@@ -493,23 +464,11 @@ public:
 
         gridLayout_21->addWidget(El, 0, 0, 1, 1);
 
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        verticalSlider = new QSlider(tab_2);
-        verticalSlider->setObjectName(QString::fromUtf8("verticalSlider"));
-        verticalSlider->setMaximum(3600);
-        verticalSlider->setOrientation(Qt::Vertical);
+        Az = new QLabel(tab_2);
+        Az->setObjectName(QString::fromUtf8("Az"));
+        Az->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_5->addWidget(verticalSlider);
-
-        graphicsView = new QGraphicsView(tab_2);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setMaximumSize(QSize(16777215, 450));
-
-        horizontalLayout_5->addWidget(graphicsView);
-
-
-        gridLayout_21->addLayout(horizontalLayout_5, 1, 0, 1, 1);
+        gridLayout_21->addWidget(Az, 3, 0, 1, 1);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
@@ -531,16 +490,35 @@ public:
 
         gridLayout_21->addLayout(horizontalLayout_7, 2, 0, 1, 1);
 
-        Az = new QLabel(tab_2);
-        Az->setObjectName(QString::fromUtf8("Az"));
-        Az->setAlignment(Qt::AlignCenter);
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        verticalSlider = new QSlider(tab_2);
+        verticalSlider->setObjectName(QString::fromUtf8("verticalSlider"));
+        verticalSlider->setMaximumSize(QSize(23, 500));
+        verticalSlider->setMaximum(1800);
+        verticalSlider->setOrientation(Qt::Vertical);
 
-        gridLayout_21->addWidget(Az, 3, 0, 1, 1);
+        horizontalLayout_5->addWidget(verticalSlider);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+
+        horizontalLayout_5->addLayout(horizontalLayout_10);
+
+
+        gridLayout_21->addLayout(horizontalLayout_5, 1, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_21->addItem(verticalSpacer, 4, 0, 1, 1);
 
 
         gridLayout_10->addLayout(gridLayout_21, 0, 0, 1, 1);
 
         tabWidget->addTab(tab_2, QString());
+        tab_11 = new QWidget();
+        tab_11->setObjectName(QString::fromUtf8("tab_11"));
+        tabWidget->addTab(tab_11, QString());
 
         gridLayout_3->addWidget(tabWidget, 0, 0, 1, 1);
 
@@ -769,49 +747,14 @@ public:
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        statusBar = new QLabel(centralwidget);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        statusBar->setMaximumSize(QSize(90, 16777215));
-
-        horizontalLayout_6->addWidget(statusBar);
-
-        status = new QLabel(centralwidget);
-        status->setObjectName(QString::fromUtf8("status"));
-
-        horizontalLayout_6->addWidget(status);
-
-
-        gridLayout_2->addLayout(horizontalLayout_6, 1, 0, 1, 1);
-
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1438, 50));
-        menu_File = new QMenu(menubar);
-        menu_File->setObjectName(QString::fromUtf8("menu_File"));
-        menu_View = new QMenu(menubar);
-        menu_View->setObjectName(QString::fromUtf8("menu_View"));
-        menu_Help = new QMenu(menubar);
-        menu_Help->setObjectName(QString::fromUtf8("menu_Help"));
-        menu_Edit = new QMenu(menubar);
-        menu_Edit->setObjectName(QString::fromUtf8("menu_Edit"));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-
-        menubar->addAction(menu_File->menuAction());
-        menubar->addAction(menu_Edit->menuAction());
-        menubar->addAction(menu_View->menuAction());
-        menubar->addAction(menu_Help->menuAction());
-        menu_File->addAction(actionClose);
-        menu_View->addAction(actionFullscreen);
-        menu_Help->addAction(actionDocumentation);
-        menu_Help->addAction(actionAbout_Satrot);
-        menu_Help->addAction(actionAbout_Satrot_2);
-        menu_Edit->addAction(actionCopy);
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 1445, 50));
+        MainWindow->setMenuBar(menubar);
 
         retranslateUi(MainWindow);
 
@@ -826,13 +769,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SatRot", nullptr));
-        actionView->setText(QApplication::translate("MainWindow", "View", nullptr));
-        actionAbout_Satrot->setText(QApplication::translate("MainWindow", "Help", nullptr));
-        actionFullscreen->setText(QApplication::translate("MainWindow", "Fullscreen", nullptr));
-        actionCopy->setText(QApplication::translate("MainWindow", "Copy", nullptr));
-        actionClose->setText(QApplication::translate("MainWindow", "Close", nullptr));
-        actionAbout_Satrot_2->setText(QApplication::translate("MainWindow", "About Satrot", nullptr));
-        actionDocumentation->setText(QApplication::translate("MainWindow", "Documentation", nullptr));
         groupBox->setTitle(QApplication::translate("MainWindow", "Map", nullptr));
         label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
@@ -857,9 +793,10 @@ public:
         satDetails->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Automatic", nullptr));
         El->setText(QApplication::translate("MainWindow", "El", nullptr));
-        label_10->setText(QApplication::translate("MainWindow", "0,0", nullptr));
         Az->setText(QApplication::translate("MainWindow", "Az", nullptr));
+        label_10->setText(QApplication::translate("MainWindow", "0,0", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Manual", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_11), QApplication::translate("MainWindow", "Radio", nullptr));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Satellite Details", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Position", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "Visual Pass", nullptr));
@@ -880,12 +817,6 @@ public:
         pushButton_5->setText(QApplication::translate("MainWindow", "Set Manually", nullptr));
         pushButton_6->setText(QApplication::translate("MainWindow", "Set Automatically", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_10), QApplication::translate("MainWindow", "Set Location", nullptr));
-        statusBar->setText(QApplication::translate("MainWindow", "Status: ", nullptr));
-        status->setText(QApplication::translate("MainWindow", "loading....", nullptr));
-        menu_File->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
-        menu_View->setTitle(QApplication::translate("MainWindow", "&View", nullptr));
-        menu_Help->setTitle(QApplication::translate("MainWindow", "&Help", nullptr));
-        menu_Edit->setTitle(QApplication::translate("MainWindow", "&Edit", nullptr));
     } // retranslateUi
 
 };
