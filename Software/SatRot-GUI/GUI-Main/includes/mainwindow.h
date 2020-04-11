@@ -19,9 +19,7 @@
 #include "includes/visualpassmodel.h"
 #include "includes/radiopassmodel.h"
 #include "includes/tlemodel.h"
-#include "includes/tcpc.h"
-#include "includes/tcps.h"
-
+#include "includes/customdialog.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout
@@ -33,6 +31,16 @@
 #include <QMessageBox>
 #include <QNetworkInterface>
 #include <QWebEngineView>
+#include <QHostInfo>
+
+/***********TCPClient***********/
+#include <QAbstractSocket>
+class TCPClient;
+class QStandardItemModel;
+/***********TCPClient***********/
+
+//Manual Scribble
+class ManualScribble;
 
 using namespace std;
 
@@ -47,6 +55,9 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 public:
     /**
@@ -67,15 +78,15 @@ private slots:
      *
      * @param value
      */
-    void on_horizontalSlider_valueChanged(int value);
+//    void on_horizontalSlider_valueChanged(int value);
 
 
-    /**
-     * @brief
-     *
-     * @param value
-     */
-    void on_verticalSlider_valueChanged(int value);
+//    /**
+//     * @brief
+//     *
+//     * @param value
+//     */
+//    void on_verticalSlider_valueChanged(int value);
 
     /**
      * @brief
@@ -86,19 +97,6 @@ private slots:
      * @brief
      *
      */
-    void on_webView_loadStarted();
-    /**
-     * @brief
-     *
-     */
-    void on_pushButton_2_clicked();
-
-
-    /**
-     * @brief
-     *
-     */
-    void on_pushButton_3_clicked();
 
     /**
      * @brief
@@ -154,6 +152,9 @@ private slots:
     void setValue(QList<QString> value);
     void tableTimer();
 
+    void toggleStartServer();
+    void logMessage(const QString &msg);
+
     /**
      * @brief
      *
@@ -161,16 +162,44 @@ private slots:
      */
     void resizeEvent(QResizeEvent* event);
 
-    void on_comboBox_currentIndexChanged(const QString &arg1);
+    void on_sat_currentIndexChanged(const QString &arg1);
 
-    void on_pushButton_4_clicked();
+    void clientInit();
+    /***********TCPClient***********/
+    void attemptConnection();
+    void connectedToServer();
+    void attemptLogin(const QString &userName);
+    void loggedIn();
+    void loginFailed(const QString &reason);
+    void messageReceived(const QString &sender, const QString &text);
+    void sendMessage();
+    void disconnectedFromServer();
+    void userJoined(const QString &username);
+    void userLeft(const QString &username);
+    void error(QAbstractSocket::SocketError socketError);
+    /***********TCPClient***********/
+
+    void on_sendTrack_clicked();
+
+    //Manual scribble
+    void open();
+    void save();
+    void penColor();
+    void penWidth();
+    void about();
+    void clearRadar();
+
+    void logAngles(QMap<QString, double> &angles);
 
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
-    TCPServer server; /**< TODO: describe */
-    TCPClient client; /**< TODO: describe */
-    //TCPc c;
-    //TCPs s;
+    TCPServer *m_TCPServer;; /**< TODO: describe */
+    TCPClient *m_TCPClient; /**< TODO: describe */
+
+    /***********TCPClient***********/
+    QStandardItemModel *m_chatModel;
+    QString m_lastUserName;
+    /***********TCPClient***********/
 
     QWebEngineView *view; /**< TODO: describe */
 
@@ -202,6 +231,7 @@ private:
 
     //List for Position data
     QList<QJsonObject> positions;
+    QJsonObject satPDetails;
 
     QList<QString> tm_satidPos;
     QList<QString> tm_satnamePos;
@@ -250,6 +280,38 @@ private:
     QList<QString> tm_maxAzCompassR;
     QList<QString> tm_endAzCompassR;
 
+    QJsonObject AzEl
+        {
+            {"Az", "0"},
+            {"El", "0"}
+        };
+
+    //Manual Scribble
+    void createActions();
+    void createMenus();
+    bool maybeSave();
+    bool saveFile(const QByteArray &fileFormat);
+    void documentation();
+
+    ManualScribble *MScribble;
+
+    QMenu *saveAsMenu;
+    QMenu *fileMenu;
+    QMenu *optionMenu;
+    QMenu *helpMenu;
+
+    QAction *openAct;
+    QList<QAction *> saveAsActs;
+    QAction *exitAct;
+    QAction *penColorAct;
+    QAction *penWidthAct;
+    QAction *printAct;
+    QAction *clearScreenAct;
+    QAction *aboutAct;
+//    QAction *aboutQtAct;
+    QAction *documentationAct;
+
+    QString radarFileName = "/home/ahmad/Downloads/46188.png";
 signals:
     void valueChanged();
 

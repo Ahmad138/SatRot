@@ -1,6 +1,21 @@
 #include "includes/mainwindow.h"
 #include "ui_mainwindow.h"
 
+/***********TCPClient***********/
+#include <QStandardItemModel>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QHostAddress>
+/***********TCPClient***********/
+
+//Manual Scribble
+#include "includes/manualscribble.h"
+#include <QColorDialog>
+#include <QFileDialog>
+#include <QImageWriter>
+#include <QMenuBar>
+#include <QCloseEvent>
+
 /**
  * @brief
  *
@@ -9,8 +24,25 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , m_TCPServer(new TCPServer(this)) // create the network server
+    , m_TCPClient(new TCPClient(this)) // create the network client
+    , m_chatModel(new QStandardItemModel(this)) // create the model to hold the messages
+    , MScribble(new ManualScribble(this))
 {
-    ui->setupUi(this);    
+    ui->setupUi(this);
+
+    ui->statusbar->setEnabled(true);
+    ui->statusbar->showMessage("Loading");
+
+    createActions();
+    createMenus();
+
+    MScribble->setMinimumSize(500, 500);
+    MScribble->setMaximumSize(500, 500);
+    //
+    ui->horizontalLayout_10->addWidget(MScribble);
+
+    MScribble->openImage(radarFileName);
 
     //init Sliders
     ui->Az->setNum(0);
@@ -23,11 +55,47 @@ MainWindow::MainWindow(QWidget *parent)
     QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
-    ui->comboBox->addItems(sl.getList());
+    ui->sat->addItems(sl.getList());
 
     tables();
 
     webView();
+
+    //server function connections
+    connect(ui->startStopButton, &QPushButton::clicked, this, &MainWindow::toggleStartServer);
+    connect(m_TCPServer, &TCPServer::logMessage, this, &MainWindow::logMessage);
+
+    //client function connections
+    /***********TCPClient***********/
+    ui->chatView->setModel(m_chatModel);
+    // connect the signals from the chat client to the slots in this ui
+    connect(m_TCPClient, &TCPClient::connected, this, &MainWindow::connectedToServer);
+    connect(m_TCPClient, &TCPClient::loggedIn, this, &MainWindow::loggedIn);
+    connect(m_TCPClient, &TCPClient::loginError, this, &MainWindow::loginFailed);
+    connect(m_TCPClient, &TCPClient::messageReceived, this, &MainWindow::messageReceived);
+    connect(m_TCPClient, &TCPClient::disconnected, this, &MainWindow::disconnectedFromServer);
+    connect(m_TCPClient, &TCPClient::error, this, &MainWindow::error);
+    connect(m_TCPClient, &TCPClient::userJoined, this, &MainWindow::userJoined);
+    connect(m_TCPClient, &TCPClient::userLeft, this, &MainWindow::userLeft);
+    // connect the connect button to a slot that will attempt the connection
+    connect(ui->connectButton, &QPushButton::clicked, this, &MainWindow::attemptConnection);
+    // connect the click of the "send" button and the press of the enter while typing to the slot that sends the message
+    connect(ui->sendButton, &QPushButton::clicked, this, &MainWindow::sendMessage);
+    connect(ui->messageEdit, &QLineEdit::returnPressed, this, &MainWindow::sendMessage);
+
+    //connect Calculated Manual angle to slot
+    connect(MScribble, &ManualScribble::logAngles, this, &MainWindow::logAngles);
+
+    // disable the ui to send and display messages
+    ui->sendButton->setEnabled(false);
+    ui->messageEdit->setEnabled(false);
+    ui->chatView->setEnabled(false);
+    // enable the button to connect to the server again
+    ui->connectButton->setEnabled(true);
+    // reset the last printed username
+    m_lastUserName.clear();
+    ui->clientView->setEnabled(false);
+    /***********TCPClient***********/
 
     ui->latTxT->setStyleSheet("font-size: 9pt;");
     ui->longTxT->setStyleSheet("font-size: 9pt;");
@@ -68,7 +136,7 @@ MainWindow::MainWindow(QWidget *parent)
         on_pushButton_6_clicked();
         on_checkBox_toggled(true);
 
-        connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));        
+        connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
 
 //        QDateTime UTC(QDateTime::currentDateTimeUtc());
 //        //QDateTime local(UTC.toLocalTime());
@@ -78,7 +146,6 @@ MainWindow::MainWindow(QWidget *parent)
         connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
         timerT->start(250);
 
-        //c.send();
 }
 
 /**
@@ -95,25 +162,31 @@ MainWindow::~MainWindow()
  *
  * @param value
  */
-void MainWindow::on_horizontalSlider_valueChanged(int value)
-{
-    float val = value*0.05;
-    QString s = QString::number(val);
-    ui->Az->setText("Az: "+ s + "°");
-}
+//void MainWindow::on_horizontalSlider_valueChanged(int value)
+//{
+//    float val = value*0.05;
+//    QString s = QString::number(val);
+//    ui->Az->setText("Az: "+ s + "°");
+
+//    AzEl["Az"] = s;
+//    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
+//}
 
 
-/**
- * @brief
- *
- * @param value
- */
-void MainWindow::on_verticalSlider_valueChanged(int value)
-{
-    float val = value*0.05;
-    QString s = QString::number(val);
-    ui->El->setText("El: "+ s + "°");
-}
+///**
+// * @brief
+// *
+// * @param value
+// */
+//void MainWindow::on_verticalSlider_valueChanged(int value)
+//{
+//    float val = value*0.05;
+//    QString s = QString::number(val);
+//    ui->El->setText("El: "+ s + "°");
+
+//    AzEl["El"] = s;
+//    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
+//}
 
 /**
  * @brief
@@ -140,54 +213,6 @@ void MainWindow::on_pushButton_clicked()
 
     a->sendRequest(url, getData, errData);
 
-}
-
-/**
- * @brief
- *
- */
-void MainWindow::on_webView_loadStarted()
-{
-
-}
-
-/**
- * @brief
- *
- */
-void MainWindow::on_pushButton_2_clicked()
-{
-    client.show();
-}
-
-/**
- * @brief
- *
- */
-void MainWindow::on_pushButton_3_clicked()
-{
-    if (!server.listen()) {
-            QMessageBox::critical(this, tr("Rotator Server"),
-                                  tr("Unable to start the server: %1.")
-                                  .arg(server.errorString()));
-        }
-
-        QString ipAddress;
-        QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-        // use the first non-localhost IPv4 address
-        for (int i = 0; i < ipAddressesList.size(); ++i) {
-            if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
-                ipAddressesList.at(i).toIPv4Address()) {
-                ipAddress = ipAddressesList.at(i).toString();
-                break;
-            }
-        }
-        // if we did not find one, use IPv4 localhost
-        if (ipAddress.isEmpty())
-            ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-        ui->msg->setText(tr("The server is running on\n\nIP: %1\nport: %2\n\n"
-                                "Run the SatRot Controller Software Client now and connect.")
-                             .arg(ipAddress).arg(server.serverPort()));
 }
 
 
@@ -403,6 +428,7 @@ void MainWindow::getSatPos(QString endpoint)
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;
        positions.append(o);
+       satPDetails = o;
 
        QString a = QString::number(o.value("info")["satid"].toInt());
        QString b = o.value("info")["satname"].toString();
@@ -654,9 +680,26 @@ void MainWindow::resizeEvent(QResizeEvent* event)
    view->resize(ui->widget->size());
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+void MainWindow::on_sat_currentIndexChanged(const QString &arg1)
 {
-    qDebug()<<arg1;
+    if(arg1 != "Satellite Name - NORAD Id" && arg1 != "------------------------------------"){
+        const std::string z = arg1.toStdString();
+
+        unsigned first = z.find("[");
+        unsigned last = z.find("]");
+        const std::string str = z.substr (first+1,(last-1)-first);
+
+        QString strNew = QString::fromStdString(str);
+
+        //qDebug() << strNew;
+
+        getSatTLE(strNew);
+        getSatPos(strNew);
+        getSatVisPass(strNew);
+        getSatRadPass(strNew);
+
+        emit valueChanged();
+    }
 }
 
 void MainWindow::tables()
@@ -865,10 +908,532 @@ void MainWindow::tableTimer(){
                             tm_timestamp);
     //qDebug()<<tm_satidPos;
     ui->tableViewPosition->viewport()->update();
+
+    if(!positions.isEmpty()){
+        int lm = positions[0].value("positions").toArray().size();
+        if(UTC.toSecsSinceEpoch() > (positions[0].value("positions")[lm-1]["timestamp"].toInt() + 0)){
+            getSatDetails(noradL);
+        }
+    }
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::toggleStartServer()
 {
-    //server.sendMsg(server.socketDescriptor(),"hello from the other side!!");
+    if (m_TCPServer->isListening()) {
+        m_TCPServer->stopServer();
+        ui->startStopButton->setText(tr("Start Server"));
+        logMessage(QStringLiteral("Server Stopped"));
+    } else {
 
+        QString ipAddress;
+        QHostAddress ip;
+        QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+        // use the first non-localhost IPv4 address
+        for (int i = 0; i < ipAddressesList.size(); ++i) {
+            if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
+                ipAddressesList.at(i).toIPv4Address()) {
+                ipAddress = ipAddressesList.at(i).toString();
+                ip = ipAddressesList.at(i);
+                break;
+            }
+        }
+        // if we did not find one, use IPv4 localhost
+        if (ipAddress.isEmpty()){
+            ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+            ip = QHostAddress::LocalHost;
+        }
+        if (!m_TCPServer->listen(ip, 1967)) {
+            QMessageBox::critical(this, tr("Error"), tr("Unable to start the server"));
+            return;
+        }
+
+        logMessage(QStringLiteral("The server is running on\n\nIP: %1\nport: %2\n\n"
+                                  "Run the SatRot Controller Software Client now and connect.")
+                       .arg(ipAddress).arg(m_TCPServer->serverPort()));
+
+        ui->startStopButton->setText(tr("Stop Server"));
+    }
+}
+
+void MainWindow::logMessage(const QString &msg)
+{
+    ui->logEditor->appendPlainText(msg + '\n');
+}
+
+void MainWindow::clientInit(){
+
+}
+
+void MainWindow::attemptConnection()
+{
+    // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
+//    const QString hostAddress = QInputDialog::getText(
+//        this
+//        , tr("Choose Server")
+//            , tr("Server Address")
+//            , QLineEdit::Normal
+//        , QStringLiteral("127.0.0.1")
+//        );
+    QString hostAddress;
+    QStringList hosts;
+//    QComboBox *hostCombo(new QComboBox);
+//    hostCombo->setEditable(true);
+    // find out name of this machine
+    QString name = QHostInfo::localHostName();
+    if (!name.isEmpty()) {
+        hosts.append(name);
+        QString domain = QHostInfo::localDomainName();
+        if (!domain.isEmpty())
+            hosts.append(name + QChar('.') + domain);
+    }
+    if (name != QLatin1String("localhost"))
+        hosts.append(QString("localhost"));
+    // find out IP addresses of this machine
+    QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+    // add non-localhost addresses
+    for (int i = 0; i < ipAddressesList.size(); ++i) {
+        if (!ipAddressesList.at(i).isLoopback())
+           hosts.append(ipAddressesList.at(i).toString());
+    }
+    // add localhost addresses
+    for (int i = 0; i < ipAddressesList.size(); ++i) {
+        if (ipAddressesList.at(i).isLoopback())
+            hosts.append(ipAddressesList.at(i).toString());
+    }
+
+    CustomDialog dialog(hosts);
+
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        // take proper action here
+        hostAddress = dialog.comboBox()->currentText();
+    }
+
+    if (hostAddress.isEmpty())
+        return; // the user pressed cancel or typed nothing
+    // disable the connect button to prevent the user clicking it again
+    ui->connectButton->setEnabled(false);
+    // tell the client to connect to the host using the port 1967
+    m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
+}
+
+void MainWindow::connectedToServer()
+{
+    // once we connected to the server we ask the user for what username they would like to use
+    const QString newUsername = QInputDialog::getText(this, tr("Set Device Name"), tr("Device name"));
+    if (newUsername.isEmpty()){
+        // if the user clicked cancel or typed nothing, we just disconnect from the server
+        return m_TCPClient->disconnectFromHost();
+    }
+    // try to login with the given username
+    attemptLogin(newUsername);
+}
+
+void MainWindow::attemptLogin(const QString &userName)
+{
+    // use the client to attempt a log in with the given username
+    m_TCPClient->login(userName);
+}
+
+void MainWindow::loggedIn()
+{
+    // once we successully log in we enable the ui to display and send messages
+    ui->sendButton->setEnabled(true);
+    ui->messageEdit->setEnabled(true);
+    ui->chatView->setEnabled(true);
+    // clear the user name record
+    m_lastUserName.clear();
+    ui->clientView->setEnabled(true);
+
+    QString x ="";
+    ui->clientView->appendPlainText("Connected to Server" + x +'\n');
+}
+
+void MainWindow::loginFailed(const QString &reason)
+{
+    // the server rejected the login attempt
+    // display the reason for the rejection in a message box
+    QMessageBox::critical(this, tr("Error"), reason);
+    // allow the user to retry, execute the same slot as when just connected
+    connectedToServer();
+}
+
+void MainWindow::messageReceived(const QString &sender, const QString &text)
+{
+    // store the index of the new row to append to the model containing the messages
+    int newRow = m_chatModel->rowCount();
+    // we display a line containing the username only if it's different from the last username we displayed
+    if (m_lastUserName != sender) {
+        // store the last displayed username
+        m_lastUserName = sender;
+        // create a bold default font
+        QFont boldFont;
+        boldFont.setBold(true);
+        // insert 2 row, one for the message and one for the username
+        m_chatModel->insertRows(newRow, 2);
+        // store the username in the model
+        m_chatModel->setData(m_chatModel->index(newRow, 0), sender + ':');
+        // set the alignment for the username
+        m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+        // set the for the username
+        m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
+        ++newRow;
+
+        ui->clientView->appendPlainText(sender + ":" + '\n' + text + '\n');
+    } else {
+        // insert a row for the message
+        m_chatModel->insertRow(newRow);
+
+        ui->clientView->appendPlainText(text + '\n');
+    }
+    // store the message in the model
+    m_chatModel->setData(m_chatModel->index(newRow, 0), text);
+    // set the alignment for the message
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+    // scroll the view to display the new message
+    ui->chatView->scrollToBottom();
+
+}
+
+void MainWindow::sendMessage()
+{
+    // we use the client to send the message that the user typed
+    m_TCPClient->sendMessage(ui->messageEdit->text());
+    // now we add the message to the list
+    // store the index of the new row to append to the model containing the messages
+    const int newRow = m_chatModel->rowCount();
+    // insert a row for the message
+    m_chatModel->insertRow(newRow);
+    // store the message in the model
+    m_chatModel->setData(m_chatModel->index(newRow, 0), ui->messageEdit->text());
+    // set the alignment for the message
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignRight | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+    ui->clientView->appendPlainText(ui->messageEdit->text() + '\n');
+    // clear the content of the message editor
+    ui->messageEdit->clear();
+
+    // scroll the view to display the new message
+    ui->chatView->scrollToBottom();
+    // reset the last printed username
+    m_lastUserName.clear();
+
+}
+
+void MainWindow::disconnectedFromServer()
+{
+    // if the client loses connection to the server
+    // comunicate the event to the user via a message box
+    QMessageBox::warning(this, tr("Disconnected"), tr("The host terminated the connection"));
+    // disable the ui to send and display messages
+    ui->sendButton->setEnabled(false);
+    ui->messageEdit->setEnabled(false);
+    ui->chatView->setEnabled(false);
+    // enable the button to connect to the server again
+    ui->connectButton->setEnabled(true);
+    // reset the last printed username
+    m_lastUserName.clear();
+    ui->clientView->setEnabled(false);
+}
+
+void MainWindow::userJoined(const QString &username)
+{
+    // store the index of the new row to append to the model containing the messages
+    const int newRow = m_chatModel->rowCount();
+    // insert a row
+    m_chatModel->insertRow(newRow);
+    // store in the model the message to comunicate a user joined
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Joined the Chat").arg(username));
+    // set the alignment for the text
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+    // set the color for the text
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
+    // scroll the view to display the new message
+    ui->chatView->scrollToBottom();
+    // reset the last printed username
+    m_lastUserName.clear();
+
+    ui->clientView->appendPlainText("\"" + username + "\" Joined the network" + '\n');
+}
+void MainWindow::userLeft(const QString &username)
+{
+    // store the index of the new row to append to the model containing the messages
+    const int newRow = m_chatModel->rowCount();
+    // insert a row
+    m_chatModel->insertRow(newRow);
+    // store in the model the message to comunicate a user left
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Left the Chat").arg(username));
+    // set the alignment for the text
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+    // set the color for the text
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::red), Qt::ForegroundRole);
+    // scroll the view to display the new message
+    ui->chatView->scrollToBottom();
+    // reset the last printed username
+    m_lastUserName.clear();
+
+    ui->clientView->appendPlainText("\"" + username + "\" Left the network" + '\n');
+}
+
+void MainWindow::error(QAbstractSocket::SocketError socketError)
+{
+    // show a message to the user that informs of what kind of error occurred
+    switch (socketError) {
+    case QAbstractSocket::RemoteHostClosedError:
+    case QAbstractSocket::ProxyConnectionClosedError:
+        return; // handled by disconnectedFromServer
+    case QAbstractSocket::ConnectionRefusedError:
+        QMessageBox::critical(this, tr("Error"), tr("The host refused the connection"));
+        break;
+    case QAbstractSocket::ProxyConnectionRefusedError:
+        QMessageBox::critical(this, tr("Error"), tr("The proxy refused the connection"));
+        break;
+    case QAbstractSocket::ProxyNotFoundError:
+        QMessageBox::critical(this, tr("Error"), tr("Could not find the proxy"));
+        break;
+    case QAbstractSocket::HostNotFoundError:
+        QMessageBox::critical(this, tr("Error"), tr("Could not find the server"));
+        break;
+    case QAbstractSocket::SocketAccessError:
+        QMessageBox::critical(this, tr("Error"), tr("You don't have permissions to execute this operation"));
+        break;
+    case QAbstractSocket::SocketResourceError:
+        QMessageBox::critical(this, tr("Error"), tr("Too many connections opened"));
+        break;
+    case QAbstractSocket::SocketTimeoutError:
+        QMessageBox::warning(this, tr("Error"), tr("Operation timed out"));
+        return;
+    case QAbstractSocket::ProxyConnectionTimeoutError:
+        QMessageBox::critical(this, tr("Error"), tr("Proxy timed out"));
+        break;
+    case QAbstractSocket::NetworkError:
+        QMessageBox::critical(this, tr("Error"), tr("Unable to reach the network"));
+        break;
+    case QAbstractSocket::UnknownSocketError:
+        QMessageBox::critical(this, tr("Error"), tr("An unknown error occured"));
+        break;
+    case QAbstractSocket::UnsupportedSocketOperationError:
+        QMessageBox::critical(this, tr("Error"), tr("Operation not supported"));
+        break;
+    case QAbstractSocket::ProxyAuthenticationRequiredError:
+        QMessageBox::critical(this, tr("Error"), tr("Your proxy requires authentication"));
+        break;
+    case QAbstractSocket::ProxyProtocolError:
+        QMessageBox::critical(this, tr("Error"), tr("Proxy comunication failed"));
+        break;
+    case QAbstractSocket::TemporaryError:
+    case QAbstractSocket::OperationError:
+        QMessageBox::warning(this, tr("Error"), tr("Operation failed, please try again"));
+        return;
+    default:
+        Q_UNREACHABLE();
+    }
+    // enable the button to connect to the server again
+    ui->connectButton->setEnabled(true);
+    // disable the ui to send and display messages
+    ui->sendButton->setEnabled(false);
+    ui->messageEdit->setEnabled(false);
+    ui->chatView->setEnabled(false);
+    // reset the last printed username
+    m_lastUserName.clear();
+}
+
+void MainWindow::on_sendTrack_clicked()
+{
+    //Mode of control, True if automatic and False if Manual
+    m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    if (maybeSave())
+        event->accept();
+    else
+        event->ignore();
+}
+
+void MainWindow::open()
+{
+    if (maybeSave()) {
+        QString fileName = QFileDialog::getOpenFileName(this,
+                                                        tr("Open File"), QDir::currentPath());
+        if (!fileName.isEmpty())
+            MScribble->openImage(fileName);
+    }
+}
+
+void MainWindow::save()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    QByteArray fileFormat = action->data().toByteArray();
+    saveFile(fileFormat);
+}
+
+void MainWindow::penColor()
+{
+    QColor newColor = QColorDialog::getColor(MScribble->penColor());
+    if (newColor.isValid())
+        MScribble->setPenColor(newColor);
+}
+
+void MainWindow::penWidth()
+{
+    bool ok;
+    int newWidth = QInputDialog::getInt(this, tr("Manual Tracking"),
+                                        tr("Select pen width:"),
+                                        MScribble->penWidth(),
+                                        1, 50, 1, &ok);
+    if (ok)
+        MScribble->setPenWidth(newWidth);
+}
+
+void MainWindow::about()
+{
+    QMessageBox::about(this, tr("About Satrot"),
+                       tr("<p><b>Satrot</b> example shows how to use QMainWindow as the "
+                          "base widget for an application, and how to reimplement some of "
+                          "QWidget's event handlers to receive the events generated for "
+                          "the application's widgets:</p><p> We reimplement the mouse event "
+                          "handlers to facilitate drawing, the paint event handler to "
+                          "update the application and the resize event handler to optimize "
+                          "the application's appearance. In addition we reimplement the "
+                          "close event handler to intercept the close events before "
+                          "terminating the application.</p><p> The example also demonstrates "
+                          "how to use QPainter to draw an image in real time, as well as "
+                          "to repaint widgets.</p>"));
+}
+
+void MainWindow::documentation(){
+    QMessageBox::information(this, tr("Satrot Documentation"),
+                       tr("<p><b>Satrot</b> visit our gitub wiki page and website for full documantation."
+                                "<a href=\"https://github.com/Ahmad138/SatRot/wiki\">Github Page</a>"
+                                "<a href=\"#\">Website</a>"
+                                ""
+                                "</p>"));
+}
+
+void MainWindow::createActions()
+{
+//    openAct = new QAction(tr("&Open..."), this);
+//    openAct->setShortcuts(QKeySequence::Open);
+//    connect(openAct, &QAction::triggered, this, &MainWindow::open);
+
+    const QList<QByteArray> imageFormats = QImageWriter::supportedImageFormats();
+    for (const QByteArray &format : imageFormats) {
+        QString text = tr("%1...").arg(QString::fromLatin1(format).toUpper());
+
+        QAction *action = new QAction(text, this);
+        action->setData(format);
+        connect(action, &QAction::triggered, this, &MainWindow::save);
+        saveAsActs.append(action);
+    }
+
+    printAct = new QAction(tr("&Print..."), this);
+    connect(printAct, &QAction::triggered, MScribble, &ManualScribble::print);
+
+    exitAct = new QAction(tr("E&xit"), this);
+    exitAct->setShortcuts(QKeySequence::Quit);
+    connect(exitAct, &QAction::triggered, this, &MainWindow::close);
+
+    penColorAct = new QAction(tr("&Pen Color..."), this);
+    connect(penColorAct, &QAction::triggered, this, &MainWindow::penColor);
+
+    penWidthAct = new QAction(tr("Pen &Width..."), this);
+    connect(penWidthAct, &QAction::triggered, this, &MainWindow::penWidth);
+
+    clearScreenAct = new QAction(tr("&Clear Screen"), this);
+    clearScreenAct->setShortcut(tr("Ctrl+L"));
+    connect(clearScreenAct, &QAction::triggered,
+            this, &MainWindow::clearRadar);
+
+    aboutAct = new QAction(tr("&About"), this);
+    connect(aboutAct, &QAction::triggered, this, &MainWindow::about);
+
+    documentationAct = new QAction(tr("&Documentation"), this);
+    connect(documentationAct, &QAction::triggered, this, &MainWindow::documentation);
+
+//    aboutQtAct = new QAction(tr("About &Qt"), this);
+//    connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
+}
+
+void MainWindow::createMenus()
+
+{
+    saveAsMenu = new QMenu(tr("&Save As"), this);
+    for (QAction *action : qAsConst(saveAsActs))
+        saveAsMenu->addAction(action);
+
+    fileMenu = new QMenu(tr("&File"), this);
+    //fileMenu->addAction(openAct);
+    fileMenu->addMenu(saveAsMenu);
+    fileMenu->addAction(printAct);
+    fileMenu->addSeparator();
+    fileMenu->addAction(exitAct);
+
+    optionMenu = new QMenu(tr("&Options"), this);
+    optionMenu->addAction(penColorAct);
+    optionMenu->addAction(penWidthAct);
+    optionMenu->addSeparator();
+    optionMenu->addAction(clearScreenAct);
+
+    helpMenu = new QMenu(tr("&Help"), this);
+    helpMenu->addAction(aboutAct);
+    helpMenu->addAction(documentationAct);
+    //helpMenu->addAction(aboutQtAct);
+
+    menuBar()->addMenu(fileMenu);
+    menuBar()->addMenu(optionMenu);
+    menuBar()->addMenu(helpMenu);
+}
+
+bool MainWindow::maybeSave()
+{
+    if (MScribble->isModified()) {
+        QMessageBox::StandardButton ret;
+        ret = QMessageBox::warning(this, tr("SatRot"),
+                                   tr("The image has been modified.\n"
+                                      "Do you want to save your changes?"),
+                                   QMessageBox::Save | QMessageBox::Discard
+                                       | QMessageBox::Cancel);
+        if (ret == QMessageBox::Save)
+            return saveFile("png");
+        else if (ret == QMessageBox::Cancel)
+            return false;
+    }
+    return true;
+}
+
+bool MainWindow::saveFile(const QByteArray &fileFormat)
+{
+    QString initialPath = QDir::currentPath() + "/untitled." + fileFormat;
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"),
+                                                    initialPath,
+                                                    tr("%1 Files (*.%2);;All Files (*)")
+                                                        .arg(QString::fromLatin1(fileFormat.toUpper()))
+                                                        .arg(QString::fromLatin1(fileFormat)));
+    if (fileName.isEmpty())
+        return false;
+    return MScribble->saveImage(fileName, fileFormat.constData());
+}
+
+void MainWindow::clearRadar(){
+    MScribble->clearImage();
+    MScribble->openImage(radarFileName);
+}
+
+void MainWindow::logAngles(QMap<QString, double> &angles){
+    //Az
+    QString Az = QString::number(angles["Az"]);
+    ui->Az->setText("Az: "+ Az + "°");
+    ui->horizontalSlider->setValue(angles["Az"]/0.05);
+
+    //El
+    QString El = QString::number(angles["El"]);
+    ui->El->setText("El: "+ El + "°");
+    ui->verticalSlider->setValue(angles["El"]/0.05);
+
+    AzEl["Az"] = Az;
+    AzEl["El"] = El;
+    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }

@@ -90,19 +90,19 @@ QVariant PositionModel::headerData(int section, Qt::Orientation orientation, int
         } else if (section == 1) {
             return QString("Satellite");
         }else if (section == 2) {
-            return QString("Satellite Lat");
+            return QString("Lat");
         }else if (section == 3) {
-            return QString("Satellite Long");
+            return QString("Long");
         }else if (section == 4) {
-            return QString("Satellite Altitude");
+            return QString("Altitude");
         }else if (section == 5) {
-            return QString("Satellite Az");
+            return QString("Az");
         }else if (section == 6) {
-            return QString("Satellite El");
+            return QString("El");
         }else if (section == 7) {
-            return QString("Satellite Right Ascension");
+            return QString("Right Ascension");
         }else if (section == 8) {
-            return QString("Satellite Declination");
+            return QString("Declination");
         }else if (section == 9) {
             return QString("Time Stamp");
         }

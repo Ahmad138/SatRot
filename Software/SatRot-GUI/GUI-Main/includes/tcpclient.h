@@ -1,49 +1,39 @@
 #ifndef TCPCLIENT_H
 #define TCPCLIENT_H
 
-#include <QDataStream>
-#include <QDialog>
+#include <QObject>
 #include <QTcpSocket>
-#include <QtWidgets>
-#include <QtNetwork>
 
-QT_BEGIN_NAMESPACE
-class QComboBox;
-class QLabel;
-class QLineEdit;
-class QPushButton;
-class QTcpSocket;
-class QNetworkSession;
-QT_END_NAMESPACE
+class QHostAddress;
+class QJsonDocument;
 
-//! [0]
-class TCPClient : public QDialog
+class TCPClient : public QObject
 {
     Q_OBJECT
-
+    Q_DISABLE_COPY(TCPClient)
 public:
-    explicit TCPClient(QWidget *parent = nullptr);
-    void send();
-
+    explicit TCPClient(QObject *parent = nullptr);
+public slots:
+    void connectToServer(const QHostAddress &address, quint16 port);
+    void login(const QString &userName);
+    void sendMessage(const QString &text);
+    void disconnectFromHost();
+    void sendTrackingDetails(QJsonObject &text, QString satDataType, bool mode=true);
 private slots:
-    void requestNewFortune();
-    void readFortune();
-    void displayError(QAbstractSocket::SocketError socketError);
-    void enableGetFortuneButton();
-    void sessionOpened();
-
+    void onReadyRead();
+signals:
+    void connected();
+    void loggedIn();
+    void loginError(const QString &reason);
+    void disconnected();
+    void messageReceived(const QString &sender, const QString &text);
+    void error(QAbstractSocket::SocketError socketError);
+    void userJoined(const QString &username);
+    void userLeft(const QString &username);
 private:
-    QComboBox *hostCombo = nullptr;
-    QLineEdit *portLineEdit = nullptr;
-    QLabel *statusLabel = nullptr;
-    QPushButton *getFortuneButton = nullptr;
-
-    QTcpSocket *tcpSocket = nullptr;
-    QDataStream in;
-    QString currentFortune;
-
-    QNetworkSession *networkSession = nullptr;
+    QTcpSocket *m_clientSocket;
+    bool m_loggedIn;
+    void jsonReceived(const QJsonObject &doc);
 };
-//! [0]
-//!
+
 #endif // TCPCLIENT_H

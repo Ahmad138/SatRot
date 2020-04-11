@@ -54,11 +54,14 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../SatRot-GUI/GUI-Main/src/api.cpp \
 		../../SatRot-GUI/GUI-Main/src/clientthread.cpp \
+		../../SatRot-GUI/GUI-Main/src/customdialog.cpp \
+		../../SatRot-GUI/GUI-Main/src/customscene.cpp \
 		../../SatRot-GUI/GUI-Main/src/digitalclock.cpp \
 		../../SatRot-GUI/GUI-Main/src/getgeolocation.cpp \
 		../../SatRot-GUI/GUI-Main/src/httpwindow.cpp \
 		../../SatRot-GUI/GUI-Main/src/main.cpp \
 		../../SatRot-GUI/GUI-Main/src/mainwindow.cpp \
+		../../SatRot-GUI/GUI-Main/src/manualscribble.cpp \
 		../../SatRot-GUI/GUI-Main/src/positionmodel.cpp \
 		../../SatRot-GUI/GUI-Main/src/radiopassmodel.cpp \
 		../../SatRot-GUI/GUI-Main/src/satellitelist.cpp \
@@ -73,9 +76,11 @@ SOURCES       = ../../SatRot-GUI/GUI-Main/src/api.cpp \
 		../../SatRot-GUI/GUI-Main/src/tlemodel.cpp \
 		../../SatRot-GUI/GUI-Main/src/visualpassmodel.cpp moc_api.cpp \
 		moc_clientthread.cpp \
+		moc_customscene.cpp \
 		moc_digitalclock.cpp \
 		moc_httpwindow.cpp \
 		moc_mainwindow.cpp \
+		moc_manualscribble.cpp \
 		moc_positionmodel.cpp \
 		moc_radiopassmodel.cpp \
 		moc_serverthread.cpp \
@@ -89,11 +94,14 @@ SOURCES       = ../../SatRot-GUI/GUI-Main/src/api.cpp \
 		moc_visualpassmodel.cpp
 OBJECTS       = api.o \
 		clientthread.o \
+		customdialog.o \
+		customscene.o \
 		digitalclock.o \
 		getgeolocation.o \
 		httpwindow.o \
 		main.o \
 		mainwindow.o \
+		manualscribble.o \
 		positionmodel.o \
 		radiopassmodel.o \
 		satellitelist.o \
@@ -109,9 +117,11 @@ OBJECTS       = api.o \
 		visualpassmodel.o \
 		moc_api.o \
 		moc_clientthread.o \
+		moc_customscene.o \
 		moc_digitalclock.o \
 		moc_httpwindow.o \
 		moc_mainwindow.o \
+		moc_manualscribble.o \
 		moc_positionmodel.o \
 		moc_radiopassmodel.o \
 		moc_serverthread.o \
@@ -214,10 +224,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../../SatRot-GUI/GUI-Main/GUI-Main.pro ../../SatRot-GUI/GUI-Main/includes/api.h \
 		../../SatRot-GUI/GUI-Main/includes/clientthread.h \
+		../../SatRot-GUI/GUI-Main/includes/customdialog.h \
+		../../SatRot-GUI/GUI-Main/includes/customscene.h \
 		../../SatRot-GUI/GUI-Main/includes/digitalclock.h \
 		../../SatRot-GUI/GUI-Main/includes/getgeolocation.h \
 		../../SatRot-GUI/GUI-Main/includes/httpwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
+		../../SatRot-GUI/GUI-Main/includes/manualscribble.h \
 		../../SatRot-GUI/GUI-Main/includes/positionmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/satellitelist.h \
@@ -232,11 +245,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h ../../SatRot-GUI/GUI-Main/src/api.cpp \
 		../../SatRot-GUI/GUI-Main/src/clientthread.cpp \
+		../../SatRot-GUI/GUI-Main/src/customdialog.cpp \
+		../../SatRot-GUI/GUI-Main/src/customscene.cpp \
 		../../SatRot-GUI/GUI-Main/src/digitalclock.cpp \
 		../../SatRot-GUI/GUI-Main/src/getgeolocation.cpp \
 		../../SatRot-GUI/GUI-Main/src/httpwindow.cpp \
 		../../SatRot-GUI/GUI-Main/src/main.cpp \
 		../../SatRot-GUI/GUI-Main/src/mainwindow.cpp \
+		../../SatRot-GUI/GUI-Main/src/manualscribble.cpp \
 		../../SatRot-GUI/GUI-Main/src/positionmodel.cpp \
 		../../SatRot-GUI/GUI-Main/src/radiopassmodel.cpp \
 		../../SatRot-GUI/GUI-Main/src/satellitelist.cpp \
@@ -457,8 +473,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/includes/api.h ../../SatRot-GUI/GUI-Main/includes/clientthread.h ../../SatRot-GUI/GUI-Main/includes/digitalclock.h ../../SatRot-GUI/GUI-Main/includes/getgeolocation.h ../../SatRot-GUI/GUI-Main/includes/httpwindow.h ../../SatRot-GUI/GUI-Main/includes/mainwindow.h ../../SatRot-GUI/GUI-Main/includes/positionmodel.h ../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h ../../SatRot-GUI/GUI-Main/includes/satellitelist.h ../../SatRot-GUI/GUI-Main/includes/serverthread.h ../../SatRot-GUI/GUI-Main/includes/tcpc.h ../../SatRot-GUI/GUI-Main/includes/tcps.h ../../SatRot-GUI/GUI-Main/includes/tcpserver.h ../../SatRot-GUI/GUI-Main/includes/tcpthread.h ../../SatRot-GUI/GUI-Main/includes/tcpclient.h ../../SatRot-GUI/GUI-Main/includes/testmodel.h ../../SatRot-GUI/GUI-Main/includes/customlistmodel.h ../../SatRot-GUI/GUI-Main/includes/tlemodel.h ../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/src/digitalclock.cpp ../../SatRot-GUI/GUI-Main/src/getgeolocation.cpp ../../SatRot-GUI/GUI-Main/src/httpwindow.cpp ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-Main/src/positionmodel.cpp ../../SatRot-GUI/GUI-Main/src/radiopassmodel.cpp ../../SatRot-GUI/GUI-Main/src/satellitelist.cpp ../../SatRot-GUI/GUI-Main/src/serverthread.cpp ../../SatRot-GUI/GUI-Main/src/tcpc.cpp ../../SatRot-GUI/GUI-Main/src/tcps.cpp ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/src/testmodel.cpp ../../SatRot-GUI/GUI-Main/src/customlistmodel.cpp ../../SatRot-GUI/GUI-Main/src/tlemodel.cpp ../../SatRot-GUI/GUI-Main/src/visualpassmodel.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/includes/api.h ../../SatRot-GUI/GUI-Main/includes/clientthread.h ../../SatRot-GUI/GUI-Main/includes/customdialog.h ../../SatRot-GUI/GUI-Main/includes/customscene.h ../../SatRot-GUI/GUI-Main/includes/digitalclock.h ../../SatRot-GUI/GUI-Main/includes/getgeolocation.h ../../SatRot-GUI/GUI-Main/includes/httpwindow.h ../../SatRot-GUI/GUI-Main/includes/mainwindow.h ../../SatRot-GUI/GUI-Main/includes/manualscribble.h ../../SatRot-GUI/GUI-Main/includes/positionmodel.h ../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h ../../SatRot-GUI/GUI-Main/includes/satellitelist.h ../../SatRot-GUI/GUI-Main/includes/serverthread.h ../../SatRot-GUI/GUI-Main/includes/tcpc.h ../../SatRot-GUI/GUI-Main/includes/tcps.h ../../SatRot-GUI/GUI-Main/includes/tcpserver.h ../../SatRot-GUI/GUI-Main/includes/tcpthread.h ../../SatRot-GUI/GUI-Main/includes/tcpclient.h ../../SatRot-GUI/GUI-Main/includes/testmodel.h ../../SatRot-GUI/GUI-Main/includes/customlistmodel.h ../../SatRot-GUI/GUI-Main/includes/tlemodel.h ../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/src/customdialog.cpp ../../SatRot-GUI/GUI-Main/src/customscene.cpp ../../SatRot-GUI/GUI-Main/src/digitalclock.cpp ../../SatRot-GUI/GUI-Main/src/getgeolocation.cpp ../../SatRot-GUI/GUI-Main/src/httpwindow.cpp ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-Main/src/manualscribble.cpp ../../SatRot-GUI/GUI-Main/src/positionmodel.cpp ../../SatRot-GUI/GUI-Main/src/radiopassmodel.cpp ../../SatRot-GUI/GUI-Main/src/satellitelist.cpp ../../SatRot-GUI/GUI-Main/src/serverthread.cpp ../../SatRot-GUI/GUI-Main/src/tcpc.cpp ../../SatRot-GUI/GUI-Main/src/tcps.cpp ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/src/testmodel.cpp ../../SatRot-GUI/GUI-Main/src/customlistmodel.cpp ../../SatRot-GUI/GUI-Main/src/tlemodel.cpp ../../SatRot-GUI/GUI-Main/src/visualpassmodel.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../SatRot-GUI/GUI-Main/forms/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents lang/GUI-Main_en_GB.ts $(DISTDIR)/
 
@@ -491,18 +507,24 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1y -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_api.cpp moc_clientthread.cpp moc_digitalclock.cpp moc_httpwindow.cpp moc_mainwindow.cpp moc_positionmodel.cpp moc_radiopassmodel.cpp moc_serverthread.cpp moc_tcpc.cpp moc_tcps.cpp moc_tcpserver.cpp moc_tcpthread.cpp moc_tcpclient.cpp moc_testmodel.cpp moc_tlemodel.cpp moc_visualpassmodel.cpp
+compiler_moc_header_make_all: moc_api.cpp moc_clientthread.cpp moc_customscene.cpp moc_digitalclock.cpp moc_httpwindow.cpp moc_mainwindow.cpp moc_manualscribble.cpp moc_positionmodel.cpp moc_radiopassmodel.cpp moc_serverthread.cpp moc_tcpc.cpp moc_tcps.cpp moc_tcpserver.cpp moc_tcpthread.cpp moc_tcpclient.cpp moc_testmodel.cpp moc_tlemodel.cpp moc_visualpassmodel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_api.cpp moc_clientthread.cpp moc_digitalclock.cpp moc_httpwindow.cpp moc_mainwindow.cpp moc_positionmodel.cpp moc_radiopassmodel.cpp moc_serverthread.cpp moc_tcpc.cpp moc_tcps.cpp moc_tcpserver.cpp moc_tcpthread.cpp moc_tcpclient.cpp moc_testmodel.cpp moc_tlemodel.cpp moc_visualpassmodel.cpp
+	-$(DEL_FILE) moc_api.cpp moc_clientthread.cpp moc_customscene.cpp moc_digitalclock.cpp moc_httpwindow.cpp moc_mainwindow.cpp moc_manualscribble.cpp moc_positionmodel.cpp moc_radiopassmodel.cpp moc_serverthread.cpp moc_tcpc.cpp moc_tcps.cpp moc_tcpserver.cpp moc_tcpthread.cpp moc_tcpclient.cpp moc_testmodel.cpp moc_tlemodel.cpp moc_visualpassmodel.cpp
 moc_api.cpp: ../../SatRot-GUI/GUI-Main/includes/api.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/api.h -o moc_api.cpp
 
 moc_clientthread.cpp: ../../SatRot-GUI/GUI-Main/includes/clientthread.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/clientthread.h -o moc_clientthread.cpp
+
+moc_customscene.cpp: ../../SatRot-GUI/GUI-Main/includes/customscene.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/customscene.h -o moc_customscene.cpp
 
 moc_digitalclock.cpp: ../../SatRot-GUI/GUI-Main/includes/digitalclock.h \
 		moc_predefs.h \
@@ -528,11 +550,15 @@ moc_mainwindow.cpp: ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h \
+		../../SatRot-GUI/GUI-Main/includes/customdialog.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/mainwindow.h -o moc_mainwindow.cpp
+
+moc_manualscribble.cpp: ../../SatRot-GUI/GUI-Main/includes/manualscribble.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/Build/GUI-Main/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtPrintSupport -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtWebChannel -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtPositioning -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../SatRot-GUI/GUI-Main/includes/manualscribble.h -o moc_manualscribble.cpp
 
 moc_positionmodel.cpp: ../../SatRot-GUI/GUI-Main/includes/positionmodel.h \
 		moc_predefs.h \
@@ -613,8 +639,15 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 api.o: ../../SatRot-GUI/GUI-Main/src/api.cpp ../../SatRot-GUI/GUI-Main/includes/api.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o api.o ../../SatRot-GUI/GUI-Main/src/api.cpp
 
-clientthread.o: ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/includes/clientthread.h
+clientthread.o: ../../SatRot-GUI/GUI-Main/src/clientthread.cpp ../../SatRot-GUI/GUI-Main/includes/clientthread.h \
+		../../SatRot-GUI/GUI-Main/includes/tcpclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clientthread.o ../../SatRot-GUI/GUI-Main/src/clientthread.cpp
+
+customdialog.o: ../../SatRot-GUI/GUI-Main/src/customdialog.cpp ../../SatRot-GUI/GUI-Main/includes/customdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customdialog.o ../../SatRot-GUI/GUI-Main/src/customdialog.cpp
+
+customscene.o: ../../SatRot-GUI/GUI-Main/src/customscene.cpp ../../SatRot-GUI/GUI-Main/includes/customscene.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customscene.o ../../SatRot-GUI/GUI-Main/src/customscene.cpp
 
 digitalclock.o: ../../SatRot-GUI/GUI-Main/src/digitalclock.cpp ../../SatRot-GUI/GUI-Main/includes/digitalclock.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o digitalclock.o ../../SatRot-GUI/GUI-Main/src/digitalclock.cpp
@@ -640,8 +673,7 @@ main.o: ../../SatRot-GUI/GUI-Main/src/main.cpp ../../SatRot-GUI/GUI-Main/include
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h
+		../../SatRot-GUI/GUI-Main/includes/customdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../SatRot-GUI/GUI-Main/src/main.cpp
 
 mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-Main/includes/mainwindow.h \
@@ -658,10 +690,13 @@ mainwindow.o: ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp ../../SatRot-GUI/GUI-
 		../../SatRot-GUI/GUI-Main/includes/visualpassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/radiopassmodel.h \
 		../../SatRot-GUI/GUI-Main/includes/tlemodel.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpc.h \
-		../../SatRot-GUI/GUI-Main/includes/tcps.h \
-		ui_mainwindow.h
+		../../SatRot-GUI/GUI-Main/includes/customdialog.h \
+		ui_mainwindow.h \
+		../../SatRot-GUI/GUI-Main/includes/manualscribble.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../SatRot-GUI/GUI-Main/src/mainwindow.cpp
+
+manualscribble.o: ../../SatRot-GUI/GUI-Main/src/manualscribble.cpp ../../SatRot-GUI/GUI-Main/includes/manualscribble.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manualscribble.o ../../SatRot-GUI/GUI-Main/src/manualscribble.cpp
 
 positionmodel.o: ../../SatRot-GUI/GUI-Main/src/positionmodel.cpp ../../SatRot-GUI/GUI-Main/includes/positionmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o positionmodel.o ../../SatRot-GUI/GUI-Main/src/positionmodel.cpp
@@ -682,14 +717,13 @@ tcps.o: ../../SatRot-GUI/GUI-Main/src/tcps.cpp ../../SatRot-GUI/GUI-Main/include
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcps.o ../../SatRot-GUI/GUI-Main/src/tcps.cpp
 
 tcpserver.o: ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp ../../SatRot-GUI/GUI-Main/includes/tcpserver.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpthread.h
+		../../SatRot-GUI/GUI-Main/includes/serverthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpserver.o ../../SatRot-GUI/GUI-Main/src/tcpserver.cpp
 
 tcpthread.o: ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp ../../SatRot-GUI/GUI-Main/includes/tcpthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpthread.o ../../SatRot-GUI/GUI-Main/src/tcpthread.cpp
 
-tcpclient.o: ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/includes/tcpclient.h \
-		../../SatRot-GUI/GUI-Main/includes/tcpthread.h
+tcpclient.o: ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp ../../SatRot-GUI/GUI-Main/includes/tcpclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpclient.o ../../SatRot-GUI/GUI-Main/src/tcpclient.cpp
 
 testmodel.o: ../../SatRot-GUI/GUI-Main/src/testmodel.cpp ../../SatRot-GUI/GUI-Main/includes/testmodel.h
@@ -710,6 +744,9 @@ moc_api.o: moc_api.cpp
 moc_clientthread.o: moc_clientthread.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_clientthread.o moc_clientthread.cpp
 
+moc_customscene.o: moc_customscene.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customscene.o moc_customscene.cpp
+
 moc_digitalclock.o: moc_digitalclock.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_digitalclock.o moc_digitalclock.cpp
 
@@ -718,6 +755,9 @@ moc_httpwindow.o: moc_httpwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_manualscribble.o: moc_manualscribble.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_manualscribble.o moc_manualscribble.cpp
 
 moc_positionmodel.o: moc_positionmodel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_positionmodel.o moc_positionmodel.cpp
