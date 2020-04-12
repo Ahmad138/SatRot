@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->Az->setText("Az: 0.00°");
     ui->El->setText("El: 0.00°");
 
-    QImage logo("/home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/res/img/SatRot logo2.png");
+    QImage logo(":/img/img/logo.png");
     ui->logo->setPixmap(QPixmap::fromImage(logo));
 
     ui->sat->addItems(sl.getList());
@@ -156,37 +156,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-/**
- * @brief
- *
- * @param value
- */
-//void MainWindow::on_horizontalSlider_valueChanged(int value)
-//{
-//    float val = value*0.05;
-//    QString s = QString::number(val);
-//    ui->Az->setText("Az: "+ s + "°");
-
-//    AzEl["Az"] = s;
-//    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
-//}
-
-
-///**
-// * @brief
-// *
-// * @param value
-// */
-//void MainWindow::on_verticalSlider_valueChanged(int value)
-//{
-//    float val = value*0.05;
-//    QString s = QString::number(val);
-//    ui->El->setText("El: "+ s + "°");
-
-//    AzEl["El"] = s;
-//    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
-//}
 
 /**
  * @brief
@@ -307,8 +276,9 @@ void MainWindow::on_pushButton_5_clicked()
 
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -363,8 +333,9 @@ void MainWindow::on_pushButton_6_clicked()
 //           ui->label_7->setText(r2);
         };
 
-       api::handleFunc errData2 = [this](const QJsonObject &o) {
+       api::handleFunc errData2 = [](const QJsonObject &o) {
            //cout << "Error: connection dropped";
+           QJsonObject x = o;
            QString r2 = "Error: connection dropped";
            qDebug()<< r2;
        };
@@ -373,8 +344,9 @@ void MainWindow::on_pushButton_6_clicked()
 
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -458,8 +430,9 @@ void MainWindow::getSatPos(QString endpoint)
        emit valueChanged();
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -542,8 +515,9 @@ void MainWindow::getSatVisPass(QString endpoint)
 
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -612,8 +586,9 @@ void MainWindow::getSatRadPass(QString endpoint)
 
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -647,8 +622,9 @@ void MainWindow::getSatTLE(QString endpoint)
 //       setValue(tm_tle);
     };
 
-   api::handleFunc errData = [this](const QJsonObject &o) {
+   api::handleFunc errData = [](const QJsonObject &o) {
        //cout << "Error: connection dropped";
+       QJsonObject x = o;
        QString r = "Error: connection dropped";
        qDebug()<< r;
    };
@@ -663,7 +639,7 @@ void MainWindow::getSatTLE(QString endpoint)
 void MainWindow::webView(){
     view = new QWebEngineView(ui->widget);
 
-    view->load(QUrl("file:///home/ahmad/Documents/UofG/Semester 2/Real Time Embedded Programming/satRot/Software/SatRot-GUI/GUI-Main/third/index.html"));
+    view->load(QUrl("qrc:/web/web/index.html"));
     view->show();
     view->resize(ui->widget->size());
 }
@@ -1435,5 +1411,25 @@ void MainWindow::logAngles(QMap<QString, double> &angles){
 
     AzEl["Az"] = Az;
     AzEl["El"] = El;
+    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
+}
+
+void MainWindow::on_horizontalSlider_sliderMoved(int position)
+{
+    float val = position*0.05;
+    QString s = QString::number(val);
+    ui->Az->setText("Az: "+ s + "°");
+
+    AzEl["Az"] = s;
+    m_TCPClient->sendTrackingDetails(AzEl, "M", false);
+}
+
+void MainWindow::on_verticalSlider_sliderMoved(int position)
+{
+    float val = position*0.05;
+    QString s = QString::number(val);
+    ui->El->setText("El: "+ s + "°");
+
+    AzEl["El"] = s;
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
