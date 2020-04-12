@@ -21,7 +21,7 @@ install:
 before_script:
   - QTDIR="/opt/qt514"
   - PATH="$QTDIR/bin:$PATH"
-  - Source /opt/qt514/bin/qt514-env.sh
+  - source /opt/qt514/bin/qt514-env.sh
 
 script: 
   - cd Software/SatRot-GUI/
