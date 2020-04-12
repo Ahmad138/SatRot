@@ -13,16 +13,15 @@ install:
   # C++14
   - sudo apt-get install -qq g++-6
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  - sudo apt-get --yes install qt5-default qt514-meta-full qt514tools qt514webengine qt514base \
-  qt514imageformats qt514svg libqt5webkit5-dev qt514charts-no-lgpl qt514xmlpatterns 
+  - sudo apt-get --yes install qt5-default qt514-meta-full qt514tools qt514webengine qt514base qt514imageformats qt514svg libqt5webkit5-dev qt514charts-no-lgpl qt514xmlpatterns 
   - sudo apt-get install zlib1g-dev g++ cmake doxygen graphviz libboost-all-dev libssl-dev
   
 #  - sudo apt-get install wiringpi
  
 before_script:
-    - QTDIR="/opt/qt514"
-    - PATH="$QTDIR/bin:$PATH"
-    - Source /opt/qt514/bin/qt514-env.sh
+  - QTDIR="/opt/qt514"
+  - PATH="$QTDIR/bin:$PATH"
+  - Source /opt/qt514/bin/qt514-env.sh
 
 script: 
   - cd Software/SatRot-GUI/
