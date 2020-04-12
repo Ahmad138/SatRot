@@ -28,7 +28,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = RotorDriver-GUI1.0.0
-DISTDIR = /home/pi/Desktop/satrot/Software/RotorDriver-GUI/build/.tmp/RotorDriver-GUI1.0.0
+DISTDIR = /home/pi/satrot/Software/RotorDriver-GUI/build/.tmp/RotorDriver-GUI1.0.0
 SUBTARGETS    =  \
 		sub-RotorDriver \
 		sub-driverTest
@@ -36,54 +36,54 @@ SUBTARGETS    =  \
 
 sub-RotorDriver-qmake_all:  FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro
+	cd RotorDriver/ && $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro
 	cd RotorDriver/ && $(MAKE) -f Makefile qmake_all
 sub-RotorDriver: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile
 sub-RotorDriver-make_first: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile 
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile 
 sub-RotorDriver-all: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile all
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile all
 sub-RotorDriver-clean: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile clean
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile clean
 sub-RotorDriver-distclean: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile distclean
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile distclean
 sub-RotorDriver-install_subtargets: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile install
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile install
 sub-RotorDriver-uninstall_subtargets: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile uninstall
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile uninstall
 sub-driverTest-qmake_all:  FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro
+	cd driverTest/ && $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro
 	cd driverTest/ && $(MAKE) -f Makefile qmake_all
 sub-driverTest: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile
 sub-driverTest-make_first: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile 
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile 
 sub-driverTest-all: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile all
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile all
 sub-driverTest-clean: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile clean
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile clean
 sub-driverTest-distclean: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile distclean
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile distclean
 sub-driverTest-install_subtargets: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile install
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile install
 sub-driverTest-uninstall_subtargets: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile uninstall
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile uninstall
 
 Makefile: ../RotorDriver-GUI.pro /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/arm-linux-gnueabihf/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/common/unix.conf \
@@ -239,18 +239,18 @@ uninstall_subtargets: sub-RotorDriver-uninstall_subtargets sub-driverTest-uninst
 
 sub-RotorDriver-check:
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile check
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile check
 sub-driverTest-check:
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile check
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile check
 check: sub-RotorDriver-check sub-driverTest-check
 
 sub-RotorDriver-benchmark:
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile benchmark
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -f Makefile benchmark
 sub-driverTest-benchmark:
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile benchmark
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -f Makefile benchmark
 benchmark: sub-RotorDriver-benchmark sub-driverTest-benchmark
 install:install_subtargets  FORCE
 
@@ -267,9 +267,9 @@ distdir: sub-RotorDriver-distdir sub-driverTest-distdir FORCE
 
 sub-RotorDriver-distdir: FORCE
 	@test -d RotorDriver/ || mkdir -p RotorDriver/
-	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/RotorDriver
+	cd RotorDriver/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/RotorDriver/RotorDriver.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/RotorDriver
 
 sub-driverTest-distdir: FORCE
 	@test -d driverTest/ || mkdir -p driverTest/
-	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/Desktop/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/driverTest
+	cd driverTest/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/pi/satrot/Software/RotorDriver-GUI/driverTest/driverTest.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/driverTest
 

@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->statusBar->setEnabled(true);
+    ui->statusBar->showMessage("Loading");
+
 //    //server function connections
 //   connect(ui->startStopButton, &QPushButton::clicked, this, &MainWindow::toggleStartServer);
 //   connect(m_TCPServer, &TCPServer::logMessage, this, &MainWindow::logMessage);

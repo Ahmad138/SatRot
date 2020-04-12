@@ -44,8 +44,8 @@ SOURCES += \
 	src/tcpclient.cpp \
 	src/tcpserver.cpp \
         src/tcpthread.cpp \
-        src/serverthread \
-        src/clientthread
+        src/serverthread.cpp \
+        src/clientthread.cpp
 
 HEADERS += \
         includes/mainwindow.h \
@@ -58,8 +58,8 @@ HEADERS += \
 	includes/tcpclient.h \
 	includes/tcpserver.h \
         includes/tcpthread.h \
-        includes/serverthread \
-        includes/clientthread
+        includes/serverthread.h \
+        includes/clientthread.h
 
 FORMS += \
         forms/mainwindow.ui
