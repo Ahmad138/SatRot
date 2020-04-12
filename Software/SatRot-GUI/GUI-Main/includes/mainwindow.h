@@ -191,6 +191,10 @@ private slots:
 
     void logAngles(QMap<QString, double> &angles);
 
+    void on_horizontalSlider_sliderMoved(int position);
+
+    void on_verticalSlider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui; /**< TODO: describe */
     TCPServer *m_TCPServer;; /**< TODO: describe */
@@ -311,7 +315,7 @@ private:
 //    QAction *aboutQtAct;
     QAction *documentationAct;
 
-    QString radarFileName = "/home/ahmad/Downloads/46188.png";
+    QString radarFileName = ":/img/img/radar.png";
 signals:
     void valueChanged();
 
