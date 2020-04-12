@@ -31,6 +31,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    if (downloadDirectory.isEmpty() || !QFileInfo(downloadDirectory).isDir())
+        downloadDirectory = QDir::currentPath();
+    downloadDirectoryPath = QDir::toNativeSeparators(downloadDirectory);
+
+    QFile::copy(":/web/web/index.html" , downloadDirectoryPath);
+
     ui->statusbar->setEnabled(true);
     ui->statusbar->showMessage("Loading");
 
@@ -639,7 +645,7 @@ void MainWindow::getSatTLE(QString endpoint)
 void MainWindow::webView(){
     view = new QWebEngineView(ui->widget);
 
-    view->load(QUrl("qrc:/web/web/index.html"));
+    view->load(QUrl("file://"+downloadDirectoryPath+"/index.html"));
     view->show();
     view->resize(ui->widget->size());
 }
