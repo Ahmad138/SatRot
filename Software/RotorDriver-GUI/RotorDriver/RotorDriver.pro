@@ -4,9 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 
 TARGET = RotorDriver
 TEMPLATE = app
@@ -24,12 +26,40 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++14
 
+# So wiringPi include files can be found during compile
+INCLUDEPATH    += /usr/local/include
+
+# To link the wiringPi library when making the executable
+LIBS += -L/usr/local/lib -lwiringPi
+
 SOURCES += \
         src/main.cpp \
-        src/mainwindow.cpp
+        src/mainwindow.cpp \
+    	src/tcpsockets.cpp \
+	src/api.cpp \
+        src/stepperdriver.cpp \
+        src/raspgpio.cpp \
+        src/blink.cpp \
+        src/helper.cpp \
+	src/tcpclient.cpp \
+	src/tcpserver.cpp \
+        src/tcpthread.cpp \
+        src/serverthread \
+        src/clientthread
 
 HEADERS += \
-        includes/mainwindow.h
+        includes/mainwindow.h \
+    	includes/tcpsockets.h \
+	includes/api.h \
+        includes/stepperdriver.h \
+        includes/raspgpio.h \
+        includes/blink.h \
+        includes/helper.h \
+	includes/tcpclient.h \
+	includes/tcpserver.h \
+        includes/tcpthread.h \
+        includes/serverthread \
+        includes/clientthread
 
 FORMS += \
         forms/mainwindow.ui

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>500</height>
+    <width>773</width>
+    <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,139 +18,205 @@
     <normaloff>../../../../Documents/Images/Logo/SatRot logo.png</normaloff>../../../../Documents/Images/Logo/SatRot logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="2">
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="maximumSize">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QGroupBox" name="groupBox">
+            <property name="title">
+             <string>Rotor Position</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Az&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLCDNumber" name="lcdNumber"/>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QLabel" name="label_5">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;El&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="textFormat">
+                  <enum>Qt::RichText</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLCDNumber" name="lcdNumber_2"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="title">
+             <string>Mode:</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Automatic</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="maximumSize">
+           <size>
+            <width>800</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>IMU</string>
+          </property>
+          <widget class="QListWidget" name="listWidget">
+           <property name="geometry">
+            <rect>
+             <x>17</x>
+             <y>25</y>
+             <width>211</width>
+             <height>325</height>
+            </rect>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>TCP</string>
+          </property>
+          <widget class="QWidget" name="">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>21</y>
+             <width>241</width>
+             <height>331</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plainTextEdit"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLineEdit" name="lineEdit"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="minimumSize">
          <size>
-          <width>800</width>
-          <height>16777215</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
-        <property name="title">
-         <string>IMU Data Stream</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3"/>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QGroupBox" name="groupBox">
-        <property name="title">
-         <string>Current Rotor Position</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_5">
-         <item row="0" column="0">
-          <widget class="QWidget" name="widget" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>300</height>
-            </size>
-           </property>
-           <widget class="QLabel" name="label">
-            <property name="geometry">
-             <rect>
-              <x>80</x>
-              <y>70</y>
-              <width>141</width>
-              <height>51</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton">
-            <property name="geometry">
-             <rect>
-              <x>50</x>
-              <y>140</y>
-              <width>170</width>
-              <height>51</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QGroupBox" name="groupBox_3">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>350</height>
+          <height>200</height>
          </size>
         </property>
         <property name="title">
-         <string>Status Bar</string>
+         <string>Tracking Info</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
-            <bool>true</bool>
-           </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>309</width>
-              <height>73</height>
-             </rect>
-            </property>
-            <widget class="QLabel" name="statusbar">
-             <property name="geometry">
-              <rect>
-               <x>90</x>
-               <y>10</y>
-               <width>151</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </widget>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QGroupBox" name="groupBox_5">
-        <property name="title">
-         <string>Radio Control</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2" colspan="2">
-       <widget class="QGroupBox" name="groupBox_4">
-        <property name="title">
-         <string>Home Base</string>
-        </property>
-        <widget class="QLabel" name="logo">
+        <widget class="QPlainTextEdit" name="plainTextEdit_3">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>90</y>
-           <width>100</width>
-           <height>198</height>
+           <x>20</x>
+           <y>30</y>
+           <width>561</width>
+           <height>51</height>
           </rect>
          </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>../res/img/SatRot logo2.png</pixmap>
+         <property name="plainText">
+          <string>//when scheduled to track
+Scheduled to track satellite blabla @ UTC 2nd May, 2020 04:34:20.
+
+//when tracking
+ currently tracking blabla.</string>
          </property>
         </widget>
        </widget>
@@ -164,7 +230,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>700</width>
+     <width>773</width>
      <height>28</height>
     </rect>
    </property>
@@ -193,6 +259,7 @@
    <addaction name="menu_View"/>
    <addaction name="menu_Help"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionView">
    <property name="text">
     <string>View</string>

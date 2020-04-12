@@ -1,215 +1,112 @@
-#include "includes/mainwindow.h"
+#include "includes/clientthread.h"
 
-/***********TCPClient***********/
 #include <QStandardItemModel>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QHostAddress>
-/***********TCPClient***********/
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-  , m_TCPServer(new TCPServer(this)) // create the network server
-  , m_TCPClient(new TCPClient(this)) // create the network client
+ClientThread::ClientThread(QObject *parent) : QObject(parent)
+    , m_TCPClient(new TCPClient(this)) // create the chat client
+    , m_chatModel(new QStandardItemModel(this)) // create the model to hold the messages
 {
-    ui->setupUi(this);
+    // the model for the messages will have 1 column
+    m_chatModel->insertColumn(0);
 
-//    //server function connections
-//   connect(ui->startStopButton, &QPushButton::clicked, this, &MainWindow::toggleStartServer);
-//   connect(m_TCPServer, &TCPServer::logMessage, this, &MainWindow::logMessage);
+    /*******************************************move to mainwindow****************************//*
+    // set the model as the data source vor the list view
+    ui->chatView->setModel(m_chatModel);
+    *//*******************************************move to mainwindow****************************/
 
-//   //client function connections
-//   /***********TCPClient***********/
-//   ui->chatView->setModel(m_chatModel);
-//   // connect the signals from the chat client to the slots in this ui
-//   connect(m_TCPClient, &TCPClient::connected, this, &MainWindow::connectedToServer);
-//   connect(m_TCPClient, &TCPClient::loggedIn, this, &MainWindow::loggedIn);
-//   connect(m_TCPClient, &TCPClient::loginError, this, &MainWindow::loginFailed);
-//   connect(m_TCPClient, &TCPClient::messageReceived, this, &MainWindow::messageReceived);
-//   connect(m_TCPClient, &TCPClient::disconnected, this, &MainWindow::disconnectedFromServer);
-//   connect(m_TCPClient, &TCPClient::error, this, &MainWindow::error);
-//   connect(m_TCPClient, &TCPClient::userJoined, this, &MainWindow::userJoined);
-//   connect(m_TCPClient, &TCPClient::userLeft, this, &MainWindow::userLeft);
-//   // connect the connect button to a slot that will attempt the connection
-//   connect(ui->connectButton, &QPushButton::clicked, this, &MainWindow::attemptConnection);
-//   // connect the click of the "send" button and the press of the enter while typing to the slot that sends the message
-//   connect(ui->sendButton, &QPushButton::clicked, this, &MainWindow::sendMessage);
-//   connect(ui->messageEdit, &QLineEdit::returnPressed, this, &MainWindow::sendMessage);
+    // connect the signals from the chat client to the slots in this ui
+    connect(m_TCPClient, &TCPClient::connected, this, &ClientThread::connectedToServer);
+    connect(m_TCPClient, &TCPClient::loggedIn, this, &ClientThread::loggedIn);
+    connect(m_TCPClient, &TCPClient::loginError, this, &ClientThread::loginFailed);
+    connect(m_TCPClient, &TCPClient::messageReceived, this, &ClientThread::messageReceived);
+    connect(m_TCPClient, &TCPClient::disconnected, this, &ClientThread::disconnectedFromServer);
+    connect(m_TCPClient, &TCPClient::error, this, &ClientThread::error);
+    connect(m_TCPClient, &TCPClient::userJoined, this, &ClientThread::userJoined);
+    connect(m_TCPClient, &TCPClient::userLeft, this, &ClientThread::userLeft);
+
+    /*******************************************move to mainwindow****************************//*
+    // connect the connect button to a slot that will attempt the connection
+    connect(ui->connectButton, &QPushButton::clicked, this, &ClientThread::attemptConnection);
+    // connect the click of the "send" button and the press of the enter while typing to the slot that sends the message
+    connect(ui->sendButton, &QPushButton::clicked, this, &ClientThread::sendMessage);
+    connect(ui->messageEdit, &QLineEdit::returnPressed, this, &ClientThread::sendMessage);
+    *//*******************************************move to mainwindow****************************/
 }
 
-MainWindow::~MainWindow()
+ClientThread::~ClientThread()
 {
-    delete ui;
-}
-
-void MainWindow::on_pushButton_toggled(bool checked)
-{
-    stepperDriver AzDriver(0, 2, 3, 12, 13, 14);
-
-        helper hh;
-        int i;
-        if(checked){
-            AzDriver.setDirection(CW);
-            //AzDriver.stepDegrees(90);
-            for(i = 0; i<360; i+=10){
-                AzDriver.stepDegrees(i);
-                hh.re_routeResources(1000);
-            }
-
-        }else {
-            AzDriver.setDirection(CCW);
-            //AzDriver.stepDegrees(180);
-            for(i = 360; i>0; i-=10){
-                AzDriver.stepDegrees(i);
-                hh.re_routeResources(1000);
-            }
-        }
-}
-
-/*
-void MainWindow::toggleStartServer()
-{
-    if (m_TCPServer->isListening()) {
-        m_TCPServer->stopServer();
-        ui->startStopButton->setText(tr("Start Server"));
-        logMessage(QStringLiteral("Server Stopped"));
-    } else {
-
-        QString ipAddress;
-        QHostAddress ip;
-        QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-        // use the first non-localhost IPv4 address
-        for (int i = 0; i < ipAddressesList.size(); ++i) {
-            if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
-                ipAddressesList.at(i).toIPv4Address()) {
-                ipAddress = ipAddressesList.at(i).toString();
-                ip = ipAddressesList.at(i);
-                break;
-            }
-        }
-        // if we did not find one, use IPv4 localhost
-        if (ipAddress.isEmpty()){
-            ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-            ip = QHostAddress::LocalHost;
-        }
-        if (!m_TCPServer->listen(ip, 1967)) {
-            QMessageBox::critical(this, tr("Error"), tr("Unable to start the server"));
-            return;
-        }
-
-        logMessage(QStringLiteral("The server is running on\n\nIP: %1\nport: %2\n\n"
-                                  "Run the SatRot Controller Software Client now and connect.")
-                       .arg(ipAddress).arg(m_TCPServer->serverPort()));
-
-        ui->startStopButton->setText(tr("Stop Server"));
-    }
-}
-
-void MainWindow::logMessage(const QString &msg)
-{
-    ui->logEditor->appendPlainText(msg + '\n');
-}
-
-void MainWindow::clientInit(){
 
 }
 
-void MainWindow::attemptConnection()
+void ClientThread::attemptConnection()
 {
+      /*******************************************move to mainwindow****************************//*
     // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
-//    const QString hostAddress = QInputDialog::getText(
-//        this
-//        , tr("Choose Server")
-//            , tr("Server Address")
-//            , QLineEdit::Normal
-//        , QStringLiteral("127.0.0.1")
-//        );
-    QString hostAddress;
-    QStringList hosts;
-//    QComboBox *hostCombo(new QComboBox);
-//    hostCombo->setEditable(true);
-    // find out name of this machine
-    QString name = QHostInfo::localHostName();
-    if (!name.isEmpty()) {
-        hosts.append(name);
-        QString domain = QHostInfo::localDomainName();
-        if (!domain.isEmpty())
-            hosts.append(name + QChar('.') + domain);
-    }
-    if (name != QLatin1String("localhost"))
-        hosts.append(QString("localhost"));
-    // find out IP addresses of this machine
-    QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-    // add non-localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
-        if (!ipAddressesList.at(i).isLoopback())
-           hosts.append(ipAddressesList.at(i).toString());
-    }
-    // add localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
-        if (ipAddressesList.at(i).isLoopback())
-            hosts.append(ipAddressesList.at(i).toString());
-    }
-
-    CustomDialog dialog(hosts);
-
-    if (dialog.exec() == QDialog::Accepted)
-    {
-        // take proper action here
-        hostAddress = dialog.comboBox()->currentText();
-    }
-
+    const QString hostAddress = QInputDialog::getText(
+        this
+        , tr("Chose Server")
+            , tr("Server Address")
+            , QLineEdit::Normal
+        , QStringLiteral("127.0.0.1")
+        );
     if (hostAddress.isEmpty())
         return; // the user pressed cancel or typed nothing
     // disable the connect button to prevent the user clicking it again
     ui->connectButton->setEnabled(false);
+    *//*******************************************move to mainwindow****************************/
+
     // tell the client to connect to the host using the port 1967
-    m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
+    //m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
 }
 
-void MainWindow::connectedToServer()
+void ClientThread::connectedToServer()
 {
+    /*******************************************move to mainwindow****************************//*
     // once we connected to the server we ask the user for what username they would like to use
-    const QString newUsername = QInputDialog::getText(this, tr("Set Device Name"), tr("Device name"));
+    const QString newUsername = QInputDialog::getText(this, tr("Chose Username"), tr("Username"));
     if (newUsername.isEmpty()){
         // if the user clicked cancel or typed nothing, we just disconnect from the server
         return m_TCPClient->disconnectFromHost();
     }
+    *//*******************************************move to mainwindow****************************/
     // try to login with the given username
-    attemptLogin(newUsername);
+    //attemptLogin(newUsername);
 }
 
-void MainWindow::attemptLogin(const QString &userName)
+void ClientThread::attemptLogin(const QString &userName)
 {
     // use the client to attempt a log in with the given username
     m_TCPClient->login(userName);
 }
 
-void MainWindow::loggedIn()
+void ClientThread::loggedIn()
 {
+    /*******************************************move to mainwindow****************************//*
     // once we successully log in we enable the ui to display and send messages
     ui->sendButton->setEnabled(true);
     ui->messageEdit->setEnabled(true);
     ui->chatView->setEnabled(true);
+    *//*******************************************move to mainwindow****************************/
     // clear the user name record
     m_lastUserName.clear();
-    ui->clientView->setEnabled(true);
-
-    QString x ="";
-    ui->clientView->appendPlainText("Connected to Server" + x +'\n');
 }
 
-void MainWindow::loginFailed(const QString &reason)
+void ClientThread::loginFailed(const QString &reason)
 {
+    /*******************************************move to mainwindow****************************//*
     // the server rejected the login attempt
     // display the reason for the rejection in a message box
     QMessageBox::critical(this, tr("Error"), reason);
+    *//*******************************************move to mainwindow****************************/
+
     // allow the user to retry, execute the same slot as when just connected
     connectedToServer();
 }
 
-void MainWindow::messageReceived(const QString &sender, const QString &text)
+void ClientThread::messageReceived(const QString &sender, const QString &text)
 {
     // store the index of the new row to append to the model containing the messages
     int newRow = m_chatModel->rowCount();
@@ -229,50 +126,50 @@ void MainWindow::messageReceived(const QString &sender, const QString &text)
         // set the for the username
         m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
         ++newRow;
-
-        ui->clientView->appendPlainText(sender + ":" + '\n' + text + '\n');
     } else {
         // insert a row for the message
         m_chatModel->insertRow(newRow);
-
-        ui->clientView->appendPlainText(text + '\n');
     }
     // store the message in the model
     m_chatModel->setData(m_chatModel->index(newRow, 0), text);
     // set the alignment for the message
     m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+    /*******************************************move to mainwindow****************************//*
     // scroll the view to display the new message
     ui->chatView->scrollToBottom();
-
+    *//*******************************************move to mainwindow****************************/
 }
 
-void MainWindow::sendMessage()
+void ClientThread::sendMessage()
 {
+    /*******************************************move to mainwindow****************************//*
     // we use the client to send the message that the user typed
     m_TCPClient->sendMessage(ui->messageEdit->text());
+    *//*******************************************move to mainwindow****************************/
     // now we add the message to the list
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
     // insert a row for the message
     m_chatModel->insertRow(newRow);
+    /*******************************************move to mainwindow****************************//*
     // store the message in the model
     m_chatModel->setData(m_chatModel->index(newRow, 0), ui->messageEdit->text());
+    *//*******************************************move to mainwindow****************************/
     // set the alignment for the message
     m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignRight | Qt::AlignVCenter), Qt::TextAlignmentRole);
-
-    ui->clientView->appendPlainText(ui->messageEdit->text() + '\n');
+    /*******************************************move to mainwindow****************************//*
     // clear the content of the message editor
     ui->messageEdit->clear();
-
     // scroll the view to display the new message
     ui->chatView->scrollToBottom();
+    *//*******************************************move to mainwindow****************************/
     // reset the last printed username
     m_lastUserName.clear();
-
 }
 
-void MainWindow::disconnectedFromServer()
+void ClientThread::disconnectedFromServer()
 {
+    /*******************************************move to mainwindow****************************//*
     // if the client loses connection to the server
     // comunicate the event to the user via a message box
     QMessageBox::warning(this, tr("Disconnected"), tr("The host terminated the connection"));
@@ -282,12 +179,12 @@ void MainWindow::disconnectedFromServer()
     ui->chatView->setEnabled(false);
     // enable the button to connect to the server again
     ui->connectButton->setEnabled(true);
+    *//*******************************************move to mainwindow****************************/
     // reset the last printed username
     m_lastUserName.clear();
-    ui->clientView->setEnabled(false);
 }
 
-void MainWindow::userJoined(const QString &username)
+void ClientThread::userJoined(const QString &username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -299,14 +196,14 @@ void MainWindow::userJoined(const QString &username)
     m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
     // set the color for the text
     m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
+    /*******************************************move to mainwindow****************************//*
     // scroll the view to display the new message
     ui->chatView->scrollToBottom();
+    *//*******************************************move to mainwindow****************************/
     // reset the last printed username
     m_lastUserName.clear();
-
-    ui->clientView->appendPlainText("\"" + username + "\" Joined the network" + '\n');
 }
-void MainWindow::userLeft(const QString &username)
+void ClientThread::userLeft(const QString &username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -318,16 +215,17 @@ void MainWindow::userLeft(const QString &username)
     m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
     // set the color for the text
     m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::red), Qt::ForegroundRole);
+    /*******************************************move to mainwindow****************************//*
     // scroll the view to display the new message
     ui->chatView->scrollToBottom();
+    *//*******************************************move to mainwindow****************************/
     // reset the last printed username
     m_lastUserName.clear();
-
-    ui->clientView->appendPlainText("\"" + username + "\" Left the network" + '\n');
 }
 
-void MainWindow::error(QAbstractSocket::SocketError socketError)
+void ClientThread::error(QAbstractSocket::SocketError socketError)
 {
+    /*******************************************move to mainwindow****************************//*
     // show a message to the user that informs of what kind of error occurred
     switch (socketError) {
     case QAbstractSocket::RemoteHostClosedError:
@@ -385,14 +283,7 @@ void MainWindow::error(QAbstractSocket::SocketError socketError)
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
     ui->chatView->setEnabled(false);
+    *//*******************************************move to mainwindow****************************/
     // reset the last printed username
     m_lastUserName.clear();
 }
-
-void MainWindow::on_sendTrack_clicked()
-{
-    //Mode of control, True if automatic and False if Manual
-    m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
-}
-
-*/
