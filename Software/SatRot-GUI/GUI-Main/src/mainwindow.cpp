@@ -31,11 +31,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QString downloadDirectory = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+
     if (downloadDirectory.isEmpty() || !QFileInfo(downloadDirectory).isDir())
         downloadDirectory = QDir::currentPath();
     downloadDirectoryPath = QDir::toNativeSeparators(downloadDirectory);
 
-    QFile::copy(":/web/web/index.html" , downloadDirectoryPath);
+    QFile::copy(":/web/web/index.html" , downloadDirectoryPath+"/index.html");
 
     ui->statusbar->setEnabled(true);
     ui->statusbar->showMessage("Loading");
@@ -151,6 +153,7 @@ MainWindow::MainWindow(QWidget *parent)
         QTimer *timerT = new QTimer(this);
         connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
         timerT->start(250);
+
 
 }
 
@@ -658,7 +661,7 @@ void MainWindow::webView(){
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
    QMainWindow::resizeEvent(event);
-   // Your code here.
+
    view->resize(ui->widget->size());
 }
 
@@ -1439,3 +1442,4 @@ void MainWindow::on_verticalSlider_sliderMoved(int position)
     AzEl["El"] = s;
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
+
