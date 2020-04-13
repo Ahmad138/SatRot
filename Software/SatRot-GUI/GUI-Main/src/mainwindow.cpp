@@ -154,7 +154,6 @@ MainWindow::MainWindow(QWidget *parent)
         connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
         timerT->start(250);
 
-
 }
 
 /**
@@ -208,8 +207,16 @@ void MainWindow::on_getSatData_clicked()
    QString urlCZML = "http://www.orbitalpredictor.com/api/predict_orbit/?sats="+norad+"&start="+startDate+"&end="+stopDate+"&format=czml&type=orbit";
    QString urln2yo = "";
 
-   getCZML(urlCZML);
-   getSatDetails(noradL);
+   ui->getSatData->setEnabled(false);
+   if(!norad.isEmpty()){
+       getCZML(urlCZML);
+   }
+
+   if(!noradL.isEmpty()){
+       getSatDetails(noradL);
+   }
+
+   ui->getSatData->setEnabled(true);
 
 }
 
@@ -383,7 +390,6 @@ void MainWindow::getCZML(QString endpoint)
 void MainWindow::getSatDetails(QList<QString> endpoint)
 {
     QString var;
-
     positions.clear();
     clearTable();
     updateTable();
@@ -396,6 +402,7 @@ void MainWindow::getSatDetails(QList<QString> endpoint)
     }
 
     emit valueChanged();
+
 }
 
 void MainWindow::getSatPos(QString endpoint)
@@ -461,6 +468,7 @@ void MainWindow::getSatVisPass(QString endpoint)
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;       
 //       VisualPasses.append(o);
+       satVPDetails = o;
 
        QJsonArray z = o.value("passes").toArray();
        QDateTime UTC(QDateTime::currentDateTimeUtc());
@@ -546,6 +554,7 @@ void MainWindow::getSatRadPass(QString endpoint)
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;
 //        RadioPasses.append(o);
+       satRPDetails = o;
 
        QJsonArray z = o.value("passes").toArray();
        QDateTime UTC(QDateTime::currentDateTimeUtc());
@@ -615,6 +624,7 @@ void MainWindow::getSatTLE(QString endpoint)
 
    api::handleFunc getData = [this](const QJsonObject &o) {
        //cout << "Got data " << endl;
+       satTLEDetails = o;
 
        QString a = QString::number(o.value("info")["satid"].toInt());
        QString b = o.value("info")["satname"].toString();
@@ -684,6 +694,7 @@ void MainWindow::on_sat_currentIndexChanged(const QString &arg1)
         getSatRadPass(strNew);
 
         emit valueChanged();
+        ui->sendTrack->setEnabled(true);
     }
 }
 
@@ -1227,6 +1238,10 @@ void MainWindow::on_sendTrack_clicked()
 {
     //Mode of control, True if automatic and False if Manual
     m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
+    m_TCPClient->sendTrackingDetails(satVPDetails, "VP", true);
+    m_TCPClient->sendTrackingDetails(satRPDetails, "RP", true);
+    m_TCPClient->sendTrackingDetails(satTLEDetails, "TLE", true);
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

@@ -97,20 +97,25 @@ QString CustomListModel::getNORAD(){
 
     foreach(QPersistentModelIndex index, checkedItems){
         QString s = index.data().toString();
-        const std::string z = s.toStdString();
-
-        unsigned first = z.find("[");
-        unsigned last = z.find("]");
-        const std::string str = z.substr (first+1,(last-1)-first);
-
-        QString strNew = QString::fromStdString(str);
-        all += strNew + ",";
+        if(s != "Satellite Name - NORAD Id" && s != "------------------------------------"){
+            const std::string z = s.toStdString();
+    
+            unsigned first = z.find("[");
+            unsigned last = z.find("]");
+            const std::string str = z.substr (first+1,(last-1)-first);
+    
+            QString strNew = QString::fromStdString(str);
+            all += strNew + ",";
+        }
     }
 
     //remove last ',' in the QString
     const std::string y = all.toStdString();
-    const std::string w = y.substr(0, y.size()-1);
-    all = QString::fromStdString(w);
+    if(y.back()==','){
+        const std::string w = y.substr(0, y.size()-1);
+        all = QString::fromStdString(w);
+    }
+
     return all;
 }
 
@@ -120,14 +125,16 @@ QList<QString> CustomListModel::getNORADObj(){
 
     foreach(QPersistentModelIndex index, checkedItems){
         QString s = index.data().toString();
-        const std::string z = s.toStdString();
+        if(s != "Satellite Name - NORAD Id" && s != "------------------------------------"){
+            const std::string z = s.toStdString();
 
-        unsigned first = z.find("[");
-        unsigned last = z.find("]");
-        const std::string str = z.substr (first+1,(last-1)-first);
+            unsigned first = z.find("[");
+            unsigned last = z.find("]");
+            const std::string str = z.substr (first+1,(last-1)-first);
 
-        QString strNew = QString::fromStdString(str);
-        all.append(strNew);
+            QString strNew = QString::fromStdString(str);
+            all.append(strNew);
+        }
     }
 
     return all;
