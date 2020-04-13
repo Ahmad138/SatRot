@@ -35,6 +35,7 @@ private:
     void sendJson(ServerThread *destination, const QJsonObject &message);
 signals:
     void logMessage(const QString &msg);
+    void logData(const QJsonObject &doc);
     void stopAllClients();
 };
 
