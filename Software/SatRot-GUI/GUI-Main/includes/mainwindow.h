@@ -318,8 +318,8 @@ private:
 
     QString radarFileName = ":/img/img/radar.png";
 
-    QString downloadDirectory = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
     QString downloadDirectoryPath;
+
 
 signals:
     void valueChanged();
