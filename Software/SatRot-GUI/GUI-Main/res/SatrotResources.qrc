@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/web">
         <file>web/index.html</file>
-        <file>web/base.czml</file>
+        <file>web/satellites.czml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/radar.png</file>

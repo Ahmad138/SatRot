@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     const QRect availableSize = w.geometry();
 //    w.resize(availableSize.width() * 2, availableSize.height() * 2);
     w.move((availableSize.width() - w.width()), (availableSize.height() - w.height()));
-    w.showMaximized();
-//    w.show();
+//    w.showMaximized();
+    w.show();
     return a.exec();
 }
