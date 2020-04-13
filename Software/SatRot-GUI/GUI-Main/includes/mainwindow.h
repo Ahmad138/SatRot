@@ -230,6 +230,8 @@ private:
     QList<QString> m_value;
 
     //List for TLE data
+    QJsonObject satTLEDetails;
+
     QList<QString> tm_satid;
     QList<QString> tm_satname;
     QList<QString> tm_tle;
@@ -250,6 +252,7 @@ private:
     QList<QString> tm_timestamp;
 
     //List for Visual Pass data
+    QJsonObject satVPDetails;
 
     QList<QString> tm_satidVP;
     QList<QString> tm_satnameVP;
@@ -270,6 +273,7 @@ private:
     QList<QString> tm_duration;
 
     //List for Radio Pass data
+    QJsonObject satRPDetails;
 
     QList<QString> tm_satidR;
     QList<QString> tm_satnameR;
