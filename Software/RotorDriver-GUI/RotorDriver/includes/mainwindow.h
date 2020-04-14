@@ -8,6 +8,7 @@
 #include "includes/tcpserver.h"
 #include "includes/tcpclient.h"
 #include "includes/customdialog.h"
+#include "includes/timekeeperworker.h"
 
 #include <QMessageBox>
 #include <QNetworkInterface>
@@ -23,6 +24,9 @@ class QStandardItemModel;
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QJsonObject>
+
+#include <QDateTime>
+#include <QThread>
 
 namespace Ui {
 class MainWindow;
@@ -68,7 +72,7 @@ private slots:
     void error(QAbstractSocket::SocketError socketError);
     /***********TCPClient***********/
 
-    void setSatToTrack();
+    void setSatToTrack(const QJsonObject &doc);
 
 private:
     Ui::MainWindow *ui;
@@ -80,6 +84,7 @@ private:
     QString m_lastUserName;
     /***********TCPClient***********/
 
+    QString url;
 };
 
 #endif // MAINWINDOW_H
