@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <QDir>
+#include <QStandardPaths>
 
 #include "includes/api.h"
 #include "includes/tcpserver.h"
@@ -316,6 +317,10 @@ private:
     QAction *documentationAct;
 
     QString radarFileName = ":/img/img/radar.png";
+
+    QString downloadDirectoryPath;
+
+
 signals:
     void valueChanged();
 
