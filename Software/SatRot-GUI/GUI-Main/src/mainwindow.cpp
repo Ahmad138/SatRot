@@ -553,7 +553,7 @@ void MainWindow::getSatRadPass(QString endpoint)
                myDateTime.setTime_t(o.value("passes")[x]["startUTC"].toInt());
                QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
                QString e = QString::number(o.value("passes")[x]["startAz"].toDouble())+"°";
-               myDateTime.setTime_t(o.value("pes")[x]["maxUTC"].toInt());
+               myDateTime.setTime_t(o.value("passes")[x]["maxUTC"].toInt());
                QString f = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
                QString g = QString::number(o.value("passes")[x]["maxAz"].toDouble())+"°";
                QString h = QString::number(o.value("passes")[x]["maxEl"].toDouble())+"°";

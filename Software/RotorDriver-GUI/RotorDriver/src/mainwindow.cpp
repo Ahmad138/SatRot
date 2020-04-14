@@ -48,6 +48,14 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->ElLcd->setDigitCount(8);
    ui->ElLcd->setStyleSheet( "color: blue; font-size:20pt;" );
    ui->ElLcd->display("0.00'");
+
+   ui->trackingInfo->setPlainText("No tracking is scheduled yet");
+
+
+   QTimer *timerT = new QTimer();
+   connect(timerT, SIGNAL(timeout()), this, SLOT(Timer()));
+   timerT->start(250);
+
 }
 
 MainWindow::~MainWindow()
@@ -133,13 +141,49 @@ void MainWindow::logData(const QJsonObject &doc)
             ui->AzLcd->display(doc.value("Az").toString()+"'");
             ui->ElLcd->display(doc.value("El").toString()+"'");
         }else if (doc.value("mode") == "Automatic"){
-            setSatToTrack();
+            setSatToTrack(doc);
         }
     }
 }
 
-void MainWindow::setSatToTrack(){
+void MainWindow::setSatToTrack(const QJsonObject &doc){
+    if(doc.value("satDataType") == "RP"){
+        QDateTime UTC(QDateTime::currentDateTimeUtc());
+        QDateTime myDateTime;
 
+        if(doc.value("info")["passescount"].toInt() != 0){
+            QString a = QString::number(doc.value("info")["satid"].toInt());
+            QString b = doc.value("info")["satname"].toString();
+
+            myDateTime.setTime_t(doc.value("passes")[0]["startUTC"].toInt());
+            QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+            QString e = QString::number(doc.value("passes")[0]["startAz"].toDouble())+"°";
+            myDateTime.setTime_t(doc.value("passes")[0]["maxUTC"].toInt());
+            QString f = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+            QString g = QString::number(doc.value("passes")[0]["maxAz"].toDouble())+"°";
+            QString h = QString::number(doc.value("passes")[0]["maxEl"].toDouble())+"°";
+            QString i = QString::number(doc.value("passes")[0]["endAz"].toDouble())+"°";
+            myDateTime.setTime_t(doc.value("passes")[0]["endUTC"].toInt());
+            QString j = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+            QString k = doc.value("passes")[0]["startAzCompass"].toString();
+            QString l = doc.value("passes")[0]["maxAzCompass"].toString();
+            QString m = doc.value("passes")[0]["endAzCompass"].toString();
+
+            ui->trackingInfo->setPlainText("Scheduled to track satellite: "
+                                           +b+" ["+a+"] starting at "
+                                           +d+" (Az: "+e+"° & El: 0°)["+k+"], max at "+f+" (Az: "+g+"° & El: "+h+"°)["+l+"] and end at "+j+
+                                           " (Az: "+i+"° & El: 0°)["+m+"] \n "
+                                           );
+
+            url = doc.value("url").toString();
+            QThread *TimeKeeperThread = new QThread; // First thread
+            TimeKeeperThread->start();
+
+            TimeKeeperWorker *autoTrack = new TimeKeeperWorker(nullptr, url, doc.value("passes")[0]["startUTC"].toInt(), doc.value("passes")[0]["endUTC"].toInt());
+            autoTrack->moveToThread(TimeKeeperThread);
+
+        }
+    }
 }
 
 void MainWindow::attemptConnection()
@@ -415,5 +459,4 @@ void MainWindow::error(QAbstractSocket::SocketError socketError)
     // reset the last printed username
     m_lastUserName.clear();
 }
-
 

@@ -46,7 +46,8 @@ SOURCES += \
         src/tcpthread.cpp \
         src/serverthread.cpp \
         src/clientthread.cpp \
-        src/customdialog.cpp
+        src/customdialog.cpp \
+    src/timekeeperworker.cpp
 
 HEADERS += \
         includes/mainwindow.h \
@@ -61,7 +62,10 @@ HEADERS += \
         includes/tcpthread.h \
         includes/serverthread.h \
         includes/clientthread.h \
-        includes/customdialog.h
+        includes/customdialog.h \
+        includes/CppThread.h \
+    includes/timekeeperworker.h
+
 
 FORMS += \
         forms/mainwindow.ui
