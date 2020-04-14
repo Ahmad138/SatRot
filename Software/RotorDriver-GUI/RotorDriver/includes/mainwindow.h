@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "ui_mainwindow.h"
 #include "includes/blink.h"
-//#include "includes/stepperdriver.h"
+#include "includes/stepperdriver.h"
 #include "includes/tcpserver.h"
 #include "includes/tcpclient.h"
 #include "includes/customdialog.h"
@@ -85,6 +85,9 @@ private:
     /***********TCPClient***********/
 
     QString url;
+
+    stepperDriver AzDriver(0, 2, 3, 12, 13, 14);
+    stepperDriver ElDriver(1, 4, 5, 6, 10, 11);
 };
 
 #endif // MAINWINDOW_H

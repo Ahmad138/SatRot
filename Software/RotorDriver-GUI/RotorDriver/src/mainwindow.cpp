@@ -140,6 +140,13 @@ void MainWindow::logData(const QJsonObject &doc)
         if(doc.value("mode") == "Manual" || doc.value("satDataType") == "M"){
             ui->AzLcd->display(doc.value("Az").toString()+"'");
             ui->ElLcd->display(doc.value("El").toString()+"'");
+
+            AzDriver.setDirection(CW);
+            AzDriver.stepDegrees(doc.value("Az").toDouble());
+
+            ElDriver.setDirection(CW);
+            ElDriver.stepDegrees(doc.value("El").toDouble());
+
         }else if (doc.value("mode") == "Automatic"){
             setSatToTrack(doc);
         }

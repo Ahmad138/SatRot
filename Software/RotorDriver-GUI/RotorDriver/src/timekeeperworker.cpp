@@ -37,6 +37,12 @@ void TimeKeeperWorker::Timer(){
                 myDateTime.setTime_t(positions.value("positions")[i]["timestamp"].toInt());
                 QString k = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
 
+                AzDriver.setDirection(CW);
+                AzDriver.stepDegrees(positions.value("positions")[i]["azimuth"].toDouble());
+
+                ElDriver.setDirection(CW);
+                ElDriver.stepDegrees(positions.value("positions")[i]["elevation"].toDouble());
+
             }
         }
 

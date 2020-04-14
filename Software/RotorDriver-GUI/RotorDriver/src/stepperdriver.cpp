@@ -10,7 +10,7 @@ stepperDriver::stepperDriver(uint8_t enablePin, uint8_t dirPin, uint8_t stepPin,
     _ms3 = ms3Pin;
     _mode = FULL_STEP;
     _enabled = true;
-    _speed = 50;
+    _speed = 100;
     _direction = CW;
 
     wiringPiSetup () ;

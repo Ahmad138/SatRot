@@ -4,6 +4,7 @@
 #include <QObject>
 #include "includes/CppThread.h"
 #include "includes/api.h"
+#include "includes/stepperdriver.h"
 
 #include <iostream>
 #include <ctime>
@@ -32,6 +33,9 @@ private:
     int count;
     QJsonObject positions;
     QString url;
+
+    stepperDriver AzDriver(0, 2, 3, 12, 13, 14);
+    stepperDriver ElDriver(1, 4, 5, 6, 10, 11);
 
 private slots:
     void Timer();
