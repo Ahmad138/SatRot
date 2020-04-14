@@ -30,14 +30,14 @@ CONFIG += c++14
 INCLUDEPATH    += /usr/local/include
 
 # To link the wiringPi library when making the executable
-#LIBS += -L/usr/local/lib -lwiringPi
+LIBS += -L/usr/local/lib -lwiringPi
 
 SOURCES += \
         src/main.cpp \
         src/mainwindow.cpp \
     	src/tcpsockets.cpp \
 	src/api.cpp \
-#        src/stepperdriver.cpp \
+        src/stepperdriver.cpp \
         src/raspgpio.cpp \
 #        src/blink.cpp \
         src/helper.cpp \
@@ -53,7 +53,7 @@ HEADERS += \
         includes/mainwindow.h \
     	includes/tcpsockets.h \
 	includes/api.h \
-#        includes/stepperdriver.h \
+        includes/stepperdriver.h \
         includes/raspgpio.h \
 #        includes/blink.h \
         includes/helper.h \

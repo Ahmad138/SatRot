@@ -52,9 +52,9 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->trackingInfo->setPlainText("No tracking is scheduled yet");
 
 
-   QTimer *timerT = new QTimer();
-   connect(timerT, SIGNAL(timeout()), this, SLOT(Timer()));
-   timerT->start(250);
+//   QTimer *timerT = new QTimer();
+//   connect(timerT, SIGNAL(timeout()), this, SLOT(Timer()));
+//   timerT->start(250);
 
 }
 
@@ -141,11 +141,11 @@ void MainWindow::logData(const QJsonObject &doc)
             ui->AzLcd->display(doc.value("Az").toString()+"'");
             ui->ElLcd->display(doc.value("El").toString()+"'");
 
-            AzDriver.setDirection(CW);
-            AzDriver.stepDegrees(doc.value("Az").toDouble());
+            AzDriver->setDirection(CW);
+            AzDriver->stepDegrees(doc.value("Az").toDouble());
 
-            ElDriver.setDirection(CW);
-            ElDriver.stepDegrees(doc.value("El").toDouble());
+            ElDriver->setDirection(CW);
+            ElDriver->stepDegrees(doc.value("El").toDouble());
 
         }else if (doc.value("mode") == "Automatic"){
             setSatToTrack(doc);
@@ -176,17 +176,20 @@ void MainWindow::setSatToTrack(const QJsonObject &doc){
             QString l = doc.value("passes")[0]["maxAzCompass"].toString();
             QString m = doc.value("passes")[0]["endAzCompass"].toString();
 
-            ui->trackingInfo->setPlainText("Scheduled to track satellite: "
-                                           +b+" ["+a+"] starting at "
-                                           +d+" (Az: "+e+"° & El: 0°)["+k+"], max at "+f+" (Az: "+g+"° & El: "+h+"°)["+l+"] and end at "+j+
-                                           " (Az: "+i+"° & El: 0°)["+m+"] \n "
+            ui->trackingInfo->setPlainText("Scheduled to track satellite: \n"
+                                           +b+" ["+a+"] starting on \n"
+                                           +d+" (Az: "+e+"\n & El: 0°)["+k+"], \n"
+                                           "max on "+f+" (Az: "+g+" & El: "+h+")["+l+"], \n"
+                                           " and end on "+j+" (Az: "+i+" & El: 0°)["+m+"] \n "
                                            );
 
             url = doc.value("url").toString();
             QThread *TimeKeeperThread = new QThread; // First thread
             TimeKeeperThread->start();
 
-            TimeKeeperWorker *autoTrack = new TimeKeeperWorker(nullptr, url, doc.value("passes")[0]["startUTC"].toInt(), doc.value("passes")[0]["endUTC"].toInt());
+            TimeKeeperWorker *autoTrack = new TimeKeeperWorker(nullptr, url, \
+                                                               doc.value("passes")[0]["startUTC"].toInt(), doc.value("passes")[0]["endUTC"].toInt(),
+                                                               doc.value("passes")[0]["startAz"].toDouble(), 0);
             autoTrack->moveToThread(TimeKeeperThread);
 
         }

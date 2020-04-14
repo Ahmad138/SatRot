@@ -1,10 +1,12 @@
 #include "includes/timekeeperworker.h"
 
-TimeKeeperWorker::TimeKeeperWorker(QObject *parent, QString endpoint, int start, int stop) : QObject(parent)
+TimeKeeperWorker::TimeKeeperWorker(QObject *parent, QString endpoint, int start, int stop, double Az, double El) : QObject(parent)
 {
     url = endpoint;
     m_start=start;
     m_stop=stop;
+    m_Az = Az;
+    m_El = El;
     count = ceil((stop-start)/300);
 
     QTimer *timerT = new QTimer();
@@ -19,6 +21,12 @@ void TimeKeeperWorker::Timer(){
 
     if(m_start-15 == UTC.toSecsSinceEpoch()){
         getSatPos();
+        AzDriver->setDirection(CW);
+        AzDriver->stepDegrees(m_Az);
+
+        ElDriver->setDirection(CW);
+        ElDriver->stepDegrees(m_El);
+
     }else if(m_start <= UTC.toSecsSinceEpoch() && m_stop >= UTC.toSecsSinceEpoch()){
 
         for (int i = 1; i < l.size(); i++) {
@@ -37,11 +45,11 @@ void TimeKeeperWorker::Timer(){
                 myDateTime.setTime_t(positions.value("positions")[i]["timestamp"].toInt());
                 QString k = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
 
-                AzDriver.setDirection(CW);
-                AzDriver.stepDegrees(positions.value("positions")[i]["azimuth"].toDouble());
+                AzDriver->setDirection(CW);
+                AzDriver->stepDegrees(positions.value("positions")[i]["azimuth"].toDouble());
 
-                ElDriver.setDirection(CW);
-                ElDriver.stepDegrees(positions.value("positions")[i]["elevation"].toDouble());
+                ElDriver->setDirection(CW);
+                ElDriver->stepDegrees(positions.value("positions")[i]["elevation"].toDouble());
 
             }
         }

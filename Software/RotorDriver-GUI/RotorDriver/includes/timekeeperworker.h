@@ -19,7 +19,7 @@ class TimeKeeperWorker : public QObject
 {
     Q_OBJECT
 public:
-    explicit TimeKeeperWorker(QObject *parent = nullptr, QString url="", int start=0, int stop=0);
+    explicit TimeKeeperWorker(QObject *parent = nullptr, QString url="", int start=0, int stop=0, double Az=0, double El=0);
     void getSatPos();
 
 signals:
@@ -31,11 +31,12 @@ private:
     int m_start;
     int m_stop;
     int count;
+    double m_Az, m_El;
     QJsonObject positions;
     QString url;
 
-    stepperDriver AzDriver(0, 2, 3, 12, 13, 14);
-    stepperDriver ElDriver(1, 4, 5, 6, 10, 11);
+    stepperDriver *AzDriver = new stepperDriver(0, 2, 3, 12, 13, 14);
+    stepperDriver *ElDriver = new stepperDriver(1, 4, 5, 6, 10, 11);
 
 private slots:
     void Timer();
