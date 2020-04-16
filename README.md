@@ -1,7 +1,7 @@
 #  SatRot - Taking Everyone to Space  :satellite:    :earth_africa:   :crescent_moon:   :telescope:   :space_invader: :stars:  :rocket:
 [![Build Status](https://travis-ci.org/Ahmad138/SatRot.svg?branch=master)](https://travis-ci.org/Ahmad138/SatRot)
 <p align="center">
-<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/SatRot-logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
+<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
 </p>
 
 # Table of Contents   :ledger:
@@ -42,7 +42,7 @@ The GUI has 2 main modes. A manual mode that a user can use to manually track a 
 
 # How SatRot works   :wrench:
 <p align="center">
-<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Block-Diagrams/Satellite-Rotator-Block-Diagram.jpg?raw=true" width="110%" >
+<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Block%20Diagrams/Satellite%20Rotator%20Block%20Diagram.jpg?raw=true" width="110%" >
 </p>
 
 ## Applications/Usefulness
@@ -150,12 +150,9 @@ If there is any issue or suggestions (including spelling/grammatical errors) to 
 # Social Media &#64;sat_rot
 Like, Follow, Share to stay updated and help us grow the community.
 <p align="center">
-<a href="https://www.twitter.com/sat_rot">
-<img
-
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069"><img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="#"> <img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"> </a> <a href="#"> <img
+<a href="https://www.twitter.com/sat_rot" target="_blank">
+<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069" target="_blank"><img
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="https://www.instagram.com/sat_rot/" target="_blank"> <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"></a> <a href="https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw" target="_blank"> <img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/youtube.png?raw=true" width="10%"> </a> 
 
 </p>
