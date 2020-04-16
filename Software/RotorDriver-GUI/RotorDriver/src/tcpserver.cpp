@@ -68,6 +68,7 @@ void TCPServer::jsonReceived(ServerThread *sender, const QJsonObject &json)
 {
     Q_ASSERT(sender);
     emit logMessage("JSON received " + QString::fromUtf8(QJsonDocument(json).toJson()));
+    emit logData(json);
     if (sender->userName().isEmpty())
         return jsonFromLoggedOut(sender, json);
     jsonFromLoggedIn(sender, json);

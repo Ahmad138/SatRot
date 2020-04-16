@@ -30,36 +30,42 @@ CONFIG += c++14
 INCLUDEPATH    += /usr/local/include
 
 # To link the wiringPi library when making the executable
-LIBS += -L/usr/local/lib -lwiringPi
+#LIBS += -L/usr/local/lib -lwiringPi
 
 SOURCES += \
         src/main.cpp \
         src/mainwindow.cpp \
     	src/tcpsockets.cpp \
 	src/api.cpp \
-        src/stepperdriver.cpp \
+#        src/stepperdriver.cpp \
         src/raspgpio.cpp \
-        src/blink.cpp \
+#        src/blink.cpp \
         src/helper.cpp \
 	src/tcpclient.cpp \
 	src/tcpserver.cpp \
         src/tcpthread.cpp \
         src/serverthread.cpp \
-        src/clientthread.cpp
+        src/clientthread.cpp \
+        src/customdialog.cpp \
+    src/timekeeperworker.cpp
 
 HEADERS += \
         includes/mainwindow.h \
     	includes/tcpsockets.h \
 	includes/api.h \
-        includes/stepperdriver.h \
+#        includes/stepperdriver.h \
         includes/raspgpio.h \
-        includes/blink.h \
+#        includes/blink.h \
         includes/helper.h \
 	includes/tcpclient.h \
 	includes/tcpserver.h \
         includes/tcpthread.h \
         includes/serverthread.h \
-        includes/clientthread.h
+        includes/clientthread.h \
+        includes/customdialog.h \
+        includes/CppThread.h \
+    includes/timekeeperworker.h
+
 
 FORMS += \
         forms/mainwindow.ui
