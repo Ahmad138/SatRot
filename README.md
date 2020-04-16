@@ -1,38 +1,36 @@
-# SatRot - Taking Everyone to Space  :satellite:    :earth_africa:   :crescent_moon:   :telescope:   :space_invader: :stars:  :rocket:
+#  SatRot - Taking Everyone to Space  :satellite:    :earth_africa:   :crescent_moon:   :telescope:   :space_invader: :stars:  :rocket:
 [![Build Status](https://travis-ci.org/Ahmad138/SatRot.svg?branch=master)](https://travis-ci.org/Ahmad138/SatRot)
 <p align="center">
-<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
+<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/SatRot-logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
 </p>
 
 # Table of Contents   :ledger:
--   [SatRot - Taking Everyone to Space](https://github.com/Ahmad138/SatRot#SatRot%20-%20Taking%20Everyone%20to%20Space)
--   [Table of Contents](https://github.com/Ahmad138/SatRot#Table%20of%20Contents)
--   [Motivation](https://github.com/Ahmad138/SatRot#Motivation)
--   [What is SatRot?](https://github.com/Ahmad138/SatRot#What%20is%20SatRot?)
--   [How SatRot works](https://github.com/Ahmad138/SatRot#How%20SatRot%20works)
-    -   [Applications/Usefulness](https://github.com/Ahmad138/SatRot#Applications/Usefulness)
--   [Who is SatRot for?](https://github.com/Ahmad138/SatRot#Who%20is%20SatRot%20for?)
--   [Requirements](https://github.com/Ahmad138/SatRot#Requirements)
-    -   [Mechanical](https://github.com/Ahmad138/SatRot#Mechanical)
-    -   [Electrical and Electronics](https://github.com/Ahmad138/SatRot#Electrical%20and%20Electronics)
-    -   [Software](https://github.com/Ahmad138/SatRot#Software)
-        -   [Dependencies and Packages](https://github.com/Ahmad138/SatRot#Dependencies%20and%20Packages)
-        -   [Device and Operating System](https://github.com/Ahmad138/SatRot#Device%20and%20Operating%20System)
-      -   [Telecom](https://github.com/Ahmad138/SatRot#Telecom)
--   [How to:](https://github.com/Ahmad138/SatRot#How%20to%20%E2%80%A6)
-    -   [Build and install](https://github.com/Ahmad138/SatRot#Build%20and%20install)
-    -   [Use](https://github.com/Ahmad138/SatRot#Use)
-    -   [Maintain](https://github.com/Ahmad138/SatRot#Maintain)
--   [Screenshots](https://github.com/Ahmad138/SatRot#Screenshots)
--   [Examples and Videos](https://github.com/Ahmad138/SatRot#Examples%20and%20Videos)
--   [Documentation](https://github.com/Ahmad138/SatRot#Documentation)
--   [Issue Tracking](https://github.com/Ahmad138/SatRot#Issue%20Tracking)
--   [Social Media @sat_rot](https://github.com/Ahmad138/SatRot#Social%20Media%20@sat_rot)
--   [Authors](https://github.com/Ahmad138/SatRot#Authors)
--   [Support Us](https://github.com/Ahmad138/SatRot#Support%20Us)
--   [License](https://github.com/Ahmad138/SatRot#License)
+-   [Motivation](#motivation)
+-   [What is SatRot?](#what-is-satrot?)
+-   [How SatRot works](#how-satrot-works)
+    -   [Applications/Usefulness](#applications-usefulness)
+-   [Who is SatRot for?](#who-is-satrot-for?)
+-   [Requirements](#requirements)
+    -   [Mechanical](#mechanical)
+    -   [Electrical and Electronics](#electrical-and-electronics)
+    -   [Software](#software)
+        -   [Dependencies and Packages](#dependencies-and-packages)
+        -   [Device and Operating System](#device-and-operating-system)
+      -   [Telecom](#telecom)
+-   [How to:](#how-to)
+    -   [Build and install](#build-and-install)
+    -   [Use](#use)
+    -   [Maintain](#maintain)
+-   [Screenshots](#screenshots)
+-   [Examples and Videos](#examples-and-videos)
+-   [Documentation](#documentation)
+-   [Issue Tracking](#issue-tracking)
+-   [Social Media @sat_rot](#social-media-@sat_rot)
+-   [Authors](#authors)
+-   [Support Us](#support-us)
+-   [License](#license)
 
-# Motivation   :muscle:  :fire:
+# <a name="motivation"></a>Motivation   :muscle:  :fire:
 There has being alot of interest buzzing around ever since the space race started in 1955. Equipments and materials to communicate with satellites especially low earth orbit (LEO) satellites have being expensive and inaccessible. These satellites (both natural and artificial) move really fast across the sky. Hand tracking becomes tedious and tiring. Solar panels also need to follow the sun across the sky for 90&deg; incident rays so as to increase it's efficiency.
 
 This is where **satRot** comes in. SatRot takes everyone interested into the domain of the amateur satellite observation or communication community. 
@@ -44,7 +42,7 @@ The GUI has 2 main modes. A manual mode that a user can use to manually track a 
 
 # How SatRot works   :wrench:
 <p align="center">
-<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Block%20Diagrams/Satellite%20Rotator%20Block%20Diagram.jpg?raw=true" width="110%" >
+<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Block-Diagrams/Satellite-Rotator-Block-Diagram.jpg?raw=true" width="110%" >
 </p>
 
 ## Applications/Usefulness
@@ -73,7 +71,7 @@ see [wiki](https://github.com/Ahmad138/SatRot/wiki/Mechanical-Requirements) for 
 ### Electrical and Electronics  :pager:
 We wanted to make satrot modular, portable and completely standalone. This required some components that need to provide adequate power and control. Below are some requirements. 
 
- - A4988 stepper driver chips
+- A4988 stepper driver chips
  - MPU-9250
  - Nema17 2A stepper motors
  - 12V batteries
@@ -104,6 +102,7 @@ This section requires majorly:
  - RTL-SDR
  - RG58 50ohm cable
  - SMA connectors
+
 more on [wiki](https://github.com/Ahmad138/SatRot/wiki/Telecommunication-Requirements)
 # How to ...
 ### Build and install
@@ -114,7 +113,8 @@ git clone https://github.com/Ahmad138/SatRot.git
 cd satrot/Software/SatRot-GUI
 mkdir build && cd build
 qmake ..
-make .
+make
+
 sudo make install
 cd GUI-Main
 ./GUI-Main
@@ -123,7 +123,8 @@ cd GUI-Main
 cd satrot/Software/RotorDriver-GUI
 mkdir build && cd build
 qmake ..
-make .
+make
+
 sudo make install
 cd RotorDriver
 ./RotorDriver
@@ -151,10 +152,12 @@ Like, Follow, Share to stay updated and help us grow the community.
 <p align="center">
 <a href="https://www.twitter.com/sat_rot">
 <img
+
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069"><img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="#"> <img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"> </a> <a href="#"> <img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/youtube.png?raw=true" width="10%"> </a> 
+
 </p>
 
 # Authors 

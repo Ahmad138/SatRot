@@ -1,5 +1,10 @@
 #include "includes/customdialog.h"
 
+/**
+ * @brief
+ *
+ * @param items
+ */
 CustomDialog::CustomDialog(const QStringList& items)
 {
     //setLayout(new QHBoxLayout());
@@ -20,7 +25,7 @@ CustomDialog::CustomDialog(const QStringList& items)
     buttonBox->addButton(connectButton, QDialogButtonBox::ActionRole);
     buttonBox->addButton(quitButton, QDialogButtonBox::RejectRole);
 
-    QGridLayout *mainLayout = nullptr;
+    QGridLayout* mainLayout = nullptr;
     mainLayout = new QGridLayout(this);
 
     mainLayout->addWidget(hostLabel, 0, 0);
@@ -32,11 +37,11 @@ CustomDialog::CustomDialog(const QStringList& items)
 
 //    layout()->addWidget(ok);
     connect(connectButton, &QPushButton::clicked, this, [this]()
-            {
-                accept();
-            });
+    {
+        accept();
+    });
     connect(quitButton, &QPushButton::clicked, this, [this]()
-            {
-                reject();
-            });
+    {
+        reject();
+    });
 }

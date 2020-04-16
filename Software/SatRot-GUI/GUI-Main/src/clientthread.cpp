@@ -5,7 +5,12 @@
 #include <QMessageBox>
 #include <QHostAddress>
 
-ClientThread::ClientThread(QObject *parent) : QObject(parent)
+/**
+ * @brief
+ *
+ * @param parent
+ */
+ClientThread::ClientThread(QObject* parent) : QObject(parent)
     , m_TCPClient(new TCPClient(this)) // create the chat client
     , m_chatModel(new QStandardItemModel(this)) // create the model to hold the messages
 {
@@ -41,19 +46,23 @@ ClientThread::~ClientThread()
 
 }
 
+/**
+ * @brief
+ *
+ */
 void ClientThread::attemptConnection()
 {
-      /*******************************************move to mainwindow****************************//*
+    /*******************************************move to mainwindow****************************//*
     // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
     const QString hostAddress = QInputDialog::getText(
-        this
-        , tr("Chose Server")
-            , tr("Server Address")
-            , QLineEdit::Normal
-        , QStringLiteral("127.0.0.1")
-        );
+      this
+      , tr("Chose Server")
+          , tr("Server Address")
+          , QLineEdit::Normal
+      , QStringLiteral("127.0.0.1")
+      );
     if (hostAddress.isEmpty())
-        return; // the user pressed cancel or typed nothing
+      return; // the user pressed cancel or typed nothing
     // disable the connect button to prevent the user clicking it again
     ui->connectButton->setEnabled(false);
     *//*******************************************move to mainwindow****************************/
@@ -62,6 +71,10 @@ void ClientThread::attemptConnection()
     //m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
 }
 
+/**
+ * @brief
+ *
+ */
 void ClientThread::connectedToServer()
 {
     /*******************************************move to mainwindow****************************//*
@@ -76,12 +89,21 @@ void ClientThread::connectedToServer()
     //attemptLogin(newUsername);
 }
 
-void ClientThread::attemptLogin(const QString &userName)
+/**
+ * @brief
+ *
+ * @param userName
+ */
+void ClientThread::attemptLogin(const QString& userName)
 {
     // use the client to attempt a log in with the given username
     m_TCPClient->login(userName);
 }
 
+/**
+ * @brief
+ *
+ */
 void ClientThread::loggedIn()
 {
     /*******************************************move to mainwindow****************************//*
@@ -94,7 +116,12 @@ void ClientThread::loggedIn()
     m_lastUserName.clear();
 }
 
-void ClientThread::loginFailed(const QString &reason)
+/**
+ * @brief
+ *
+ * @param reason
+ */
+void ClientThread::loginFailed(const QString& reason)
 {
     /*******************************************move to mainwindow****************************//*
     // the server rejected the login attempt
@@ -106,12 +133,19 @@ void ClientThread::loginFailed(const QString &reason)
     connectedToServer();
 }
 
-void ClientThread::messageReceived(const QString &sender, const QString &text)
+/**
+ * @brief
+ *
+ * @param sender
+ * @param text
+ */
+void ClientThread::messageReceived(const QString& sender, const QString& text)
 {
     // store the index of the new row to append to the model containing the messages
     int newRow = m_chatModel->rowCount();
     // we display a line containing the username only if it's different from the last username we displayed
-    if (m_lastUserName != sender) {
+    if (m_lastUserName != sender)
+    {
         // store the last displayed username
         m_lastUserName = sender;
         // create a bold default font
@@ -126,7 +160,9 @@ void ClientThread::messageReceived(const QString &sender, const QString &text)
         // set the for the username
         m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
         ++newRow;
-    } else {
+    }
+    else
+    {
         // insert a row for the message
         m_chatModel->insertRow(newRow);
     }
@@ -167,6 +203,10 @@ void ClientThread::sendMessage()
     m_lastUserName.clear();
 }
 
+/**
+ * @brief
+ *
+ */
 void ClientThread::disconnectedFromServer()
 {
     /*******************************************move to mainwindow****************************//*
@@ -184,7 +224,12 @@ void ClientThread::disconnectedFromServer()
     m_lastUserName.clear();
 }
 
-void ClientThread::userJoined(const QString &username)
+/**
+ * @brief
+ *
+ * @param username
+ */
+void ClientThread::userJoined(const QString& username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -203,7 +248,12 @@ void ClientThread::userJoined(const QString &username)
     // reset the last printed username
     m_lastUserName.clear();
 }
-void ClientThread::userLeft(const QString &username)
+/**
+ * @brief
+ *
+ * @param username
+ */
+void ClientThread::userLeft(const QString& username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -223,6 +273,11 @@ void ClientThread::userLeft(const QString &username)
     m_lastUserName.clear();
 }
 
+/**
+ * @brief
+ *
+ * @param socketError
+ */
 void ClientThread::error(QAbstractSocket::SocketError socketError)
 {
     /*******************************************move to mainwindow****************************//*

@@ -58,7 +58,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 protected:
-    void closeEvent(QCloseEvent *event) override;
+    /**
+     * @brief
+     *
+     * @param event
+     */
+    void closeEvent(QCloseEvent* event) override;
 
 public:
     /**
@@ -66,7 +71,7 @@ public:
      *
      * @param parent
      */
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     /**
      * @brief
      *
@@ -142,19 +147,69 @@ private slots:
     void getCZML(QString endpoint);
 
     void getSatDetails(QList<QString> endpoint);
+    /**
+     * @brief
+     *
+     * @param endpoint
+     */
     void getSatPos(QString endpoint);
+    /**
+     * @brief
+     *
+     * @param endpoint
+     */
     void getSatVisPass(QString endpoint);
+    /**
+     * @brief
+     *
+     * @param endpoint
+     */
     void getSatRadPass(QString endpoint);
+    /**
+     * @brief
+     *
+     * @param endpoint
+     */
     void getSatTLE(QString endpoint);
 
+    /**
+     * @brief
+     *
+     */
     void tables();
+    /**
+     * @brief
+     *
+     */
     void updateTable();
+    /**
+     * @brief
+     *
+     */
     void clearTable();
+    /**
+     * @brief
+     *
+     * @param value
+     */
     void setValue(QList<QString> value);
+    /**
+     * @brief
+     *
+     */
     void tableTimer();
 
+    /**
+     * @brief
+     *
+     */
     void toggleStartServer();
-    void logMessage(const QString &msg);
+    /**
+     * @brief
+     *
+     * @param msg
+     */
+    void logMessage(const QString& msg);
 
     /**
      * @brief
@@ -163,169 +218,278 @@ private slots:
      */
     void resizeEvent(QResizeEvent* event);
 
-    void on_sat_currentIndexChanged(const QString &arg1);
+    void on_sat_currentIndexChanged(const QString& arg1);
 
+    /**
+     * @brief
+     *
+     */
     void clientInit();
     /***********TCPClient***********/
     void attemptConnection();
     void connectedToServer();
-    void attemptLogin(const QString &userName);
+    void attemptLogin(const QString& userName);
+    /**
+     * @brief
+     *
+     */
     void loggedIn();
-    void loginFailed(const QString &reason);
-    void messageReceived(const QString &sender, const QString &text);
+    /**
+     * @brief
+     *
+     * @param reason
+     */
+    void loginFailed(const QString& reason);
+    /**
+     * @brief
+     *
+     * @param sender
+     * @param text
+     */
+    void messageReceived(const QString& sender, const QString& text);
+    /**
+     * @brief
+     *
+     */
     void sendMessage();
+    /**
+     * @brief
+     *
+     */
     void disconnectedFromServer();
-    void userJoined(const QString &username);
-    void userLeft(const QString &username);
+    /**
+     * @brief
+     *
+     * @param username
+     */
+    void userJoined(const QString& username);
+    /**
+     * @brief
+     *
+     * @param username
+     */
+    void userLeft(const QString& username);
+    /**
+     * @brief
+     *
+     * @param socketError
+     */
     void error(QAbstractSocket::SocketError socketError);
     /***********TCPClient***********/
 
     void on_sendTrack_clicked();
 
     //Manual scribble
+    /**
+     * @brief
+     *
+     */
     void open();
+    /**
+     * @brief
+     *
+     */
     void save();
+    /**
+     * @brief
+     *
+     */
     void penColor();
+    /**
+     * @brief
+     *
+     */
     void penWidth();
+    /**
+     * @brief
+     *
+     */
     void about();
+    /**
+     * @brief
+     *
+     */
     void clearRadar();
 
-    void logAngles(QMap<QString, double> &angles);
+    /**
+     * @brief
+     *
+     * @param QMap<QString
+     * @param angles
+     */
+    void logAngles(QMap<QString, double>& angles);
 
+    /**
+     * @brief
+     *
+     * @param position
+     */
     void on_horizontalSlider_sliderMoved(int position);
 
+    /**
+     * @brief
+     *
+     * @param position
+     */
     void on_verticalSlider_sliderMoved(int position);
 
 private:
-    Ui::MainWindow *ui; /**< TODO: describe */
-    TCPServer *m_TCPServer;; /**< TODO: describe */
-    TCPClient *m_TCPClient; /**< TODO: describe */
+    Ui::MainWindow* ui; /**< TODO: describe */
+    TCPServer* m_TCPServer;; /**< TODO: describe */
+    TCPClient* m_TCPClient; /**< TODO: describe */
 
     /***********TCPClient***********/
-    QStandardItemModel *m_chatModel;
+    QStandardItemModel* m_chatModel;
     QString m_lastUserName;
     /***********TCPClient***********/
 
-    QWebEngineView *view; /**< TODO: describe */
+    QWebEngineView* view; /**< TODO: describe */
 
-    CustomListModel *model = new CustomListModel(this); /**< TODO: describe */
+    CustomListModel* model = new CustomListModel(this); /**< TODO: describe */
     satelliteList sl; /**< TODO: describe */
 
     QString startDate, stopDate, latitude, longitude, norad; /**< TODO: describe */
     QList<QString> noradL;
 
     // Create models:
-    PositionModel *PositionM = new PositionModel(this);
-    VisualPassModel *VisualPassM = new VisualPassModel(this);
-    RadioPassModel *RadioPassM = new RadioPassModel(this);
-    TLEModel *TLEM = new TLEModel(this);
+    PositionModel* PositionM = new PositionModel(this); /**< TODO: describe */
+    VisualPassModel* VisualPassM = new VisualPassModel(this); /**< TODO: describe */
+    RadioPassModel* RadioPassM = new RadioPassModel(this); /**< TODO: describe */
+    TLEModel* TLEM = new TLEModel(this); /**< TODO: describe */
 
-    QString apikey = "DGA852-94JPPA-5N2KPG-4B9Y";
-    QString predictSecs = "300";
-    QString alt = "0";
-    QString fordays = "10";
-    QString leastSecs = "300";
-    QString leastEl = "40";
+    QString apikey = "DGA852-94JPPA-5N2KPG-4B9Y"; /**< TODO: describe */
+    QString predictSecs = "300"; /**< TODO: describe */
+    QString alt = "0"; /**< TODO: describe */
+    QString fordays = "10"; /**< TODO: describe */
+    QString leastSecs = "300"; /**< TODO: describe */
+    QString leastEl = "40"; /**< TODO: describe */
 
-    QList<QString> m_value;
+    QList<QString> m_value; /**< TODO: describe */
 
     //List for TLE data
-    QJsonObject satTLEDetails;
+    QJsonObject satTLEDetails; /**< TODO: describe */
 
-    QList<QString> tm_satid;
-    QList<QString> tm_satname;
-    QList<QString> tm_tle;
+    QList<QString> tm_satid; /**< TODO: describe */
+    QList<QString> tm_satname; /**< TODO: describe */
+    QList<QString> tm_tle; /**< TODO: describe */
 
     //List for Position data
-    QList<QJsonObject> positions;
-    QJsonObject satPDetails;
+    QList<QJsonObject> positions; /**< TODO: describe */
+    QJsonObject satPDetails; /**< TODO: describe */
 
-    QList<QString> tm_satidPos;
-    QList<QString> tm_satnamePos;
-    QList<QString> tm_satlatitude;
-    QList<QString> tm_satlongitude;
-    QList<QString> tm_sataltitude;
-    QList<QString> tm_azimuth;
-    QList<QString> tm_elevation;
-    QList<QString> tm_ra;
-    QList<QString> tm_dec;
-    QList<QString> tm_timestamp;
+    QList<QString> tm_satidPos; /**< TODO: describe */
+    QList<QString> tm_satnamePos; /**< TODO: describe */
+    QList<QString> tm_satlatitude; /**< TODO: describe */
+    QList<QString> tm_satlongitude; /**< TODO: describe */
+    QList<QString> tm_sataltitude; /**< TODO: describe */
+    QList<QString> tm_azimuth; /**< TODO: describe */
+    QList<QString> tm_elevation; /**< TODO: describe */
+    QList<QString> tm_ra; /**< TODO: describe */
+    QList<QString> tm_dec; /**< TODO: describe */
+    QList<QString> tm_timestamp; /**< TODO: describe */
 
     //List for Visual Pass data
-    QJsonObject satVPDetails;
+    QJsonObject satVPDetails; /**< TODO: describe */
 
-    QList<QString> tm_satidVP;
-    QList<QString> tm_satnameVP;
-    QList<QString> tm_passescount;
-    QList<QString> tm_startUTC;
-    QList<QString> tm_startAz;
-    QList<QString> tm_startEl;
-    QList<QString> tm_maxUTC;
-    QList<QString> tm_maxAz;
-    QList<QString> tm_maxEl;
-    QList<QString> tm_endUTC;
-    QList<QString> tm_endAz;
-    QList<QString> tm_endEl;
-    QList<QString> tm_startAzCompass;
-    QList<QString> tm_maxAzCompass;
-    QList<QString> tm_endAzCompass;
-    QList<QString> tm_mag;
-    QList<QString> tm_duration;
+    QList<QString> tm_satidVP; /**< TODO: describe */
+    QList<QString> tm_satnameVP; /**< TODO: describe */
+    QList<QString> tm_passescount; /**< TODO: describe */
+    QList<QString> tm_startUTC; /**< TODO: describe */
+    QList<QString> tm_startAz; /**< TODO: describe */
+    QList<QString> tm_startEl; /**< TODO: describe */
+    QList<QString> tm_maxUTC; /**< TODO: describe */
+    QList<QString> tm_maxAz; /**< TODO: describe */
+    QList<QString> tm_maxEl; /**< TODO: describe */
+    QList<QString> tm_endUTC; /**< TODO: describe */
+    QList<QString> tm_endAz; /**< TODO: describe */
+    QList<QString> tm_endEl; /**< TODO: describe */
+    QList<QString> tm_startAzCompass; /**< TODO: describe */
+    QList<QString> tm_maxAzCompass; /**< TODO: describe */
+    QList<QString> tm_endAzCompass; /**< TODO: describe */
+    QList<QString> tm_mag; /**< TODO: describe */
+    QList<QString> tm_duration; /**< TODO: describe */
 
     //List for Radio Pass data
-    QJsonObject satRPDetails;
+    QJsonObject satRPDetails; /**< TODO: describe */
 
-    QList<QString> tm_satidR;
-    QList<QString> tm_satnameR;
-    QList<QString> tm_passescountR;
-    QList<QString> tm_startUTCR;
-    QList<QString> tm_startAzR;
-    QList<QString> tm_maxUTCR;
-    QList<QString> tm_maxAzR;
-    QList<QString> tm_maxElR;
-    QList<QString> tm_endAzR;
-    QList<QString> tm_endUTCR;
-    QList<QString> tm_startAzCompassR;
-    QList<QString> tm_maxAzCompassR;
-    QList<QString> tm_endAzCompassR;
+    QList<QString> tm_satidR; /**< TODO: describe */
+    QList<QString> tm_satnameR; /**< TODO: describe */
+    QList<QString> tm_passescountR; /**< TODO: describe */
+    QList<QString> tm_startUTCR; /**< TODO: describe */
+    QList<QString> tm_startAzR; /**< TODO: describe */
+    QList<QString> tm_maxUTCR; /**< TODO: describe */
+    QList<QString> tm_maxAzR; /**< TODO: describe */
+    QList<QString> tm_maxElR; /**< TODO: describe */
+    QList<QString> tm_endAzR; /**< TODO: describe */
+    QList<QString> tm_endUTCR; /**< TODO: describe */
+    QList<QString> tm_startAzCompassR; /**< TODO: describe */
+    QList<QString> tm_maxAzCompassR; /**< TODO: describe */
+    QList<QString> tm_endAzCompassR; /**< TODO: describe */
 
-    QJsonObject AzEl
-        {
-            {"Az", "0"},
-            {"El", "0"}
-        };
+    QJsonObject AzEl /**< TODO: describe */
+    {
+        {"Az", "0"},
+        {"El", "0"}
+    };
 
     //Manual Scribble
+    /**
+     * @brief
+     *
+     */
     void createActions();
+    /**
+     * @brief
+     *
+     */
     void createMenus();
+    /**
+     * @brief
+     *
+     * @return bool
+     */
     bool maybeSave();
-    bool saveFile(const QByteArray &fileFormat);
+    /**
+     * @brief
+     *
+     * @param fileFormat
+     * @return bool
+     */
+    bool saveFile(const QByteArray& fileFormat);
+    /**
+     * @brief
+     *
+     */
     void documentation();
 
-    ManualScribble *MScribble;
+    ManualScribble* MScribble; /**< TODO: describe */
 
-    QMenu *saveAsMenu;
-    QMenu *fileMenu;
-    QMenu *optionMenu;
-    QMenu *helpMenu;
+    QMenu* saveAsMenu; /**< TODO: describe */
+    QMenu* fileMenu; /**< TODO: describe */
+    QMenu* optionMenu; /**< TODO: describe */
+    QMenu* helpMenu; /**< TODO: describe */
 
-    QAction *openAct;
-    QList<QAction *> saveAsActs;
-    QAction *exitAct;
-    QAction *penColorAct;
-    QAction *penWidthAct;
-    QAction *printAct;
-    QAction *clearScreenAct;
-    QAction *aboutAct;
+    QAction* openAct; /**< TODO: describe */
+    QList<QAction*> saveAsActs;  /**< TODO: describe */
+    QAction* exitAct; /**< TODO: describe */
+    QAction* penColorAct; /**< TODO: describe */
+    QAction* penWidthAct; /**< TODO: describe */
+    QAction* printAct; /**< TODO: describe */
+    QAction* clearScreenAct; /**< TODO: describe */
+    QAction* aboutAct; /**< TODO: describe */
 //    QAction *aboutQtAct;
-    QAction *documentationAct;
+    QAction* documentationAct; /**< TODO: describe */
 
-    QString radarFileName = ":/img/img/radar.png";
+    QString radarFileName = ":/img/img/radar.png"; /**< TODO: describe */
 
-    QString downloadDirectoryPath;
-
+    QString downloadDirectoryPath; /**< TODO: describe */
+    QString m_url; /**< TODO: describe */
 
 signals:
+    /**
+     * @brief
+     *
+     */
     void valueChanged();
 
 };

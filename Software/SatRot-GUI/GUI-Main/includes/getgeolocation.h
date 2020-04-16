@@ -5,10 +5,23 @@
 
 #include <QString>
 
+/**
+ * @brief
+ *
+ */
 class GetGeoLocation
 {
 public:
+    /**
+     * @brief
+     *
+     */
     GetGeoLocation();
+    /**
+     * @brief
+     *
+     * @return QString
+     */
     QString getPublicIp();
 };
 

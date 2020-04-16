@@ -8,33 +8,110 @@ class QThread;
 class ServerThread;
 class QJsonObject;
 
+/**
+ * @brief
+ *
+ */
 class TCPServer : public QTcpServer
 {
     Q_OBJECT
+    /**
+     * @brief
+     *
+     * @param
+     */
     Q_DISABLE_COPY(TCPServer)
 public:
-    explicit TCPServer(QObject *parent = nullptr);
+    /**
+     * @brief
+     *
+     * @param parent
+     */
+    explicit TCPServer(QObject* parent = nullptr);
+    /**
+     * @brief
+     *
+     */
     ~TCPServer();
 protected:
+    /**
+     * @brief
+     *
+     * @param socketDescriptor
+     */
     void incomingConnection(qintptr socketDescriptor) override;
 private:
-    const int m_idealThreadCount;
-    QVector<QThread *> m_availableThreads;
-    QVector<int> m_threadsLoad;
-    QVector<ServerThread *> m_clients;
+    const int m_idealThreadCount; /**< TODO: describe */
+    QVector<QThread*> m_availableThreads;  /**< TODO: describe */
+    QVector<int> m_threadsLoad; /**< TODO: describe */
+    QVector<ServerThread*> m_clients;  /**< TODO: describe */
 private slots:
-    void broadcast(const QJsonObject &message, ServerThread *exclude);
-    void jsonReceived(ServerThread *sender, const QJsonObject &doc);
-    void userDisconnected(ServerThread *sender, int threadIdx);
-    void userError(ServerThread *sender);
+    /**
+     * @brief
+     *
+     * @param message
+     * @param exclude
+     */
+    void broadcast(const QJsonObject& message, ServerThread* exclude);
+    /**
+     * @brief
+     *
+     * @param sender
+     * @param doc
+     */
+    void jsonReceived(ServerThread* sender, const QJsonObject& doc);
+    /**
+     * @brief
+     *
+     * @param sender
+     * @param threadIdx
+     */
+    void userDisconnected(ServerThread* sender, int threadIdx);
+    /**
+     * @brief
+     *
+     * @param sender
+     */
+    void userError(ServerThread* sender);
 public slots:
+    /**
+     * @brief
+     *
+     */
     void stopServer();
 private:
-    void jsonFromLoggedOut(ServerThread *sender, const QJsonObject &doc);
-    void jsonFromLoggedIn(ServerThread *sender, const QJsonObject &doc);
-    void sendJson(ServerThread *destination, const QJsonObject &message);
+    /**
+     * @brief
+     *
+     * @param sender
+     * @param doc
+     */
+    void jsonFromLoggedOut(ServerThread* sender, const QJsonObject& doc);
+    /**
+     * @brief
+     *
+     * @param sender
+     * @param doc
+     */
+    void jsonFromLoggedIn(ServerThread* sender, const QJsonObject& doc);
+    /**
+     * @brief
+     *
+     * @param destination
+     * @param message
+     */
+    void sendJson(ServerThread* destination, const QJsonObject& message);
 signals:
-    void logMessage(const QString &msg);
+    /**
+     * @brief
+     *
+     * @param msg
+     */
+    void logMessage(const QString& msg);
+    /**
+     * @brief
+     *
+     */
     void stopAllClients();
 };
 
