@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>660</width>
-    <height>475</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLCDNumber" name="lcdNumber"/>
+              <widget class="QLCDNumber" name="AzLcd"/>
              </item>
             </layout>
            </item>
@@ -56,7 +56,7 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLCDNumber" name="lcdNumber_2"/>
+              <widget class="QLCDNumber" name="ElLcd"/>
              </item>
             </layout>
            </item>
@@ -68,7 +68,7 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>60</height>
+            <height>100</height>
            </size>
           </property>
           <property name="title">
@@ -76,7 +76,7 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="mode">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -110,7 +110,7 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="QPlainTextEdit" name="plainTextEdit_3">
+            <widget class="QPlainTextEdit" name="trackingInfo">
              <property name="minimumSize">
               <size>
                <width>200</width>
@@ -213,18 +213,15 @@ Scheduled to track satellite blabla @ UTC 2nd May, 2020 04:34:20.
          <string>TCP</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_6">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
+         <item row="4" column="0">
+          <widget class="QPushButton" name="connectButton">
            <property name="text">
-            <string>Start a TCP Server or connect to a TCP Client Rotator.</string>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
+            <string>Connect to a TCP Client</string>
            </property>
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="startStopButton">
            <property name="text">
             <string>Start TCP Server</string>
            </property>
@@ -237,17 +234,40 @@ Scheduled to track satellite blabla @ UTC 2nd May, 2020 04:34:20.
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
-          <widget class="QPlainTextEdit" name="plainTextEdit">
+         <item row="6" column="0">
+          <widget class="QPlainTextEdit" name="clientView">
            <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QPushButton" name="pushButton_2">
+         <item row="7" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLineEdit" name="messageEdit"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="sendButton">
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Send</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
            <property name="text">
-            <string>Connect to a TCP Client</string>
+            <string>Start a TCP Server or connect to a TCP Client Rotator.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -258,32 +278,12 @@ Scheduled to track satellite blabla @ UTC 2nd May, 2020 04:34:20.
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
-          <widget class="QPlainTextEdit" name="plainTextEdit_2">
+         <item row="3" column="0">
+          <widget class="QPlainTextEdit" name="logEditor">
            <property name="readOnly">
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item row="7" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QLineEdit" name="lineEdit"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_3">
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Send</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </item>
         </layout>
        </widget>
@@ -298,7 +298,7 @@ Scheduled to track satellite blabla @ UTC 2nd May, 2020 04:34:20.
      <x>0</x>
      <y>0</y>
      <width>660</width>
-     <height>28</height>
+     <height>50</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

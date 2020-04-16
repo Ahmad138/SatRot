@@ -1,0 +1,29 @@
+#include "includes/timekeeperthread.h"
+
+TimeKeeperThread::TimeKeeperThread(int start)
+{
+    m_start = start;
+
+    QTimer *timerT = new QTimer();
+    connect(timerT, SIGNAL(timeout()), this, SLOT(Timer()));
+    timerT->start(250);
+    
+    timerT->
+}
+
+void TimeKeeperThread::run() {
+    // Your magic worker here!
+
+
+
+//    using std::chrono::system_clock;
+
+//    std::this_thread::sleep_until (system_clock::from_time_t (m_start));
+
+//    std::cout<<"done sleeping";
+
+}
+
+void TimeKeeperThread::Timer(){
+
+}

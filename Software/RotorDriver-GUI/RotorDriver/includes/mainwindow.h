@@ -4,9 +4,11 @@
 #include <QMainWindow>
 #include "ui_mainwindow.h"
 #include "includes/blink.h"
-#include "includes/stepperdriver.h"
+//#include "includes/stepperdriver.h"
 #include "includes/tcpserver.h"
 #include "includes/tcpclient.h"
+#include "includes/customdialog.h"
+#include "includes/timekeeperworker.h"
 
 #include <QMessageBox>
 #include <QNetworkInterface>
@@ -18,7 +20,13 @@ class TCPClient;
 class QStandardItemModel;
 /***********TCPClient***********/
 
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QJsonObject>
 
+#include <QDateTime>
+#include <QThread>
 
 namespace Ui {
 class MainWindow;
@@ -33,11 +41,38 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_toggled(bool checked);
+ //   void on_pushButton_toggled(bool checked);
 
 //    void on_pushButton_2_clicked();
 
 //    void on_pushButton_3_clicked();
+    void toggleStartServer();
+    void logMessage(const QString &msg);
+    void logData(const QJsonObject &doc);
+
+    /**
+     * @brief
+     *
+     * @param event
+     */
+
+    //void on_sat_currentIndexChanged(const QString &arg1);
+
+    /***********TCPClient***********/
+    void attemptConnection();
+    void connectedToServer();
+    void attemptLogin(const QString &userName);
+    void loggedIn();
+    void loginFailed(const QString &reason);
+    void messageReceived(const QString &sender, const QString &text);
+    void sendMessage();
+    void disconnectedFromServer();
+    void userJoined(const QString &username);
+    void userLeft(const QString &username);
+    void error(QAbstractSocket::SocketError socketError);
+    /***********TCPClient***********/
+
+    void setSatToTrack(const QJsonObject &doc);
 
 private:
     Ui::MainWindow *ui;
@@ -49,6 +84,7 @@ private:
     QString m_lastUserName;
     /***********TCPClient***********/
 
+    QString url;
 };
 
 #endif // MAINWINDOW_H

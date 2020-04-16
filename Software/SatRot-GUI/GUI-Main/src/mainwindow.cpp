@@ -615,6 +615,7 @@ void MainWindow::getSatRadPass(QString endpoint)
             }
         }
 
+
     };
 
     api::handleFunc errData = [](const QJsonObject & o)

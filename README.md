@@ -71,7 +71,7 @@ see [wiki](https://github.com/Ahmad138/SatRot/wiki/Mechanical-Requirements) for 
 ### Electrical and Electronics  :pager:
 We wanted to make satrot modular, portable and completely standalone. This required some components that need to provide adequate power and control. Below are some requirements. 
 
- - A4988 stepper driver chips
+- A4988 stepper driver chips
  - MPU-9250
  - Nema17 2A stepper motors
  - 12V batteries
@@ -102,7 +102,7 @@ This section requires majorly:
  - RTL-SDR
  - RG58 50ohm cable
  - SMA connectors
- 
+
 more on [wiki](https://github.com/Ahmad138/SatRot/wiki/Telecommunication-Requirements)
 # How to ...
 ### Build and install
@@ -114,6 +114,7 @@ cd satrot/Software/SatRot-GUI
 mkdir build && cd build
 qmake ..
 make
+
 sudo make install
 cd GUI-Main
 ./GUI-Main
@@ -123,6 +124,7 @@ cd satrot/Software/RotorDriver-GUI
 mkdir build && cd build
 qmake ..
 make
+
 sudo make install
 cd RotorDriver
 ./RotorDriver
@@ -150,10 +152,12 @@ Like, Follow, Share to stay updated and help us grow the community.
 <p align="center">
 <a href="https://www.twitter.com/sat_rot">
 <img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social-media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069"><img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social-media/facebook.png?raw=true" width="10%"></a> <a href="#"> <img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social-media/instagram.png?raw=true" width="10%"> </a> <a href="#"> <img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social-media/youtube.png?raw=true" width="10%"> </a> 
+
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069"><img
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="#"> <img
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"> </a> <a href="#"> <img
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/youtube.png?raw=true" width="10%"> </a> 
+
 </p>
 
 # Authors 
