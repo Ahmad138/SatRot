@@ -24,7 +24,7 @@ public:
      * @brief
      *
      */
-    typedef std::function<void(const QJsonObject &)> handleFunc;
+    typedef std::function<void(const QJsonObject&)> handleFunc;
     /**
      * @brief
      *
@@ -38,7 +38,8 @@ public:
      * @brief
      *
      */
-    enum class Type {
+    enum class Type
+    {
         POST,
         GET,
         PATCH,
@@ -50,7 +51,7 @@ public:
      *
      * @param parent
      */
-    explicit api(QObject *parent = 0);
+    explicit api(QObject* parent = 0);
 
     /**
      * @brief
@@ -59,7 +60,7 @@ public:
      * @param port
      * @param value
      */
-    void initRequester(const QString& host, int port, QSslConfiguration *value);
+    void initRequester(const QString& host, int port, QSslConfiguration* value);
 
     /**
      * @brief
@@ -70,11 +71,11 @@ public:
      * @param type
      * @param data
      */
-    void sendRequest(const QString &apiStr,
-                     const handleFunc &funcSuccess,
-                     const handleFunc &funcError,
+    void sendRequest(const QString& apiStr,
+                     const handleFunc& funcSuccess,
+                     const handleFunc& funcError,
                      Type type = Type::GET,
-                     const QVariantMap &data = QVariantMap());
+                     const QVariantMap& data = QVariantMap());
 
 
     /**
@@ -85,10 +86,10 @@ public:
      * @param funcError
      * @param funcFinish
      */
-    void sendMulishGetRequest(const QString &apiStr,
-                              const handleFunc &funcSuccess,
-                              const handleFunc &funcError,
-                              const finishFunc &funcFinish);
+    void sendMulishGetRequest(const QString& apiStr,
+                              const handleFunc& funcSuccess,
+                              const handleFunc& funcError,
+                              const finishFunc& funcFinish);
 
     /**
      * @brief
@@ -101,7 +102,7 @@ public:
      *
      * @param value
      */
-    void setToken(const QString &value);
+    void setToken(const QString& value);
 
 private:
     static const QString httpTemplate; /**< TODO: describe */
@@ -110,7 +111,7 @@ private:
     QString host; /**< TODO: describe */
     int port; /**< TODO: describe */
     QString token; /**< TODO: describe */
-    QSslConfiguration *sslConfig; /**< TODO: describe */
+    QSslConfiguration* sslConfig; /**< TODO: describe */
 
     QString pathTemplate; /**< TODO: describe */
 
@@ -128,7 +129,7 @@ private:
      * @param apiStr
      * @return QNetworkRequest
      */
-    QNetworkRequest createRequest(const QString &apiStr);
+    QNetworkRequest createRequest(const QString& apiStr);
 
     /**
      * @brief
@@ -139,10 +140,10 @@ private:
      * @param data
      * @return QNetworkReply
      */
-    QNetworkReply *sendCustomRequest(QNetworkAccessManager *manager,
-                                     QNetworkRequest &request,
-                                     const QString &type,
-                                     const QVariantMap &data);
+    QNetworkReply* sendCustomRequest(QNetworkAccessManager* manager,
+                                     QNetworkRequest& request,
+                                     const QString& type,
+                                     const QVariantMap& data);
 
     /**
      * @brief
@@ -150,7 +151,7 @@ private:
      * @param reply
      * @return QJsonObject
      */
-    QJsonObject parseReply(QNetworkReply *reply);
+    QJsonObject parseReply(QNetworkReply* reply);
 
     /**
      * @brief
@@ -158,7 +159,7 @@ private:
      * @param reply
      * @return bool
      */
-    bool onFinishRequest(QNetworkReply *reply);
+    bool onFinishRequest(QNetworkReply* reply);
 
     /**
      * @brief
@@ -166,8 +167,8 @@ private:
      * @param reply
      * @param obj
      */
-    void handleQtNetworkErrors(QNetworkReply *reply, QJsonObject &obj);
-    QNetworkAccessManager *manager; /**< TODO: describe */
+    void handleQtNetworkErrors(QNetworkReply* reply, QJsonObject& obj);
+    QNetworkAccessManager* manager; /**< TODO: describe */
 
 signals:
     /**

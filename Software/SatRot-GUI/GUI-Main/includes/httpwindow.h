@@ -19,45 +19,101 @@ class QCheckBox;
 
 QT_END_NAMESPACE
 
+/**
+ * @brief
+ *
+ */
 class HttpWindow : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit HttpWindow(QObject *parent = 0);
+    /**
+     * @brief
+     *
+     * @param parent
+     */
+    explicit HttpWindow(QObject* parent = 0);
+    /**
+     * @brief
+     *
+     */
     ~HttpWindow();
 
 
-    QString urlSpec = "";
+    QString urlSpec = ""; /**< TODO: describe */
+    /**
+     * @brief
+     *
+     */
     void downloadFile();
 
 
 private slots:
-    void startRequest(const QUrl &requestedUrl);
+    /**
+     * @brief
+     *
+     * @param requestedUrl
+     */
+    void startRequest(const QUrl& requestedUrl);
+    /**
+     * @brief
+     *
+     */
     void cancelDownload();
+    /**
+     * @brief
+     *
+     */
     void httpFinished();
+    /**
+     * @brief
+     *
+     */
     void httpReadyRead();
+    /**
+     * @brief
+     *
+     */
     void enableDownloadButton();
-    void slotAuthenticationRequired(QNetworkReply *, QAuthenticator *authenticator);
+    /**
+     * @brief
+     *
+     * @param
+     * @param authenticator
+     */
+    void slotAuthenticationRequired(QNetworkReply*, QAuthenticator* authenticator);
 #ifndef QT_NO_SSL
-    void sslErrors(QNetworkReply *, const QList<QSslError> &errors);
+    /**
+     * @brief
+     *
+     * @param
+     * @param errors
+     */
+    void sslErrors(QNetworkReply*, const QList<QSslError>& errors);
 #endif
 
 private:
-    std::unique_ptr<QFile> openFileForWrite(const QString &fileName);
+    /**
+     * @brief
+     *
+     * @param fileName
+     * @return std::unique_ptr<QFile>
+     */
+    std::unique_ptr<QFile> openFileForWrite(const QString& fileName);
 
     //QLabel *statusLabel;
     //QLineEdit *urlLineEdit;
     //QPushButton *downloadButton;
     //QCheckBox *launchCheckBox;
-    QString downloadDirectoryPath = "";
-    QString fileName = "satellites.czml";
+    QString downloadDirectoryPath = ""; /**< TODO: describe */
+    QString fileName = "satellites.czml"; /**< TODO: describe */
 
-    QUrl url;
-    QNetworkAccessManager qnam;
-    QNetworkReply *reply;
-    std::unique_ptr<QFile> file;
-    bool httpRequestAborted;
+    QUrl url; /**< TODO: describe */
+    QNetworkAccessManager qnam; /**< TODO: describe */
+    QNetworkReply* reply; /**< TODO: describe */
+    std::unique_ptr<QFile> file; /**< TODO: describe */
+    bool httpRequestAborted; /**< TODO: describe */
 };
 
 #endif

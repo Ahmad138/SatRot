@@ -21,7 +21,7 @@
  *
  * @param parent
  */
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_TCPServer(new TCPServer(this)) // create the network server
@@ -37,10 +37,10 @@ MainWindow::MainWindow(QWidget *parent)
         downloadDirectory = QDir::currentPath();
     downloadDirectoryPath = QDir::toNativeSeparators(downloadDirectory);
 
-    QFile::copy(":/web/web/index.html" , downloadDirectoryPath+"/index.html");
+    QFile::copy(":/web/web/index.html", downloadDirectoryPath + "/index.html");
 
     ui->statusbar->setEnabled(true);
-    ui->statusbar->showMessage("Loading");
+    ui->statusbar->showMessage("Loading...");
 
     createActions();
     createMenus();
@@ -112,48 +112,23 @@ MainWindow::MainWindow(QWidget *parent)
     ui->country->setStyleSheet("font-size: 9pt;");
     ui->zone->setStyleSheet("font-size: 9pt;");
 
-//    QWebEngineView *view = new QWebEngineView(parent);
-//        view->load(QUrl("http://qt-project.org/"));
-//        view->show();
+    ui->satView->setModel(model);
+    model->setStringList(sl.getList());
 
-//     using std::chrono::system_clock;
-//     std::time_t tt = system_clock::to_time_t (system_clock::now());
+    QTimer* timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+    timer->start(250);
 
-//     struct std::tm * ptm = std::localtime(&tt);
-//     std::cout << "Current time: " << std::put_time(ptm,"%X") << '\n';
+    on_pushButton_6_clicked();
+    on_checkBox_toggled(true);
 
-//     std::cout << "Waiting for the next minute to begin...\n";
-//     ++ptm->tm_min; ptm->tm_sec=0;
-//     std::this_thread::sleep_until (system_clock::from_time_t (mktime(ptm)));
+    connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
 
-//     std::cout << std::put_time(ptm,"%X") << " reached!\n";
+    QTimer* timerT = new QTimer(this);
+    connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
+    timerT->start(250);
 
-    //connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(on_pushButton_4_clicked()));
-
-        ui->satView->setModel(model);
-        model->setStringList(sl.getList());
-
-//        QDateTime now = QDateTime::currentDateTime();
-//        ui->myDateTime->setText(now.toString("ddd dd-MMM-yyyy hh:mm:ss"));
-
-        QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
-        timer->start(250);
-
-//        showTime();
-        on_pushButton_6_clicked();
-        on_checkBox_toggled(true);
-
-        connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
-
-//        QDateTime UTC(QDateTime::currentDateTimeUtc());
-//        //QDateTime local(UTC.toLocalTime());
-//        qDebug()<<UTC.toSecsSinceEpoch();
-
-        QTimer *timerT = new QTimer(this);
-        connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
-        timerT->start(250);
-
+    ui->statusbar->showMessage("Done.");
 }
 
 /**
@@ -171,20 +146,22 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_pushButton_clicked()
 {
-     api *a = new api(this);
+    api* a = new api(this);
 
     QString url = "jsonplaceholder.typicode.com/users/3";
     a->initRequester(url, 80, nullptr);
 
-    api::handleFunc getData = [this](const QJsonObject &o) {
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
         //cout << "Got data " << endl;
-        QString r= o.value("company")["name"].toString();
+        QString r = o.value("company")["name"].toString();
         ui->label->setText(r);
-     };
+    };
 
-    api::handleFunc errData = [this](const QJsonObject &o) {
+    api::handleFunc errData = [this](const QJsonObject & o)
+    {
         //cout << "Error: connection dropped";
-        QString r= o.value("company")["name"].toString();
+        QString r = o.value("company")["name"].toString();
         ui->label->setText("Error: connection dropped");
     };
 
@@ -204,19 +181,21 @@ void MainWindow::on_getSatData_clicked()
     norad = this->model->getNORAD();
     noradL = this->model->getNORADObj();
 
-   QString urlCZML = "http://www.orbitalpredictor.com/api/predict_orbit/?sats="+norad+"&start="+startDate+"&end="+stopDate+"&format=czml&type=orbit";
-   QString urln2yo = "";
+    QString urlCZML = "http://www.orbitalpredictor.com/api/predict_orbit/?sats=" + norad + "&start=" + startDate + "&end=" + stopDate + "&format=czml&type=orbit";
+    QString urln2yo = "";
 
-   ui->getSatData->setEnabled(false);
-   if(!norad.isEmpty()){
-       getCZML(urlCZML);
-   }
+    ui->getSatData->setEnabled(false);
+    if (!norad.isEmpty())
+    {
+        getCZML(urlCZML);
+    }
 
-   if(!noradL.isEmpty()){
-       getSatDetails(noradL);
-   }
+    if (!noradL.isEmpty())
+    {
+        getSatDetails(noradL);
+    }
 
-   ui->getSatData->setEnabled(true);
+    ui->getSatData->setEnabled(true);
 
 }
 
@@ -227,14 +206,11 @@ void MainWindow::on_getSatData_clicked()
  */
 void MainWindow::on_checkBox_toggled(bool checked)
 {
-    if(checked){
+    if (checked)
+    {
         QDateTime now = QDateTime::currentDateTime();
         ui->startDateTime->setDateTime(now.currentDateTime());
         ui->stopDateTime->setDateTime(now.currentDateTime().addDays(1));
-    }else{
-//        QDateTime def_DateTime(QDate(2020, 01, 01), QTime(0, 0, 0));
-//        ui->startDateTime->setDateTime(def_DateTime);
-//        ui->stopDateTime->setDateTime(def_DateTime);
     }
 }
 
@@ -258,8 +234,8 @@ void MainWindow::on_pushButton_5_clicked()
 {
     double lat = ui->latBox->value();
     double lon = ui->longBox->value();
-    QString latt = QString::number(lat,'f', 6);
-    QString longg = QString::number(lon,'f', 6);
+    QString latt = QString::number(lat, 'f', 6);
+    QString longg = QString::number(lon, 'f', 6);
 
     latitude = latt;
     longitude = longg;
@@ -269,37 +245,39 @@ void MainWindow::on_pushButton_5_clicked()
 
     ui->latBox->setValue(lat);
     ui->longBox->setValue(lon);
-    ui->latTxT->setText("Lat: "+latt);
-    ui->longTxT->setText("Long: "+longg);
+    ui->latTxT->setText("Lat: " + latt);
+    ui->longTxT->setText("Long: " + longg);
 
-    api *a = new api(this);
+    api* a = new api(this);
 
-   QString url = "geocode.xyz/"+latt+","+longg+"?json=1";
-   a->initRequester(url, 80, nullptr);
+    QString url = "geocode.xyz/" + latt + "," + longg + "?json=1";
+    a->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
 
 //       ui->city->setStyleSheet("font-size: 9pt;");
 //       ui->region->setStyleSheet("font-size: 9pt;");
 //       ui->country->setStyleSheet("font-size: 9pt;");
 //       ui->zone->setStyleSheet("font-size: 9pt;");
 
-       ui->city->setText("City: "+o.value("city").toString());
-       ui->region->setText("Region: "+o.value("region").toString());
-       ui->country->setText("Country: "+o.value("country").toString());
-       ui->zone->setText("Zone: "+o.value("timezone").toString());
+        ui->city->setText("City: " + o.value("city").toString());
+        ui->region->setText("Region: " + o.value("region").toString());
+        ui->country->setText("Country: " + o.value("country").toString());
+        ui->zone->setText("Zone: " + o.value("timezone").toString());
 
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   a->sendRequest(url, getData, errData);
+    a->sendRequest(url, getData, errData);
 }
 
 /**
@@ -308,66 +286,68 @@ void MainWindow::on_pushButton_5_clicked()
  */
 void MainWindow::on_pushButton_6_clicked()
 {
-    api *b = new api(this);
+    api* b = new api(this);
 
-   QString url = "api.ipify.org?format=json";
+    QString url = "api.ipify.org?format=json";
 
-   b->initRequester(url, 80, nullptr);
+    b->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
-       QString r= o.value("ip").toString();
-       //std::cout<<r.toUtf8().constData();
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
+        QString r = o.value("ip").toString();
+        //std::cout<<r.toUtf8().constData();
 
-       api *c = new api(this);
-       QString url2 = "ip-api.com/json/"+r;
+        api* c = new api(this);
+        QString url2 = "ip-api.com/json/" + r;
 //       qDebug()<<url2;
-       c->initRequester(url2, 80, nullptr);
+        c->initRequester(url2, 80, nullptr);
 
-       api::handleFunc getData2 = [this](const QJsonObject &o) {
-           //cout << "Got data " << endl;
+        api::handleFunc getData2 = [this](const QJsonObject & o)
+        {
+            //cout << "Got data " << endl;
 //           QString r2= o.value("city").toString();
-           double lat = o.value("lat").toDouble();
-           double lon = o.value("lon").toDouble();
-           QString latt = QString::number(lat,'f', 6);
-           QString longg = QString::number(lon,'f', 6);
+            double lat = o.value("lat").toDouble();
+            double lon = o.value("lon").toDouble();
+            QString latt = QString::number(lat, 'f', 6);
+            QString longg = QString::number(lon, 'f', 6);
 
-           ui->city->setText("City: "+o.value("city").toString());
-           ui->region->setText("Region: "+o.value("regionName").toString());
-           ui->country->setText("Country: "+o.value("country").toString());
-           ui->zone->setText("Zone: "+o.value("timezone").toString());
+            ui->city->setText("City: " + o.value("city").toString());
+            ui->region->setText("Region: " + o.value("regionName").toString());
+            ui->country->setText("Country: " + o.value("country").toString());
+            ui->zone->setText("Zone: " + o.value("timezone").toString());
 
-           ui->latBox->setValue(lat);
-           ui->longBox->setValue(lon);
-           ui->latTxT->setText("Lat: "+latt);
-           ui->longTxT->setText("Long: "+longg);
+            ui->latBox->setValue(lat);
+            ui->longBox->setValue(lon);
+            ui->latTxT->setText("Lat: " + latt);
+            ui->longTxT->setText("Long: " + longg);
 
-           latitude = latt;
-           longitude = longg;
+            latitude = latt;
+            longitude = longg;
 
-//           qDebug()<< f;
-//           ui->label_7->setText(r2);
         };
 
-       api::handleFunc errData2 = [](const QJsonObject &o) {
-           //cout << "Error: connection dropped";
-           QJsonObject x = o;
-           QString r2 = "Error: connection dropped";
-           qDebug()<< r2;
-       };
+        api::handleFunc errData2 = [](const QJsonObject & o)
+        {
+            //cout << "Error: connection dropped";
+            QJsonObject x = o;
+            QString r2 = "Error: connection dropped";
+            qDebug() << r2;
+        };
 
-       c->sendRequest(url2, getData2, errData2);
+        c->sendRequest(url2, getData2, errData2);
 
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   b->sendRequest(url, getData, errData);
+    b->sendRequest(url, getData, errData);
 }
 
 
@@ -387,6 +367,11 @@ void MainWindow::getCZML(QString endpoint)
 
 }
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getSatDetails(QList<QString> endpoint)
 {
     QString var;
@@ -394,7 +379,8 @@ void MainWindow::getSatDetails(QList<QString> endpoint)
     clearTable();
     updateTable();
 
-    foreach (var, endpoint) {
+    foreach (var, endpoint)
+    {
         getSatTLE(var);
         getSatPos(var);
         getSatVisPass(var);
@@ -405,260 +391,296 @@ void MainWindow::getSatDetails(QList<QString> endpoint)
 
 }
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getSatPos(QString endpoint)
 {
-   api *a = new api(this);
+    api* a = new api(this);
 
-   QString url = "www.n2yo.com/rest/v1/satellite/positions/"+endpoint+"/"+latitude+"/"+longitude+"/"+alt+"/"+predictSecs+"/&apiKey="+apikey;
-   //qDebug()<<url;
-   a->initRequester(url, 80, nullptr);
+    QString url = "www.n2yo.com/rest/v1/satellite/positions/" + endpoint + "/" + latitude + "/" + longitude + "/" + alt + "/" + predictSecs + "/&apiKey=" + apikey;
+    //qDebug()<<url;
+    a->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
-       positions.append(o);
-       satPDetails = o;
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
+        positions.append(o);
+        satPDetails = o;
 
-       QString a = QString::number(o.value("info")["satid"].toInt());
-       QString b = o.value("info")["satname"].toString();
+        QString a = QString::number(o.value("info")["satid"].toInt());
+        QString b = o.value("info")["satname"].toString();
 
-       QString c = QString::number(o.value("positions")[0]["satlatitude"].toDouble());
-       QString d = QString::number(o.value("positions")[0]["satlongitude"].toDouble());
-       QString e = QString::number(o.value("positions")[0]["sataltitude"].toDouble());
-       QString f = QString::number(o.value("positions")[0]["azimuth"].toDouble());
-       QString g = QString::number(o.value("positions")[0]["elevation"].toDouble());
-       QString h = QString::number(o.value("positions")[0]["ra"].toDouble());
-       QString i = QString::number(o.value("positions")[0]["dec"].toDouble());
-       QString j = QString::number(o.value("positions")[0]["timestamp"].toInt());
+        QString c = QString::number(o.value("positions")[0]["satlatitude"].toDouble());
+        QString d = QString::number(o.value("positions")[0]["satlongitude"].toDouble());
+        QString e = QString::number(o.value("positions")[0]["sataltitude"].toDouble());
+        QString f = QString::number(o.value("positions")[0]["azimuth"].toDouble());
+        QString g = QString::number(o.value("positions")[0]["elevation"].toDouble());
+        QString h = QString::number(o.value("positions")[0]["ra"].toDouble());
+        QString i = QString::number(o.value("positions")[0]["dec"].toDouble());
+        QString j = QString::number(o.value("positions")[0]["timestamp"].toInt());
 
-       tm_satidPos.append(a);
-       tm_satnamePos.append(b);
-       tm_satlatitude.append(c);
-       tm_satlongitude.append(d);
-       tm_sataltitude.append(e);
-       tm_azimuth.append(f);
-       tm_elevation.append(g);
-       tm_ra.append(h);
-       tm_dec.append(i);
-       tm_timestamp.append(j);
+        tm_satidPos.append(a);
+        tm_satnamePos.append(b);
+        tm_satlatitude.append(c);
+        tm_satlongitude.append(d);
+        tm_sataltitude.append(e);
+        tm_azimuth.append(f);
+        tm_elevation.append(g);
+        tm_ra.append(h);
+        tm_dec.append(i);
+        tm_timestamp.append(j);
 
-       PositionM->addItem(a, b, c, d, e, f, g, h, i, j);
+        PositionM->addItem(a, b, c, d, e, f, g, h, i, j);
 
-       emit valueChanged();
+        emit valueChanged();
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   a->sendRequest(url, getData, errData);
+    a->sendRequest(url, getData, errData);
 
 }
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getSatVisPass(QString endpoint)
 {
-    api *a = new api(this);
+    api* a = new api(this);
 
-   QString url = "www.n2yo.com/rest/v1/satellite/visualpasses/"+endpoint+"/"+latitude+"/"+longitude+"/"+alt+"/"+fordays+"/"+leastSecs+"/&apiKey="+apikey;
+    QString url = "www.n2yo.com/rest/v1/satellite/visualpasses/" + endpoint + "/" + latitude + "/" + longitude + "/" + alt + "/" + fordays + "/" + leastSecs + "/&apiKey=" + apikey;
     //qDebug()<<url;
-   a->initRequester(url, 80, nullptr);
+    a->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;       
-//       VisualPasses.append(o);
-       satVPDetails = o;
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
+        satVPDetails = o;
 
-       QJsonArray z = o.value("passes").toArray();
-       QDateTime UTC(QDateTime::currentDateTimeUtc());
-       QString mag;
-       QDateTime myDateTime;
+        QJsonArray z = o.value("passes").toArray();
+        QDateTime UTC(QDateTime::currentDateTimeUtc());
+        QString mag;
+        QDateTime myDateTime;
 
-       if(z.size() > 0){
-           QString a = QString::number(o.value("info")["satid"].toInt());
-           QString b = o.value("info")["satname"].toString();
-           QString c = QString::number(o.value("info")["passescount"].toInt());
+        if (z.size() > 0)
+        {
+            QString a = QString::number(o.value("info")["satid"].toInt());
+            QString b = o.value("info")["satname"].toString();
+            QString c = QString::number(o.value("info")["passescount"].toInt());
 
-           for (int x = 0; x < z.size(); x++) {
+            for (int x = 0; x < z.size(); x++)
+            {
 
-               myDateTime.setTime_t(o.value("passes")[x]["startUTC"].toInt());
-               QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString e = QString::number(o.value("passes")[x]["startAz"].toDouble())+"°";
-               QString f = QString::number(o.value("passes")[x]["startEl"].toDouble())+"°";
-               myDateTime.setTime_t(o.value("passes")[x]["maxUTC"].toInt());
-               QString g = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString h = QString::number(o.value("passes")[x]["maxAz"].toDouble())+"°";
-               QString i = QString::number(o.value("passes")[x]["maxEl"].toDouble())+"°";
-               myDateTime.setTime_t(o.value("passes")[x]["endUTC"].toInt());
-               QString j = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString k = QString::number(o.value("passes")[x]["endAz"].toDouble())+"°";
-               QString l = QString::number(o.value("passes")[x]["endEl"].toDouble())+"°";
-               QString m = o.value("passes")[x]["startAzCompass"].toString();
-               QString n = o.value("passes")[x]["maxAzCompass"].toString();
-               QString p = o.value("passes")[x]["endAzCompass"].toString();
+                myDateTime.setTime_t(o.value("passes")[x]["startUTC"].toInt());
+                QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString e = QString::number(o.value("passes")[x]["startAz"].toDouble()) + "°";
+                QString f = QString::number(o.value("passes")[x]["startEl"].toDouble()) + "°";
+                myDateTime.setTime_t(o.value("passes")[x]["maxUTC"].toInt());
+                QString g = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString h = QString::number(o.value("passes")[x]["maxAz"].toDouble()) + "°";
+                QString i = QString::number(o.value("passes")[x]["maxEl"].toDouble()) + "°";
+                myDateTime.setTime_t(o.value("passes")[x]["endUTC"].toInt());
+                QString j = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString k = QString::number(o.value("passes")[x]["endAz"].toDouble()) + "°";
+                QString l = QString::number(o.value("passes")[x]["endEl"].toDouble()) + "°";
+                QString m = o.value("passes")[x]["startAzCompass"].toString();
+                QString n = o.value("passes")[x]["maxAzCompass"].toString();
+                QString p = o.value("passes")[x]["endAzCompass"].toString();
 
-               if(o.value("passes")[x]["mag"].toDouble() == 100000){
-                   mag = "N/A";
-               }else{
-                   mag = QString::number(o.value("passes")[x]["mag"].toDouble());
-               }
-               QString q = mag;
-               QString r = QString::number(o.value("passes")[x]["duration"].toInt());
+                if (o.value("passes")[x]["mag"].toDouble() == 100000)
+                {
+                    mag = "N/A";
+                }
+                else
+                {
+                    mag = QString::number(o.value("passes")[x]["mag"].toDouble());
+                }
+                QString q = mag;
+                QString r = QString::number(o.value("passes")[x]["duration"].toInt());
 
-               tm_satidVP.append(a);
-               tm_satnameVP.append(b);
-               tm_passescount.append(c);
-               tm_startUTC.append(d);
-               tm_startAz.append(e);
-               tm_startEl.append(f);
-               tm_maxUTC.append(g);
-               tm_maxAz.append(h);
-               tm_maxEl.append(i);
-               tm_endUTC.append(j);
-               tm_endAz.append(k);
-               tm_endEl.append(l);
-               tm_startAzCompass.append(m);
-               tm_maxAzCompass.append(n);
-               tm_endAzCompass.append(p);
-               tm_mag.append(q);
-               tm_duration.append(r);
+                tm_satidVP.append(a);
+                tm_satnameVP.append(b);
+                tm_passescount.append(c);
+                tm_startUTC.append(d);
+                tm_startAz.append(e);
+                tm_startEl.append(f);
+                tm_maxUTC.append(g);
+                tm_maxAz.append(h);
+                tm_maxEl.append(i);
+                tm_endUTC.append(j);
+                tm_endAz.append(k);
+                tm_endEl.append(l);
+                tm_startAzCompass.append(m);
+                tm_maxAzCompass.append(n);
+                tm_endAzCompass.append(p);
+                tm_mag.append(q);
+                tm_duration.append(r);
 
-               //qDebug()<<tm_satidVP;
-               VisualPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m, n, p, q, r);
-               //emit valueChanged();
-           }
-       }
+                //qDebug()<<tm_satidVP;
+                VisualPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m, n, p, q, r);
+                //emit valueChanged();
+            }
+        }
 
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   a->sendRequest(url, getData, errData);
+    a->sendRequest(url, getData, errData);
 
 }
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getSatRadPass(QString endpoint)
 {
-    api *a = new api(this);
+    api* a = new api(this);
 
-   QString url = "www.n2yo.com/rest/v1/satellite/radiopasses/"+endpoint+"/"+latitude+"/"+longitude+"/"+alt+"/"+fordays+"/"+leastEl+"/&apiKey="+apikey;
-    //qDebug()<<url;
-   a->initRequester(url, 80, nullptr);
+    QString url = "www.n2yo.com/rest/v1/satellite/radiopasses/" + endpoint + "/" + latitude + "/" + longitude + "/" + alt + "/" + fordays + "/" + leastEl + "/&apiKey=" + apikey;
+    m_url = url;
+    a->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
 //        RadioPasses.append(o);
-       satRPDetails = o;
+        satRPDetails = o;
+        satRPDetails.insert("url", m_url);
 
-       QJsonArray z = o.value("passes").toArray();
-       QDateTime UTC(QDateTime::currentDateTimeUtc());
-       QString mag;
-       QDateTime myDateTime;
+        QJsonArray z = o.value("passes").toArray();
+        QDateTime UTC(QDateTime::currentDateTimeUtc());
+        QString mag;
+        QDateTime myDateTime;
 
-       if(z.size() > 0){
-           QString a = QString::number(o.value("info")["satid"].toInt());
-           QString b = o.value("info")["satname"].toString();
-           QString c = QString::number(o.value("info")["passescount"].toInt());
+        if (z.size() > 0)
+        {
+            QString a = QString::number(o.value("info")["satid"].toInt());
+            QString b = o.value("info")["satname"].toString();
+            QString c = QString::number(o.value("info")["passescount"].toInt());
 
-           for (int x = 0; x < z.size(); x++) {
+            for (int x = 0; x < z.size(); x++)
+            {
 
-               myDateTime.setTime_t(o.value("passes")[x]["startUTC"].toInt());
-               QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString e = QString::number(o.value("passes")[x]["startAz"].toDouble())+"°";
-               myDateTime.setTime_t(o.value("pes")[x]["maxUTC"].toInt());
-               QString f = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString g = QString::number(o.value("passes")[x]["maxAz"].toDouble())+"°";
-               QString h = QString::number(o.value("passes")[x]["maxEl"].toDouble())+"°";
-               QString i = QString::number(o.value("passes")[x]["endAz"].toDouble())+"°";
-               myDateTime.setTime_t(o.value("passes")[x]["endUTC"].toInt());
-               QString j = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
-               QString k = o.value("passes")[x]["startAzCompass"].toString();
-               QString l = o.value("passes")[x]["maxAzCompass"].toString();
-               QString m = o.value("passes")[x]["endAzCompass"].toString();
+                myDateTime.setTime_t(o.value("passes")[x]["startUTC"].toInt());
+                QString d = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString e = QString::number(o.value("passes")[x]["startAz"].toDouble()) + "°";
+                myDateTime.setTime_t(o.value("pes")[x]["maxUTC"].toInt());
+                QString f = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString g = QString::number(o.value("passes")[x]["maxAz"].toDouble()) + "°";
+                QString h = QString::number(o.value("passes")[x]["maxEl"].toDouble()) + "°";
+                QString i = QString::number(o.value("passes")[x]["endAz"].toDouble()) + "°";
+                myDateTime.setTime_t(o.value("passes")[x]["endUTC"].toInt());
+                QString j = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
+                QString k = o.value("passes")[x]["startAzCompass"].toString();
+                QString l = o.value("passes")[x]["maxAzCompass"].toString();
+                QString m = o.value("passes")[x]["endAzCompass"].toString();
 
-               tm_satidR.append(a);
-               tm_satnameR.append(b);
-               tm_passescountR.append(c);
-               tm_startUTCR.append(d);
-               tm_startAzR.append(e);
-               tm_maxUTCR.append(f);
-               tm_maxAzR.append(g);
-               tm_maxElR.append(h);
-               tm_endAzR.append(i);
-               tm_endUTCR.append(j);
-               tm_startAzCompassR.append(k);
-               tm_maxAzCompassR.append(l);
-               tm_endAzCompassR.append(m);
+                tm_satidR.append(a);
+                tm_satnameR.append(b);
+                tm_passescountR.append(c);
+                tm_startUTCR.append(d);
+                tm_startAzR.append(e);
+                tm_maxUTCR.append(f);
+                tm_maxAzR.append(g);
+                tm_maxElR.append(h);
+                tm_endAzR.append(i);
+                tm_endUTCR.append(j);
+                tm_startAzCompassR.append(k);
+                tm_maxAzCompassR.append(l);
+                tm_endAzCompassR.append(m);
 
-               RadioPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m);
+                RadioPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m);
 
-    //        emit valueChanged();
-           }
-       }
+                //        emit valueChanged();
+            }
+        }
 
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   a->sendRequest(url, getData, errData);
+    a->sendRequest(url, getData, errData);
 
 }
 
+/**
+ * @brief
+ *
+ * @param endpoint
+ */
 void MainWindow::getSatTLE(QString endpoint)
 {
-    api *a = new api(this);
+    api* a = new api(this);
 
-   QString url = "www.n2yo.com/rest/v1/satellite/tle/"+endpoint+"&apiKey="+apikey;
-   a->initRequester(url, 80, nullptr);
+    QString url = "www.n2yo.com/rest/v1/satellite/tle/" + endpoint + "&apiKey=" + apikey;
+    a->initRequester(url, 80, nullptr);
 
-   api::handleFunc getData = [this](const QJsonObject &o) {
-       //cout << "Got data " << endl;
-       satTLEDetails = o;
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        //cout << "Got data " << endl;
+        satTLEDetails = o;
 
-       QString a = QString::number(o.value("info")["satid"].toInt());
-       QString b = o.value("info")["satname"].toString();
-       QString c = o.value("tle").toString();
+        QString a = QString::number(o.value("info")["satid"].toInt());
+        QString b = o.value("info")["satname"].toString();
+        QString c = o.value("tle").toString();
 
-       tm_satid.append(a);
-       tm_satname.append(b);
-       tm_tle.append(c);
+        tm_satid.append(a);
+        tm_satname.append(b);
+        tm_tle.append(c);
 
-       TLEM->addItem(a, b, c);
+        TLEM->addItem(a, b, c);
 
-       //emit valueChanged();
+        //emit valueChanged();
 
 //       setValue(tm_tle);
     };
 
-   api::handleFunc errData = [](const QJsonObject &o) {
-       //cout << "Error: connection dropped";
-       QJsonObject x = o;
-       QString r = "Error: connection dropped";
-       qDebug()<< r;
-   };
+    api::handleFunc errData = [](const QJsonObject & o)
+    {
+        //cout << "Error: connection dropped";
+        QJsonObject x = o;
+        QString r = "Error: connection dropped";
+        qDebug() << r;
+    };
 
-   a->sendRequest(url, getData, errData);
+    a->sendRequest(url, getData, errData);
 
 }
 /**
  * @brief
  *
  */
-void MainWindow::webView(){
+void MainWindow::webView()
+{
     view = new QWebEngineView(ui->widget);
 
-    view->load(QUrl("file://"+downloadDirectoryPath+"/index.html"));
+    view->load(QUrl("file://" + downloadDirectoryPath + "/index.html"));
     view->show();
     view->resize(ui->widget->size());
 }
@@ -670,19 +692,25 @@ void MainWindow::webView(){
  */
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
-   QMainWindow::resizeEvent(event);
+    QMainWindow::resizeEvent(event);
 
-   view->resize(ui->widget->size());
+    view->resize(ui->widget->size());
 }
 
-void MainWindow::on_sat_currentIndexChanged(const QString &arg1)
+/**
+ * @brief
+ *
+ * @param arg1
+ */
+void MainWindow::on_sat_currentIndexChanged(const QString& arg1)
 {
-    if(arg1 != "Satellite Name - NORAD Id" && arg1 != "------------------------------------"){
+    if (arg1 != "Satellite Name - NORAD Id" && arg1 != "------------------------------------")
+    {
         const std::string z = arg1.toStdString();
 
         unsigned first = z.find("[");
         unsigned last = z.find("]");
-        const std::string str = z.substr (first+1,(last-1)-first);
+        const std::string str = z.substr(first + 1, (last - 1) - first);
 
         QString strNew = QString::fromStdString(str);
 
@@ -698,6 +726,10 @@ void MainWindow::on_sat_currentIndexChanged(const QString &arg1)
     }
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::tables()
 {
     // Connect model to table view:
@@ -718,6 +750,10 @@ void MainWindow::tables()
     ui->tableViewTLE->show();
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::updateTable()
 {
     //update tle table data
@@ -780,6 +816,10 @@ void MainWindow::updateTable()
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::clearTable()
 {
     //clear tle table data
@@ -833,15 +873,26 @@ void MainWindow::clearTable()
     tm_endAzCompassR.clear();
 }
 
+/**
+ * @brief
+ *
+ * @param value
+ */
 void MainWindow::setValue(QList<QString> value)
 {
-    if (value != m_value) {
+    if (value != m_value)
+    {
         m_value = value;
         emit valueChanged();
     }
 }
 
-void MainWindow::tableTimer(){
+/**
+ * @brief
+ *
+ */
+void MainWindow::tableTimer()
+{
     QJsonObject var;
     QJsonArray l;
     QDateTime UTC(QDateTime::currentDateTimeUtc());
@@ -858,22 +909,25 @@ void MainWindow::tableTimer(){
     tm_dec.clear();
     tm_timestamp.clear();
 
-    foreach (var, positions) {
+    foreach (var, positions)
+    {
         l = var.value("positions").toArray();
 
-        for (int i = 1; i < l.size(); i++) {
-            if(var.value("positions")[i]["timestamp"].toInt() == UTC.toSecsSinceEpoch()){
+        for (int i = 1; i < l.size(); i++)
+        {
+            if (var.value("positions")[i]["timestamp"].toInt() == UTC.toSecsSinceEpoch())
+            {
 
                 QString a = QString::number(var.value("info")["satid"].toInt());
                 QString b = var.value("info")["satname"].toString();
 
-                QString c = QString::number(var.value("positions")[i]["satlatitude"].toDouble())+"°";
-                QString d = QString::number(var.value("positions")[i]["satlongitude"].toDouble())+"°";
-                QString e = QString::number(var.value("positions")[i]["sataltitude"].toDouble())+" Km";
-                QString f = QString::number(var.value("positions")[i]["azimuth"].toDouble())+"°";
-                QString g = QString::number(var.value("positions")[i]["elevation"].toDouble())+"°";
-                QString h = QString::number(var.value("positions")[i]["ra"].toDouble())+"°";
-                QString j = QString::number(var.value("positions")[i]["dec"].toDouble())+"°";
+                QString c = QString::number(var.value("positions")[i]["satlatitude"].toDouble()) + "°";
+                QString d = QString::number(var.value("positions")[i]["satlongitude"].toDouble()) + "°";
+                QString e = QString::number(var.value("positions")[i]["sataltitude"].toDouble()) + " Km";
+                QString f = QString::number(var.value("positions")[i]["azimuth"].toDouble()) + "°";
+                QString g = QString::number(var.value("positions")[i]["elevation"].toDouble()) + "°";
+                QString h = QString::number(var.value("positions")[i]["ra"].toDouble()) + "°";
+                QString j = QString::number(var.value("positions")[i]["dec"].toDouble()) + "°";
 
                 myDateTime.setTime_t(var.value("positions")[i]["timestamp"].toInt());
                 QString k = myDateTime.toString("ddd dd-MMM-yyyy hh:mm:ss");
@@ -905,61 +959,88 @@ void MainWindow::tableTimer(){
     //qDebug()<<tm_satidPos;
     ui->tableViewPosition->viewport()->update();
 
-    if(!positions.isEmpty()){
+    if (!positions.isEmpty())
+    {
         int lm = positions[0].value("positions").toArray().size();
-        if(UTC.toSecsSinceEpoch() > (positions[0].value("positions")[lm-1]["timestamp"].toInt() + 0)){
+        if (UTC.toSecsSinceEpoch() > (positions[0].value("positions")[lm - 1]["timestamp"].toInt() + 0))
+        {
             getSatDetails(noradL);
         }
     }
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::toggleStartServer()
 {
-    if (m_TCPServer->isListening()) {
+    if (m_TCPServer->isListening())
+    {
         m_TCPServer->stopServer();
         ui->startStopButton->setText(tr("Start Server"));
         logMessage(QStringLiteral("Server Stopped"));
-    } else {
+    }
+    else
+    {
 
         QString ipAddress;
         QHostAddress ip;
         QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
         // use the first non-localhost IPv4 address
-        for (int i = 0; i < ipAddressesList.size(); ++i) {
+        for (int i = 0; i < ipAddressesList.size(); ++i)
+        {
             if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
-                ipAddressesList.at(i).toIPv4Address()) {
+                ipAddressesList.at(i).toIPv4Address())
+            {
                 ipAddress = ipAddressesList.at(i).toString();
                 ip = ipAddressesList.at(i);
                 break;
             }
         }
         // if we did not find one, use IPv4 localhost
-        if (ipAddress.isEmpty()){
+        if (ipAddress.isEmpty())
+        {
             ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
             ip = QHostAddress::LocalHost;
         }
-        if (!m_TCPServer->listen(ip, 1967)) {
+        if (!m_TCPServer->listen(ip, 1967))
+        {
             QMessageBox::critical(this, tr("Error"), tr("Unable to start the server"));
             return;
         }
 
         logMessage(QStringLiteral("The server is running on\n\nIP: %1\nport: %2\n\n"
                                   "Run the SatRot Controller Software Client now and connect.")
-                       .arg(ipAddress).arg(m_TCPServer->serverPort()));
+                   .arg(ipAddress).arg(m_TCPServer->serverPort()));
 
         ui->startStopButton->setText(tr("Stop Server"));
     }
 }
 
-void MainWindow::logMessage(const QString &msg)
+/**
+ * @brief
+ *
+ * @param msg
+ */
+void MainWindow::logMessage(const QString& msg)
 {
     ui->logEditor->appendPlainText(msg + '\n');
 }
 
-void MainWindow::clientInit(){
+/**
+ * @brief
+ *
+ */
+void MainWindow::clientInit()
+{
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::attemptConnection()
 {
     // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
@@ -976,7 +1057,8 @@ void MainWindow::attemptConnection()
 //    hostCombo->setEditable(true);
     // find out name of this machine
     QString name = QHostInfo::localHostName();
-    if (!name.isEmpty()) {
+    if (!name.isEmpty())
+    {
         hosts.append(name);
         QString domain = QHostInfo::localDomainName();
         if (!domain.isEmpty())
@@ -987,12 +1069,14 @@ void MainWindow::attemptConnection()
     // find out IP addresses of this machine
     QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
     // add non-localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
+    for (int i = 0; i < ipAddressesList.size(); ++i)
+    {
         if (!ipAddressesList.at(i).isLoopback())
-           hosts.append(ipAddressesList.at(i).toString());
+            hosts.append(ipAddressesList.at(i).toString());
     }
     // add localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
+    for (int i = 0; i < ipAddressesList.size(); ++i)
+    {
         if (ipAddressesList.at(i).isLoopback())
             hosts.append(ipAddressesList.at(i).toString());
     }
@@ -1013,11 +1097,16 @@ void MainWindow::attemptConnection()
     m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::connectedToServer()
 {
     // once we connected to the server we ask the user for what username they would like to use
     const QString newUsername = QInputDialog::getText(this, tr("Set Device Name"), tr("Device name"));
-    if (newUsername.isEmpty()){
+    if (newUsername.isEmpty())
+    {
         // if the user clicked cancel or typed nothing, we just disconnect from the server
         return m_TCPClient->disconnectFromHost();
     }
@@ -1025,12 +1114,21 @@ void MainWindow::connectedToServer()
     attemptLogin(newUsername);
 }
 
-void MainWindow::attemptLogin(const QString &userName)
+/**
+ * @brief
+ *
+ * @param userName
+ */
+void MainWindow::attemptLogin(const QString& userName)
 {
     // use the client to attempt a log in with the given username
     m_TCPClient->login(userName);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::loggedIn()
 {
     // once we successully log in we enable the ui to display and send messages
@@ -1041,11 +1139,16 @@ void MainWindow::loggedIn()
     m_lastUserName.clear();
     ui->clientView->setEnabled(true);
 
-    QString x ="";
-    ui->clientView->appendPlainText("Connected to Server" + x +'\n');
+    QString x = "";
+    ui->clientView->appendPlainText("Connected to Server" + x + '\n');
 }
 
-void MainWindow::loginFailed(const QString &reason)
+/**
+ * @brief
+ *
+ * @param reason
+ */
+void MainWindow::loginFailed(const QString& reason)
 {
     // the server rejected the login attempt
     // display the reason for the rejection in a message box
@@ -1054,12 +1157,19 @@ void MainWindow::loginFailed(const QString &reason)
     connectedToServer();
 }
 
-void MainWindow::messageReceived(const QString &sender, const QString &text)
+/**
+ * @brief
+ *
+ * @param sender
+ * @param text
+ */
+void MainWindow::messageReceived(const QString& sender, const QString& text)
 {
     // store the index of the new row to append to the model containing the messages
     int newRow = m_chatModel->rowCount();
     // we display a line containing the username only if it's different from the last username we displayed
-    if (m_lastUserName != sender) {
+    if (m_lastUserName != sender)
+    {
         // store the last displayed username
         m_lastUserName = sender;
         // create a bold default font
@@ -1076,7 +1186,9 @@ void MainWindow::messageReceived(const QString &sender, const QString &text)
         ++newRow;
 
         ui->clientView->appendPlainText(sender + ":" + '\n' + text + '\n');
-    } else {
+    }
+    else
+    {
         // insert a row for the message
         m_chatModel->insertRow(newRow);
 
@@ -1091,6 +1203,10 @@ void MainWindow::messageReceived(const QString &sender, const QString &text)
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::sendMessage()
 {
     // we use the client to send the message that the user typed
@@ -1116,6 +1232,10 @@ void MainWindow::sendMessage()
 
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::disconnectedFromServer()
 {
     // if the client loses connection to the server
@@ -1132,7 +1252,12 @@ void MainWindow::disconnectedFromServer()
     ui->clientView->setEnabled(false);
 }
 
-void MainWindow::userJoined(const QString &username)
+/**
+ * @brief
+ *
+ * @param username
+ */
+void MainWindow::userJoined(const QString& username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -1151,7 +1276,12 @@ void MainWindow::userJoined(const QString &username)
 
     ui->clientView->appendPlainText("\"" + username + "\" Joined the network" + '\n');
 }
-void MainWindow::userLeft(const QString &username)
+/**
+ * @brief
+ *
+ * @param username
+ */
+void MainWindow::userLeft(const QString& username)
 {
     // store the index of the new row to append to the model containing the messages
     const int newRow = m_chatModel->rowCount();
@@ -1171,10 +1301,16 @@ void MainWindow::userLeft(const QString &username)
     ui->clientView->appendPlainText("\"" + username + "\" Left the network" + '\n');
 }
 
+/**
+ * @brief
+ *
+ * @param socketError
+ */
 void MainWindow::error(QAbstractSocket::SocketError socketError)
 {
     // show a message to the user that informs of what kind of error occurred
-    switch (socketError) {
+    switch (socketError)
+    {
     case QAbstractSocket::RemoteHostClosedError:
     case QAbstractSocket::ProxyConnectionClosedError:
         return; // handled by disconnectedFromServer
@@ -1234,8 +1370,13 @@ void MainWindow::error(QAbstractSocket::SocketError socketError)
     m_lastUserName.clear();
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::on_sendTrack_clicked()
 {
+
     //Mode of control, True if automatic and False if Manual
     m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
     m_TCPClient->sendTrackingDetails(satVPDetails, "VP", true);
@@ -1244,7 +1385,12 @@ void MainWindow::on_sendTrack_clicked()
 
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+/**
+ * @brief
+ *
+ * @param event
+ */
+void MainWindow::closeEvent(QCloseEvent* event)
 {
     if (maybeSave())
         event->accept();
@@ -1252,9 +1398,14 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->ignore();
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::open()
 {
-    if (maybeSave()) {
+    if (maybeSave())
+    {
         QString fileName = QFileDialog::getOpenFileName(this,
                                                         tr("Open File"), QDir::currentPath());
         if (!fileName.isEmpty())
@@ -1262,13 +1413,21 @@ void MainWindow::open()
     }
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::save()
 {
-    QAction *action = qobject_cast<QAction *>(sender());
+    QAction* action = qobject_cast<QAction*>(sender());
     QByteArray fileFormat = action->data().toByteArray();
     saveFile(fileFormat);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::penColor()
 {
     QColor newColor = QColorDialog::getColor(MScribble->penColor());
@@ -1276,6 +1435,10 @@ void MainWindow::penColor()
         MScribble->setPenColor(newColor);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::penWidth()
 {
     bool ok;
@@ -1287,6 +1450,10 @@ void MainWindow::penWidth()
         MScribble->setPenWidth(newWidth);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About Satrot"),
@@ -1303,15 +1470,24 @@ void MainWindow::about()
                           "to repaint widgets.</p>"));
 }
 
-void MainWindow::documentation(){
+/**
+ * @brief
+ *
+ */
+void MainWindow::documentation()
+{
     QMessageBox::information(this, tr("Satrot Documentation"),
-                       tr("<p><b>Satrot</b> visit our gitub wiki page and website for full documantation."
+                             tr("<p><b>Satrot</b> visit our gitub wiki page and website for full documantation."
                                 "<a href=\"https://github.com/Ahmad138/SatRot/wiki\">Github Page</a>"
                                 "<a href=\"#\">Website</a>"
                                 ""
                                 "</p>"));
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::createActions()
 {
 //    openAct = new QAction(tr("&Open..."), this);
@@ -1319,10 +1495,11 @@ void MainWindow::createActions()
 //    connect(openAct, &QAction::triggered, this, &MainWindow::open);
 
     const QList<QByteArray> imageFormats = QImageWriter::supportedImageFormats();
-    for (const QByteArray &format : imageFormats) {
+    for (const QByteArray& format : imageFormats)
+    {
         QString text = tr("%1...").arg(QString::fromLatin1(format).toUpper());
 
-        QAction *action = new QAction(text, this);
+        QAction* action = new QAction(text, this);
         action->setData(format);
         connect(action, &QAction::triggered, this, &MainWindow::save);
         saveAsActs.append(action);
@@ -1356,11 +1533,15 @@ void MainWindow::createActions()
 //    connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
 }
 
+/**
+ * @brief
+ *
+ */
 void MainWindow::createMenus()
 
 {
     saveAsMenu = new QMenu(tr("&Save As"), this);
-    for (QAction *action : qAsConst(saveAsActs))
+    for (QAction* action : qAsConst(saveAsActs))
         saveAsMenu->addAction(action);
 
     fileMenu = new QMenu(tr("&File"), this);
@@ -1386,15 +1567,21 @@ void MainWindow::createMenus()
     menuBar()->addMenu(helpMenu);
 }
 
+/**
+ * @brief
+ *
+ * @return bool
+ */
 bool MainWindow::maybeSave()
 {
-    if (MScribble->isModified()) {
+    if (MScribble->isModified())
+    {
         QMessageBox::StandardButton ret;
         ret = QMessageBox::warning(this, tr("SatRot"),
                                    tr("The image has been modified.\n"
                                       "Do you want to save your changes?"),
                                    QMessageBox::Save | QMessageBox::Discard
-                                       | QMessageBox::Cancel);
+                                   | QMessageBox::Cancel);
         if (ret == QMessageBox::Save)
             return saveFile("png");
         else if (ret == QMessageBox::Cancel)
@@ -1403,56 +1590,84 @@ bool MainWindow::maybeSave()
     return true;
 }
 
-bool MainWindow::saveFile(const QByteArray &fileFormat)
+/**
+ * @brief
+ *
+ * @param fileFormat
+ * @return bool
+ */
+bool MainWindow::saveFile(const QByteArray& fileFormat)
 {
     QString initialPath = QDir::currentPath() + "/untitled." + fileFormat;
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"),
                                                     initialPath,
                                                     tr("%1 Files (*.%2);;All Files (*)")
-                                                        .arg(QString::fromLatin1(fileFormat.toUpper()))
-                                                        .arg(QString::fromLatin1(fileFormat)));
+                                                    .arg(QString::fromLatin1(fileFormat.toUpper()))
+                                                    .arg(QString::fromLatin1(fileFormat)));
     if (fileName.isEmpty())
         return false;
     return MScribble->saveImage(fileName, fileFormat.constData());
 }
 
-void MainWindow::clearRadar(){
+/**
+ * @brief
+ *
+ */
+void MainWindow::clearRadar()
+{
     MScribble->clearImage();
     MScribble->openImage(radarFileName);
 }
 
-void MainWindow::logAngles(QMap<QString, double> &angles){
+/**
+ * @brief
+ *
+ * @param QMap<QString
+ * @param angles
+ */
+void MainWindow::logAngles(QMap<QString, double>& angles)
+{
     //Az
     QString Az = QString::number(angles["Az"]);
-    ui->Az->setText("Az: "+ Az + "°");
-    ui->horizontalSlider->setValue(angles["Az"]/0.05);
+    ui->Az->setText("Az: " + Az + "°");
+    ui->horizontalSlider->setValue(angles["Az"] / 0.05);
 
     //El
     QString El = QString::number(angles["El"]);
-    ui->El->setText("El: "+ El + "°");
-    ui->verticalSlider->setValue(angles["El"]/0.05);
+    ui->El->setText("El: " + El + "°");
+    ui->verticalSlider->setValue(angles["El"] / 0.05);
 
     AzEl["Az"] = Az;
     AzEl["El"] = El;
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
+/**
+ * @brief
+ *
+ * @param position
+ */
 void MainWindow::on_horizontalSlider_sliderMoved(int position)
 {
-    float val = position*0.05;
+    float val = position * 0.05;
     QString s = QString::number(val);
-    ui->Az->setText("Az: "+ s + "°");
+    ui->Az->setText("Az: " + s + "°");
 
     AzEl["Az"] = s;
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
+/**
+ * @brief
+ *
+ * @param position
+ */
 void MainWindow::on_verticalSlider_sliderMoved(int position)
 {
-    float val = position*0.05;
+    float val = position * 0.05;
     QString s = QString::number(val);
-    ui->El->setText("El: "+ s + "°");
+    ui->El->setText("El: " + s + "°");
 
     AzEl["El"] = s;
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);

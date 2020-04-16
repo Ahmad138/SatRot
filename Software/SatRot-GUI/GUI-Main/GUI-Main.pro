@@ -36,7 +36,6 @@ SOURCES += \
     src/api.cpp \
     src/clientthread.cpp \
     src/customdialog.cpp \
-    src/customscene.cpp \
     src/digitalclock.cpp \
     src/getgeolocation.cpp \
     src/httpwindow.cpp \
@@ -61,7 +60,6 @@ HEADERS += \
     includes/api.h \
     includes/clientthread.h \
     includes/customdialog.h \
-    includes/customscene.h \
     includes/digitalclock.h \
     includes/getgeolocation.h \
     includes/httpwindow.h \
@@ -71,8 +69,6 @@ HEADERS += \
     includes/radiopassmodel.h \
     includes/satellitelist.h \
     includes/serverthread.h \
-    includes/tcpc.h \
-    includes/tcps.h \
     includes/tcpserver.h \
     includes/tcpthread.h \
     includes/tcpclient.h \
