@@ -46,8 +46,6 @@ SOURCES += \
     src/radiopassmodel.cpp \
     src/satellitelist.cpp \
     src/serverthread.cpp \
-    src/tcpc.cpp \
-    src/tcps.cpp \
     src/tcpserver.cpp \
     src/tcpthread.cpp \
     src/tcpclient.cpp \
