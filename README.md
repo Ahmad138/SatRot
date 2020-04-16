@@ -1,7 +1,7 @@
 #  SatRot - Taking Everyone to Space  :satellite:    :earth_africa:   :crescent_moon:   :telescope:   :space_invader: :stars:  :rocket:
 [![Build Status](https://travis-ci.org/Ahmad138/SatRot.svg?branch=master)](https://travis-ci.org/Ahmad138/SatRot)
 <p align="center">
-<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Logo/SatRot%20logo_small.png?raw=true" width="50%" height="50%" alt="SatRot Logo">
+<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
 </p>
 
 # Table of Contents   :ledger:
