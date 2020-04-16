@@ -152,9 +152,7 @@ Like, Follow, Share to stay updated and help us grow the community.
 <p align="center">
 <a href="https://www.twitter.com/sat_rot">
 <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069"><img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="https://www.instagram.com/sat_rot/"><img
-src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"></a> 
-    <a href="#"> <img
+src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="https://www.instagram.com/sat_rot/"> <img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"> </a> <a href="https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw?view_as=subscriber"> <img
 src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/youtube.png?raw=true" width="10%"> </a> 
 
