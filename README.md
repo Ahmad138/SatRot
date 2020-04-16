@@ -62,7 +62,7 @@ The GUI has 2 main modes. A manual mode that a user can use to manually track a 
 The mechanical requirements are not much. Most of the parts will be printed using a 3D printer and few fastening bolts, nuts and screws. (N.B: due to the covid-19 issue the world is facing, we cannot access the workshops to complete the mechanical parts). Bellow are the few items required at the moment.
 
  - Access to 3D printing
- - M2.3 bolts and nuts
+ - M2.5 bolts and nuts
  - Brass or plastic spaces 
  - Tripod stand
 
