@@ -1,0 +1,85 @@
+\t (00:25:57) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:25:57)     Journal start - Fri Mar 13 10:10:48 2020
+\t (00:25:57)         Host=RANK739-03 User=2504951m Pid=1124 CPUs=12
+\t (00:25:57) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:25:57) 
+\d (00:25:57) Design opened: H:/Desktop/satrot-2-IMU/allegro/SATROT-2-IMU-5.brd
+\i (00:25:58) generaledit 
+\i (00:25:59) zoom out 1 
+\i (00:25:59) setwindow pcb
+\i (00:25:59) zoom out 211.21 430.99
+\i (00:25:59) trapsize 1380
+\i (00:25:59) zoom out 1 
+\i (00:25:59) setwindow pcb
+\i (00:25:59) zoom out 230.52 414.43
+\i (00:25:59) trapsize 2760
+\i (00:25:59) zoom out 1 
+\i (00:25:59) setwindow pcb
+\i (00:25:59) zoom out -2110.94 300.90
+\i (00:25:59) trapsize 4743
+\i (00:25:59) zoom out 1 
+\i (00:25:59) setwindow pcb
+\i (00:25:59) zoom out -4387.28 -1719.20
+\i (00:25:59) trapsize 4743
+\i (00:26:00) zoom in 1 
+\i (00:26:00) setwindow pcb
+\i (00:26:00) zoom in -2840.96 -1501.00
+\i (00:26:00) trapsize 2372
+\i (00:26:00) zoom in 1 
+\i (00:26:00) setwindow pcb
+\i (00:26:00) zoom in -2750.84 -1448.83
+\i (00:26:00) trapsize 1186
+\i (00:26:00) zoom out 1 
+\i (00:26:00) setwindow pcb
+\i (00:26:00) zoom out -2141.32 -1408.50
+\i (00:26:00) trapsize 2372
+\i (00:26:00) zoom out 1 
+\i (00:26:00) setwindow pcb
+\i (00:26:00) zoom out -2160.30 -1460.68
+\i (00:26:00) trapsize 4743
+\i (00:26:00) zoom out 1 
+\i (00:26:00) setwindow pcb
+\i (00:26:00) zoom out -270.09 -1368.19
+\i (00:26:00) trapsize 4743
+\i (00:26:01) zoom in 1 
+\i (00:26:01) setwindow pcb
+\i (00:26:01) zoom in 716.52 642.97
+\i (00:26:01) trapsize 2372
+\i (00:26:01) zoom in 1 
+\i (00:26:01) setwindow pcb
+\i (00:26:01) zoom in 726.00 661.95
+\i (00:26:01) trapsize 1186
+\i (00:26:02) zoom out 1 
+\i (00:26:02) setwindow pcb
+\i (00:26:02) zoom out 726.00 661.95
+\i (00:26:02) trapsize 2372
+\i (00:26:03) move 
+\t (00:26:03) Select element(s) to move.
+\i (00:26:04) pick grid 493.59 301.46
+\t (00:26:04) last pick:  490.00 300.00
+\t (00:26:04) last pick:  490.00 300.00
+\t (00:26:04) Element has no origin, using pick.
+\t (00:26:04) Pick new location for the element(s).
+\i (00:26:05) pick grid -123.04 -969.75
+\t (00:26:05) last pick:  -120.00 -970.00
+\i (00:26:06) pick grid 322.83 367.87
+\t (00:26:06) last pick:  320.00 370.00
+\t (00:26:06) last pick:  320.00 370.00
+\t (00:26:06) Element has no origin, using pick.
+\t (00:26:06) Pick new location for the element(s).
+\i (00:26:07) pick grid -1768.97 344.15
+\t (00:26:07) last pick:  -1770.00 340.00
+\i (00:26:08) zoom fit 
+\i (00:26:08) trapsize 690
+\i (00:26:14) capture image 
+\i (00:26:25) fillin "H:/Desktop/b.bmp"
+\i (00:26:25) cd "H:/Desktop"
+\i (00:26:26) capture image "H:/Desktop/b.bmp" 
+\i (00:26:42) open 
+\e (00:26:42) Do you want to save the changes you made to SATROT-2-IMU-5.brd?
+\i (00:26:43) fillin no 
+\i (00:26:52) fillin "H:/Desktop/satrot-2-powerboard/allegro/SATROT-2-POWERBOARD-6.brd"
+\i (00:26:52) cd "H:/Desktop/satrot-2-powerboard/allegro"
+\t (00:26:52) Opening existing design...
+\i (00:26:52) trapsize 1689
+\t (00:26:52)     Journal end - Fri Mar 13 10:11:42 2020

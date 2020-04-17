@@ -1,0 +1,137 @@
+\t (00:00:02) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Sat Mar 07 22:38:14 2020
+\t (00:00:02)         Host=RANK739-17 User=2504951m Pid=3548 CPUs=12
+\t (00:00:02) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe -s builder.scr.txt
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:03) Starting new design...
+\i (00:00:04) trapsize 29310
+\i (00:00:04) replay builder.scr.txt 
+\i (00:00:04) skill 'load "M:/ul_PWR163S2515R0F/AllegroV17_2/builder.ile" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'changeWorkingDir "M:/ul_PWR163S2515R0F/AllegroV17_2" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-L.xml" ' 
+\t (00:00:04) Reading Footprint XML
+\t (00:00:04) Creating padstacks
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 986
+\i (00:00:04) trapsize 98608
+\t (00:00:04) Performing DRC...
+\t (00:00:04) Multithreaded DRC update (12 threads).
+\t (00:00:04) No DRC errors detected.
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 72066
+\i (00:00:05) trapsize 73840
+\i (00:00:05) trapsize 72066
+\i (00:00:05) trapsize 98608
+\i (00:00:05) trapsize 98608
+\t (00:00:05) Opening Design "BO_PWR163-L.dra"
+\t (00:00:05) Starting new design...
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 98608
+\i (00:00:05) trapsize 26897
+\t (00:00:05) Creating TextBlocks
+\t (00:00:05) Creating Shapes on Package layers
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+\t (00:00:05) Creating Pins
+\t (00:00:05) Creating Vias
+\t (00:00:05) Creating package symbol 'M:/ul_PWR163S2515R0F/AllegroV17_2/bo_pwr163-l.psm'.
+\t (00:00:05) Starting Create symbol...
+\t (00:00:05) Symbol Created
+\i (00:00:05) trapsize 3097
+   (00:00:05) Loading cmds.cxt 
+   (00:00:05) Loading skillExt.cxt 
+\t (00:00:06) Opening existing design...
+\i (00:00:06) trapsize 3464
+\i (00:00:06) trapsize 3559
+\i (00:00:06) trapsize 3464
+\i (00:00:06) trapsize 3464
+\d (00:00:06) Design opened: M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-L.dra
+\t (00:00:06) Symbol Saved
+   (00:00:06) t
+\i (00:00:06) skill 'LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-M.xml" ' 
+\t (00:00:06) Reading Footprint XML
+\t (00:00:06) Creating padstacks
+\t (00:00:06) Starting new design...
+\i (00:00:06) trapsize 17018
+\i (00:00:06) trapsize 17488
+\i (00:00:06) trapsize 17018
+\i (00:00:06) trapsize 26897
+\i (00:00:06) trapsize 26897
+\t (00:00:06) Starting new design...
+\i (00:00:06) trapsize 1
+\i (00:00:06) trapsize 1
+\i (00:00:07) trapsize 1
+\i (00:00:07) trapsize 26897
+\t (00:00:07) Opening Design "BO_PWR163-M.dra"
+\t (00:00:07) Starting new design...
+\i (00:00:07) trapsize 1
+\i (00:00:07) trapsize 1
+\i (00:00:07) trapsize 1
+\i (00:00:07) trapsize 26897
+\t (00:00:07) Creating TextBlocks
+\t (00:00:07) Creating Shapes on Package layers
+   (00:00:07) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+   (00:00:07) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+\t (00:00:07) Creating Pins
+\t (00:00:07) Creating Vias
+\t (00:00:07) Creating package symbol 'M:/ul_PWR163S2515R0F/AllegroV17_2/bo_pwr163-m.psm'.
+\t (00:00:07) Starting Create symbol...
+\t (00:00:07) Symbol Created
+\i (00:00:07) trapsize 3469
+\t (00:00:07) Opening existing design...
+\i (00:00:07) trapsize 3469
+\i (00:00:08) trapsize 3564
+\i (00:00:08) trapsize 3469
+\i (00:00:08) trapsize 3469
+\d (00:00:08) Design opened: M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-M.dra
+\t (00:00:08) Symbol Saved
+   (00:00:08) t
+\i (00:00:08) skill 'LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163.xml" ' 
+\t (00:00:08) Reading Footprint XML
+\t (00:00:08) Creating padstacks
+\t (00:00:08) Starting new design...
+\i (00:00:08) trapsize 17018
+\i (00:00:08) trapsize 17488
+\i (00:00:08) trapsize 17018
+\i (00:00:08) trapsize 26897
+\i (00:00:08) trapsize 26897
+\t (00:00:08) Starting new design...
+\i (00:00:08) trapsize 1
+\i (00:00:08) trapsize 1
+\i (00:00:08) trapsize 1
+\i (00:00:08) trapsize 26897
+\t (00:00:08) Opening Design "BO_PWR163.dra"
+\t (00:00:09) Starting new design...
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 26897
+\i (00:00:09) trapsize 25737
+\t (00:00:09) Creating TextBlocks
+\t (00:00:09) Creating Shapes on Package layers
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 110.0)
+\t (00:00:09) Creating Pins
+\t (00:00:09) Creating Vias
+\t (00:00:09) Creating package symbol 'M:/ul_PWR163S2515R0F/AllegroV17_2/bo_pwr163.psm'.
+\t (00:00:09) Starting Create symbol...
+\t (00:00:09) Symbol Created
+\i (00:00:09) trapsize 3260
+\t (00:00:09) Opening existing design...
+\i (00:00:09) trapsize 3260
+\i (00:00:09) trapsize 3350
+\i (00:00:09) trapsize 3260
+\i (00:00:09) trapsize 3260
+\d (00:00:09) Design opened: M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163.dra
+\t (00:00:09) Symbol Saved
+   (00:00:09) t
+\i (00:00:10) exit 
+\t (00:00:14)     Journal end - Sat Mar 07 22:38:26 2020

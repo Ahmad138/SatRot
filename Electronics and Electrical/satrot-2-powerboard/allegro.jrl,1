@@ -1,0 +1,59 @@
+\t (00:00:02) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Fri Mar 06 14:28:24 2020
+\t (00:00:02)         Host=RANK509-24 User=2504951m Pid=11988 CPUs=8
+\t (00:00:02) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe -s builder.scr.txt
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 29310
+\i (00:00:04) replay builder.scr.txt 
+\i (00:00:04) skill 'load "M:/ul_3314J2203E/AllegroV17_2/builder.ile" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'changeWorkingDir "M:/ul_3314J2203E/AllegroV17_2" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'LB_createFootprint "M:/ul_3314J2203E/AllegroV17_2/POT_3314J.xml" ' 
+\t (00:00:04) Reading Footprint XML
+\t (00:00:04) Creating padstacks
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1022
+\i (00:00:04) trapsize 102163
+\t (00:00:04) Performing DRC...
+\t (00:00:04) Multithreaded DRC update (8 threads).
+\t (00:00:04) No DRC errors detected.
+\t (00:00:05) Starting new design...
+\i (00:00:05) trapsize 80398
+\i (00:00:05) trapsize 82612
+\i (00:00:05) trapsize 80398
+\i (00:00:05) trapsize 102163
+\i (00:00:05) trapsize 102163
+\t (00:00:05) Opening Design "POT_3314J.dra"
+\t (00:00:05) Starting new design...
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 102163
+\i (00:00:05) trapsize 23570
+\t (00:00:05) Creating TextBlocks
+\t (00:00:05) Creating Shapes on Package layers
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 100.0)
+\t (00:00:05) Creating Pins
+\t (00:00:05) Creating Vias
+\t (00:00:05) Creating package symbol 'M:/ul_3314J2203E/AllegroV17_2/pot_3314j.psm'.
+\t (00:00:05) Starting Create symbol...
+\t (00:00:06) Symbol Created
+\i (00:00:06) trapsize 1647
+   (00:00:06) Loading cmds.cxt 
+   (00:00:06) Loading skillExt.cxt 
+\t (00:00:06) Opening existing design...
+\i (00:00:06) trapsize 2023
+\i (00:00:06) trapsize 2092
+\i (00:00:06) trapsize 2023
+\i (00:00:07) trapsize 2023
+\d (00:00:07) Design opened: M:/ul_3314J2203E/AllegroV17_2/POT_3314J.dra
+\t (00:00:07) Symbol Saved
+   (00:00:07) t
+\i (00:00:07) exit 
+\t (00:00:14)     Journal end - Fri Mar 06 14:28:36 2020

@@ -1,0 +1,14 @@
+{ Using PSTWRITER 17.2.0 d001Mar-07-2020 at 00:37:39 }
+
+#1 WARNING(ORCAP-36006): Part Name "CON10_BLKCON156VHTM1SQSW15610_IMU PINS" is renamed to "CON10_BLKCON156VHTM1SQSW15610_I".
+#2 WARNING(ORCAP-36006): Part Name "MPU-9250_QFN40P300X300X105-24N_MPU-9250" is renamed to "MPU-9250_QFN40P300X300X105-24N_".
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... H:\DESKTOP\SATROT-2-IMU\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-IMU\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-IMU\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-IMU\allegro/pstxnet.dat
+packaging the design view...

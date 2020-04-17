@@ -1,0 +1,144 @@
+FILE_TYPE=LIBRARY_PARTS;
+{ Using PSTWRITER 17.2.0 d001Mar-07-2020 at 00:37:40}
+primitive 'CAP NP_SMC0603_0.1UF';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CAP NP';
+    JEDEC_TYPE='smc0603';
+    VALUE='0.1uF';
+  end_body;
+end_primitive;
+primitive 'CAP NP_SMC0402_0.01UF/10000PF';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CAP NP';
+    JEDEC_TYPE='smc0402';
+    VALUE='0.01uF/10000pF';
+  end_body;
+end_primitive;
+primitive 'CON10_BLKCON156VHTM1SQSW15610_I';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    '3':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+    '4':
+      PIN_NUMBER='(4)';
+      PINUSE='UNSPEC';
+    '5':
+      PIN_NUMBER='(5)';
+      PINUSE='UNSPEC';
+    '6':
+      PIN_NUMBER='(6)';
+      PINUSE='UNSPEC';
+    '7':
+      PIN_NUMBER='(7)';
+      PINUSE='UNSPEC';
+    '8':
+      PIN_NUMBER='(8)';
+      PINUSE='UNSPEC';
+    '9':
+      PIN_NUMBER='(9)';
+      PINUSE='UNSPEC';
+    '10':
+      PIN_NUMBER='(10)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CON10';
+    JEDEC_TYPE='BLKCON156VHTM1SQSW15610';
+    VALUE='IMU pins';
+  end_body;
+end_primitive;
+primitive 'R_SMR0805_10K';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='R';
+    JEDEC_TYPE='smr0805';
+    VALUE='10K';
+  end_body;
+end_primitive;
+primitive 'MPU-9250_QFN40P300X300X105-24N_';
+  pin
+    'RESV_1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    'AUX_CL':
+      PIN_NUMBER='(7)';
+      INPUT_LOAD='(*)';
+    'VDDIO':
+      PIN_NUMBER='(8)';
+      PINUSE='POWER';
+    'AD0/SDO':
+      PIN_NUMBER='(9)';
+      OUTPUT_LOAD='(*)';
+    'REGOUT':
+      PIN_NUMBER='(10)';
+      OUTPUT_LOAD='(*)';
+    'FSYNC':
+      PIN_NUMBER='(11)';
+      INPUT_LOAD='(*)';
+    'INT':
+      PIN_NUMBER='(12)';
+      OUTPUT_LOAD='(*)';
+    'VDD':
+      PIN_NUMBER='(13)';
+      PINUSE='POWER';
+    'GND':
+      PIN_NUMBER='(18)';
+      PINUSE='POWER';
+    'RESV_19':
+      PIN_NUMBER='(19)';
+      PINUSE='UNSPEC';
+    'RESV_20':
+      PIN_NUMBER='(20)';
+      PINUSE='UNSPEC';
+    'AUX_DA':
+      PIN_NUMBER='(21)';
+      INPUT_LOAD='(*)';
+    'C\S\':
+      PIN_NUMBER='(22)';
+      INPUT_LOAD='(*)';
+    'SCL/SCLK':
+      PIN_NUMBER='(23)';
+      INPUT_LOAD='(*)';
+    'SDA/SDI':
+      PIN_NUMBER='(24)';
+      INPUT_LOAD='(*)';
+      OUTPUT_LOAD='(*)';
+      BIDIRECTIONAL='TRUE';
+  end_pin;
+  body
+    PART_NAME='MPU-9250';
+    JEDEC_TYPE='QFN40P300X300X105-24N';
+    VALUE='MPU-9250';
+    NC_PINS='(2,3,4,5,6,14,15,16,17)';
+  end_body;
+end_primitive;
+END.

@@ -1,0 +1,110 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 17.2.0 d001Mar-06-2020 at 22:32:00 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='SATROT-2-IMU';
+ POST_TIME='May 11 2019 05:12:43';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ C11 'CAP NP_SMC0603_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12259@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12259@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12259@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C12 'CAP NP_SMC0402_0.01UF/10000PF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12503@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12503@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12503@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C13 'CAP NP_SMC0603_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12543@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12543@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12543@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J9 'CON10_BLKCON156VHTM1SQSW15610_I':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12295@CONNECTOR.CON10.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12295@connector.\con10.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12295@connector.\con10.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R21 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12441@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12441@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12441@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R22 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12461@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12461@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12461@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R23 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12523@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12523@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12523@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R24 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12483@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12483@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12483@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R25 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12419@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12419@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12419@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U3 'MPU-9250_QFN40P300X300X105-24N_':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-IMU.IMU(SCH_1):INS12347@SATROT.MPU-9250.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-imu\.imu(sch_1):ins12347@satrot.\mpu-9250.normal\(chips)',
+ P_PATH='@\satrot-2-imu\.imu(sch_1):page1_ins12347@satrot.\mpu-9250.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

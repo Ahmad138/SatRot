@@ -1,0 +1,19 @@
+{ Using PSTWRITER 17.2.0 d001Mar-08-2020 at 02:04:33 }
+
+#1 WARNING(ORCAP-36006): Part Name "CON3_BLKCON100VHTM1SQSW1003_CON3" is renamed to "CON3_BLKCON100VHTM1SQSW1003_CON".
+#2 WARNING(ORCAP-36006): Part Name "PWR163S-25-15R0F_BO_PWR163_0.1, 10W" is renamed to "PWR163S-25-15R0F_BO_PWR163_0.1,".
+#3 WARNING(ORCAP-36006): Part Name "RASPBERRY PI B+_GU-RASP-PI-3_RASPBERRY PI B+" is renamed to "RASPBERRY PI B+_GU-RASP-PI-3_RA".
+#4 WARNING(ORCAP-36042): Pin "P3V3" is renamed to "P3V3#1" as visible power pin of same name already exists in Package Raspberry Pi B+ , U9: PowerBoard, PowerBoard (18.10, 0.90).
+#5 WARNING(ORCAP-36042): Pin "P5V" is renamed to "P5V#2" as visible power pin of same name already exists in Package Raspberry Pi B+ , U9: PowerBoard, PowerBoard (18.10, 0.90).
+#6 WARNING(ORCAP-36042): Pin "P5V" is renamed to "P5V#4" as visible power pin of same name already exists in Package Raspberry Pi B+ , U9: PowerBoard, PowerBoard (18.10, 0.90).
+#7 WARNING(ORCAP-36042): Pin "P3V3" is renamed to "P3V3#17" as visible power pin of same name already exists in Package Raspberry Pi B+ , U9: PowerBoard, PowerBoard (18.10, 0.90).
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... H:\DESKTOP\SATROT-2-POWERBOARD-PART2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-POWERBOARD-PART2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-POWERBOARD-PART2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2-POWERBOARD-PART2\allegro/pstxnet.dat
+packaging the design view...

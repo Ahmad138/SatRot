@@ -1,0 +1,23 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    CREATE SYMBOL                                                    )
+(                                                                     )
+(    Drawing          : BO_PWR163.dra                                 )
+(    Software Version : 17.2S055                                      )
+(    Date/Time        : Sat Mar 07 22:38:21 2020                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Create Symbol of type: PACKAGE
+    Directory = M:/ul_PWR163S2515R0F/AllegroV17_2
+    Name      = bo_pwr163.psm
+    User      = 2504951m
+    Machine   = RANK739-17
+
+
+Create symbol started.
+ 
+
+Create symbol completed.
+

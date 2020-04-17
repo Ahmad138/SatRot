@@ -1,0 +1,23 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    CREATE SYMBOL                                                    )
+(                                                                     )
+(    Drawing          : SOT_10KLFTR.dra                               )
+(    Software Version : 17.2S055                                      )
+(    Date/Time        : Fri Mar 06 14:26:23 2020                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Create Symbol of type: PACKAGE
+    Directory = M:/ul_23BR10KLFTR/AllegroV17_2
+    Name      = sot_10klftr.psm
+    User      = 2504951m
+    Machine   = RANK509-24
+
+
+Create symbol started.
+ 
+
+Create symbol completed.
+

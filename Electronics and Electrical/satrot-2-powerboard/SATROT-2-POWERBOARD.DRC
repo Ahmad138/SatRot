@@ -1,0 +1,30 @@
+Date and Time : 03/10/20 13:06:55
+
+--------------------------------------------------
+Checking Schematic: PowerBoard
+--------------------------------------------------
+Checking Electrical Rules 
+ERROR(ORCAP-1628): Possible pin type conflict U6,OUT  Output Connected to Power
+                    PowerBoard, PowerBoard  (15.20, 6.80) 
+ERROR(ORCAP-1628): Possible pin type conflict P1,VBUS  Power Connected to Output
+                    PowerBoard, PowerBoard  (15.50, 5.70) 
+ERROR(ORCAP-1628): Possible pin type conflict U7,IN  Power Connected to Output
+                    PowerBoard, PowerBoard  (16.80, 6.80) 
+
+Checking For Single Node Nets
+WARNING(ORCAP-1600): Net has fewer than two connections GND4 
+                    PowerBoard, PowerBoard  (19.40, 1.90) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND5 
+                    PowerBoard, PowerBoard  (17.80, 2.20) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND1 
+                    PowerBoard, PowerBoard  (19.40, 1.20) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND3 
+                    PowerBoard, PowerBoard  (19.40, 1.60) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND6 
+                    PowerBoard, PowerBoard  (19.40, 2.40) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND7 
+                    PowerBoard, PowerBoard  (19.40, 2.60) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND8 
+                    PowerBoard, PowerBoard  (17.80, 2.90) 
+
+Checking For Unconnected Bus Nets

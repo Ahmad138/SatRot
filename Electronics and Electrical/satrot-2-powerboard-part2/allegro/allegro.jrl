@@ -1,0 +1,17 @@
+\t (00:27:41) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:27:41)     Journal start - Fri Mar 13 10:12:32 2020
+\t (00:27:41)         Host=RANK739-03 User=2504951m Pid=1124 CPUs=12
+\t (00:27:41) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:27:41) 
+\d (00:27:41) Design opened: H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-6.brd
+\i (00:27:42) generaledit 
+\i (00:28:17) capture image 
+\i (00:28:24) fillin "H:/Desktop/d.bmp"
+\i (00:28:24) cd "H:/Desktop"
+\i (00:28:25) capture image "H:/Desktop/d.bmp" 
+\i (00:28:38) open 
+\i (00:28:44) fillin "H:/Desktop/SatRot-2/allegro/SATROT-2-10.brd"
+\i (00:28:44) cd "H:/Desktop/SatRot-2/allegro"
+\t (00:28:44) Opening existing design...
+\i (00:28:44) trapsize 1689
+\t (00:28:44)     Journal end - Fri Mar 13 10:13:35 2020

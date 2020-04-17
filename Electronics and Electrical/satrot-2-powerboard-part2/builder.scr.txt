@@ -1,0 +1,6 @@
+skill load "M:/ul_PWR163S2515R0F/AllegroV17_2/builder.ile" 
+skill changeWorkingDir "M:/ul_PWR163S2515R0F/AllegroV17_2" 
+skill LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-L.xml" 
+skill LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163-M.xml" 
+skill LB_createFootprint "M:/ul_PWR163S2515R0F/AllegroV17_2/BO_PWR163.xml" 
+exit 

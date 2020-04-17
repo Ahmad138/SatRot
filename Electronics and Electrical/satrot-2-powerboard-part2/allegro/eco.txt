@@ -1,0 +1,190 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |    pin_id     |   x   |   y   |   to  net    |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  N15005       pins ADDED TO this new net
+                                 J22.1                          
+                                 Q5.B                           
+                                 Q6.B                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N15011       pins ADDED TO this new net
+                                 J22.2                          
+                                 Q5.C                           
+                                 Q5.C/                          
+                                 Q6.C                           
+                                 Q6.C/                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N15094       pins ADDED TO this existing net (pins not previously on any net)
+                                 J22.3                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N363641      pins MOVED FROM this net (to net name listed on right)
+                                 R35.2                          
+                                                                         N15094
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N364261      pins MOVED FROM this net (to net name listed on right)
+                                 R36.2                          
+                                                                         N15094
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N465950      pins ADDED TO this new net
+                                 Q6.E                           
+                                 R36.1                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N466640      pins ADDED TO this new net
+                                 Q5.E                           
+                                 R35.1                          
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ CON3_BLKCON100VHTM1SQSW1003_CON
+ NPN_TO3_2N3055
+ PWR163S-25-15R0F_BO_PWR163_0.1,
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENTS DELETED from design                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type      |   x   |   y                        |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C14                 CAP POL_CAP196_1000UF, 25V  400.00  770.00
+ C15                 CAP NP_SMC0603_0.1 UF  220.00  850.00
+ C16                 CAP NP_SMC0603_0.1 UF 1050.00 2030.00
+ C17                 CAP POL_SMCT321612_1UF, 50V                
+ C18                 CAP POL_CAP196_1000UF, 25V                
+ C19                 CAP POL_CAP196_4700UF, 35V                
+ C20                 CAP POL_CAP196_4700UF, 35V                
+ C21                 CAP POL_CAP196_4700UF, 35V                
+ C22                 CAP POL_CAP196_4700UF, 35V                
+ C23                 CAP POL_CAP196_1000UF, 25V                
+ C24                 CAP NP_SMC0603_100 PF                
+ C25                 CAP POL_PCAP_SVP_C6-M_100UF                
+ C26                 CAP POL_SMCT321612_0.1 UF                
+ C27                 CAP POL_SMCT734312_33 UF                
+ C28                 CAP NP_SMC0402_100NF/0.1UF                
+ D1                  DIODE_SMDO214AC12_1N4007  690.00 1280.00
+ D2                  DIODE_SMDO214AC12_1N4007  520.00 1100.00
+ D3                  LED_SMD120612_LED RED  660.00 1640.00
+ D4                  DIODE_DAX1DO204AH_1N4148  450.00 1720.00
+ D5                  DIODE_DAX1DO204AH_1N4148 1080.00 1840.00
+ D6                  LED_SMD120612_LED GREEN                
+ D7                  DIODE_SMDO214AC12_1N4007                
+ D8                  DIODE_SMDO214AC12_1N4007                
+ J11                 CON2_BLKCON156VHTM1SQSW1562_TO                
+ J12                 HEADER 2_BLKCON156VHTM1SQSW1562                
+ J13                 HEADER 2_BLKCON156VHTM1SQSW15_1                
+ J14                 HEADER 2_BLKCON156VHTM1SQSW15_2                
+ J16                 DCJ200-10-A-XX-X_REVA_GCT_DCJ20  880.00  600.00
+ J17                 CON5_BLKCON100VHTM1SQSW1005_12V                
+ J18                 CON5_BLKCON100VHTM1SQSW1005_5V                
+ J19                 CON5_BLKCON100VHTM1SQSW1005_3V3                
+ J20                 CON5_BLKCON100VHTM1SQSW1005_GND                
+ P1                  USB-A1HSW6_OST_USB-A1HSW6_USB-A                
+ Q1                  BC327_TO92_BC327       320.00 1260.00
+ Q3                  BC327_TO220AB_MJE2955  930.00 1210.00
+ Q4                  BC337_TO220AB_3055T                  
+ Q7                  MJE2955_TO220AB_MJE2955                
+ R26                 R_SMR1206_10K          190.00 1070.00
+ R27                 R_RES500_1M            210.00 2160.00
+ R28                 R_SMR0805_470          680.00 1470.00
+ R29                 R_SMR2512_150, 2W      540.00 1470.00
+ R30                 R_SMR0805_100K         900.00 1430.00
+ R31                 R_DPAK508P1229X317-3N_1K                
+ R32                 R_SMR0805_100K                       
+ R33                 R_DPAK508P1229X317-3N_1K                
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENTS DELETED from design                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type      |   x   |   y                        |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R34                 R_SMR2512_1, 2W       1070.00  910.00
+ R37                 R_SMR0805_680                        
+ R39                 R_SMR2512_0.15, 10W                  
+ R40                 R_SMR2512_0.15, 10W                  
+ R41                 R_SMR0805_2.7K                       
+ R42                 R_SMR0805_3.3K                       
+ R43                 POT_POT_1K POT                       
+ R44                 R_SMR0805_1.5K                       
+ R45                 R_SMR0805_270                        
+ R46                 R_DPAK508P1229X317-3N_33, 5W                
+ U4                  TL072_SOIC8_TL072      760.00 1930.00
+ U5                  LM723CHNOPB_H10C_LM723CHNOPB                
+ U6                  LM7805C/TO220_TO220AB_LM7805C/T                
+ U7                  LM3940IMP-33_SOT230P696X180-4N_                
+ U8                  RASPBERRY PI B+_GU-RASP-PI-3_RA                
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ J22                 CON3_BLKCON100VHTM1SQSW1003_CON 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   6  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENTS CHANGED from one device type to another in design                 |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        | new device type     |   x   |   y   |  old  device type  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ Q5                  NPN_TO3_2N3055                        BC337_TO204AA_2N3055
+ Q6                  NPN_TO3_2N3055                        BC337_TO204AA_2N3055
+ R35                 PWR163S-25-15R0F_BO_PWR163_0.1,                 R_DPAK508P1229X317-3N_0.1, 10W
+ R36                 PWR163S-25-15R0F_BO_PWR163_0.1,                 R_DPAK508P1229X317-3N_0.1, 10W
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   7  |
+|------------------------------------------------------------------------------|
+|  H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-3.brd      |
+|                                                    Sun Mar 08 02:04:34 2020  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ J22.3                          PRIM_FILE      .\pstchip.dat
+ Q5.E                           PRIM_FILE      .\pstchip.dat
+ Q6.E                           PRIM_FILE      .\pstchip.dat
+ R35.3                          PRIM_FILE      .\pstchip.dat
+ R36.3                          PRIM_FILE      .\pstchip.dat
+|------------------------------------------------------------------------------|
+|       Nets changed          :      15                                        |
+|       Comp definitions added:       3                                        |
+|       Components added      :       1                                        |
+|       Components deleted    :      60                                        |
+|       Components changed    :       4                                        |
+|       Slot property added   :       5                                        |
+|                                                                              |
+|   Total ECO changes reported:      88                                        |
+|------------------------------------------------------------------------------|
