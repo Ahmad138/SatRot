@@ -1,4 +1,4 @@
-#include "includes/manualscribble.h"
+#include "../includes/manualscribble.h"
 
 #define PI 3.14159265
 
@@ -14,7 +14,7 @@
 #endif
 
 //! [0]
-ManualScribble::ManualScribble(QWidget *parent)
+ManualScribble::ManualScribble(QWidget* parent)
     : QWidget(parent)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -22,7 +22,7 @@ ManualScribble::ManualScribble(QWidget *parent)
 //! [0]
 
 //! [1]
-bool ManualScribble::openImage(const QString &fileName)
+bool ManualScribble::openImage(const QString& fileName)
 //! [1] //! [2]
 {
     QImage loadedImage;
@@ -39,13 +39,14 @@ bool ManualScribble::openImage(const QString &fileName)
 //! [2]
 
 //! [3]
-bool ManualScribble::saveImage(const QString &fileName, const char *fileFormat)
+bool ManualScribble::saveImage(const QString& fileName, const char* fileFormat)
 //! [3] //! [4]
 {
     QImage visibleImage = image;
     resizeImage(&visibleImage, size());
 
-    if (visibleImage.save(fileName, fileFormat)) {
+    if (visibleImage.save(fileName, fileFormat))
+    {
         modified = false;
         return true;
     }
@@ -54,7 +55,7 @@ bool ManualScribble::saveImage(const QString &fileName, const char *fileFormat)
 //! [4]
 
 //! [5]
-void ManualScribble::setPenColor(const QColor &newColor)
+void ManualScribble::setPenColor(const QColor& newColor)
 //! [5] //! [6]
 {
     myPenColor = newColor;
@@ -80,18 +81,20 @@ void ManualScribble::clearImage()
 //! [10]
 
 //! [11]
-void ManualScribble::mousePressEvent(QMouseEvent *event)
+void ManualScribble::mousePressEvent(QMouseEvent* event)
 //! [11] //! [12]
 {
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton)
+    {
         lastPoint = event->pos();
         scribbling = true;
     }
 }
 
-void ManualScribble::mouseMoveEvent(QMouseEvent *event)
+void ManualScribble::mouseMoveEvent(QMouseEvent* event)
 {
-    if ((event->buttons() & Qt::LeftButton) && scribbling){
+    if ((event->buttons() & Qt::LeftButton) && scribbling)
+    {
         drawLineTo(event->pos());
         QPoint coordinates = event->pos();
 //      qDebug()<<event->pos();
@@ -99,16 +102,17 @@ void ManualScribble::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
-void ManualScribble::mouseReleaseEvent(QMouseEvent *event)
+void ManualScribble::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && scribbling) {
+    if (event->button() == Qt::LeftButton && scribbling)
+    {
         drawLineTo(event->pos());
         scribbling = false;
     }
 }
 
 //! [12] //! [13]
-void ManualScribble::paintEvent(QPaintEvent *event)
+void ManualScribble::paintEvent(QPaintEvent* event)
 //! [13] //! [14]
 {
     QPainter painter(this);
@@ -118,10 +122,11 @@ void ManualScribble::paintEvent(QPaintEvent *event)
 //! [14]
 
 //! [15]
-void ManualScribble::resizeEvent(QResizeEvent *event)
+void ManualScribble::resizeEvent(QResizeEvent* event)
 //! [15] //! [16]
 {
-    if (width() > image.width() || height() > image.height()) {
+    if (width() > image.width() || height() > image.height())
+    {
         int newWidth = qMax(width() + 128, image.width());
         int newHeight = qMax(height() + 128, image.height());
         resizeImage(&image, QSize(newWidth, newHeight));
@@ -132,7 +137,7 @@ void ManualScribble::resizeEvent(QResizeEvent *event)
 //! [16]
 
 //! [17]
-void ManualScribble::drawLineTo(const QPoint &endPoint)
+void ManualScribble::drawLineTo(const QPoint& endPoint)
 //! [17] //! [18]
 {
     QPainter painter(&image);
@@ -143,13 +148,13 @@ void ManualScribble::drawLineTo(const QPoint &endPoint)
 
     int rad = (myPenWidth / 2) + 2;
     update(QRect(lastPoint, endPoint).normalized()
-               .adjusted(-rad, -rad, +rad, +rad));
+           .adjusted(-rad, -rad, +rad, +rad));
     lastPoint = endPoint;
 }
 //! [18]
 
 //! [19]
-void ManualScribble::resizeImage(QImage *image, const QSize &newSize)
+void ManualScribble::resizeImage(QImage* image, const QSize& newSize)
 //! [19] //! [20]
 {
     if (image->size() == newSize)
@@ -171,7 +176,8 @@ void ManualScribble::print()
 
     QPrintDialog printDialog(&printer, this);
     //! [21] //! [22]
-    if (printDialog.exec() == QDialog::Accepted) {
+    if (printDialog.exec() == QDialog::Accepted)
+    {
         QPainter painter(&printer);
         QRect rect = painter.viewport();
         QSize size = image.size();
@@ -184,7 +190,8 @@ void ManualScribble::print()
 }
 //! [22]
 
-void ManualScribble::moveRefFrame(QPoint &coordinates){
+void ManualScribble::moveRefFrame(QPoint& coordinates)
+{
 
     int Cx = coordinates.x();
     int Cy = coordinates.y();
@@ -193,41 +200,57 @@ void ManualScribble::moveRefFrame(QPoint &coordinates){
     angles.insert("Az", 0);
     angles.insert("El", 0);
 
-    if(Cx<500 && Cy<500 && Cx>0 && Cy>0){
+    if (Cx < 500 && Cy < 500 && Cx > 0 && Cy > 0)
+    {
         int Bx, By;
-        Bx = Cx-250;
-        By = -(Cy-250);
+        Bx = Cx - 250;
+        By = -(Cy - 250);
 
-        if(Bx>0 && By>0){
+        if (Bx > 0 && By > 0)
+        {
             // First Quadrant
-            angles["Az"] = atan2 (Bx,By) * 180 / PI;
+            angles["Az"] = atan2(Bx, By) * 180 / PI;
 
-        }else if(Bx<0 && By>0){
+        }
+        else if (Bx < 0 && By > 0)
+        {
             // Second Quadrant
-            angles["Az"] = (atan2 (Bx,By) * 180 / PI) + 360;
+            angles["Az"] = (atan2(Bx, By) * 180 / PI) + 360;
 
-        }else if(Bx<0 && By<0){
+        }
+        else if (Bx < 0 && By < 0)
+        {
             // Third Quadrant
-            angles["Az"] = (atan2 (Bx,By) * 180 / PI) + 360;
+            angles["Az"] = (atan2(Bx, By) * 180 / PI) + 360;
 
-        }else if(Bx>0 && By<0){
+        }
+        else if (Bx > 0 && By < 0)
+        {
             // First Quadrant
-            angles["Az"] = (atan2 (Bx,By) * 180 / PI) ;
+            angles["Az"] = (atan2(Bx, By) * 180 / PI) ;
         }
 
-        angles["El"] = (90 * (250 - sqrt(pow(Bx,2)+pow(By,2))) / 250);
+        angles["El"] = (90 * (250 - sqrt(pow(Bx, 2) + pow(By, 2))) / 250);
 
-        if(angles["Az"] > 360){
+        if (angles["Az"] > 360)
+        {
             angles["Az"] = 360;
-        }else if(angles["Az"] < 0){
+        }
+        else if (angles["Az"] < 0)
+        {
             angles["Az"] = 0;
         }
 
-        if(angles["El"] > 90){
+        if (angles["El"] > 90)
+        {
             angles["El"] = 90;
-        }else if(angles["El"] < 0){
+        }
+        else if (angles["El"] < 0)
+        {
             angles["El"] = 0;
-        }else{
+        }
+        else
+        {
             //drawLineTo(coordinates);
         }
 

@@ -1,4 +1,4 @@
-#include "includes/customdialog.h"
+#include "../includes/customdialog.h"
 
 /**
  * @brief

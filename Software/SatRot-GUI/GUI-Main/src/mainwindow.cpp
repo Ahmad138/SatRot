@@ -1,4 +1,4 @@
-#include "includes/mainwindow.h"
+#include "../includes/mainwindow.h"
 #include "ui_mainwindow.h"
 
 /***********TCPClient***********/

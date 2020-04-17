@@ -1,4 +1,4 @@
-#include "includes/api.h"
+#include "../includes/api.h"
 
 const QString api::httpTemplate = "http://%1"; /**< TODO: describe */
 //const QString api::httpTemplate = "http://%1:%2/%3";

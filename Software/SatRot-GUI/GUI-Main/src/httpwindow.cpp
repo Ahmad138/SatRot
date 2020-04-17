@@ -1,10 +1,10 @@
-#include "includes/httpwindow.h"
+#include "../includes/httpwindow.h"
 
 #include <QtWidgets>
 #include <QtNetwork>
 #include <QUrl>
 
-HttpWindow::HttpWindow(QObject *parent)
+HttpWindow::HttpWindow(QObject* parent)
     : QObject(parent)
 {
 
@@ -27,7 +27,7 @@ HttpWindow::~HttpWindow()
 {
 }
 
-void HttpWindow::startRequest(const QUrl &requestedUrl)
+void HttpWindow::startRequest(const QUrl& requestedUrl)
 {
     url = requestedUrl;
     httpRequestAborted = false;
@@ -47,7 +47,8 @@ void HttpWindow::downloadFile()
         return;
 
     const QUrl newUrl = QUrl::fromUserInput(urlSpec);
-    if (!newUrl.isValid()) {
+    if (!newUrl.isValid())
+    {
 //        QMessageBox::information(this, tr("Error"),
 //                                 tr("Invalid URL: %1: %2").arg(urlSpec, newUrl.errorString()));
         return;
@@ -57,7 +58,8 @@ void HttpWindow::downloadFile()
     bool useDirectory = !downloadDirectory.isEmpty() && QFileInfo(downloadDirectory).isDir();
     if (useDirectory)
         fileName.prepend(downloadDirectory + '/');
-    if (QFile::exists(fileName)) {
+    if (QFile::exists(fileName))
+    {
 //        if (QMessageBox::question(this, tr("Overwrite Existing File"),
 //                                  tr("There already exists a file called %1%2."
 //                                     " Overwrite?")
@@ -82,10 +84,11 @@ void HttpWindow::downloadFile()
     startRequest(newUrl);
 }
 
-std::unique_ptr<QFile> HttpWindow::openFileForWrite(const QString &fileName)
+std::unique_ptr<QFile> HttpWindow::openFileForWrite(const QString& fileName)
 {
     std::unique_ptr<QFile> file(new QFile(fileName));
-    if (!file->open(QIODevice::WriteOnly)) {
+    if (!file->open(QIODevice::WriteOnly))
+    {
 //        QMessageBox::information(this, tr("Error"),
 //                                 tr("Unable to save the file %1: %2.")
 //                                 .arg(QDir::toNativeSeparators(fileName),
@@ -97,7 +100,7 @@ std::unique_ptr<QFile> HttpWindow::openFileForWrite(const QString &fileName)
 
 void HttpWindow::cancelDownload()
 {
-    qDebug() <<"Download canceled.";
+    qDebug() << "Download canceled.";
     httpRequestAborted = true;
     reply->abort();
 }
@@ -106,19 +109,22 @@ void HttpWindow::httpFinished()
 {
     //qDebug() << "hereeeeeeeeeee";
     QFileInfo fi;
-    if (file) {
+    if (file)
+    {
         fi.setFile(file->fileName());
         file->close();
         file.reset();
     }
 
-    if (httpRequestAborted) {
+    if (httpRequestAborted)
+    {
         reply->deleteLater();
         reply = nullptr;
         return;
     }
 
-    if (reply->error()) {
+    if (reply->error())
+    {
         QFile::remove(fi.absoluteFilePath());
         qDebug() << tr("Download failed:\n%1.").arg(reply->errorString());
 
@@ -132,7 +138,8 @@ void HttpWindow::httpFinished()
     reply->deleteLater();
     reply = nullptr;
 
-    if (!redirectionTarget.isNull()) {
+    if (!redirectionTarget.isNull())
+    {
         const QUrl redirectedUrl = url.resolved(redirectionTarget.toUrl());
 //        if (QMessageBox::question(this, tr("Redirect"),
 //                                  tr("Redirect to %1 ?").arg(redirectedUrl.toString()),
@@ -143,7 +150,8 @@ void HttpWindow::httpFinished()
 //            return;
 //        }
         file = openFileForWrite(fi.absoluteFilePath());
-        if (!file) {
+        if (!file)
+        {
 
             return;
         }
@@ -172,16 +180,17 @@ void HttpWindow::enableDownloadButton()
     //downloadButton->setEnabled(!urlLineEdit->text().isEmpty());
 }
 
-void HttpWindow::slotAuthenticationRequired(QNetworkReply *, QAuthenticator *authenticator)
+void HttpWindow::slotAuthenticationRequired(QNetworkReply*, QAuthenticator* authenticator)
 {
 
 }
 
 #ifndef QT_NO_SSL
-void HttpWindow::sslErrors(QNetworkReply *, const QList<QSslError> &errors)
+void HttpWindow::sslErrors(QNetworkReply*, const QList<QSslError>& errors)
 {
     QString errorString;
-    for (const QSslError &error : errors) {
+    for (const QSslError& error : errors)
+    {
         if (!errorString.isEmpty())
             errorString += '\n';
         errorString += error.errorString();

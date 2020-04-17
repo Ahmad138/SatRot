@@ -1,45 +1,51 @@
-#include "includes/customlistmodel.h"
+#include "../includes/customlistmodel.h"
 
-CustomListModel::CustomListModel(QObject *parent):
-    QStringListModel(parent){
+CustomListModel::CustomListModel(QObject* parent):
+    QStringListModel(parent)
+{
 }
 
-CustomListModel::CustomListModel(const QStringList &strings, QObject *parent):
-    QStringListModel(strings, parent){
+CustomListModel::CustomListModel(const QStringList& strings, QObject* parent):
+    QStringListModel(strings, parent)
+{
 
 }
 
-Qt::ItemFlags CustomListModel::flags (const QModelIndex & index) const {
+Qt::ItemFlags CustomListModel::flags(const QModelIndex& index) const
+{
     Qt::ItemFlags defaultFlags = QStringListModel::flags(index);
-    if (index.isValid()){
+    if (index.isValid())
+    {
         return defaultFlags | Qt::ItemIsUserCheckable;
     }
     return defaultFlags;
 }
 
-QVariant CustomListModel::data(const QModelIndex &index,
-                                 int role) const {
+QVariant CustomListModel::data(const QModelIndex& index,
+                               int role) const
+{
     if (!index.isValid())
         return QVariant();
 
-    if(role == Qt::CheckStateRole)
+    if (role == Qt::CheckStateRole)
         return checkedItems.contains(index) ?
-                    Qt::Checked : Qt::Unchecked;
+               Qt::Checked : Qt::Unchecked;
 
-    else if(role == Qt::BackgroundColorRole)
+    else if (role == Qt::BackgroundColorRole)
         return checkedItems.contains(index) ?
-                    QColor("#ffffb2") : QColor("#ffffff");
+               QColor("#ffffb2") : QColor("#ffffff");
 
     return QStringListModel::data(index, role);
 }
 
-bool CustomListModel::setData(const QModelIndex &index,
-                                const QVariant &value, int role){
+bool CustomListModel::setData(const QModelIndex& index,
+                              const QVariant& value, int role)
+{
 
-    if(!index.isValid() || role != Qt::CheckStateRole)
+    if (!index.isValid() || role != Qt::CheckStateRole)
         return false;
 
-    if(value == Qt::Checked)
+    if (value == Qt::Checked)
         checkedItems.insert(index);
     else
         checkedItems.remove(index);
@@ -50,30 +56,36 @@ bool CustomListModel::setData(const QModelIndex &index,
 
 QVariant CustomListModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        if (section == 0) {
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
+    {
+        if (section == 0)
+        {
             return QString("NORAD ID");
-        } else if (section == 1) {
+        }
+        else if (section == 1)
+        {
             return QString("Satellite Name");
         }
     }
     return QVariant();
 }
 
-void CustomListModel::save(){
+void CustomListModel::save()
+{
     QFile file("required_components.txt");
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
 
     QTextStream out(&file);
     out << "Required components:" << "\n";
-    foreach(QPersistentModelIndex index, checkedItems){
+    foreach (QPersistentModelIndex index, checkedItems)
+    {
         QString s = index.data().toString();
         const std::string z = s.toStdString();
 
         unsigned first = z.find("[");
         unsigned last = z.find("]");
-        const std::string str = z.substr (first+1,(last-1)-first);
+        const std::string str = z.substr(first + 1, (last - 1) - first);
 
         QString strNew = QString::fromStdString(str);
         out << strNew << "\n";
@@ -91,19 +103,22 @@ void CustomListModel::save(){
 //        out << index.data().toString() << "\n";
 }
 
-QString CustomListModel::getNORAD(){
+QString CustomListModel::getNORAD()
+{
 
-    QString all="";
+    QString all = "";
 
-    foreach(QPersistentModelIndex index, checkedItems){
+    foreach (QPersistentModelIndex index, checkedItems)
+    {
         QString s = index.data().toString();
-        if(s != "Satellite Name - NORAD Id" && s != "------------------------------------"){
+        if (s != "Satellite Name - NORAD Id" && s != "------------------------------------")
+        {
             const std::string z = s.toStdString();
-    
+
             unsigned first = z.find("[");
             unsigned last = z.find("]");
-            const std::string str = z.substr (first+1,(last-1)-first);
-    
+            const std::string str = z.substr(first + 1, (last - 1) - first);
+
             QString strNew = QString::fromStdString(str);
             all += strNew + ",";
         }
@@ -111,26 +126,30 @@ QString CustomListModel::getNORAD(){
 
     //remove last ',' in the QString
     const std::string y = all.toStdString();
-    if(y.back()==','){
-        const std::string w = y.substr(0, y.size()-1);
+    if (y.back() == ',')
+    {
+        const std::string w = y.substr(0, y.size() - 1);
         all = QString::fromStdString(w);
     }
 
     return all;
 }
 
-QList<QString> CustomListModel::getNORADObj(){
+QList<QString> CustomListModel::getNORADObj()
+{
 
     QList<QString> all;
 
-    foreach(QPersistentModelIndex index, checkedItems){
+    foreach (QPersistentModelIndex index, checkedItems)
+    {
         QString s = index.data().toString();
-        if(s != "Satellite Name - NORAD Id" && s != "------------------------------------"){
+        if (s != "Satellite Name - NORAD Id" && s != "------------------------------------")
+        {
             const std::string z = s.toStdString();
 
             unsigned first = z.find("[");
             unsigned last = z.find("]");
-            const std::string str = z.substr (first+1,(last-1)-first);
+            const std::string str = z.substr(first + 1, (last - 1) - first);
 
             QString strNew = QString::fromStdString(str);
             all.append(strNew);

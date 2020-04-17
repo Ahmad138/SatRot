@@ -1,9 +1,9 @@
-#include "includes/tcpthread.h"
+#include "../includes/tcpthread.h"
 
 #include <QtNetwork>
 
 //! [0]
-TCPThread::TCPThread(int socketDescriptor, const QString &tcp_line, QObject *parent)
+TCPThread::TCPThread(int socketDescriptor, const QString& tcp_line, QObject* parent)
     : QThread(parent), socketDescriptor(socketDescriptor), text(tcp_line)
 {
 }
@@ -14,7 +14,8 @@ void TCPThread::run()
 {
     QTcpSocket tcpSocket;
 //! [1] //! [2]
-    if (!tcpSocket.setSocketDescriptor(socketDescriptor)) {
+    if (!tcpSocket.setSocketDescriptor(socketDescriptor))
+    {
         emit error(tcpSocket.error());
         return;
     }
