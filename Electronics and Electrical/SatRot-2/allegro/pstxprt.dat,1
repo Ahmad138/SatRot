@@ -1,0 +1,410 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 17.2.0 d001Mar-06-2020 at 15:04:59 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='SATROT-2';
+ POST_TIME='May 11 2019 05:12:43';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ C1 'CAP NP_SMC0603_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38107@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38107@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38107@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C10 'CAP NP_SMC0603_0.22 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35917@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35917@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35917@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C2 'CAP NP_SMC0603_0.22 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS37999@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins37999@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins37999@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C3 'CAP NP_SMC0402_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36513@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36513@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36513@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C4 'CAP POL_PCAP_SVP_C6-M_100 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36533@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36533@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36533@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C5 'CAP NP_SMC0603_0.22 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38039@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38039@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38039@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C6 'CAP NP_SMC0603_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36493@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36493@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36493@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C7 'CAP NP_SMC0603_0.22 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35957@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35957@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35957@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C8 'CAP NP_SMC0603_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35689@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35689@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35689@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C9 'CAP POL_PCAP_SVP_C6-M_100 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38127@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38127@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38127@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J2 '4 HEADER_BLKCON156VHTM1SQSW1564':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS37971@CONNECTOR.4 HEADER.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins37971@connector.\4 header.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins37971@connector.\4 header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J3 'CON2_BLKCON156VHTM1SQSW1562_MOT':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36405@CONNECTOR.CON2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36405@connector.\con2.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36405@connector.\con2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J4 '4 HEADER_BLKCON156VHTM1SQSW15_1':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35997@CONNECTOR.4 HEADER.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35997@connector.\4 header.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35997@connector.\4 header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J5 '4 HEADER_BLKCON156VHTM1SQSW15_2':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36445@CONNECTOR.4 HEADER.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36445@connector.\4 header.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36445@connector.\4 header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J6 '4 HEADER_BLKCON156VHTM1SQSW15_3':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38079@CONNECTOR.4 HEADER.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38079@connector.\4 header.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38079@connector.\4 header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J7 '4 HEADER_BLKCON156VHTM1SQSW15_4':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35661@CONNECTOR.4 HEADER.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35661@connector.\4 header.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35661@connector.\4 header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J8 'HEADER 2_BLKCON156VHTM1SQSW1562':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38019@CONNECTOR.HEADER 2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38019@connector.\header 2.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38019@connector.\header 2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R1 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38059@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38059@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38059@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R10 'R_SMR1206_0.05':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36473@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36473@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36473@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R11 'R_SMR0805_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35937@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35937@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35937@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R12 'R_SMR0805_NP':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38191@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38191@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38191@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R13 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38171@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38171@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38171@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R14 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35641@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35641@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35641@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R15 'POT_SOT_10KLFTR_10K POT':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38147@DISCRETE.POT.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38147@discrete.\pot.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38147@discrete.\pot.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R16 'R_SMR0603_20K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35977@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35977@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35977@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R17 'R_SMR0805_NP':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38211@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38211@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38211@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R18 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36025@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36025@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36025@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R19 'R_SMR1206_0.05':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36425@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36425@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36425@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R2 'R_SMR0805_NP':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36045@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36045@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36045@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R20 'R_SMR1206_0.05':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36193@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36193@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36193@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R3 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35877@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35877@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35877@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R4 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35857@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35857@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35857@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R5 'POT_SOT_10KLFTR_10K POT':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS38231@DISCRETE.POT.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins38231@discrete.\pot.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins38231@discrete.\pot.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R6 'R_SMR0603_20K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36385@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36385@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36385@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R7 'R_SMR0805_NP':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35897@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35897@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35897@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R8 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35709@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35709@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35709@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R9 'R_SMR1206_0.05':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36553@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36553@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36553@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U1 'A4988SETTR-T_QFN50P500X500X100-':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS36065@LIBRARY1.A4988SETTR-T.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins36065@library1.\a4988settr-t.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins36065@library1.\a4988settr-t.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U2 'A4988SETTR-T_QFN50P500X500X100-':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS35729@LIBRARY1.A4988SETTR-T.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins35729@library1.\a4988settr-t.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins35729@library1.\a4988settr-t.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U3 'RASPBERRY PI B+_GU-RASP-PI-3_RA':;
+
+SECTION_NUMBER 1
+ '@SATROT-2.STEPPERDRIVERS(SCH_1):INS47921@SATROT-2.RASPBERRY PI B+.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2\.stepperdrivers(sch_1):ins47921@\satrot-2\.\raspberry pi b+.normal\(chips)',
+ P_PATH='@\satrot-2\.stepperdrivers(sch_1):page1_ins47921@\satrot-2\.\raspberry pi b+.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

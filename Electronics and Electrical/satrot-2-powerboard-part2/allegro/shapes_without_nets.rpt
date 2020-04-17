@@ -1,0 +1,25 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Shape Without Nets Report                                        )
+(                                                                     )
+(    Drawing          : SATROT-2-POWERBOARD-5.brd                     )
+(    Software Version : 17.2S055                                      )
+(    Date/Time        : Sun Mar 08 01:01:38 2020                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+  Total shapes not on a net: 6
+
+
+  <<<  ETCH  >>>
+
+    Layer = BOTTOM
+	Point on shape: (921.26 486.42)  Net: Dummy Net
+	Point on shape: (921.26 447.05)  Net: Dummy Net
+	Point on shape: (1090.55 600.59)  Net: Dummy Net
+	Point on shape: (1129.92 600.59)  Net: Dummy Net
+	Point on shape: (921.26 734.45)  Net: Dummy Net
+	Point on shape: (921.26 695.08)  Net: Dummy Net
+
+    To suppress in report attach OK_UNASSIGNED_SHAPE property to shape.

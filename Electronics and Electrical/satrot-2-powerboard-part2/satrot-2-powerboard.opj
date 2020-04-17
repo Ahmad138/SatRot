@@ -1,0 +1,103 @@
+(ExpressProject "satrot-2-powerboard"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\satrot-2-powerboard.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\satrot-2-powerboard.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Netlist_TAB "0")
+    ("Create Allegro Netlist" "TRUE")
+    ("Allegro Netlist Directory" "allegro")
+    ("View Allegro Netlist Files" "FALSE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "TRUE")
+    ("Allegro Netlist Output Board File" "allegro\SATROT-2-POWERBOARD-6.brd")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ORCAD")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "31")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE")
+    ("Allegro Netlist Input Board File"
+       "H:\Desktop\satrot-2-powerboard-part2\allegro\SATROT-2-POWERBOARD-3.brd"))
+  (Folder "Outputs"
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat")))
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\satrot-2-powerboard.dsn")
+      (Path "Design Resources" ".\satrot-2-powerboard.dsn" "PowerBoard")
+      (Path "Design Resources" "Library")
+      (Path "Design Resources" "Library" ".\satrot-2-powerboard.olb")
+      (Path "Outputs")
+      (Select "Design Resources" ".\satrot-2-powerboard.dsn" "PowerBoard"
+         "PowerBoard"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 420"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 208 1587 208 667")
+        (Scroll "455 501")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "H:\DESKTOP\SATROT-2-POWERBOARD-PART2\SATROT-2-POWERBOARD.DSN")
+      (Schematic "PowerBoard")
+      (Page "PowerBoard")))
+  (PartMRUSelector
+    (CON3
+      (FullPartName "CON3.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (NPN
+      (FullPartName "NPN.Normal")
+      (LibraryName "H:\DESKTOP\SATROT-2-POWERBOARD\SATROT-2-POWERBOARD.OLB")
+      (DeviceIndex "0"))
+    (PWR163S-25-15R0F
+      (FullPartName "PWR163S-25-15R0F.Normal")
+      (LibraryName "H:\DESKTOP\SATROT-2-POWERBOARD\SATROT-2-POWERBOARD.OLB")
+      (DeviceIndex "0"))
+    (3314J-2-203E
+      (FullPartName "3314J-2-203E.Normal")
+      (LibraryName "H:\DESKTOP\SATROT-2-POWERBOARD\SATROT-2-POWERBOARD.OLB")
+      (DeviceIndex "0"))
+    ("Raspberry Pi B+"
+      (FullPartName "Raspberry Pi B+.Normal")
+      (LibraryName "H:\DESKTOP\SATROT-2-POWERBOARD\SATROT-2-POWERBOARD.OLB")
+      (DeviceIndex "0"))
+    (LM723CHNOPB
+      (FullPartName "LM723CHNOPB.Normal")
+      (LibraryName "H:\DESKTOP\SATROT-2-POWERBOARD\SATROT-2-POWERBOARD.OLB")
+      (DeviceIndex "0"))
+    (LM723
+      (FullPartName "LM723.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\REGULATOR.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0")))
+  (ISPCBBASICLICENSE "false")
+  (MPSSessionName "2504951m")
+  (LastUsedLibraryBrowseDirectory "C:\Cadence\SPB_17.2\tools\capture\library"))

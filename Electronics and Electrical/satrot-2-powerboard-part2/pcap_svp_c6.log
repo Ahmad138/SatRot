@@ -1,0 +1,23 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    CREATE SYMBOL                                                    )
+(                                                                     )
+(    Drawing          : PCAP_SVP_C6.dra                               )
+(    Software Version : 17.2S055                                      )
+(    Date/Time        : Fri Mar 06 14:56:46 2020                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Create Symbol of type: PACKAGE
+    Directory = M:/ul_6SVPC220M/AllegroV17_2
+    Name      = pcap_svp_c6.psm
+    User      = 2504951m
+    Machine   = RANK509-24
+
+
+Create symbol started.
+ 
+
+Create symbol completed.
+

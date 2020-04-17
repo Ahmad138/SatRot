@@ -1,0 +1,404 @@
+\t (00:33:51) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:33:51)     Journal start - Tue Mar 10 13:04:41 2020
+\t (00:33:51)         Host=RANK739-12 User=2504951m Pid=1028 CPUs=12
+\t (00:33:51) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:33:51) 
+\d (00:33:51) Design opened: H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-6.brd
+\i (00:33:52) generaledit 
+\i (00:33:59) status 
+\i (00:34:00) generaledit 
+\i (00:34:02) setwindow form.status
+\i (00:34:02) FORM status drc_update  
+\t (00:34:02) Running DRC, wait...
+\t (00:34:02) Performing DRC...
+\t (00:34:02) Multithreaded DRC update (12 threads).
+\t (00:34:02) DRC done; 5 errors detected.
+\t (00:34:02) DRC done.
+\i (00:34:04) FORM status drc_color 1 
+\i (00:34:04) setwindow pcb
+\i (00:34:04) reports drc 
+\i (00:34:04) generaledit 
+\i (00:34:06) setwindow text
+\i (00:34:06) close
+\i (00:34:08) setwindow form.status
+\i (00:34:08) FORM status done  
+\i (00:34:10) setwindow form.find
+\i (00:34:10) FORM find all_off  
+\i (00:34:11) FORM find drc_errors YES 
+\i (00:34:12) setwindow pcb
+\i (00:34:12) drag_start grid 184.27 2739.77
+\i (00:34:13) drag_stop 4096.11 47.42
+\i (00:34:14) zoom in 1 
+\i (00:34:14) setwindow pcb
+\i (00:34:14) zoom in 3758.30 1422.30
+\i (00:34:14) trapsize 845
+\i (00:34:14) zoom in 1 
+\i (00:34:14) setwindow pcb
+\i (00:34:14) zoom in 3758.31 1422.31
+\i (00:34:14) trapsize 422
+\i (00:34:14) zoom in 1 
+\i (00:34:14) setwindow pcb
+\i (00:34:14) zoom in 3758.31 1422.31
+\i (00:34:14) trapsize 211
+\i (00:34:14) zoom in 1 
+\i (00:34:14) setwindow pcb
+\i (00:34:14) zoom in 3758.31 1422.31
+\i (00:34:14) trapsize 106
+\i (00:34:15) prepopup 3736.14 1430.75
+\i (00:34:16) pop dyn_option_select '@:@Waive DRC' 
+\i (00:34:16) waive drc 
+\i (00:34:18) setwindow form.waivedrc_comment
+\i (00:34:18) FORM waivedrc_comment comment_field a 
+\i (00:34:18) setwindow pcb
+\i (00:34:18) generaledit 
+\i (00:34:20) zoom fit 
+\i (00:34:20) trapsize 1689
+\i (00:34:24) save_as 
+\i (00:34:25) fillin "menu_cancel"
+\i (00:34:25) generaledit 
+\i (00:34:34) add text 
+\t (00:34:35) Pick text location.
+\i (00:34:37) pick grid 988.26 2790.44
+\t (00:34:37) last pick:  1000.00 2800.00
+\t (00:34:37) Enter text string.
+\i (00:34:37) setwindow pcb
+\i (00:34:37) pick grid dbl 988.26 2790.44
+\t (00:34:37) last pick:  1000.00 2800.00
+\t (00:34:37) Enter text string.
+\i (00:34:46) setwindow pcb
+\i (00:34:46) pick 1000.00 2800.00
+\t (00:34:46) Enter text string.
+\i (00:35:02) setwindow pcb
+\i (00:35:02) pick 1000.00 2769.00
+\t (00:35:02) Enter text string.
+\i (00:35:04) setwindow pcb
+\i (00:35:04) prepopup 1701.04 2489.79
+\i (00:35:05) done 
+\i (00:35:05) generaledit 
+\i (00:35:06) zoom out 1 
+\i (00:35:06) setwindow pcb
+\i (00:35:06) zoom out 1106.49 1462.84
+\i (00:35:06) trapsize 3378
+\i (00:35:06) zoom out 1 
+\i (00:35:06) setwindow pcb
+\i (00:35:06) zoom out 1140.27 1462.85
+\i (00:35:06) trapsize 6756
+\i (00:35:07) zoom in 1 
+\i (00:35:07) setwindow pcb
+\i (00:35:07) zoom in -354.79 1922.27
+\i (00:35:07) trapsize 3378
+\i (00:35:07) zoom in 1 
+\i (00:35:07) setwindow pcb
+\i (00:35:07) zoom in -354.79 1922.27
+\i (00:35:07) trapsize 1689
+\i (00:35:08) zoom out 1 
+\i (00:35:08) setwindow pcb
+\i (00:35:08) zoom out -354.78 1922.27
+\i (00:35:08) trapsize 3378
+\i (00:35:10) shape add rect 
+\i (00:35:12) setwindow form.mini
+\i (00:35:12) FORM mini dyns_netname_list  
+\i (00:35:22) fillin "menu_cancel"
+\i (00:35:22) setwindow pcb
+\i (00:35:22) zoom in 1 
+\i (00:35:22) setwindow pcb
+\i (00:35:22) zoom in 1050.50 1861.46
+\i (00:35:22) trapsize 1689
+\i (00:35:22) zoom in 1 
+\i (00:35:22) setwindow pcb
+\i (00:35:22) zoom in 1050.50 1871.60
+\i (00:35:22) trapsize 845
+\i (00:35:22) zoom in 1 
+\i (00:35:22) setwindow pcb
+\i (00:35:22) zoom in 1053.88 1876.67
+\i (00:35:22) trapsize 422
+\i (00:35:23) zoom out 1 
+\i (00:35:23) setwindow pcb
+\i (00:35:23) zoom out 1072.46 1881.73
+\i (00:35:23) trapsize 845
+\i (00:35:24) zoom out 1 
+\i (00:35:24) setwindow pcb
+\i (00:35:24) zoom out 1084.29 1880.05
+\i (00:35:24) trapsize 1689
+\i (00:35:25) zoom out 1 
+\i (00:35:25) setwindow pcb
+\i (00:35:25) zoom out 1928.81 1133.49
+\i (00:35:25) trapsize 3378
+\i (00:35:26) zoom in 1 
+\i (00:35:26) setwindow pcb
+\i (00:35:26) zoom in 1996.37 201.14
+\i (00:35:26) trapsize 1689
+\i (00:35:26) zoom in 1 
+\i (00:35:26) setwindow pcb
+\i (00:35:26) zoom in 1996.37 201.14
+\i (00:35:26) trapsize 845
+\i (00:35:26) zoom in 1 
+\i (00:35:26) setwindow pcb
+\i (00:35:26) zoom in 1991.30 209.59
+\i (00:35:26) trapsize 422
+\i (00:35:30) zoom in 1 
+\i (00:35:30) setwindow pcb
+\i (00:35:30) zoom in 1877.29 456.19
+\i (00:35:30) trapsize 211
+\i (00:35:30) zoom in 1 
+\i (00:35:30) setwindow pcb
+\i (00:35:30) zoom in 1877.29 456.19
+\i (00:35:30) trapsize 106
+\i (00:35:31) zoom out 1 
+\i (00:35:31) setwindow pcb
+\i (00:35:31) zoom out 1911.50 450.70
+\i (00:35:31) trapsize 211
+\i (00:35:31) zoom out 1 
+\i (00:35:31) setwindow pcb
+\i (00:35:31) zoom out 1938.09 446.91
+\i (00:35:31) trapsize 422
+\i (00:35:32) zoom in 1 
+\i (00:35:32) setwindow pcb
+\i (00:35:32) zoom in 1991.31 413.13
+\i (00:35:32) trapsize 211
+\i (00:35:33) zoom out 1 
+\i (00:35:33) setwindow pcb
+\i (00:35:33) zoom out 2070.27 435.51
+\i (00:35:33) trapsize 422
+\i (00:35:33) zoom out 1 
+\i (00:35:33) setwindow pcb
+\i (00:35:33) zoom out 2070.27 435.50
+\i (00:35:33) trapsize 845
+\i (00:35:33) zoom out 1 
+\i (00:35:33) setwindow pcb
+\i (00:35:33) zoom out 1982.44 374.70
+\i (00:35:33) trapsize 1689
+\i (00:40:23) zoom points 
+\t (00:40:23) Pick 1st corner of the new window.
+\i (00:40:24) zoom fit 
+\i (00:40:24) trapsize 1689
+\i (00:40:32) script 
+\i (00:40:37) fillin "Q:/allegro/PCB_LIB/Scripts/17-2-S054-TOPandBOT.scr"
+\i (00:40:38) replay Q:/allegro/PCB_LIB/Scripts/17-2-S054-TOPandBOT.scr 
+\i (00:40:38) version 17.2 
+\t (00:40:38) Script version: 17.2
+\i (00:40:38) setwindow pcb 
+\i (00:40:38) trapsize 1587 
+\i (00:40:38) generaledit 
+\i (00:40:39) prmed 
+\i (00:40:39) setwindow form.prmedit 
+\i (00:40:39) FORM prmedit text 
+\i (00:40:39) FORM prmedit text_setup_button 
+\i (00:40:39) setwindow form.textblock 
+\i (00:40:39) FORM textblock 1 photoplot_width 4.00 
+\i (00:40:39) FORM textblock 2 photoplot_width 4.00 
+\i (00:40:39) FORM textblock 3 photoplot_width 6.00 
+\i (00:40:39) FORM textblock 4 photoplot_width 8.00 
+\i (00:40:39) FORM textblock 5 photoplot_width 10.00 
+\i (00:40:39) FORM textblock 6 photoplot_width 12.00 
+\i (00:40:39) FORM textblock 7 photoplot_width 12.00 
+\i (00:40:39) FORM textblock 8 photoplot_width 14.00 
+\i (00:40:39) FORM textblock 9 photoplot_width 14.00 
+\i (00:40:39) FORM textblock 10 photoplot_width 16.00 
+\i (00:40:39) FORM textblock done 
+\i (00:40:39) setwindow form.prmedit 
+\i (00:40:39) FORM prmedit apply 
+\i (00:40:39) FORM prmedit done 
+\i (00:40:39) setwindow pcb 
+\i (00:40:39) generaledit 
+\i (00:40:39) plot setup 
+\i (00:40:39) setwindow form.fpfileplotsetup 
+\i (00:40:39) FORM fpfileplotsetup fpplotautocenter NO 
+\i (00:40:39) FORM fpfileplotsetup fpplotscaling YES 
+\i (00:40:39) FORM fpfileplotsetup fpplotcolor YES 
+\i (00:40:39) FORM fpfileplotsetup fpplotsheetcontents YES 
+\i (00:40:39) FORM fpfileplotsetup fpplotmirror NO 
+\i (00:40:39) FORM fpfileplotsetup done 
+\i (00:40:39) setwindow pcb 
+\i (00:40:39) generaledit 
+\i (00:40:39) color192 
+\i (00:40:39) generaledit 
+\i (00:40:39) QtSignal CVDLayerContainer CVDVisibilityOff clicked 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 2 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 2 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDColorTable CVDColorButton0:1 clicked 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 2 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 2 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDColorTable CVDColorButton5:1 clicked 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 7 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 7 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 7 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 0 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 7 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayersTree itemSelectionChanged Geometry 
+\i (00:40:39) QtSignal CVDColorTable CVDColorButton0:1 clicked 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 8 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 8 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 8 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 8 1 
+\i (00:40:39) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:39) QtSignal ColorVisibilityDialog CVDTabs currentChanged Display 
+\i (00:40:39) QtSignal CVDColorTable CVDColorButton5:1 clicked 
+\i (00:40:39) QtSignal CVDDisplayGroup CVDBackgroundButton clicked 
+\i (00:40:39) QtSignal ColorVisibilityDialog CVDApplyButton clicked 
+\i (00:40:39) QtSignal ColorVisibilityDialog CVDOkButton clicked 
+\i (00:40:39) setwindow form.mini 
+\i (00:40:39) FORM mini class PIN 
+\i (00:40:39) FORM mini subclass FILMMASKBOTTOM 
+\i (00:40:39) setwindow pcb 
+\i (00:40:39) zoom fit 
+\i (00:40:39) trapsize 1689
+\i (00:40:39) trapsize 1587 
+\i (00:40:39) plotwint initialize PDFCreator 
+\i (00:40:39) plotwint orientation 1 
+\i (00:40:39) plotwint papername A4 
+\i (00:40:39) plotwint scale 100 
+\i (00:40:39) plotwint copies 1 
+\i (00:40:40) plotwint defaultsource 15 
+\i (00:40:40) plotwint printquality 4000 
+\i (00:40:40) plotwint color 2 
+\i (00:40:40) plotwint execute 
+\i (00:40:40) plot setup 
+\i (00:40:40) setwindow form.fpfileplotsetup 
+\i (00:40:40) FORM fpfileplotsetup fpplotmirror YES 
+\i (00:40:40) FORM fpfileplotsetup done 
+\i (00:40:40) setwindow pcb 
+\i (00:40:40) generaledit 
+\i (00:40:40) color192 
+\i (00:40:40) generaledit 
+\i (00:40:40) QtSignal ColorVisibilityDialog CVDTabs currentChanged Layers 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 1 2 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 1 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 7 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 7 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 7 0 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedBox 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal ColorVisibilityDialog CVDApplyButton clicked 
+\i (00:40:40) QtSignal ColorVisibilityDialog CVDOkButton clicked 
+\i (00:40:40) FORM mini class PIN 
+\i (00:40:40) FORM mini subclass FILMMASKTOP 
+\i (00:40:40) plotwint initialize PDFCreator 
+\i (00:40:40) plotwint orientation 1 
+\i (00:40:40) plotwint papername A4 
+\i (00:40:40) plotwint scale 100 
+\i (00:40:40) plotwint copies 1 
+\i (00:40:40) plotwint defaultsource 15 
+\i (00:40:40) plotwint printquality 4000 
+\i (00:40:40) plotwint color 2 
+\i (00:40:40) plotwint execute 
+\i (00:40:40) color192 
+\i (00:40:40) generaledit 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 1 4 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 1 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 1 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 0 4 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 2 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 0 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 5 1 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 6 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 7 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 0 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 7 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 7 1 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:40) QtSignal ColorVisibilityDialog CVDTabs currentChanged Display 
+\i (00:40:40) QtSignal CVDColorTable CVDColorButton0:1 clicked 
+\i (00:40:40) QtSignal CVDDisplayGroup CVDBackgroundButton clicked 
+\i (00:40:40) QtSignal ColorVisibilityDialog CVDTabs currentChanged Layers 
+\i (00:40:40) QtSignal CVDLayerSplitter CVDLayersTree itemSelectionChanged Geometry 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate selectedColor 7 1 
+\i (00:40:40) QtSignal CVDLayerTable CVDLayerTableDelegate clickedColor 8 1 
+\i (00:40:41) QtSignal CVDLayerSplitter CVDLayerTable dataChanged 8 1 
+\i (00:40:41) QtSignal CVDLayerSplitter CVDLayerTable selectionChanged 
+\i (00:40:41) color192 
+\i (00:40:41) generaledit 
+\i (00:40:41) QtSignal CVDLayerContainer CVDVisibilityOn clicked 
+\i (00:40:41) QtSignal ColorVisibilityDialog CVDApplyButton clicked 
+\i (00:40:41) QtSignal ColorVisibilityDialog CVDOkButton clicked 
+\i (00:40:41) trapsize 1689
+\i (00:41:30) open 
+\e (00:41:30) Do you want to save the changes you made to SATROT-2-POWERBOARD-6.brd?
+\i (00:41:31) fillin yes 
+\i (00:41:39) fillin "H:/Desktop/SatRot-2/allegro/SATROT-2-10.brd"
+\i (00:41:39) cd "H:/Desktop/SatRot-2/allegro"
+\t (00:41:39) Opening existing design...
+\i (00:41:39) trapsize 1689
+\t (00:41:39)     Journal end - Tue Mar 10 13:12:29 2020

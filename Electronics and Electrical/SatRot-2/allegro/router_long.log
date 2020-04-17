@@ -1,0 +1,30 @@
+
+*********************************************************************
+                         ROUTER-LOG
+*********************************************************************
+
+NEW ROUTE on H:/Desktop/SatRot-2/allegro/SATROT-2-4.brd
+Started on   Thu Mar 05 11:18:19 2020
+**ERROR - there is no route keepin rectangle
+---------------------------------------------------------------------
+Statistics at the End of the Route:
+----------------------------
+
+
+    Connection Statistics:        W/Rats      No/Rats      Total
+    ----------------------        ------      -------      -----
+        Connections                113           0          113
+        Already Connected          113           0          113
+        Missing Connections          0           0            0
+        Connection Completion      100.00%       0.00%      100.00%
+        Etch Length (inches)        98.80        0.00        98.80
+        Number of vias		   104           0          104
+        Vias per Connection          0.92        0.00         0.92
+        Smd pins with attached clines                        84
+
+
+
+    Total cpu time - 0:0:35 hours
+    Total elapsed time - -1591:-53:-20 hours
+    Invalid Count Time: 0 0:0:0 hours
+    Route ended on  Thu Mar 05 11:18:19 2020

@@ -1,0 +1,26 @@
+Date and Time : 03/10/20 12:12:06
+
+--------------------------------------------------
+Checking Schematic: StepperDrivers
+--------------------------------------------------
+Checking Electrical Rules 
+
+Checking For Single Node Nets
+WARNING(ORCAP-1600): Net has fewer than two connections GND6 
+                    StepperDrivers, StepperDrivers  (5.40, 5.80) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND7 
+                    StepperDrivers, StepperDrivers  (5.40, 6.00) 
+WARNING(ORCAP-1600): Net has fewer than two connections P5V 
+                    StepperDrivers, StepperDrivers  (5.40, 4.50) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND4 
+                    StepperDrivers, StepperDrivers  (5.40, 5.30) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND3 
+                    StepperDrivers, StepperDrivers  (5.40, 5.00) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND8 
+                    StepperDrivers, StepperDrivers  (3.80, 6.30) 
+WARNING(ORCAP-1600): Net has fewer than two connections GND5 
+                    StepperDrivers, StepperDrivers  (3.80, 5.60) 
+WARNING(ORCAP-1600): Net has fewer than two connections P3V3 
+                    StepperDrivers, StepperDrivers  (3.80, 5.20) 
+
+Checking For Unconnected Bus Nets

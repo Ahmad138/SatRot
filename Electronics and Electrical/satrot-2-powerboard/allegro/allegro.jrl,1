@@ -1,0 +1,49 @@
+\t (00:26:52) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:26:52)     Journal start - Fri Mar 13 10:11:42 2020
+\t (00:26:52)         Host=RANK739-03 User=2504951m Pid=1124 CPUs=12
+\t (00:26:52) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:26:52) 
+\d (00:26:52) Design opened: H:/Desktop/satrot-2-powerboard/allegro/SATROT-2-POWERBOARD-6.brd
+\i (00:26:52) generaledit 
+\i (00:26:53) zoom out 1 
+\i (00:26:53) setwindow pcb
+\i (00:26:53) zoom out 1457.81 1219.62
+\i (00:26:53) trapsize 3378
+\i (00:26:53) zoom out 1 
+\i (00:26:54) setwindow pcb
+\i (00:26:54) zoom out 1518.62 1199.35
+\i (00:26:54) trapsize 6756
+\i (00:26:54) zoom in 1 
+\i (00:26:54) setwindow pcb
+\i (00:26:54) zoom in 1491.59 1199.35
+\i (00:26:54) trapsize 3378
+\i (00:26:56) move 
+\t (00:26:56) Select element(s) to move.
+\i (00:26:58) pick grid 1464.57 854.78
+\t (00:26:58) last pick:  1460.00 850.00
+\t (00:26:58) last pick:  1460.00 850.00
+\t (00:26:58) Element has no origin, using pick.
+\t (00:26:58) Pick new location for the element(s).
+\i (00:26:59) pick grid 5491.28 2800.57
+\t (00:26:59) last pick:  5490.00 2800.00
+\i (00:27:01) pick grid 1430.79 800.73
+\t (00:27:01) last pick:  1430.00 800.00
+\t (00:27:01) last pick:  1430.00 800.00
+\t (00:27:01) Element has no origin, using pick.
+\t (00:27:01) Pick new location for the element(s).
+\i (00:27:02) pick grid -1379.80 3861.30
+\t (00:27:02) last pick:  -1380.00 3860.00
+\i (00:27:05) zoom fit 
+\i (00:27:05) trapsize 1689
+\i (00:27:12) capture image 
+\i (00:27:19) fillin "H:/Desktop/c.bmp"
+\i (00:27:19) cd "H:/Desktop"
+\i (00:27:20) capture image "H:/Desktop/c.bmp" 
+\i (00:27:33) open 
+\e (00:27:33) Do you want to save the changes you made to SATROT-2-POWERBOARD-6.brd?
+\i (00:27:34) fillin no 
+\i (00:27:41) fillin "H:/Desktop/satrot-2-powerboard-part2/allegro/SATROT-2-POWERBOARD-6.brd"
+\i (00:27:41) cd "H:/Desktop/satrot-2-powerboard-part2/allegro"
+\t (00:27:41) Opening existing design...
+\i (00:27:41) trapsize 1689
+\t (00:27:41)     Journal end - Fri Mar 13 10:12:32 2020

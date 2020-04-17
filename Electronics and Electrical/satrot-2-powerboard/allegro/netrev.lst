@@ -1,0 +1,92 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : SATROT-2-POWERBOARD-5.brd                     )
+(    Software Version : 17.2S055                                      )
+(    Date/Time        : Sun Mar 08 02:14:07 2020                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------------
+
+Ripup etch:                  No
+Ripup delete first segment:  No
+Ripup retain bondwire:       No
+Ripup symbols:               Always
+Missing symbol has error:    No
+DRC update:                  Yes
+Schematic directory:         'H:\DESKTOP\SATROT-2-POWERBOARD\allegro'
+Design Directory:            'H:/DESKTOP/SATROT-2-POWERBOARD/allegro'
+Old design name:             'H:/Desktop/satrot-2-powerboard/allegro/SATROT-2-POWERBOARD-5.brd'
+New design name:             'H:/DESKTOP/SATROT-2-POWERBOARD/allegro/SATROT-2-POWERBOARD-5.brd'
+
+CmdLine: netrev.exe -y 1 -i H:\DESKTOP\SATROT-2-POWERBOARD\allegro H:\Desktop\satrot-2-powerboard\allegro\SATROT-2-POWERBOARD-5.brd H:\DESKTOP\SATROT-2-POWERBOARD\allegro\SATROT-2-POWERBOARD-5.brd
+
+------ Preparing to read pst files ------
+
+Starting to read H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstchip.dat 
+   Finished reading H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstchip.dat (00:00:00.04)
+Starting to read H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstxprt.dat 
+   Finished reading H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstxprt.dat (00:00:00.01)
+Starting to read H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstxnet.dat 
+   Finished reading H:/DESKTOP/SATROT-2-POWERBOARD/allegro/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/SPB_17.2/share/local/pcb/modules 
+
+PSMPATH =  Q:/allegro/PCB_LIB/symbols/ 
+           . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_17.2/share/local/pcb/symbols 
+           C:/Cadence/SPB_17.2/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_17.2/share/pcb/allegrolib/symbols 
+
+PADPATH =  Q:/allegro/PCB_LIB/padstacks/ 
+           . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_17.2/share/local/pcb/padstacks 
+           C:/Cadence/SPB_17.2/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_17.2/share/pcb/allegrolib/symbols 
+
+
+------ Summary Statistics ------
+
+
+netrev run on Mar 8 2:14:07 2020
+   DESIGN NAME : 'SATROT-2-POWERBOARD'
+   PACKAGING ON May 11 2019 05:12:43
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+ No warning detected
+
+cpu time      0:02:30
+elapsed time  0:00:01
+

@@ -1,0 +1,99 @@
+﻿Antenna Name:
+Antenna 1(Yagi-Uda dipole array)
+
+Design Name: 
+Design 1
+
+Objectives: 
+Centre frequency(f₀) = 435.5 MHz
+The desired wire diameter(D) = 2.3 mm
+Gain(G) = 11 dBi
+
+Parameters: 
+Wire diameter(D) = 2.3 mm
+Number of elements(N) = 5
+Reflector element length(Lr) = 340.1 mm
+Driven element length(Lde) = 323.5 mm
+Director 1 length(Ld1) = 321.6 mm
+Director 2 length(Ld2) = 317.9 mm
+Director 3 length(Ld3) = 314.1 mm
+Director 4 length(Ld4) = 310.4 mm
+Director 5 length(Ld5) = 307.5 mm
+Director 6 length(Ld6) = 304.6 mm
+Director 7 length(Ld7) = 302.0 mm
+Director 8 length(Ld8) = 299.7 mm
+Director 9 length(Ld9) = 297.4 mm
+Director 10 length(Ld10) = 295.2 mm
+Director 11 length(Ld11) = 293.6 mm
+Director 12 length(Ld12) = 292.2 mm
+Director 13 length(Ld13) = 290.8 mm
+Director 14 length(Ld14) = 289.4 mm
+Director 15 length(Ld15) = 288.0 mm
+Director 16 length(Ld16) = 286.8 mm
+Director 17 length(Ld17) = 285.6 mm
+Director 18 length(Ld18) = 284.5 mm
+Director 19 length(Ld19) = 283.3 mm
+Director 20 length(Ld20) = 282.1 mm
+Director 21 length(Ld21) = 280.9 mm
+Director 22 length(Ld22) = 279.7 mm
+Director 23 length(Ld23) = 278.9 mm
+Director 24 length(Ld24) = 278.1 mm
+Director 25 length(Ld25) = 277.2 mm
+Director 26 length(Ld26) = 276.5 mm
+Director 27 length(Ld27) = 275.7 mm
+Director 28 length(Ld28) = 274.8 mm
+Director 29 length(Ld29) = 274.2 mm
+Director 30 length(Ld30) = 273.7 mm
+Director 31 length(Ld31) = 273.2 mm
+Director 32 length(Ld32) = 272.7 mm
+Director 33 length(Ld33) = 272.2 mm
+Director 34 length(Ld34) = 271.7 mm
+Director 35 length(Ld35) = 271.3 mm
+Director 36 length(Ld36) = 270.7 mm
+Director 37 length(Ld37) = 270.2 mm
+Director 38 length(Ld38) = 269.7 mm
+Spacing between driven element and reflector(Sr) = 103.3 mm
+Spacing between director 1 and previous element(Sd1) = 122.3 mm
+Spacing between director 2 and previous element(Sd2) = 137.2 mm
+Spacing between director 3 and previous element(Sd3) = 152.2 mm
+Spacing between director 4 and previous element(Sd4) = 166.3 mm
+Spacing between director 5 and previous element(Sd5) = 178.9 mm
+Spacing between director 6 and previous element(Sd6) = 191.4 mm
+Spacing between director 7 and previous element(Sd7) = 203.8 mm
+Spacing between director 8 and previous element(Sd8) = 212.5 mm
+Spacing between director 9 and previous element(Sd9) = 221.2 mm
+Spacing between director 10 and previous element(Sd10) = 230.1 mm
+Spacing between director 11 and previous element(Sd11) = 238.8 mm
+Spacing between director 12 and previous element(Sd12) = 245.5 mm
+Spacing between director 13 and previous element(Sd13) = 249.4 mm
+Spacing between director 14 and previous element(Sd14) = 253.3 mm
+Spacing between director 15 and previous element(Sd15) = 257.0 mm
+Spacing between director 16 and previous element(Sd16) = 260.9 mm
+Spacing between director 17 and previous element(Sd17) = 264.8 mm
+Spacing between director 18 and previous element(Sd18) = 268.5 mm
+Spacing between director 19 and previous element(Sd19) = 270.7 mm
+Spacing between director 20 and previous element(Sd20) = 272.7 mm
+Spacing between director 21 and previous element(Sd21) = 274.7 mm
+Spacing between director 22 and previous element(Sd22) = 276.8 mm
+Spacing between director 23 and previous element(Sd23) = 278.6 mm
+Spacing between director 24 and previous element(Sd24) = 279.3 mm
+Spacing between director 25 and previous element(Sd25) = 279.9 mm
+Spacing between director 26 and previous element(Sd26) = 280.6 mm
+Spacing between director 27 and previous element(Sd27) = 281.3 mm
+Spacing between director 28 and previous element(Sd28) = 282.0 mm
+Spacing between director 29 and previous element(Sd29) = 282.2 mm
+Spacing between director 30 and previous element(Sd30) = 282.3 mm
+Spacing between director 31 and previous element(Sd31) = 282.5 mm
+Spacing between director 32 and previous element(Sd32) = 282.7 mm
+Spacing between director 33 and previous element(Sd33) = 282.9 mm
+Spacing between director 34 and previous element(Sd34) = 283.2 mm
+Spacing between director 35 and previous element(Sd35) = 283.5 mm
+Spacing between director 36 and previous element(Sd36) = 284.0 mm
+Spacing between director 37 and previous element(Sd37) = 284.3 mm
+Spacing between director 38 and previous element(Sd38) = 284.6 mm
+
+Derived Quantities: 
+Device X-dimension(X) = 340.1 mm
+Device Y-dimension(Y) = 2.3 mm
+Device Z-dimension(Z) = 517.2 mm
+

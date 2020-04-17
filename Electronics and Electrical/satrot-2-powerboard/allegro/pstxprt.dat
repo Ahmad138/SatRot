@@ -1,0 +1,610 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 17.2.0 d001Mar-08-2020 at 02:14:06 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='SATROT-2-POWERBOARD';
+ POST_TIME='May 11 2019 05:12:43';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ C14 'CAP POL_CAP196_1000UF, 25V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37178@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37178@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37178@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C15 'CAP NP_SMC0603_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37054@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37054@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37054@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C16 'CAP NP_SMC0603_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36028@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36028@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36028@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C17 'CAP POL_SMCT321612_1UF, 50V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36132@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36132@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36132@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C18 'CAP POL_CAP196_1000UF, 25V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36292@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36292@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36292@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C19 'CAP POL_CAP196_4700UF, 35V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37218@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37218@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37218@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C20 'CAP POL_CAP196_4700UF, 35V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37198@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37198@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37198@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C21 'CAP POL_CAP196_4700UF, 35V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37278@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37278@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37278@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C22 'CAP POL_CAP196_4700UF, 35V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37258@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37258@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37258@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C23 'CAP POL_CAP196_1000UF, 25V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36952@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36952@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36952@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C24 'CAP NP_SMC0603_100 PF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36312@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36312@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36312@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C25 'CAP POL_PCAP_SVP_C6-M_100UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36656@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36656@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36656@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C26 'CAP POL_SMCT321612_0.1 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37032@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37032@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37032@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C27 'CAP POL_SMCT734312_33 UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37098@DISCRETE.CAP POL.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37098@discrete.\cap pol.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37098@discrete.\cap pol.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C28 'CAP NP_SMC0402_100NF/0.1UF':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36832@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36832@discrete.\cap np.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36832@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D1 'DIODE_SMDO214AC12_1N4007':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36252@DISCRETE.DIODE.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36252@discrete.\diode.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36252@discrete.\diode.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D2 'DIODE_SMDO214AC12_1N4007':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37138@DISCRETE.DIODE.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37138@discrete.\diode.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37138@discrete.\diode.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D3 'LED_SMD120612_LED RED':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36272@DISCRETE.LED.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36272@discrete.\led.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36272@discrete.\led.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D4 'DIODE_DAX1DO204AH_1N4148':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36176@DISCRETE.DIODE.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36176@discrete.\diode.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36176@discrete.\diode.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D5 'DIODE_DAX1DO204AH_1N4148':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36768@DISCRETE.DIODE.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36768@discrete.\diode.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36768@discrete.\diode.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D6 'LED_SMD120612_LED GREEN':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36884@DISCRETE.LED.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36884@discrete.\led.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36884@discrete.\led.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D8 'DIODE_SMDO214AC12_1N4007':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36724@DISCRETE.DIODE.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36724@discrete.\diode.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36724@discrete.\diode.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J11 'CON2_BLKCON156VHTM1SQSW1562_TO':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36812@CONNECTOR.CON2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36812@connector.\con2.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36812@connector.\con2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J12 'HEADER 2_BLKCON156VHTM1SQSW1562':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37330@CONNECTOR.HEADER 2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37330@connector.\header 2.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37330@connector.\header 2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J13 'HEADER 2_BLKCON156VHTM1SQSW15_1':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36468@CONNECTOR.HEADER 2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36468@connector.\header 2.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36468@connector.\header 2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J14 'HEADER 2_BLKCON156VHTM1SQSW15_2':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36972@CONNECTOR.HEADER 2.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36972@connector.\header 2.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36972@connector.\header 2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J16 'DCJ200-10-A-XX-X_REVA_GCT_DCJ20':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36612@SATROT.DCJ200-10-A-XX-X_REVA.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36612@satrot.\dcj200-10-a-xx-x_reva.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36612@satrot.\dcj200-10-a-xx-x_reva.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J17 'CON5_BLKCON100VHTM1SQSW1005_12V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36540@CONNECTOR.CON5.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36540@connector.\con5.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36540@connector.\con5.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J18 'CON5_BLKCON100VHTM1SQSW1005_5V':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36436@CONNECTOR.CON5.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36436@connector.\con5.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36436@connector.\con5.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J19 'CON5_BLKCON100VHTM1SQSW1005_3V3':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37298@CONNECTOR.CON5.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37298@connector.\con5.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37298@connector.\con5.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J20 'CON5_BLKCON100VHTM1SQSW1005_GND':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36488@CONNECTOR.CON5.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36488@connector.\con5.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36488@connector.\con5.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J21 'CON3_BLKCON100VHTM1SQSW1003_CON':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS47562@CONNECTOR.CON3.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins47562@connector.\con3.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins47562@connector.\con3.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ P1 'USB-A1HSW6_OST_USB-A1HSW6_USB-A':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36676@SATROT.USB-A1HSW6.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36676@satrot.\usb-a1hsw6.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36676@satrot.\usb-a1hsw6.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q1 'BC327_TO92_BC327':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36152@TRANSISTOR.BC327.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36152@transistor.\bc327.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36152@transistor.\bc327.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q3 'BC327_TO220AB_MJE2955':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37074@TRANSISTOR.BC327.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37074@transistor.\bc327.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37074@transistor.\bc327.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q4 'BC337_TO220AB_3055T':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36108@TRANSISTOR.BC337.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36108@transistor.\bc337.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36108@transistor.\bc337.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q7 'MJE2955_TO220AB_MJE2955':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS35940@SATROT.MJE2955.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins35940@satrot.\mje2955.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins35940@satrot.\mje2955.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R26 'R_SMR1206_10K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37012@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37012@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37012@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R27 'R_RES500_1M':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36008@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36008@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36008@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R28 'R_SMR0805_470':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36932@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36932@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36932@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R29 'R_SMR2512_150, 2W':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37238@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37238@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37238@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R30 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37158@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37158@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37158@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R31 'PWR163S-25-15R0F_BO_PWR163_1K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS46117@SATROT-2-POWERBOARD.PWR163S-25-15R0F.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins46117@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins46117@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R32 'R_SMR0805_100K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36992@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36992@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36992@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R33 'PWR163S-25-15R0F_BO_PWR163_1K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS46828@SATROT-2-POWERBOARD.PWR163S-25-15R0F.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins46828@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins46828@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R34 'R_SMR2512_1, 2W':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36636@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36636@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36636@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R37 'R_SMR0805_680':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36396@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36396@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36396@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R39 'R_SMR2512_0.15, 10W':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36704@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36704@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36704@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R40 'R_SMR2512_0.15, 10W':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36048@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36048@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36048@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R41 'R_SMR0805_2.7K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS35988@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins35988@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins35988@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R42 'R_SMR0805_3.3K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36088@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36088@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36088@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R43 '3314J-2-203E_POT_3314J_1K POT':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS45338@SATROT-2-POWERBOARD.3314J-2-203E.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins45338@\satrot-2-powerboard\.\3314j-2-203e.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins45338@\satrot-2-powerboard\.\3314j-2-203e.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R44 'R_SMR0805_1.5K':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36068@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36068@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36068@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R45 'R_SMR0805_270':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS37118@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins37118@discrete.\r.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins37118@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R46 'PWR163S-25-15R0F_BO_PWR163_33,':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS46710@SATROT-2-POWERBOARD.PWR163S-25-15R0F.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins46710@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins46710@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U4 'TL072_SOIC8_TL072':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36852@OPAMP.TL072.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36852@opamp.\tl072.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36852@opamp.\tl072.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='A';
+
+PART_NAME
+ U5 'LM723CHNOPB_H10C_LM723CHNOPB':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS41250@SATROT-2-POWERBOARD.LM723CHNOPB.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins41250@\satrot-2-powerboard\.\lm723chnopb.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins41250@\satrot-2-powerboard\.\lm723chnopb.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U6 'LM7805C/TO220_0_TO220AB_LM7805C':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36744@SATROT-2-POWERBOARD.LM7805C/TO220_0.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36744@\satrot-2-powerboard\.\lm7805c/to220_0.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36744@\satrot-2-powerboard\.\lm7805c/to220_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U7 'LM3940IMP-33_SOT230P696X180-4N_':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS36904@SATROT.LM3940IMP-33.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins36904@satrot.\lm3940imp-33.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins36904@satrot.\lm3940imp-33.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U9 'RASPBERRY PI B+_GU-RASP-PI-3_RA':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS45217@SATROT-2-POWERBOARD.RASPBERRY PI B+.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins45217@\satrot-2-powerboard\.\raspberry pi b+.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins45217@\satrot-2-powerboard\.\raspberry pi b+.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

@@ -1,0 +1,361 @@
+\t (00:00:20) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:00:20)     Journal start - Fri Mar 13 09:45:11 2020
+\t (00:00:20)         Host=RANK739-03 User=2504951m Pid=1124 CPUs=12
+\t (00:00:20) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:00:20) 
+\d (00:00:20) Design opened: H:/Desktop/SatRot-2/allegro/SATROT-2-10.brd
+\i (00:00:21) generaledit 
+\i (00:00:32) zoom out 1 
+\i (00:00:32) setwindow pcb
+\i (00:00:32) zoom out 3788.71 1604.72
+\i (00:00:32) trapsize 3378
+\i (00:00:32) zoom out 1 
+\i (00:00:32) setwindow pcb
+\i (00:00:32) zoom out 5899.32 1597.97
+\i (00:00:32) trapsize 4743
+\i (00:00:34) move 
+\t (00:00:34) Select element(s) to move.
+\i (00:00:36) pick grid 3442.97 2774.55
+\t (00:00:36) last pick:  3440.00 2770.00
+\t (00:00:36) last pick:  3440.00 2770.00
+\t (00:00:36) Element has no origin, using pick.
+\t (00:00:36) Pick new location for the element(s).
+\t (00:00:37) last pick:  8821.88 4643.42
+\w (00:00:37) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:00:38) last pick:  8470.87 4463.17
+\w (00:00:38) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:00:41) last pick:  8423.44 2537.39
+\w (00:00:41) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\i (00:00:42) pick grid 8262.17 2433.04
+\t (00:00:42) last pick:  8260.00 2430.00
+\e (00:00:42) ERROR(SPMHA1-68): Line segments are outside of the extents.
+\i (00:00:42) prepopup 8262.17 2433.04
+\i (00:00:44) done 
+\i (00:00:44) generaledit 
+\i (00:00:45) pick grid 3499.89 2746.10
+\t (00:00:45) last pick:  3500.00 2750.00
+\i (00:00:46) pick grid 5947.44 2859.93
+\t (00:00:46) last pick:  5950.00 2860.00
+\i (00:00:47) prepopup 3708.60 2765.07
+\i (00:00:50) pick grid 3480.92 2698.66
+\t (00:00:50) last pick:  3480.00 2700.00
+\i (00:00:51) move 
+\t (00:00:51) Select element(s) to move.
+\i (00:00:52) pick grid 3253.24 2803.01
+\t (00:00:52) last pick:  3250.00 2800.00
+\t (00:00:52) last pick:  3250.00 2800.00
+\t (00:00:52) Element has no origin, using pick.
+\t (00:00:52) Pick new location for the element(s).
+\i (00:00:55) pick grid 3234.26 5819.76
+\t (00:00:55) last pick:  3230.00 5820.00
+\i (00:00:59) pick grid 3803.46 203.68
+\t (00:00:59) last pick:  3800.00 200.00
+\t (00:00:59) last pick:  3800.00 200.00
+\t (00:00:59) Element has no origin, using pick.
+\t (00:00:59) Pick new location for the element(s).
+\i (00:01:00) zoom out 1 
+\i (00:01:00) setwindow pcb
+\i (00:01:00) zoom out 3718.08 -1845.42
+\i (00:01:00) trapsize 4743
+\i (00:01:00) zoom out 1 
+\i (00:01:00) setwindow pcb
+\i (00:01:00) zoom out 3699.11 -1883.37
+\i (00:01:00) trapsize 4743
+\i (00:01:00) zoom out 1 
+\i (00:01:00) setwindow pcb
+\i (00:01:00) zoom out 3689.62 -1902.34
+\i (00:01:00) trapsize 4743
+\i (00:01:00) zoom out 1 
+\i (00:01:00) setwindow pcb
+\i (00:01:00) zoom out 3689.62 -1902.34
+\i (00:01:00) trapsize 4743
+\i (00:01:05) pick grid 7797.32 2746.10
+\t (00:01:05) last pick:  7800.00 2750.00
+\i (00:01:06) zoom in 1 
+\i (00:01:06) setwindow pcb
+\i (00:01:06) zoom in 966.97 1522.32
+\i (00:01:06) trapsize 2372
+\i (00:01:07) zoom in 1 
+\i (00:01:07) setwindow pcb
+\i (00:01:07) zoom in 966.97 1522.32
+\i (00:01:07) trapsize 1186
+\i (00:01:07) zoom out 1 
+\i (00:01:07) setwindow pcb
+\i (00:01:07) zoom out 966.97 1522.32
+\i (00:01:07) trapsize 2372
+\i (00:01:07) zoom out 1 
+\i (00:01:07) setwindow pcb
+\i (00:01:07) zoom out 966.97 1522.32
+\i (00:01:07) trapsize 4743
+\i (00:01:08) zoom fit 
+\i (00:01:08) trapsize 1689
+\i (00:01:25) zoom in 1 
+\i (00:01:25) setwindow pcb
+\i (00:01:25) zoom in 1231.48 672.37
+\i (00:01:25) trapsize 845
+\i (00:01:25) zoom in 1 
+\i (00:01:25) setwindow pcb
+\i (00:01:25) zoom in 1245.00 674.06
+\i (00:01:25) trapsize 422
+\i (00:01:28) zoom out 1 
+\i (00:01:28) setwindow pcb
+\i (00:01:28) zoom out 1507.65 560.90
+\i (00:01:28) trapsize 845
+\i (00:01:35) plot preview 
+\i (00:01:49) capture image 
+\i (00:02:02) fillin "H:/Desktop/a.bmp"
+\i (00:02:02) cd "H:/Desktop"
+\i (00:02:04) capture image "H:/Desktop/a.bmp" 
+\i (00:03:19) zoom fit 
+\i (00:03:19) trapsize 1689
+\i (00:03:53) zoom in 1 
+\i (00:03:53) setwindow pcb
+\i (00:03:53) zoom in 2575.97 770.33
+\i (00:03:53) trapsize 845
+\i (00:03:53) zoom in 1 
+\i (00:03:53) setwindow pcb
+\i (00:03:53) zoom in 2575.97 770.33
+\i (00:03:53) trapsize 422
+\i (00:03:54) zoom in 1 
+\i (00:03:54) setwindow pcb
+\i (00:03:54) zoom in 2466.18 744.99
+\i (00:03:54) trapsize 211
+\i (00:03:55) zoom in 1 
+\i (00:03:55) setwindow pcb
+\i (00:03:55) zoom in 2462.80 750.91
+\i (00:03:55) trapsize 106
+\i (00:03:57) zoom out 1 
+\i (00:03:57) setwindow pcb
+\i (00:03:57) zoom out 2433.66 740.78
+\i (00:03:57) trapsize 211
+\i (00:03:58) zoom out 1 
+\i (00:03:58) setwindow pcb
+\i (00:03:58) zoom out 2433.66 740.78
+\i (00:03:58) trapsize 422
+\i (00:04:02) zoom out 1 
+\i (00:04:02) setwindow pcb
+\i (00:04:02) zoom out 2453.09 700.24
+\i (00:04:02) trapsize 845
+\i (00:04:03) zoom out 1 
+\i (00:04:03) setwindow pcb
+\i (00:04:03) zoom out 2454.78 700.24
+\i (00:04:03) trapsize 1689
+\i (00:04:05) zoom out 1 
+\i (00:04:05) setwindow pcb
+\i (00:04:05) zoom out 654.30 1304.91
+\i (00:04:05) trapsize 3378
+\i (00:04:06) zoom in 1 
+\i (00:04:06) setwindow pcb
+\i (00:04:06) zoom in -132.92 2298.06
+\i (00:04:06) trapsize 1689
+\i (00:04:07) zoom in 1 
+\i (00:04:07) setwindow pcb
+\i (00:04:07) zoom in 823.06 2456.83
+\i (00:04:07) trapsize 845
+\i (00:04:08) zoom out 1 
+\i (00:04:08) setwindow pcb
+\i (00:04:08) zoom out 1358.48 2059.92
+\i (00:04:08) trapsize 1689
+\i (00:04:09) zoom out 1 
+\i (00:04:09) setwindow pcb
+\i (00:04:09) zoom out 1405.77 1955.19
+\i (00:04:09) trapsize 3378
+\i (00:04:12) zoom fit 
+\i (00:04:12) trapsize 1689
+\i (00:05:25) plot 
+\i (00:05:49) plotwint initialize "PDFCreator"
+\i (00:05:49) plotwint orientation 2
+\i (00:05:49) plotwint papername "Letter"
+\i (00:05:49) plotwint scale 100
+\i (00:05:49) plotwint copies 1
+\i (00:05:49) plotwint defaultsource 15
+\i (00:05:49) plotwint printquality 1200
+\i (00:05:49) plotwint color 2
+\i (00:05:49) plotwint execute
+\i (00:07:08) trapsize 4192
+\i (00:07:08) trapsize 1689
+\i (00:24:02) xNet N05659 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01167 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet 7/Gpio 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Gnd 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N05729 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04921 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Vdd 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04961 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04997 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Vmm 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R4 
+\i (00:24:02) xrefdes R7 
+\i (00:24:02) xrefdes R11 
+\i (00:24:02) xrefdes R16 
+\i (00:24:02) xrefdes R15 
+\i (00:24:02) xNet N04587 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04707 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N05742 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N05705 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes U1 
+\i (00:24:02) xNet N00813 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N00682 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04969 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Gpio/Tx 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01273 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N00675 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R5 
+\i (00:24:02) xrefdes C2 
+\i (00:24:02) xrefdes C5 
+\i (00:24:02) xNet 3V3 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04591 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Gpio/Rx 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04861 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04715 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N09636 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01158 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01051 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N00488 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet 37/Gpio 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04853 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes J7 
+\i (00:24:02) xrefdes R18 
+\i (00:24:02) xNet 28/Reserved 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01528 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N05607 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R6 
+\i (00:24:02) xNet N05647 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R19 
+\i (00:24:02) xrefdes J6 
+\i (00:24:02) xNet N04595 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet 19/Gpio 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N09640 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01261 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N00492 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01461 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R8 
+\i (00:24:02) xNet N05017 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes C9 
+\i (00:24:02) xNet N04599 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet 27/Reserved 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N00665 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N01594 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R20 
+\i (00:24:02) xNet N01454 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R10 
+\i (00:24:02) xrefdes C3 
+\i (00:24:02) xrefdes R13 
+\i (00:24:02) xrefdes R9 
+\i (00:24:02) xrefdes R17 
+\i (00:24:02) xrefdes R3 
+\i (00:24:02) xrefdes C10 
+\i (00:24:02) xrefdes C7 
+\i (00:24:02) xrefdes J2 
+\i (00:24:02) xNet N05619 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N04789 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes R14 
+\i (00:24:02) xNet N04909 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes J4 
+\i (00:24:02) xrefdes J8 
+\i (00:24:02) xrefdes R1 
+\i (00:24:02) xNet N00486 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes U2 
+\i (00:24:02) xrefdes R2 
+\i (00:24:02) xrefdes J3 
+\i (00:24:02) xNet N00490 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet Gpio 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N05690 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes C8 
+\i (00:24:02) xrefdes J5 
+\i (00:24:02) xrefdes C1 
+\i (00:24:02) xNet N04699 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xNet N53390 
+\t (00:24:02) Nets are not selectable at this time.
+\i (00:24:02) xrefdes U3 
+\i (00:24:02) xrefdes C6 
+\i (00:24:02) xrefdes C4 
+\i (00:24:02) xrefdes R12 
+\i (00:24:02) xname_flush 
+\i (00:24:07) xrefdes R9 
+\i (00:24:07) xname_flush 
+\i (00:24:07) trapsize 263
+\t (00:24:07) last pick:  880.00 1310.00
+\t (00:24:07) Moving R9 / R_SMR1206_0.05 / SMR1206.
+\t (00:24:07) Pick new location for the element(s).
+\i (00:24:10) prepopup 591.34 1385.40
+\i (00:24:14) cancel 
+\i (00:24:14) generaledit 
+\i (00:24:23) zoom out 1 
+\i (00:24:23) setwindow pcb
+\i (00:24:23) zoom out 800.91 1312.74
+\i (00:24:23) trapsize 527
+\i (00:24:23) zoom out 1 
+\i (00:24:23) setwindow pcb
+\i (00:24:23) zoom out 800.92 1312.73
+\i (00:24:23) trapsize 1053
+\i (00:24:31) zoom fit 
+\i (00:24:31) trapsize 1689
+\i (00:24:37) plot 
+\i (00:24:44) capture image 
+\i (00:24:56) fillin "H:/Desktop/a.bmp"
+\i (00:24:57) cd "H:/Desktop"
+\i (00:24:58) capture image "H:/Desktop/a.bmp" 
+\i (00:25:48) open 
+\e (00:25:48) Do you want to save the changes you made to SATROT-2-10.brd?
+\i (00:25:49) fillin no 
+\i (00:25:57) fillin "H:/Desktop/satrot-2-IMU/allegro/SATROT-2-IMU-5.brd"
+\i (00:25:57) cd "H:/Desktop/satrot-2-IMU/allegro"
+\t (00:25:57) Opening existing design...
+\i (00:25:57) trapsize 690
+\t (00:25:57)     Journal end - Fri Mar 13 10:10:48 2020

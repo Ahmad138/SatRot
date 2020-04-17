@@ -1,0 +1,25 @@
+{ Using PSTWRITER 17.2.0 d001Mar-08-2020 at 02:43:45 }
+
+#1 WARNING(ORCAP-36006): Part Name "4 HEADER_BLKCON156VHTM1SQSW1564_AZ STEPPER" is renamed to "4 HEADER_BLKCON156VHTM1SQSW1564".
+#2 WARNING(ORCAP-36006): Part Name "CON2_BLKCON156VHTM1SQSW1562_MOTOR POWER" is renamed to "CON2_BLKCON156VHTM1SQSW1562_MOT".
+#3 WARNING(ORCAP-36006): Part Name "4 HEADER_BLKCON156VHTM1SQSW1564_POWER CONNECTOR" is renamed to "4 HEADER_BLKCON156VHTM1SQSW15_1".
+#4 WARNING(ORCAP-36006): Part Name "4 HEADER_BLKCON156VHTM1SQSW1564_EL STEPPER" is renamed to "4 HEADER_BLKCON156VHTM1SQSW15_2".
+#5 WARNING(ORCAP-36006): Part Name "4 HEADER_BLKCON156VHTM1SQSW1564_R_PINS" is renamed to "4 HEADER_BLKCON156VHTM1SQSW15_3".
+#6 WARNING(ORCAP-36006): Part Name "4 HEADER_BLKCON156VHTM1SQSW1564_L_PINS" is renamed to "4 HEADER_BLKCON156VHTM1SQSW15_4".
+#7 WARNING(ORCAP-36006): Part Name "HEADER 2_BLKCON156VHTM1SQSW1562_I2C" is renamed to "HEADER 2_BLKCON156VHTM1SQSW1562".
+#8 WARNING(ORCAP-36006): Part Name "A4988SETTR-T_QFN50P500X500X100-29N_A4988SETTR-T" is renamed to "A4988SETTR-T_QFN50P500X500X100-".
+#9 WARNING(ORCAP-36006): Part Name "RASPBERRY PI B+_GU-RASP-PI-3_RASPBERRY PI B+" is renamed to "RASPBERRY PI B+_GU-RASP-PI-3_RA".
+#10 WARNING(ORCAP-36042): Pin "P3V3" is renamed to "P3V3#1" as visible power pin of same name already exists in Package Raspberry Pi B+ , U3: StepperDrivers, StepperDrivers (4.10, 4.30).
+#11 WARNING(ORCAP-36042): Pin "P5V" is renamed to "P5V#2" as visible power pin of same name already exists in Package Raspberry Pi B+ , U3: StepperDrivers, StepperDrivers (4.10, 4.30).
+#12 WARNING(ORCAP-36042): Pin "P5V" is renamed to "P5V#4" as visible power pin of same name already exists in Package Raspberry Pi B+ , U3: StepperDrivers, StepperDrivers (4.10, 4.30).
+#13 WARNING(ORCAP-36042): Pin "P3V3" is renamed to "P3V3#17" as visible power pin of same name already exists in Package Raspberry Pi B+ , U3: StepperDrivers, StepperDrivers (4.10, 4.30).
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... H:\DESKTOP\SATROT-2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2\allegro/pstchip.dat
+
+Loading... H:\DESKTOP\SATROT-2\allegro/pstxnet.dat
+packaging the design view...

@@ -1,0 +1,166 @@
+\t (00:00:02) allegro 17.2 S055 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Fri Mar 06 14:56:34 2020
+\t (00:00:02)         Host=RANK509-24 User=2504951m Pid=10072 CPUs=8
+\t (00:00:02) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe -s builder.scr.txt
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 29310
+\i (00:00:04) replay builder.scr.txt 
+\i (00:00:04) skill 'load "M:/ul_6SVPC220M/AllegroV17_2/builder.ile" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'changeWorkingDir "M:/ul_6SVPC220M/AllegroV17_2" ' 
+   (00:00:04) t
+\i (00:00:04) skill 'LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-L.xml" ' 
+\t (00:00:04) Reading Footprint XML
+\t (00:00:04) Creating padstacks
+\t (00:00:04) Starting new design...
+\i (00:00:04) trapsize 1
+\i (00:00:04) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1022
+\i (00:00:05) trapsize 102163
+\t (00:00:05) Performing DRC...
+\t (00:00:05) Multithreaded DRC update (8 threads).
+\t (00:00:05) No DRC errors detected.
+\t (00:00:05) Opening Design "PCAP_SVP_C6-L.dra"
+\t (00:00:05) Starting new design...
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 1
+\i (00:00:05) trapsize 102163
+\i (00:00:05) trapsize 23744
+\t (00:00:05) Creating TextBlocks
+\t (00:00:05) Creating Shapes on Package layers
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:05) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+\t (00:00:05) Creating Pins
+\t (00:00:05) Creating Vias
+\t (00:00:05) Creating package symbol 'M:/ul_6SVPC220M/AllegroV17_2/pcap_svp_c6-l.psm'.
+\t (00:00:05) Starting Create symbol...
+\t (00:00:06) Symbol Created
+\i (00:00:06) trapsize 1791
+   (00:00:06) Loading cmds.cxt 
+   (00:00:06) Loading skillExt.cxt 
+\t (00:00:06) Opening existing design...
+\i (00:00:06) trapsize 2200
+\i (00:00:06) trapsize 2275
+\i (00:00:06) trapsize 2200
+\i (00:00:06) trapsize 2200
+\d (00:00:06) Design opened: M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-L.dra
+\t (00:00:06) Symbol Saved
+   (00:00:06) t
+\i (00:00:06) scriptmode +i +n 
+\i (00:00:06) step pkg map 
+\i (00:00:07) setwindow form.pkgmap3d 
+\i (00:00:07) FORM pkgmap3d stplist PCAP_SVP_C6-L.step 
+\i (00:00:07) FORM pkgmap3d rotation_x 0 
+\i (00:00:07) FORM pkgmap3d save_current 
+\i (00:00:07) FORM pkgmap3d done 
+\i (00:00:07) setwindow pcb 
+\i (00:00:07) save 
+\i (00:00:07) fillin yes 
+\t (00:00:08) Symbol 'pcap_svp_c6-l.psm' created.
+\i (00:00:08) skill 'LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-M.xml" ' 
+\t (00:00:08) Reading Footprint XML
+\t (00:00:08) Creating padstacks
+\t (00:00:08) Starting new design...
+\i (00:00:08) trapsize 20148
+\i (00:00:08) trapsize 20834
+\i (00:00:08) trapsize 20148
+\i (00:00:08) trapsize 23744
+\i (00:00:08) trapsize 23744
+\t (00:00:09) Opening Design "PCAP_SVP_C6-M.dra"
+\t (00:00:09) Starting new design...
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 1
+\i (00:00:09) trapsize 23744
+\i (00:00:09) trapsize 23696
+\t (00:00:09) Creating TextBlocks
+\t (00:00:09) Creating Shapes on Package layers
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:09) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+\t (00:00:09) Creating Pins
+\t (00:00:09) Creating Vias
+\t (00:00:09) Creating package symbol 'M:/ul_6SVPC220M/AllegroV17_2/pcap_svp_c6-m.psm'.
+\t (00:00:09) Starting Create symbol...
+\t (00:00:10) Symbol Created
+\i (00:00:10) trapsize 2107
+\t (00:00:10) Opening existing design...
+\i (00:00:10) trapsize 2107
+\i (00:00:10) trapsize 2179
+\i (00:00:10) trapsize 2107
+\i (00:00:10) trapsize 2107
+\d (00:00:10) Design opened: M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-M.dra
+\t (00:00:10) Symbol Saved
+   (00:00:10) t
+\i (00:00:10) scriptmode +i +n 
+\i (00:00:10) step pkg map 
+\i (00:00:10) setwindow form.pkgmap3d 
+\i (00:00:10) FORM pkgmap3d stplist PCAP_SVP_C6-M.step 
+\i (00:00:11) FORM pkgmap3d rotation_x 0 
+\i (00:00:11) FORM pkgmap3d save_current 
+\i (00:00:11) FORM pkgmap3d done 
+\i (00:00:11) setwindow pcb 
+\i (00:00:11) save 
+\i (00:00:11) fillin yes 
+\t (00:00:12) Symbol 'pcap_svp_c6-m.psm' created.
+\i (00:00:12) skill 'LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6.xml" ' 
+\t (00:00:12) Reading Footprint XML
+\t (00:00:12) Creating padstacks
+\t (00:00:12) Starting new design...
+\i (00:00:12) trapsize 20223
+\i (00:00:12) trapsize 20912
+\i (00:00:12) trapsize 20223
+\i (00:00:12) trapsize 23696
+\i (00:00:12) trapsize 23696
+\t (00:00:12) Opening Design "PCAP_SVP_C6.dra"
+\t (00:00:12) Starting new design...
+\i (00:00:12) trapsize 1
+\i (00:00:12) trapsize 1
+\i (00:00:13) trapsize 1
+\i (00:00:13) trapsize 23696
+\t (00:00:13) Creating TextBlocks
+\t (00:00:13) Creating Shapes on Package layers
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+   (00:00:13) *WARNING* (axlDBAddProp): ERROR(SPMHDB-272): Property is only allowed on PACKAGE KEEPOUT or PLACE BOUND. ("PACKAGE_HEIGHT_MAX" 236.0)
+\t (00:00:13) Creating Pins
+\t (00:00:13) Creating Vias
+\t (00:00:13) Creating package symbol 'M:/ul_6SVPC220M/AllegroV17_2/pcap_svp_c6.psm'.
+\t (00:00:13) Starting Create symbol...
+\t (00:00:13) Symbol Created
+\i (00:00:13) trapsize 2060
+\t (00:00:13) Opening existing design...
+\i (00:00:13) trapsize 2060
+\i (00:00:13) trapsize 2130
+\i (00:00:13) trapsize 2060
+\i (00:00:14) trapsize 2060
+\d (00:00:14) Design opened: M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6.dra
+\t (00:00:14) Symbol Saved
+   (00:00:14) t
+\i (00:00:14) scriptmode +i +n 
+\i (00:00:14) step pkg map 
+\i (00:00:14) setwindow form.pkgmap3d 
+\i (00:00:14) FORM pkgmap3d stplist PCAP_SVP_C6.step 
+\i (00:00:14) FORM pkgmap3d rotation_x 0 
+\i (00:00:14) FORM pkgmap3d save_current 
+\i (00:00:14) FORM pkgmap3d done 
+\i (00:00:14) setwindow pcb 
+\i (00:00:14) save 
+\i (00:00:14) fillin yes 
+\t (00:00:15) Symbol 'pcap_svp_c6.psm' created.
+\i (00:00:15) exit 
+\t (00:00:16)     Journal end - Fri Mar 06 14:56:47 2020

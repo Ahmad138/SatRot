@@ -1,0 +1,36 @@
+skill load "M:/ul_6SVPC220M/AllegroV17_2/builder.ile" 
+skill changeWorkingDir "M:/ul_6SVPC220M/AllegroV17_2" 
+skill LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-L.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist PCAP_SVP_C6-L.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+skill LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6-M.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist PCAP_SVP_C6-M.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+skill LB_createFootprint "M:/ul_6SVPC220M/AllegroV17_2/PCAP_SVP_C6.xml" 
+scriptmode +i +n 
+step pkg map 
+setwindow form.pkgmap3d 
+FORM pkgmap3d stplist PCAP_SVP_C6.step 
+FORM pkgmap3d rotation_x 0 
+FORM pkgmap3d save_current 
+FORM pkgmap3d done 
+setwindow pcb 
+save  
+fillin yes 
+exit 

@@ -1,0 +1,70 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 17.2.0 d001Mar-08-2020 at 02:04:34 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='SATROT-2-POWERBOARD';
+ POST_TIME='May 11 2019 05:12:43';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ J22 'CON3_BLKCON100VHTM1SQSW1003_CON':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS47580@CONNECTOR.CON3.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins47580@connector.\con3.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins47580@connector.\con3.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q5 'NPN_TO3_2N3055':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS47385@SATROT-2-POWERBOARD.NPN.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins47385@\satrot-2-powerboard\.\npn.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins47385@\satrot-2-powerboard\.\npn.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q6 'NPN_TO3_2N3055':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS47105@SATROT-2-POWERBOARD.NPN.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins47105@\satrot-2-powerboard\.\npn.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins47105@\satrot-2-powerboard\.\npn.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R35 'PWR163S-25-15R0F_BO_PWR163_0.1,':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS46652@SATROT-2-POWERBOARD.PWR163S-25-15R0F.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins46652@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins46652@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R36 'PWR163S-25-15R0F_BO_PWR163_0.1,':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS46583@SATROT-2-POWERBOARD.PWR163S-25-15R0F.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins46583@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins46583@\satrot-2-powerboard\.\pwr163s-25-15r0f.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U9 'RASPBERRY PI B+_GU-RASP-PI-3_RA':;
+
+SECTION_NUMBER 1
+ '@SATROT-2-POWERBOARD.POWERBOARD(SCH_1):INS45217@SATROT-2-POWERBOARD.RASPBERRY PI B+.NORMAL(CHIPS)':
+ C_PATH='@\satrot-2-powerboard\.powerboard(sch_1):ins45217@\satrot-2-powerboard\.\raspberry pi b+.normal\(chips)',
+ P_PATH='@\satrot-2-powerboard\.powerboard(sch_1):page1_ins45217@\satrot-2-powerboard\.\raspberry pi b+.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.
