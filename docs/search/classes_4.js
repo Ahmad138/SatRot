@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['httpwindow',['HttpWindow',['../classHttpWindow.html',1,'']]]
+  ['getgeolocation',['GetGeoLocation',['../classGetGeoLocation.html',1,'']]]
 ];
