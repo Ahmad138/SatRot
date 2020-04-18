@@ -1,5 +1,16 @@
 #  SatRot - Taking Everyone to Space  :satellite:    :earth_africa:   :crescent_moon:   :telescope:   :space_invader: :stars:  :rocket:
 [![Build Status](https://travis-ci.org/Ahmad138/SatRot.svg?branch=master)](https://travis-ci.org/Ahmad138/SatRot)
+![Version](https://img.shields.io/badge/version-v1.0-yellowgreen)
+[![GitHub issues](https://img.shields.io/github/issues/Ahmad138/SatRot)](https://github.com/Ahmad138/SatRot/issues)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/ahmad138/satrot?color=red)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ahmad138/satrot?color=brown)
+[![GitHub forks](https://img.shields.io/github/forks/Ahmad138/SatRot)](https://github.com/Ahmad138/SatRot/network)
+[![GitHub stars](https://img.shields.io/github/stars/Ahmad138/SatRot?color=orange)](https://github.com/Ahmad138/SatRot/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Ahmad138/SatRot)](https://github.com/Ahmad138/SatRot/blob/master/LICENSE)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ahmad138/satrot)
+![GitHub repo size](https://img.shields.io/github/repo-size/ahmad138/satrot)
+![Twitter Follow](https://img.shields.io/twitter/follow/sat_rot?style=social)
+
 <p align="center">
 <img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
 </p>
