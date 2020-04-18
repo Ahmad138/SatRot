@@ -60,11 +60,17 @@ private slots:
      *
      */
     void test_case5();
+    void test_case6();
+    void test_case7();
+    void test_case8();
+    void test_case9();
+    void test_case10();
 
 private:
     int a; /**< TODO: describe */
     QString b, c, d, e; /**< TODO: describe */
     api* r = new api(this); /**< TODO: describe */
+    bool check = false;
 };
 
 /**
@@ -91,7 +97,7 @@ apiTestCase::apiTestCase()
     };
 
     r->sendRequest(url, getData, errData);
-    QTest::qWait(100);
+    QTest::qWait(500);
 }
 
 /**
@@ -179,12 +185,69 @@ void apiTestCase::test_case5()
     };
 
     z->sendRequest(url, getData, errData);
-    QTest::qWait(15);
+    QTest::qWait(50);
 
     QCOMPARE(e, "Error: connection dropped");
 }
 
+void apiTestCase::test_case6()
+{
+    api* z = new api(this);
+    QString url = "orbitalpredictor.com/api/predict_orbit/?sats=39159,39634&start=2018-02-26_15:00:00&end=2018-02-27_15:00:00&format=czml&type=orbit";
+    z->initRequester(url, 80, nullptr);
 
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        check = true;
+    };
+
+    api::handleFunc errData = [this](const QJsonObject & o)
+    {
+        check = false;
+    };
+
+    z->sendRequest(url, getData, errData);
+    QTest::qWait(100);
+
+    QCOMPARE(check, true);
+}
+
+void apiTestCase::test_case7()
+{
+    api* z = new api(this);
+    QString url = "orbitalpredictor.com/api/predict_orbit/?sats=39159,39634&start=2018-02-26_15:00:00&end=2018-02-27_15:00:00&format=czml&type=orbit";
+    z->initRequester(url, 80, nullptr);
+
+    api::handleFunc getData = [this](const QJsonObject & o)
+    {
+        check = true;
+    };
+
+    api::handleFunc errData = [this](const QJsonObject & o)
+    {
+        check = false;
+    };
+
+    z->sendRequest(url, getData, errData);
+    QTest::qWait(100);
+
+    QCOMPARE(check, true);
+}
+
+void apiTestCase::test_case8()
+{
+
+}
+
+void apiTestCase::test_case9()
+{
+
+}
+
+void apiTestCase::test_case10()
+{
+
+}
 QTEST_MAIN(apiTestCase)
 
 #include "tst_apitestcase.moc"

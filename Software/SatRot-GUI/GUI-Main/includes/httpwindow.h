@@ -1,8 +1,7 @@
 #ifndef HTTPWINDOW_H
 #define HTTPWINDOW_H
 
-#include <QProgressDialog>
-#include <QNetworkAccessManager>
+#include <QtNetwork/QNetworkAccessManager>
 #include <QUrl>
 
 #include <memory>
