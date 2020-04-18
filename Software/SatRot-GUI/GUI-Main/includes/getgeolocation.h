@@ -1,7 +1,7 @@
 #ifndef GETGEOLOCATION_H
 #define GETGEOLOCATION_H
 
-#include "includes/api.h"
+#include "../includes/api.h"
 
 #include <QString>
 

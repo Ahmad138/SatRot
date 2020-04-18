@@ -1,11 +1,12 @@
-#include "includes/getgeolocation.h"
+#include "../includes/getgeolocation.h"
 
 GetGeoLocation::GetGeoLocation()
 {
 
 }
 
-QString GetGeoLocation::getPublicIp(){
+QString GetGeoLocation::getPublicIp()
+{
 //    api *b = new api();
 
 //   QString url = "jsonplaceholder.typicode.com";

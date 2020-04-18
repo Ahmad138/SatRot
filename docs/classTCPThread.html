@@ -27,11 +27,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="SatRot logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="SatRot logo_small_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SatRot - Taking Everyone to Space
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">SatRot is a very cheap, modular and smart satellite rotator. It has the ability to automatically and manually control a load device such as an antenna for satellite communications, solar panel to track sun, telescope to observe patch of the night sky and others. The construction materials are so cheap and easy to build that high school students can DIY build the system.</div>
   </td>
  </tr>
  </tbody>
@@ -93,22 +94,26 @@ $(document).ready(function(){initNavTree('classTCPThread.html','');});
 <p>[0]  
  <a href="classTCPThread.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="tcpthread_8h_source.html">tcpthread.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2tcpthread_8h_source.html">tcpthread.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TCPThread:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTCPThread__inherit__graph.png" border="0" usemap="#TCPThread_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
+<map name="TCPThread_inherit__map" id="TCPThread_inherit__map">
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for TCPThread:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTCPThread__coll__graph.png" border="0" usemap="#TCPThread_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 1 -->
+<map name="TCPThread_coll__map" id="TCPThread_coll__map">
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
+<tr class="memitem:a582a30cfbf6105741b2638990271863f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPThread.html#a582a30cfbf6105741b2638990271863f">error</a> (QTcpSocket::SocketError socketError)</td></tr>
+<tr class="separator:a582a30cfbf6105741b2638990271863f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a582a30cfbf6105741b2638990271863f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPThread.html#a582a30cfbf6105741b2638990271863f">error</a> (QTcpSocket::SocketError socketError)</td></tr>
 <tr class="separator:a582a30cfbf6105741b2638990271863f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -120,14 +125,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f78809c75e6355ec90e05c47fd2f6e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPThread.html#a3f78809c75e6355ec90e05c47fd2f6e6">run</a> () override</td></tr>
 <tr class="memdesc:a3f78809c75e6355ec90e05c47fd2f6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">[0]  <a href="#a3f78809c75e6355ec90e05c47fd2f6e6">More...</a><br /></td></tr>
 <tr class="separator:a3f78809c75e6355ec90e05c47fd2f6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f6df426c668c28309d294d8764a041"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPThread.html#a19f6df426c668c28309d294d8764a041">TCPThread</a> (int socketDescriptor, const QString &amp;tcp_line, QObject *parent)</td></tr>
+<tr class="separator:a19f6df426c668c28309d294d8764a041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f78809c75e6355ec90e05c47fd2f6e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTCPThread.html#a3f78809c75e6355ec90e05c47fd2f6e6">run</a> () override</td></tr>
+<tr class="separator:a3f78809c75e6355ec90e05c47fd2f6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>[0] </p>
 
-<p class="definition">Definition at line <a class="el" href="tcpthread_8h_source.html#l00008">8</a> of file <a class="el" href="tcpthread_8h_source.html">tcpthread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2tcpthread_8h_source.html#l00008">8</a> of file <a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2tcpthread_8h_source.html">tcpthread.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a19f6df426c668c28309d294d8764a041"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19f6df426c668c28309d294d8764a041">&#9670;&nbsp;</a></span>TCPThread()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f6df426c668c28309d294d8764a041">&#9670;&nbsp;</a></span>TCPThread() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,13 +169,55 @@ Public Member Functions</h2></td></tr>
 
 <p>[0] </p>
 
-<p class="definition">Definition at line <a class="el" href="tcpthread_8cpp_source.html#l00006">6</a> of file <a class="el" href="tcpthread_8cpp_source.html">tcpthread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2tcpthread_8cpp_source.html#l00006">6</a> of file <a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2tcpthread_8cpp_source.html">tcpthread.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a19f6df426c668c28309d294d8764a041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f6df426c668c28309d294d8764a041">&#9670;&nbsp;</a></span>TCPThread() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TCPThread::TCPThread </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>socketDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>tcp_line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socketDescriptor</td><td></td></tr>
+    <tr><td class="paramname">tcp_line</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a582a30cfbf6105741b2638990271863f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a582a30cfbf6105741b2638990271863f">&#9670;&nbsp;</a></span>error</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a582a30cfbf6105741b2638990271863f">&#9670;&nbsp;</a></span>error <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,10 +240,52 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="GUI-Main_2moc__tcpthread_8cpp_source.html#l00131">131</a> of file <a class="el" href="GUI-Main_2moc__tcpthread_8cpp_source.html">moc_tcpthread.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTCPThread_a582a30cfbf6105741b2638990271863f_icgraph.png" border="0" usemap="#classTCPThread_a582a30cfbf6105741b2638990271863f_icgraph" alt=""/></div>
+<map name="classTCPThread_a582a30cfbf6105741b2638990271863f_icgraph" id="classTCPThread_a582a30cfbf6105741b2638990271863f_icgraph">
+<area shape="rect" id="node2" href="classTCPThread.html#a3f78809c75e6355ec90e05c47fd2f6e6" title="[0] " alt="" coords="176,5,291,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a582a30cfbf6105741b2638990271863f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582a30cfbf6105741b2638990271863f">&#9670;&nbsp;</a></span>error <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TCPThread::error </td>
+          <td>(</td>
+          <td class="paramtype">QTcpSocket::SocketError&#160;</td>
+          <td class="paramname"><em>socketError</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socketError</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3f78809c75e6355ec90e05c47fd2f6e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f78809c75e6355ec90e05c47fd2f6e6">&#9670;&nbsp;</a></span>run()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f78809c75e6355ec90e05c47fd2f6e6">&#9670;&nbsp;</a></span>run() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,13 +313,39 @@ Public Member Functions</h2></td></tr>
 <p>[2] //! [3]</p>
 <p>[3] //! [4] </p>
 
-<p class="definition">Definition at line <a class="el" href="tcpthread_8cpp_source.html#l00013">13</a> of file <a class="el" href="tcpthread_8cpp_source.html">tcpthread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2tcpthread_8cpp_source.html#l00013">13</a> of file <a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2tcpthread_8cpp_source.html">tcpthread.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3f78809c75e6355ec90e05c47fd2f6e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f78809c75e6355ec90e05c47fd2f6e6">&#9670;&nbsp;</a></span>run() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TCPThread::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>GUI-Main/includes/<a class="el" href="tcpthread_8h_source.html">tcpthread.h</a></li>
-<li>GUI-Main/src/<a class="el" href="tcpthread_8cpp_source.html">tcpthread.cpp</a></li>
+<li>RotorDriver-GUI/RotorDriver/includes/<a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2tcpthread_8h_source.html">tcpthread.h</a></li>
+<li>Build/GUI-Main/<a class="el" href="GUI-Main_2moc__tcpthread_8cpp_source.html">moc_tcpthread.cpp</a></li>
+<li>RotorDriver-GUI/RotorDriver/src/<a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2tcpthread_8cpp_source.html">tcpthread.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

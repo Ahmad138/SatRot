@@ -1,13 +1,13 @@
-#include "includes/tlemodel.h"
+#include "../includes/tlemodel.h"
 
-TLEModel::TLEModel(QObject *parent) : QAbstractTableModel(parent)
+TLEModel::TLEModel(QObject* parent) : QAbstractTableModel(parent)
 {
 }
 
 // Create a method to populate the model with data:
-void TLEModel::populateData(const QList<QString> &satid,
-                            const QList<QString> &satname,
-                            const QList<QString> &tle)
+void TLEModel::populateData(const QList<QString>& satid,
+                            const QList<QString>& satname,
+                            const QList<QString>& tle)
 {
     tm_satid.clear();
     tm_satname.clear();
@@ -20,28 +20,34 @@ void TLEModel::populateData(const QList<QString> &satid,
     return;
 }
 
-int TLEModel::rowCount(const QModelIndex &parent) const
+int TLEModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return tm_satid.length();
 }
 
-int TLEModel::columnCount(const QModelIndex &parent) const
+int TLEModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return 3;
 }
 
-QVariant TLEModel::data(const QModelIndex &index, int role) const
+QVariant TLEModel::data(const QModelIndex& index, int role) const
 {
-    if (!index.isValid() || role != Qt::DisplayRole) {
+    if (!index.isValid() || role != Qt::DisplayRole)
+    {
         return QVariant();
     }
-    if (index.column() == 0) {
+    if (index.column() == 0)
+    {
         return tm_satid[index.row()];
-    } else if (index.column() == 1) {
+    }
+    else if (index.column() == 1)
+    {
         return tm_satname[index.row()];
-    } else if (index.column() == 2) {
+    }
+    else if (index.column() == 2)
+    {
         return tm_tle[index.row()];
     }
     return QVariant();
@@ -49,12 +55,18 @@ QVariant TLEModel::data(const QModelIndex &index, int role) const
 
 QVariant TLEModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        if (section == 0) {
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
+    {
+        if (section == 0)
+        {
             return QString("NORAD No");
-        } else if (section == 1) {
+        }
+        else if (section == 1)
+        {
             return QString("Satellite");
-        }else if (section == 2) {
+        }
+        else if (section == 2)
+        {
             return QString("TLE");
         }
     }
@@ -64,27 +76,27 @@ QVariant TLEModel::headerData(int section, Qt::Orientation orientation, int role
 void TLEModel::addItem(QString a, QString b, QString c)
 {
     int rw = tm_satid.length();
-    QModelIndex ndx = QAbstractTableModel::createIndex(rw,0);
+    QModelIndex ndx = QAbstractTableModel::createIndex(rw, 0);
     //cerr << "addItem" << ", exclVec.size "<< exclVec.size() << endl;
-    if (insertRows(rw,3,ndx))
+    if (insertRows(rw, 3, ndx))
     {
-        setData(QAbstractTableModel::index(rw-1,0),QVariant(a));
-        setData(QAbstractTableModel::index(rw-1,1),QVariant(b));
-        setData(QAbstractTableModel::index(rw-1,2),QVariant(c));
+        setData(QAbstractTableModel::index(rw - 1, 0), QVariant(a));
+        setData(QAbstractTableModel::index(rw - 1, 1), QVariant(b));
+        setData(QAbstractTableModel::index(rw - 1, 2), QVariant(c));
     }
 }
 
-bool TLEModel::insertRows(int row, int count, const QModelIndex & parent)
+bool TLEModel::insertRows(int row, int count, const QModelIndex& parent)
 {
-    bool bRet=false;
+    bool bRet = false;
     if (parent.isValid())
     {
         // we always insert at the end...
         //cerr << "insertRows" << ", exclVec.size "<< exclVec.size() << endl;
         emit layoutAboutToBeChanged();
-        beginInsertRows(parent,row,row+count-1);
+        beginInsertRows(parent, row, row + count - 1);
         int i;
-        for (i=0;i<count;i++)
+        for (i = 0; i < count; i++)
         {
 //            tm_satid.push_back("");
 //            tm_satname.push_back("");
@@ -93,26 +105,28 @@ bool TLEModel::insertRows(int row, int count, const QModelIndex & parent)
         //cerr << "end insertRows" << ", exclVec.size "<< exclVec.size() << endl;
         endInsertRows();
         emit layoutChanged();
-        bRet=true;
+        bRet = true;
     }
     return bRet;
 }
 
-void TLEModel::clearTable(){
+void TLEModel::clearTable()
+{
     int rw = tm_satid.length();
-    QModelIndex ndx = QAbstractTableModel::createIndex(rw,0);
+    QModelIndex ndx = QAbstractTableModel::createIndex(rw, 0);
     removeRows(rw, 3, ndx);
 }
 
-bool TLEModel::removeRows(int row, int count, const QModelIndex &parent)
- {
-     beginRemoveRows(parent, row, row+count-1);
-     //remove rows from underlying data
-     for (int i = 0; i < count; ++i) {
-             tm_satid.clear();
-             tm_satname.clear();
-             tm_tle.clear();
-         }
-     endRemoveRows();
-     return true;
- }
+bool TLEModel::removeRows(int row, int count, const QModelIndex& parent)
+{
+    beginRemoveRows(parent, row, row + count - 1);
+    //remove rows from underlying data
+    for (int i = 0; i < count; ++i)
+    {
+        tm_satid.clear();
+        tm_satname.clear();
+        tm_tle.clear();
+    }
+    endRemoveRows();
+    return true;
+}

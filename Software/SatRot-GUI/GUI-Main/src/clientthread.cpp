@@ -1,4 +1,4 @@
-#include "includes/clientthread.h"
+#include "../includes/clientthread.h"
 
 #include <QStandardItemModel>
 #include <QInputDialog>

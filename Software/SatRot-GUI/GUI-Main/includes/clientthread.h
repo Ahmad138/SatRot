@@ -1,7 +1,7 @@
 #ifndef CLIENTTHREAD_H
 #define CLIENTTHREAD_H
 
-#include "includes/tcpclient.h"
+#include "../includes/tcpclient.h"
 
 #include <QObject>
 #include <QAbstractSocket>

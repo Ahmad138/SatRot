@@ -1,4 +1,31 @@
 var classTCPClient =
 [
-    [ "TCPClient", "classTCPClient.html#afa277a5634d24316a9ea9c22879a8813", null ]
+    [ "TCPClient", "classTCPClient.html#a2c268dae3253635894728162ddef557a", null ],
+    [ "TCPClient", "classTCPClient.html#a2c268dae3253635894728162ddef557a", null ],
+    [ "connected", "classTCPClient.html#af9cb581e63f94abbb8c0117c17f252bd", null ],
+    [ "connected", "classTCPClient.html#af9cb581e63f94abbb8c0117c17f252bd", null ],
+    [ "connectToServer", "classTCPClient.html#aa7b2c1d927b954f0e6e0feb13c447a61", null ],
+    [ "connectToServer", "classTCPClient.html#aa7b2c1d927b954f0e6e0feb13c447a61", null ],
+    [ "disconnected", "classTCPClient.html#a6d7c40735979ee6a5788ad5813b93d14", null ],
+    [ "disconnected", "classTCPClient.html#a6d7c40735979ee6a5788ad5813b93d14", null ],
+    [ "disconnectFromHost", "classTCPClient.html#a90450d308618c7ead92e946d173d1bc2", null ],
+    [ "disconnectFromHost", "classTCPClient.html#a90450d308618c7ead92e946d173d1bc2", null ],
+    [ "error", "classTCPClient.html#a8d2ac91529f9dd88818b7b1ca265d975", null ],
+    [ "error", "classTCPClient.html#a8d2ac91529f9dd88818b7b1ca265d975", null ],
+    [ "loggedIn", "classTCPClient.html#a0e780d07d33d9e86c1b9804428355d06", null ],
+    [ "loggedIn", "classTCPClient.html#a0e780d07d33d9e86c1b9804428355d06", null ],
+    [ "login", "classTCPClient.html#a1223f17c35683c78186f66b24296cea4", null ],
+    [ "login", "classTCPClient.html#a1223f17c35683c78186f66b24296cea4", null ],
+    [ "loginError", "classTCPClient.html#a3dcd6cc23bc5c229ec648b35012c9533", null ],
+    [ "loginError", "classTCPClient.html#a3dcd6cc23bc5c229ec648b35012c9533", null ],
+    [ "messageReceived", "classTCPClient.html#ad2c0c634eb37a08c65e5545642af2a0e", null ],
+    [ "messageReceived", "classTCPClient.html#ad2c0c634eb37a08c65e5545642af2a0e", null ],
+    [ "sendMessage", "classTCPClient.html#aa9b17560c0541f8e6d6a827d93802e3f", null ],
+    [ "sendMessage", "classTCPClient.html#aa9b17560c0541f8e6d6a827d93802e3f", null ],
+    [ "sendTrackingDetails", "classTCPClient.html#af039e584125912715c7eb7b095e168d7", null ],
+    [ "sendTrackingDetails", "classTCPClient.html#af039e584125912715c7eb7b095e168d7", null ],
+    [ "userJoined", "classTCPClient.html#a1db453ba6cc7cae3e1ce198aa137baf1", null ],
+    [ "userJoined", "classTCPClient.html#a1db453ba6cc7cae3e1ce198aa137baf1", null ],
+    [ "userLeft", "classTCPClient.html#ac23819654a04521dda35667345b31ab0", null ],
+    [ "userLeft", "classTCPClient.html#ac23819654a04521dda35667345b31ab0", null ]
 ];

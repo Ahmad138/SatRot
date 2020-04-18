@@ -1,8 +1,8 @@
-#include "includes/digitalclock.h"
+#include "../includes/digitalclock.h"
 
 DigitalClock::DigitalClock(QWidget)
 {
-    QTimer *timer = new QTimer(this);
+    QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &DigitalClock::showTime);
     timer->start(1000);
 

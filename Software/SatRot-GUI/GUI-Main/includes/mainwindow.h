@@ -6,21 +6,23 @@
 #include <iostream>
 #include <QDir>
 #include <QStandardPaths>
+#include <QTime>
+#include <QTimer>
 
-#include "includes/api.h"
-#include "includes/tcpserver.h"
-#include "includes/tcpclient.h"
-#include "includes/testmodel.h"
-#include "includes/customlistmodel.h"
-#include "includes/satellitelist.h"
-#include "includes/digitalclock.h"
-#include "includes/getgeolocation.h"
-#include "includes/httpwindow.h"
-#include "includes/positionmodel.h"
-#include "includes/visualpassmodel.h"
-#include "includes/radiopassmodel.h"
-#include "includes/tlemodel.h"
-#include "includes/customdialog.h"
+#include "../includes/api.h"
+#include "../includes/tcpserver.h"
+#include "../includes/tcpclient.h"
+//#include "../includes/testmodel.h"
+#include "../includes/customlistmodel.h"
+#include "../includes/satellitelist.h"
+//#include "../includes/digitalclock.h"
+#include "../includes/getgeolocation.h"
+#include "../includes/httpwindow.h"
+#include "../includes/positionmodel.h"
+#include "../includes/visualpassmodel.h"
+#include "../includes/radiopassmodel.h"
+#include "../includes/tlemodel.h"
+#include "../includes/customdialog.h"
 
 // this_thread::sleep_for example
 #include <iostream>       // std::cout

@@ -1,0 +1,16 @@
+<map id="SatRot&#45;GUI/GUI&#45;Main/includes/mainwindow.h" name="SatRot&#45;GUI/GUI&#45;Main/includes/mainwindow.h">
+<area shape="rect" id="node7" href="$SatRot-GUI_2GUI-Main_2includes_2api_8h.html" title="../includes/api.h" alt="" coords="496,169,611,196"/>
+<area shape="rect" id="node16" href="$SatRot-GUI_2GUI-Main_2includes_2tcpserver_8h.html" title="../includes/tcpserver.h" alt="" coords="731,95,882,121"/>
+<area shape="rect" id="node19" href="$SatRot-GUI_2GUI-Main_2includes_2tcpclient_8h.html" title="../includes/tcpclient.h" alt="" coords="907,95,1053,121"/>
+<area shape="rect" id="node21" href="$testmodel_8h.html" title="../includes/testmodel.h" alt="" coords="2285,95,2440,121"/>
+<area shape="rect" id="node23" href="$customlistmodel_8h.html" title="../includes/customlistmodel.h" alt="" coords="1128,95,1320,121"/>
+<area shape="rect" id="node30" href="$satellitelist_8h.html" title="../includes/satellitelist.h" alt="" coords="1345,95,1503,121"/>
+<area shape="rect" id="node32" href="$digitalclock_8h.html" title="../includes/digitalclock.h" alt="" coords="1528,95,1691,121"/>
+<area shape="rect" id="node35" href="$getgeolocation_8h.html" title="../includes/getgeolocation.h" alt="" coords="525,95,707,121"/>
+<area shape="rect" id="node36" href="$httpwindow_8h.html" title="../includes/httpwindow.h" alt="" coords="1928,95,2091,121"/>
+<area shape="rect" id="node37" href="$positionmodel_8h.html" title="../includes/positionmodel.h" alt="" coords="2465,95,2642,121"/>
+<area shape="rect" id="node38" href="$visualpassmodel_8h.html" title="../includes/visualpassmodel.h" alt="" coords="2667,95,2861,121"/>
+<area shape="rect" id="node39" href="$radiopassmodel_8h.html" title="../includes/radiopassmodel.h" alt="" coords="1715,95,1903,121"/>
+<area shape="rect" id="node40" href="$tlemodel_8h.html" title="../includes/tlemodel.h" alt="" coords="2115,95,2261,121"/>
+<area shape="rect" id="node41" href="$SatRot-GUI_2GUI-Main_2includes_2customdialog_8h.html" title="../includes/customdialog.h" alt="" coords="2886,95,3061,121"/>
+</map>
