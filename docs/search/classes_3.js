@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getgeolocation',['GetGeoLocation',['../classGetGeoLocation.html',1,'']]]
+  ['digitalclock',['DigitalClock',['../classDigitalClock.html',1,'']]],
+  ['drivertestcase',['driverTestCase',['../classdriverTestCase.html',1,'']]]
 ];

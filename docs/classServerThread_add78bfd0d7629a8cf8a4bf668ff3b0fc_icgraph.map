@@ -1,0 +1,6 @@
+<map id="ServerThread::jsonReceived" name="ServerThread::jsonReceived">
+<area shape="rect" id="node2" href="$classServerThread.html#a24cd06cf3b4d90ad2f3d71847da5e861" title="ServerThread::setUserName" alt="" coords="252,5,441,32"/>
+<area shape="rect" id="node5" href="$classTCPServer.html#af1df9d80f25034148ed588e7fa2d4ab7" title="TCPServer::incomingConnection" alt="" coords="240,56,453,83"/>
+<area shape="rect" id="node3" href="$classTCPServer.html#ade0635052b5b82999afb1af93efaf037" title="TCPServer::stopServer" alt="" coords="501,5,660,32"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="708,5,896,32"/>
+</map>

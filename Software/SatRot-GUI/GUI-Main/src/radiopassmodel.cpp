@@ -1,23 +1,23 @@
-#include "includes/radiopassmodel.h"
+#include "../includes/radiopassmodel.h"
 
-RadioPassModel::RadioPassModel(QObject *parent) : QAbstractTableModel(parent)
+RadioPassModel::RadioPassModel(QObject* parent) : QAbstractTableModel(parent)
 {
 }
 
 // Create a method to populate the model with data:
-void RadioPassModel::populateData(const QList<QString> &satid,
-                                  const QList<QString> &satname,
-                                  const QList<QString> &passescount,
-                                  const QList<QString> &startUTC,
-                                  const QList<QString> &startAz,
-                                  const QList<QString> &maxUTC,
-                                  const QList<QString> &maxAz,
-                                  const QList<QString> &maxEl,
-                                  const QList<QString> &endAz,
-                                  const QList<QString> &endUTC,
-                                  const QList<QString> &startAzCompass,
-                                  const QList<QString> &maxAzCompass,
-                                  const QList<QString> &endAzCompass)
+void RadioPassModel::populateData(const QList<QString>& satid,
+                                  const QList<QString>& satname,
+                                  const QList<QString>& passescount,
+                                  const QList<QString>& startUTC,
+                                  const QList<QString>& startAz,
+                                  const QList<QString>& maxUTC,
+                                  const QList<QString>& maxAz,
+                                  const QList<QString>& maxEl,
+                                  const QList<QString>& endAz,
+                                  const QList<QString>& endUTC,
+                                  const QList<QString>& startAzCompass,
+                                  const QList<QString>& maxAzCompass,
+                                  const QList<QString>& endAzCompass)
 {
     tm_satid.clear();
     tm_satname.clear();
@@ -50,48 +50,74 @@ void RadioPassModel::populateData(const QList<QString> &satid,
     return;
 }
 
-int RadioPassModel::rowCount(const QModelIndex &parent) const
+int RadioPassModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return tm_satid.length();
 }
 
-int RadioPassModel::columnCount(const QModelIndex &parent) const
+int RadioPassModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return 13;
 }
 
-QVariant RadioPassModel::data(const QModelIndex &index, int role) const
+QVariant RadioPassModel::data(const QModelIndex& index, int role) const
 {
-    if (!index.isValid() || role != Qt::DisplayRole) {
+    if (!index.isValid() || role != Qt::DisplayRole)
+    {
         return QVariant();
     }
-    if (index.column() == 0) {
+    if (index.column() == 0)
+    {
         return tm_satid[index.row()];
-    } else if (index.column() == 1) {
+    }
+    else if (index.column() == 1)
+    {
         return tm_satname[index.row()];
-    } else if (index.column() == 2) {
+    }
+    else if (index.column() == 2)
+    {
         return tm_passescount[index.row()];
-    } else if (index.column() == 3) {
+    }
+    else if (index.column() == 3)
+    {
         return tm_startUTC[index.row()];
-    } else if (index.column() == 4) {
+    }
+    else if (index.column() == 4)
+    {
         return tm_startAz[index.row()];
-    } else if (index.column() == 5) {
+    }
+    else if (index.column() == 5)
+    {
         return tm_maxUTC[index.row()];
-    } else if (index.column() == 6) {
+    }
+    else if (index.column() == 6)
+    {
         return tm_maxAz[index.row()];
-    } else if (index.column() == 7) {
+    }
+    else if (index.column() == 7)
+    {
         return tm_maxEl[index.row()];
-    } else if (index.column() == 8) {
+    }
+    else if (index.column() == 8)
+    {
         return tm_endAz[index.row()];
-    } else if (index.column() == 9) {
+    }
+    else if (index.column() == 9)
+    {
         return tm_endUTC[index.row()];
-    } else if (index.column() == 10) {
+    }
+    else if (index.column() == 10)
+    {
         return tm_startAzCompass[index.row()];
-    } else if (index.column() == 11) {
+    }
+    else if (index.column() == 11)
+    {
         return tm_maxAzCompass[index.row()];
-    } else if (index.column() == 12) {
+    }
+    else if (index.column() == 12)
+    {
         return tm_endAzCompass[index.row()];
     }
     return QVariant();
@@ -99,32 +125,58 @@ QVariant RadioPassModel::data(const QModelIndex &index, int role) const
 
 QVariant RadioPassModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        if (section == 0) {
+    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
+    {
+        if (section == 0)
+        {
             return QString("NORAD No");
-        } else if (section == 1) {
+        }
+        else if (section == 1)
+        {
             return QString("Satellite");
-        }else if (section == 2) {
+        }
+        else if (section == 2)
+        {
             return QString("Pass Count");
-        }else if (section == 3) {
+        }
+        else if (section == 3)
+        {
             return QString("Start UTC");
-        }else if (section == 4) {
+        }
+        else if (section == 4)
+        {
             return QString("Start Az");
-        }else if (section == 5) {
+        }
+        else if (section == 5)
+        {
             return QString("Max UTC");
-        }else if (section == 6) {
+        }
+        else if (section == 6)
+        {
             return QString("Max Az");
-        }else if (section == 7) {
+        }
+        else if (section == 7)
+        {
             return QString("Max El");
-        }else if (section == 8) {
+        }
+        else if (section == 8)
+        {
             return QString("End UTC");
-        }else if (section == 9) {
+        }
+        else if (section == 9)
+        {
             return QString("End Az");
-        }else if (section == 10) {
+        }
+        else if (section == 10)
+        {
             return QString("Start Az Compass");
-        }else if (section == 11) {
+        }
+        else if (section == 11)
+        {
             return QString("Max Az Compass");
-        }else if (section == 12) {
+        }
+        else if (section == 12)
+        {
             return QString("End Az Compass");
         }
     }
@@ -146,37 +198,37 @@ void RadioPassModel::addItem(QString a,
                              QString m)
 {
     int rw = tm_satid.length();
-    QModelIndex ndx = QAbstractTableModel::createIndex(rw,0);
+    QModelIndex ndx = QAbstractTableModel::createIndex(rw, 0);
     //cerr << "addItem" << ", exclVec.size "<< exclVec.size() << endl;
-    if (insertRows(rw,13,ndx))
+    if (insertRows(rw, 13, ndx))
     {
-        setData(QAbstractTableModel::index(rw-1,0),QVariant(a));
-        setData(QAbstractTableModel::index(rw-1,1),QVariant(b));
-        setData(QAbstractTableModel::index(rw-1,2),QVariant(c));
-        setData(QAbstractTableModel::index(rw-1,3),QVariant(d));
-        setData(QAbstractTableModel::index(rw-1,4),QVariant(e));
-        setData(QAbstractTableModel::index(rw-1,5),QVariant(f));
-        setData(QAbstractTableModel::index(rw-1,6),QVariant(g));
-        setData(QAbstractTableModel::index(rw-1,7),QVariant(h));
-        setData(QAbstractTableModel::index(rw-1,8),QVariant(i));
-        setData(QAbstractTableModel::index(rw-1,9),QVariant(j));
-        setData(QAbstractTableModel::index(rw-1,10),QVariant(k));
-        setData(QAbstractTableModel::index(rw-1,11),QVariant(l));
-        setData(QAbstractTableModel::index(rw-1,12),QVariant(m));
+        setData(QAbstractTableModel::index(rw - 1, 0), QVariant(a));
+        setData(QAbstractTableModel::index(rw - 1, 1), QVariant(b));
+        setData(QAbstractTableModel::index(rw - 1, 2), QVariant(c));
+        setData(QAbstractTableModel::index(rw - 1, 3), QVariant(d));
+        setData(QAbstractTableModel::index(rw - 1, 4), QVariant(e));
+        setData(QAbstractTableModel::index(rw - 1, 5), QVariant(f));
+        setData(QAbstractTableModel::index(rw - 1, 6), QVariant(g));
+        setData(QAbstractTableModel::index(rw - 1, 7), QVariant(h));
+        setData(QAbstractTableModel::index(rw - 1, 8), QVariant(i));
+        setData(QAbstractTableModel::index(rw - 1, 9), QVariant(j));
+        setData(QAbstractTableModel::index(rw - 1, 10), QVariant(k));
+        setData(QAbstractTableModel::index(rw - 1, 11), QVariant(l));
+        setData(QAbstractTableModel::index(rw - 1, 12), QVariant(m));
     }
 }
 
-bool RadioPassModel::insertRows(int row, int count, const QModelIndex & parent)
+bool RadioPassModel::insertRows(int row, int count, const QModelIndex& parent)
 {
-    bool bRet=false;
+    bool bRet = false;
     if (parent.isValid())
     {
         // we always insert at the end...
         //cerr << "insertRows" << ", exclVec.size "<< exclVec.size() << endl;
         emit layoutAboutToBeChanged();
-        beginInsertRows(parent,row,row+count-1);
+        beginInsertRows(parent, row, row + count - 1);
         int i;
-        for (i=0;i<count;i++)
+        for (i = 0; i < count; i++)
         {
             //            tm_satid.push_back("");
             //            tm_satname.push_back("");
@@ -185,22 +237,24 @@ bool RadioPassModel::insertRows(int row, int count, const QModelIndex & parent)
         //cerr << "end insertRows" << ", exclVec.size "<< exclVec.size() << endl;
         endInsertRows();
         emit layoutChanged();
-        bRet=true;
+        bRet = true;
     }
     return bRet;
 }
 
-void RadioPassModel::clearTable(){
+void RadioPassModel::clearTable()
+{
     int rw = tm_satid.length();
-    QModelIndex ndx = QAbstractTableModel::createIndex(rw,0);
+    QModelIndex ndx = QAbstractTableModel::createIndex(rw, 0);
     removeRows(rw, 13, ndx);
 }
 
-bool RadioPassModel::removeRows(int row, int count, const QModelIndex &parent)
+bool RadioPassModel::removeRows(int row, int count, const QModelIndex& parent)
 {
-    beginRemoveRows(parent, row, row+count-1);
+    beginRemoveRows(parent, row, row + count - 1);
     //remove rows from underlying data
-    for (int i = 0; i < count; ++i) {
+    for (int i = 0; i < count; ++i)
+    {
         tm_satid.clear();
         tm_satname.clear();
         tm_passescount.clear();

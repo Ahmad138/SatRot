@@ -37,9 +37,9 @@ SOURCES += \
         src/mainwindow.cpp \
     	src/tcpsockets.cpp \
 	src/api.cpp \
-#        src/stepperdriver.cpp \
+        src/stepperdriver.cpp \
         src/raspgpio.cpp \
-#        src/blink.cpp \
+        src/blink.cpp \
         src/helper.cpp \
 	src/tcpclient.cpp \
 	src/tcpserver.cpp \
@@ -53,9 +53,9 @@ HEADERS += \
         includes/mainwindow.h \
     	includes/tcpsockets.h \
 	includes/api.h \
-#        includes/stepperdriver.h \
+        includes/stepperdriver.h \
         includes/raspgpio.h \
-#        includes/blink.h \
+        includes/blink.h \
         includes/helper.h \
 	includes/tcpclient.h \
 	includes/tcpserver.h \

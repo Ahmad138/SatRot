@@ -1,4 +1,4 @@
-#include "includes/mainwindow.h"
+#include "../includes/mainwindow.h"
 #include "ui_mainwindow.h"
 
 /***********TCPClient***********/
@@ -124,9 +124,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
 
-    QTimer* timerT = new QTimer(this);
-    connect(timerT, SIGNAL(timeout()), this, SLOT(tableTimer()));
-    timerT->start(250);
+    //QTimer* timerT = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(tableTimer()));
+    //timerT->start(250);
 
     ui->statusbar->showMessage("Done.");
 }
@@ -1458,17 +1458,27 @@ void MainWindow::penWidth()
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About Satrot"),
-                       tr("<p><b>Satrot</b> example shows how to use QMainWindow as the "
-                          "base widget for an application, and how to reimplement some of "
-                          "QWidget's event handlers to receive the events generated for "
-                          "the application's widgets:</p><p> We reimplement the mouse event "
-                          "handlers to facilitate drawing, the paint event handler to "
-                          "update the application and the resize event handler to optimize "
-                          "the application's appearance. In addition we reimplement the "
-                          "close event handler to intercept the close events before "
-                          "terminating the application.</p><p> The example also demonstrates "
-                          "how to use QPainter to draw an image in real time, as well as "
-                          "to repaint widgets.</p>"));
+                       tr("<p><b>SatRot</b> is a very cheap, modular and smart satellite rotator. "
+                          "It has the ability to automatically and manually control a load "
+                          "device such as an antenna for satellite communications, "
+                          "solar panel to track sun, telescope to observe patch of the night sky and others. "
+                          "The construction materials are so cheap and easy to build that "
+                          "high school students can DIY build the system.</p>"
+                          "<p>The GUI has 2 main modes. A manual mode that a user can use to "
+                          "manually track a celestrial body using a mouse on the system. "
+                          "this provides a solid flexiblity for serach and observation of the sky. "
+                          "The second mode is the automatic mode. This mode allows the user "
+                          "to set a satellite to track whenever the satellite comes into view. "
+                          "This can be used to automatically transmit or receive information "
+                          "from satellite when it rises and before setting. "
+                          "This uses a kernal interrupt so as not to monopolize CPU resources. "
+                          "Ability to search and predict which and when satellites are coming over "
+                          "your location anywhere on earth.</p> <br/>"
+                          "<p><b>Authors</b><br />"
+                          "Ahmad Muhammad - <a href=\"https://github.com/Ahmad138\">Github</a><br />"
+                          "Mohamed Salih - <a href=\"https://github.com/sonOFsalah-2425778\">Github</a><br />"
+                          "Mohamed Salim - <a href=\"https://github.com/2302420a\">Github</a><br />"
+                          "</p>"));
 }
 
 /**
@@ -1478,9 +1488,16 @@ void MainWindow::about()
 void MainWindow::documentation()
 {
     QMessageBox::information(this, tr("Satrot Documentation"),
-                             tr("<p><b>Satrot</b> visit our gitub wiki page and website for full documantation."
-                                "<a href=\"https://github.com/Ahmad138/SatRot/wiki\">Github Page</a>"
-                                "<a href=\"#\">Website</a>"
+                             tr("<p><b>Satrot</b> visit our gitub wiki page and website for full documantation. This "
+                                "covers everything from how to use the program and device, to how to replicate the entire"
+                                "project. You can like and follow us on social media to get more info and ask us questions directly.</p>"
+                                "<p><a href=\"https://github.com/Ahmad138/SatRot/wiki\">Github Page</a></p>"
+                                "<p><a href=\"https://5e8b5de29b512.site123.me/\">Website</a></p>"
+                                "<p><a href=\"https://www.twitter.com/sat_rot\">Twitter</a></p>"
+                                "<p><a href=\"https://www.facebook.com/SatRot-109843980689069\">Facebook</a></p>"
+                                "<p><a href=\"https://www.instagram.com/sat_rot/\">Instagram</a></p>"
+                                "<p><a href=\"https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw\">Youtube</a></p>"
+                                "<p><a href=\"#\">Hackaday</a></p>"
                                 ""
                                 "</p>"));
 }

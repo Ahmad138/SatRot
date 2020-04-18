@@ -27,11 +27,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="SatRot logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="SatRot logo_small_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SatRot - Taking Everyone to Space
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">SatRot is a very cheap, modular and smart satellite rotator. It has the ability to automatically and manually control a load device such as an antenna for satellite communications, solar panel to track sun, telescope to observe patch of the night sky and others. The construction materials are so cheap and easy to build that high school students can DIY build the system.</div>
   </td>
  </tr>
  </tbody>
@@ -94,13 +95,15 @@ $(document).ready(function(){initNavTree('classTestModel.html','');});
 Inheritance diagram for TestModel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTestModel__inherit__graph.png" border="0" usemap="#TestModel_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
+<map name="TestModel_inherit__map" id="TestModel_inherit__map">
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for TestModel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTestModel__coll__graph.png" border="0" usemap="#TestModel_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 1 -->
+<map name="TestModel_coll__map" id="TestModel_coll__map">
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -120,7 +123,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="testmodel_8h_source.html#l00006">6</a> of file <a class="el" href="testmodel_8h_source.html">testmodel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="testmodel_8h_source.html#l00010">10</a> of file <a class="el" href="testmodel_8h_source.html">testmodel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a76c4aeafddf24c022f37cbb91e2655fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76c4aeafddf24c022f37cbb91e2655fb">&#9670;&nbsp;</a></span>TestModel()</h2>
@@ -137,6 +140,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00003">3</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
@@ -158,6 +167,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00023">23</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
@@ -188,6 +204,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>QVariant </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00029">29</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
@@ -224,8 +248,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">section</td><td></td></tr>
+    <tr><td class="paramname">orientation</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>QVariant </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00042">42</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00046">46</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,6 +287,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">contactName</td><td></td></tr>
+    <tr><td class="paramname">contactPhone</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00008">8</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
@@ -274,14 +314,21 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="testmodel_8cpp_source.html#l00017">17</a> of file <a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>GUI-Main/includes/<a class="el" href="testmodel_8h_source.html">testmodel.h</a></li>
-<li>GUI-Main/src/<a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a></li>
+<li>SatRot-GUI/GUI-Main/includes/<a class="el" href="testmodel_8h_source.html">testmodel.h</a></li>
+<li>SatRot-GUI/GUI-Main/src/<a class="el" href="testmodel_8cpp_source.html">testmodel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

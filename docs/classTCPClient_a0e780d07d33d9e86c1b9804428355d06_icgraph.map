@@ -1,0 +1,6 @@
+<map id="TCPClient::loggedIn" name="TCPClient::loggedIn">
+<area shape="rect" id="node2" href="$classClientThread.html#a53a2ede2fd3ec0c7dba735e77afc06ee" title="ClientThread::ClientThread" alt="" coords="210,5,389,32"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="MainWindow::MainWindow" alt="" coords="209,56,389,83"/>
+<area shape="rect" id="node4" href="$classTCPClient.html#a90450d308618c7ead92e946d173d1bc2" title="TCPClient::disconnectFromHost" alt="" coords="193,107,405,133"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="453,107,641,133"/>
+</map>
