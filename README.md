@@ -134,6 +134,9 @@ cd build/apiTest
 make check
 
 ```
+
+NB: If you are facing issues building using 'make', look at this [issue](https://github.com/Ahmad138/SatRot/issues/61) and see if it applies to you. if not, open a new issue and ask for help.
+
 ### Use
 
 ### Maintain
