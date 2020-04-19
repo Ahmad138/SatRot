@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getgeolocation',['GetGeoLocation',['../classGetGeoLocation.html',1,'']]]
+  ['filedownloadtest',['fileDownloadTest',['../classfileDownloadTest.html',1,'']]],
+  ['filetest',['fileTest',['../classfileTest.html',1,'']]]
 ];

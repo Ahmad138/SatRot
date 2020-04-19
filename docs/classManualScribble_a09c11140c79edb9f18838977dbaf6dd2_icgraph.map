@@ -1,4 +1,4 @@
 <map id="ManualScribble::clearImage" name="ManualScribble::clearImage">
-<area shape="rect" id="node2" href="$classMainWindow.html#a05fb9d72c044aa3bb7d187b994704e2f" title="MainWindow::closeEvent" alt="" coords="459,5,629,32"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a05fb9d72c044aa3bb7d187b994704e2f" title="This listens to the close event and overrides. " alt="" coords="459,5,629,32"/>
 <area shape="rect" id="node3" href="$classManualScribble.html#a509bd85f10f07e7eb42dbb3080344503" title="ManualScribble::penWidth" alt="" coords="236,31,411,57"/>
 </map>

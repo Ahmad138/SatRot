@@ -5,12 +5,6 @@ CustomListModel::CustomListModel(QObject* parent):
 {
 }
 
-CustomListModel::CustomListModel(const QStringList& strings, QObject* parent):
-    QStringListModel(strings, parent)
-{
-
-}
-
 Qt::ItemFlags CustomListModel::flags(const QModelIndex& index) const
 {
     Qt::ItemFlags defaultFlags = QStringListModel::flags(index);
@@ -72,12 +66,12 @@ QVariant CustomListModel::headerData(int section, Qt::Orientation orientation, i
 
 void CustomListModel::save()
 {
-    QFile file("required_components.txt");
+    QFile file("Satellites.txt");
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
 
     QTextStream out(&file);
-    out << "Required components:" << "\n";
+    out << "Satellite Lists:" << "\n";
     foreach (QPersistentModelIndex index, checkedItems)
     {
         QString s = index.data().toString();
@@ -92,15 +86,6 @@ void CustomListModel::save()
 
     }
 
-
-//    QFile file("required_components.txt");
-//    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-//        return;
-
-//    QTextStream out(&file);
-//    out << "Required components:" << "\n";
-//    foreach(QPersistentModelIndex index, checkedItems)
-//        out << index.data().toString() << "\n";
 }
 
 QString CustomListModel::getNORAD()

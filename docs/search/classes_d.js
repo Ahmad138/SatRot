@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visualpassmodel',['VisualPassModel',['../classVisualPassModel.html',1,'']]]
+  ['ui_5fmainwindow',['Ui_MainWindow',['../classUi__MainWindow.html',1,'']]]
 ];

@@ -20,8 +20,8 @@
    <string>SatRot</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../Documents/Images/Logo/SatRot logo.png</normaloff>../../../../Documents/Images/Logo/SatRot logo.png</iconset>
+   <iconset resource="../res/SatrotResources.qrc">
+    <normaloff>:/img/img/logo.png</normaloff>:/img/img/logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -91,73 +91,6 @@
                   <height>0</height>
                  </size>
                 </property>
-                <widget class="QWidget" name="layoutWidget">
-                 <property name="geometry">
-                  <rect>
-                   <x>10</x>
-                   <y>30</y>
-                   <width>163</width>
-                   <height>112</height>
-                  </rect>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_4">
-                  <item>
-                   <widget class="QLabel" name="label">
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton">
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QListView" name="chatView">
-                 <property name="geometry">
-                  <rect>
-                   <x>230</x>
-                   <y>30</y>
-                   <width>171</width>
-                   <height>131</height>
-                  </rect>
-                 </property>
-                 <property name="editTriggers">
-                  <set>QAbstractItemView::NoEditTriggers</set>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="logo">
-                 <property name="geometry">
-                  <rect>
-                   <x>470</x>
-                   <y>234</y>
-                   <width>100</width>
-                   <height>221</height>
-                  </rect>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>110</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>../res/img/SatRot logo2.png</pixmap>
-                 </property>
-                </widget>
                </widget>
               </item>
              </layout>
@@ -612,7 +545,7 @@
             </size>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="tab_3">
             <attribute name="title">
@@ -1109,6 +1042,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../res/SatrotResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

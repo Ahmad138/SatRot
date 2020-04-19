@@ -1,5 +1,6 @@
 <map id="api::initRequester" name="api::initRequester">
 <area shape="rect" id="node2" href="$classTimeKeeperWorker.html#af6feb0af05eb58639534cbe881f175ca" title="TimeKeeperWorker::getSatPos" alt="" coords="177,13,380,39"/>
 <area shape="rect" id="node4" href="$classapiTestCase.html#a3e844776738fed618798d75198a9357d" title="apiTestCase::apiTestCase" alt="" coords="189,63,368,90"/>
+<area shape="rect" id="node5" href="$classapiTestCase.html#a044e875d056c933ffa0af3c0e2153dc6" title="apiTestCase::~apiTestCase" alt="" coords="185,114,372,141"/>
 <area shape="rect" id="node3" href="$classTimeKeeperWorker.html#a72e4077446084b3367c8bee4c8635bfc" title="TimeKeeperWorker::TimeKeeper\lWorker" alt="" coords="428,5,640,47"/>
 </map>

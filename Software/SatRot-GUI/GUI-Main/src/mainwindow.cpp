@@ -26,8 +26,7 @@ MainWindow::MainWindow(QWidget* parent)
     , ui(new Ui::MainWindow)
     , m_TCPServer(new TCPServer(this)) // create the network server
     , m_TCPClient(new TCPClient(this)) // create the network client
-    , m_chatModel(new QStandardItemModel(this)) // create the model to hold the messages
-    , MScribble(new ManualScribble(this))
+    , MScribble(new ManualScribble(this)) // create the manual scribble area for manual control
 {
     ui->setupUi(this);
 
@@ -47,7 +46,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     MScribble->setMinimumSize(500, 500);
     MScribble->setMaximumSize(500, 500);
-    //
+
     ui->horizontalLayout_10->addWidget(MScribble);
 
     MScribble->openImage(radarFileName);
@@ -59,9 +58,6 @@ MainWindow::MainWindow(QWidget* parent)
     //init labels
     ui->Az->setText("Az: 0.00°");
     ui->El->setText("El: 0.00°");
-
-    QImage logo(":/img/img/logo.png");
-    ui->logo->setPixmap(QPixmap::fromImage(logo));
 
     ui->sat->addItems(sl.getList());
 
@@ -75,7 +71,6 @@ MainWindow::MainWindow(QWidget* parent)
 
     //client function connections
     /***********TCPClient***********/
-    ui->chatView->setModel(m_chatModel);
     // connect the signals from the chat client to the slots in this ui
     connect(m_TCPClient, &TCPClient::connected, this, &MainWindow::connectedToServer);
     connect(m_TCPClient, &TCPClient::loggedIn, this, &MainWindow::loggedIn);
@@ -97,7 +92,6 @@ MainWindow::MainWindow(QWidget* parent)
     // disable the ui to send and display messages
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
-    ui->chatView->setEnabled(false);
     // enable the button to connect to the server again
     ui->connectButton->setEnabled(true);
     // reset the last printed username
@@ -117,6 +111,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QTimer* timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(tableTimer()));
     timer->start(250);
 
     on_pushButton_6_clicked();
@@ -124,56 +119,14 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(this, SIGNAL(valueChanged()), this, SLOT(updateTable()));
 
-    //QTimer* timerT = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(tableTimer()));
-    //timerT->start(250);
-
-    ui->statusbar->showMessage("Done.");
+    ui->statusbar->showMessage("Ready");
 }
 
-/**
- * @brief
- *
- */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-/**
- * @brief
- *
- */
-void MainWindow::on_pushButton_clicked()
-{
-    api* a = new api(this);
-
-    QString url = "jsonplaceholder.typicode.com/users/3";
-    a->initRequester(url, 80, nullptr);
-
-    api::handleFunc getData = [this](const QJsonObject & o)
-    {
-        //cout << "Got data " << endl;
-        QString r = o.value("company")["name"].toString();
-        ui->label->setText(r);
-    };
-
-    api::handleFunc errData = [this](const QJsonObject & o)
-    {
-        //cout << "Error: connection dropped";
-        QString r = o.value("company")["name"].toString();
-        ui->label->setText("Error: connection dropped");
-    };
-
-    a->sendRequest(url, getData, errData);
-
-}
-
-
-/**
- * @brief
- *
- */
 void MainWindow::on_getSatData_clicked()
 {
     startDate = ui->startDateTime->dateTime().toString("yyyy-MM-dd_hh:mm:ss");
@@ -196,14 +149,8 @@ void MainWindow::on_getSatData_clicked()
     }
 
     ui->getSatData->setEnabled(true);
-
 }
 
-/**
- * @brief
- *
- * @param checked
- */
 void MainWindow::on_checkBox_toggled(bool checked)
 {
     if (checked)
@@ -214,11 +161,6 @@ void MainWindow::on_checkBox_toggled(bool checked)
     }
 }
 
-
-/**
- * @brief
- *
- */
 void MainWindow::showTime()
 {
     QDateTime now = QDateTime::currentDateTime();
@@ -240,9 +182,6 @@ void MainWindow::on_pushButton_5_clicked()
     latitude = latt;
     longitude = longg;
 
-//    ui->latTxT->setStyleSheet("font-size: 9pt;");
-//    ui->longTxT->setStyleSheet("font-size: 9pt;");
-
     ui->latBox->setValue(lat);
     ui->longBox->setValue(lon);
     ui->latTxT->setText("Lat: " + latt);
@@ -255,23 +194,14 @@ void MainWindow::on_pushButton_5_clicked()
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
-
-//       ui->city->setStyleSheet("font-size: 9pt;");
-//       ui->region->setStyleSheet("font-size: 9pt;");
-//       ui->country->setStyleSheet("font-size: 9pt;");
-//       ui->zone->setStyleSheet("font-size: 9pt;");
-
         ui->city->setText("City: " + o.value("city").toString());
         ui->region->setText("Region: " + o.value("region").toString());
         ui->country->setText("Country: " + o.value("country").toString());
         ui->zone->setText("Zone: " + o.value("timezone").toString());
-
     };
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
@@ -280,10 +210,6 @@ void MainWindow::on_pushButton_5_clicked()
     a->sendRequest(url, getData, errData);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::on_pushButton_6_clicked()
 {
     api* b = new api(this);
@@ -294,19 +220,14 @@ void MainWindow::on_pushButton_6_clicked()
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
         QString r = o.value("ip").toString();
-        //std::cout<<r.toUtf8().constData();
 
         api* c = new api(this);
         QString url2 = "ip-api.com/json/" + r;
-//       qDebug()<<url2;
         c->initRequester(url2, 80, nullptr);
 
         api::handleFunc getData2 = [this](const QJsonObject & o)
         {
-            //cout << "Got data " << endl;
-//           QString r2= o.value("city").toString();
             double lat = o.value("lat").toDouble();
             double lon = o.value("lon").toDouble();
             QString latt = QString::number(lat, 'f', 6);
@@ -329,7 +250,6 @@ void MainWindow::on_pushButton_6_clicked()
 
         api::handleFunc errData2 = [](const QJsonObject & o)
         {
-            //cout << "Error: connection dropped";
             QJsonObject x = o;
             QString r2 = "Error: connection dropped";
             qDebug() << r2;
@@ -341,7 +261,6 @@ void MainWindow::on_pushButton_6_clicked()
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
@@ -350,12 +269,6 @@ void MainWindow::on_pushButton_6_clicked()
     b->sendRequest(url, getData, errData);
 }
 
-
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getCZML(QString endpoint)
 {
     auto czml = new HttpWindow(this);
@@ -364,14 +277,8 @@ void MainWindow::getCZML(QString endpoint)
     czml->downloadFile();
 
     webView();
-
 }
 
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getSatDetails(QList<QString> endpoint)
 {
     QString var;
@@ -388,25 +295,17 @@ void MainWindow::getSatDetails(QList<QString> endpoint)
     }
 
     emit valueChanged();
-
 }
 
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getSatPos(QString endpoint)
 {
     api* a = new api(this);
 
     QString url = "www.n2yo.com/rest/v1/satellite/positions/" + endpoint + "/" + latitude + "/" + longitude + "/" + alt + "/" + predictSecs + "/&apiKey=" + apikey;
-    //qDebug()<<url;
     a->initRequester(url, 80, nullptr);
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
         positions.append(o);
         satPDetails = o;
 
@@ -440,32 +339,23 @@ void MainWindow::getSatPos(QString endpoint)
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
     };
 
     a->sendRequest(url, getData, errData);
-
 }
 
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getSatVisPass(QString endpoint)
 {
     api* a = new api(this);
 
     QString url = "www.n2yo.com/rest/v1/satellite/visualpasses/" + endpoint + "/" + latitude + "/" + longitude + "/" + alt + "/" + fordays + "/" + leastSecs + "/&apiKey=" + apikey;
-    //qDebug()<<url;
     a->initRequester(url, 80, nullptr);
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
         satVPDetails = o;
 
         QJsonArray z = o.value("passes").toArray();
@@ -527,9 +417,7 @@ void MainWindow::getSatVisPass(QString endpoint)
                 tm_mag.append(q);
                 tm_duration.append(r);
 
-                //qDebug()<<tm_satidVP;
                 VisualPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m, n, p, q, r);
-                //emit valueChanged();
             }
         }
 
@@ -537,21 +425,14 @@ void MainWindow::getSatVisPass(QString endpoint)
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
     };
 
     a->sendRequest(url, getData, errData);
-
 }
 
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getSatRadPass(QString endpoint)
 {
     api* a = new api(this);
@@ -562,8 +443,6 @@ void MainWindow::getSatRadPass(QString endpoint)
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
-//        RadioPasses.append(o);
         satRPDetails = o;
         satRPDetails.insert("url", m_url);
 
@@ -610,8 +489,6 @@ void MainWindow::getSatRadPass(QString endpoint)
                 tm_endAzCompassR.append(m);
 
                 RadioPassM->addItem(a, b, c, d, e, f, g, h, i, j, k, l, m);
-
-                //        emit valueChanged();
             }
         }
 
@@ -620,21 +497,13 @@ void MainWindow::getSatRadPass(QString endpoint)
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
     };
-
     a->sendRequest(url, getData, errData);
-
 }
 
-/**
- * @brief
- *
- * @param endpoint
- */
 void MainWindow::getSatTLE(QString endpoint)
 {
     api* a = new api(this);
@@ -644,7 +513,6 @@ void MainWindow::getSatTLE(QString endpoint)
 
     api::handleFunc getData = [this](const QJsonObject & o)
     {
-        //cout << "Got data " << endl;
         satTLEDetails = o;
 
         QString a = QString::number(o.value("info")["satid"].toInt());
@@ -656,27 +524,18 @@ void MainWindow::getSatTLE(QString endpoint)
         tm_tle.append(c);
 
         TLEM->addItem(a, b, c);
-
-        //emit valueChanged();
-
-//       setValue(tm_tle);
     };
 
     api::handleFunc errData = [](const QJsonObject & o)
     {
-        //cout << "Error: connection dropped";
         QJsonObject x = o;
         QString r = "Error: connection dropped";
         qDebug() << r;
     };
 
     a->sendRequest(url, getData, errData);
-
 }
-/**
- * @brief
- *
- */
+
 void MainWindow::webView()
 {
     view = new QWebEngineView(ui->widget);
@@ -686,11 +545,6 @@ void MainWindow::webView()
     view->resize(ui->widget->size());
 }
 
-/**
- * @brief
- *
- * @param event
- */
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
     QMainWindow::resizeEvent(event);
@@ -698,11 +552,6 @@ void MainWindow::resizeEvent(QResizeEvent* event)
     view->resize(ui->widget->size());
 }
 
-/**
- * @brief
- *
- * @param arg1
- */
 void MainWindow::on_sat_currentIndexChanged(const QString& arg1)
 {
     if (arg1 != "Satellite Name - NORAD Id" && arg1 != "------------------------------------")
@@ -715,8 +564,6 @@ void MainWindow::on_sat_currentIndexChanged(const QString& arg1)
 
         QString strNew = QString::fromStdString(str);
 
-        //qDebug() << strNew;
-
         getSatTLE(strNew);
         getSatPos(strNew);
         getSatVisPass(strNew);
@@ -727,10 +574,6 @@ void MainWindow::on_sat_currentIndexChanged(const QString& arg1)
     }
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::tables()
 {
     // Connect model to table view:
@@ -751,10 +594,6 @@ void MainWindow::tables()
     ui->tableViewTLE->show();
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::updateTable()
 {
     //update tle table data
@@ -813,14 +652,8 @@ void MainWindow::updateTable()
     ui->tableViewPosition->viewport()->update();
     ui->tableViewVisualPass->viewport()->update();
     ui->tableViewRadioPass->viewport()->update();
-//    ui->tableViewTLE->viewport()->repaint();
-
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::clearTable()
 {
     //clear tle table data
@@ -874,11 +707,6 @@ void MainWindow::clearTable()
     tm_endAzCompassR.clear();
 }
 
-/**
- * @brief
- *
- * @param value
- */
 void MainWindow::setValue(QList<QString> value)
 {
     if (value != m_value)
@@ -888,10 +716,6 @@ void MainWindow::setValue(QList<QString> value)
     }
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::tableTimer()
 {
     QJsonObject var;
@@ -957,7 +781,7 @@ void MainWindow::tableTimer()
                             tm_ra,
                             tm_dec,
                             tm_timestamp);
-    //qDebug()<<tm_satidPos;
+
     ui->tableViewPosition->viewport()->update();
 
     if (!positions.isEmpty())
@@ -970,10 +794,6 @@ void MainWindow::tableTimer()
     }
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::toggleStartServer()
 {
     if (m_TCPServer->isListening())
@@ -988,6 +808,7 @@ void MainWindow::toggleStartServer()
         QString ipAddress;
         QHostAddress ip;
         QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+
         // use the first non-localhost IPv4 address
         for (int i = 0; i < ipAddressesList.size(); ++i)
         {
@@ -999,6 +820,7 @@ void MainWindow::toggleStartServer()
                 break;
             }
         }
+
         // if we did not find one, use IPv4 localhost
         if (ipAddress.isEmpty())
         {
@@ -1019,43 +841,16 @@ void MainWindow::toggleStartServer()
     }
 }
 
-/**
- * @brief
- *
- * @param msg
- */
 void MainWindow::logMessage(const QString& msg)
 {
     ui->logEditor->appendPlainText(msg + '\n');
 }
 
-/**
- * @brief
- *
- */
-void MainWindow::clientInit()
-{
-
-}
-
-/**
- * @brief
- *
- */
 void MainWindow::attemptConnection()
 {
-    // We ask the user for the address of the server, we use 127.0.0.1 (aka localhost) as default
-//    const QString hostAddress = QInputDialog::getText(
-//        this
-//        , tr("Choose Server")
-//            , tr("Server Address")
-//            , QLineEdit::Normal
-//        , QStringLiteral("127.0.0.1")
-//        );
     QString hostAddress;
     QStringList hosts;
-//    QComboBox *hostCombo(new QComboBox);
-//    hostCombo->setEditable(true);
+
     // find out name of this machine
     QString name = QHostInfo::localHostName();
     if (!name.isEmpty())
@@ -1067,14 +862,17 @@ void MainWindow::attemptConnection()
     }
     if (name != QLatin1String("localhost"))
         hosts.append(QString("localhost"));
+
     // find out IP addresses of this machine
     QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+
     // add non-localhost addresses
     for (int i = 0; i < ipAddressesList.size(); ++i)
     {
         if (!ipAddressesList.at(i).isLoopback())
             hosts.append(ipAddressesList.at(i).toString());
     }
+
     // add localhost addresses
     for (int i = 0; i < ipAddressesList.size(); ++i)
     {
@@ -1092,16 +890,14 @@ void MainWindow::attemptConnection()
 
     if (hostAddress.isEmpty())
         return; // the user pressed cancel or typed nothing
+
     // disable the connect button to prevent the user clicking it again
     ui->connectButton->setEnabled(false);
+
     // tell the client to connect to the host using the port 1967
     m_TCPClient->connectToServer(QHostAddress(hostAddress), 1967);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::connectedToServer()
 {
     // once we connected to the server we ask the user for what username they would like to use
@@ -1115,27 +911,17 @@ void MainWindow::connectedToServer()
     attemptLogin(newUsername);
 }
 
-/**
- * @brief
- *
- * @param userName
- */
 void MainWindow::attemptLogin(const QString& userName)
 {
     // use the client to attempt a log in with the given username
     m_TCPClient->login(userName);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::loggedIn()
 {
     // once we successully log in we enable the ui to display and send messages
     ui->sendButton->setEnabled(true);
     ui->messageEdit->setEnabled(true);
-    ui->chatView->setEnabled(true);
     // clear the user name record
     m_lastUserName.clear();
     ui->clientView->setEnabled(true);
@@ -1144,11 +930,6 @@ void MainWindow::loggedIn()
     ui->clientView->appendPlainText("Connected to Server" + x + '\n');
 }
 
-/**
- * @brief
- *
- * @param reason
- */
 void MainWindow::loginFailed(const QString& reason)
 {
     // the server rejected the login attempt
@@ -1158,16 +939,8 @@ void MainWindow::loginFailed(const QString& reason)
     connectedToServer();
 }
 
-/**
- * @brief
- *
- * @param sender
- * @param text
- */
 void MainWindow::messageReceived(const QString& sender, const QString& text)
 {
-    // store the index of the new row to append to the model containing the messages
-    int newRow = m_chatModel->rowCount();
     // we display a line containing the username only if it's different from the last username we displayed
     if (m_lastUserName != sender)
     {
@@ -1176,67 +949,30 @@ void MainWindow::messageReceived(const QString& sender, const QString& text)
         // create a bold default font
         QFont boldFont;
         boldFont.setBold(true);
-        // insert 2 row, one for the message and one for the username
-        m_chatModel->insertRows(newRow, 2);
-        // store the username in the model
-        m_chatModel->setData(m_chatModel->index(newRow, 0), sender + ':');
-        // set the alignment for the username
-        m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
-        // set the for the username
-        m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
-        ++newRow;
 
         ui->clientView->appendPlainText(sender + ":" + '\n' + text + '\n');
     }
     else
     {
-        // insert a row for the message
-        m_chatModel->insertRow(newRow);
-
         ui->clientView->appendPlainText(text + '\n');
     }
-    // store the message in the model
-    m_chatModel->setData(m_chatModel->index(newRow, 0), text);
-    // set the alignment for the message
-    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
-    // scroll the view to display the new message
-    ui->chatView->scrollToBottom();
-
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::sendMessage()
 {
     // we use the client to send the message that the user typed
     m_TCPClient->sendMessage(ui->messageEdit->text());
     // now we add the message to the list
-    // store the index of the new row to append to the model containing the messages
-    const int newRow = m_chatModel->rowCount();
-    // insert a row for the message
-    m_chatModel->insertRow(newRow);
-    // store the message in the model
-    m_chatModel->setData(m_chatModel->index(newRow, 0), ui->messageEdit->text());
-    // set the alignment for the message
-    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignRight | Qt::AlignVCenter), Qt::TextAlignmentRole);
 
     ui->clientView->appendPlainText(ui->messageEdit->text() + '\n');
     // clear the content of the message editor
     ui->messageEdit->clear();
 
-    // scroll the view to display the new message
-    ui->chatView->scrollToBottom();
     // reset the last printed username
     m_lastUserName.clear();
 
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::disconnectedFromServer()
 {
     // if the client loses connection to the server
@@ -1245,7 +981,6 @@ void MainWindow::disconnectedFromServer()
     // disable the ui to send and display messages
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
-    ui->chatView->setEnabled(false);
     // enable the button to connect to the server again
     ui->connectButton->setEnabled(true);
     // reset the last printed username
@@ -1253,60 +988,22 @@ void MainWindow::disconnectedFromServer()
     ui->clientView->setEnabled(false);
 }
 
-/**
- * @brief
- *
- * @param username
- */
 void MainWindow::userJoined(const QString& username)
 {
-    // store the index of the new row to append to the model containing the messages
-    const int newRow = m_chatModel->rowCount();
-    // insert a row
-    m_chatModel->insertRow(newRow);
-    // store in the model the message to comunicate a user joined
-    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Joined the Chat").arg(username));
-    // set the alignment for the text
-    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
-    // set the color for the text
-    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
-    // scroll the view to display the new message
-    ui->chatView->scrollToBottom();
     // reset the last printed username
     m_lastUserName.clear();
 
     ui->clientView->appendPlainText("\"" + username + "\" Joined the network" + '\n');
 }
-/**
- * @brief
- *
- * @param username
- */
+
 void MainWindow::userLeft(const QString& username)
 {
-    // store the index of the new row to append to the model containing the messages
-    const int newRow = m_chatModel->rowCount();
-    // insert a row
-    m_chatModel->insertRow(newRow);
-    // store in the model the message to comunicate a user left
-    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Left the Chat").arg(username));
-    // set the alignment for the text
-    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
-    // set the color for the text
-    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::red), Qt::ForegroundRole);
-    // scroll the view to display the new message
-    ui->chatView->scrollToBottom();
     // reset the last printed username
     m_lastUserName.clear();
 
     ui->clientView->appendPlainText("\"" + username + "\" Left the network" + '\n');
 }
 
-/**
- * @brief
- *
- * @param socketError
- */
 void MainWindow::error(QAbstractSocket::SocketError socketError)
 {
     // show a message to the user that informs of what kind of error occurred
@@ -1366,18 +1063,12 @@ void MainWindow::error(QAbstractSocket::SocketError socketError)
     // disable the ui to send and display messages
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
-    ui->chatView->setEnabled(false);
     // reset the last printed username
     m_lastUserName.clear();
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::on_sendTrack_clicked()
 {
-
     //Mode of control, True if automatic and False if Manual
     m_TCPClient->sendTrackingDetails(satPDetails, "P", true);
     m_TCPClient->sendTrackingDetails(satVPDetails, "VP", true);
@@ -1386,11 +1077,6 @@ void MainWindow::on_sendTrack_clicked()
 
 }
 
-/**
- * @brief
- *
- * @param event
- */
 void MainWindow::closeEvent(QCloseEvent* event)
 {
     if (maybeSave())
@@ -1399,10 +1085,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
         event->ignore();
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::open()
 {
     if (maybeSave())
@@ -1414,10 +1096,6 @@ void MainWindow::open()
     }
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::save()
 {
     QAction* action = qobject_cast<QAction*>(sender());
@@ -1425,10 +1103,6 @@ void MainWindow::save()
     saveFile(fileFormat);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::penColor()
 {
     QColor newColor = QColorDialog::getColor(MScribble->penColor());
@@ -1436,10 +1110,6 @@ void MainWindow::penColor()
         MScribble->setPenColor(newColor);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::penWidth()
 {
     bool ok;
@@ -1451,10 +1121,6 @@ void MainWindow::penWidth()
         MScribble->setPenWidth(newWidth);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About Satrot"),
@@ -1481,10 +1147,6 @@ void MainWindow::about()
                           "</p>"));
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::documentation()
 {
     QMessageBox::information(this, tr("Satrot Documentation"),
@@ -1492,26 +1154,19 @@ void MainWindow::documentation()
                                 "covers everything from how to use the program and device, to how to replicate the entire"
                                 "project. You can like and follow us on social media to get more info and ask us questions directly.</p>"
                                 "<p><a href=\"https://github.com/Ahmad138/SatRot/wiki\">Github Page</a></p>"
+                                "<p><a href=\"https://ahmad138.github.io/SatRot/\">Doxygen Documentation</a></p>"
                                 "<p><a href=\"https://5e8b5de29b512.site123.me/\">Website</a></p>"
                                 "<p><a href=\"https://www.twitter.com/sat_rot\">Twitter</a></p>"
                                 "<p><a href=\"https://www.facebook.com/SatRot-109843980689069\">Facebook</a></p>"
                                 "<p><a href=\"https://www.instagram.com/sat_rot/\">Instagram</a></p>"
                                 "<p><a href=\"https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw\">Youtube</a></p>"
-                                "<p><a href=\"#\">Hackaday</a></p>"
+                                "<p><a href=\"https://hackaday.io/project/171052-satrot-taking-everyone-to-space\">Hackaday</a></p>"
                                 ""
                                 "</p>"));
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::createActions()
 {
-//    openAct = new QAction(tr("&Open..."), this);
-//    openAct->setShortcuts(QKeySequence::Open);
-//    connect(openAct, &QAction::triggered, this, &MainWindow::open);
-
     const QList<QByteArray> imageFormats = QImageWriter::supportedImageFormats();
     for (const QByteArray& format : imageFormats)
     {
@@ -1546,15 +1201,8 @@ void MainWindow::createActions()
 
     documentationAct = new QAction(tr("&Documentation"), this);
     connect(documentationAct, &QAction::triggered, this, &MainWindow::documentation);
-
-//    aboutQtAct = new QAction(tr("About &Qt"), this);
-//    connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::createMenus()
 
 {
@@ -1563,7 +1211,6 @@ void MainWindow::createMenus()
         saveAsMenu->addAction(action);
 
     fileMenu = new QMenu(tr("&File"), this);
-    //fileMenu->addAction(openAct);
     fileMenu->addMenu(saveAsMenu);
     fileMenu->addAction(printAct);
     fileMenu->addSeparator();
@@ -1578,18 +1225,12 @@ void MainWindow::createMenus()
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(documentationAct);
-    //helpMenu->addAction(aboutQtAct);
 
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(optionMenu);
     menuBar()->addMenu(helpMenu);
 }
 
-/**
- * @brief
- *
- * @return bool
- */
 bool MainWindow::maybeSave()
 {
     if (MScribble->isModified())
@@ -1608,12 +1249,6 @@ bool MainWindow::maybeSave()
     return true;
 }
 
-/**
- * @brief
- *
- * @param fileFormat
- * @return bool
- */
 bool MainWindow::saveFile(const QByteArray& fileFormat)
 {
     QString initialPath = QDir::currentPath() + "/untitled." + fileFormat;
@@ -1628,22 +1263,12 @@ bool MainWindow::saveFile(const QByteArray& fileFormat)
     return MScribble->saveImage(fileName, fileFormat.constData());
 }
 
-/**
- * @brief
- *
- */
 void MainWindow::clearRadar()
 {
     MScribble->clearImage();
     MScribble->openImage(radarFileName);
 }
 
-/**
- * @brief
- *
- * @param QMap<QString
- * @param angles
- */
 void MainWindow::logAngles(QMap<QString, double>& angles)
 {
     //Az
@@ -1661,11 +1286,6 @@ void MainWindow::logAngles(QMap<QString, double>& angles)
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
-/**
- * @brief
- *
- * @param position
- */
 void MainWindow::on_horizontalSlider_sliderMoved(int position)
 {
     float val = position * 0.05;
@@ -1676,11 +1296,6 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
     m_TCPClient->sendTrackingDetails(AzEl, "M", false);
 }
 
-/**
- * @brief
- *
- * @param position
- */
 void MainWindow::on_verticalSlider_sliderMoved(int position)
 {
     float val = position * 0.05;
