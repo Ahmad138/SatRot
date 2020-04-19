@@ -158,6 +158,8 @@ Project maintenance will be performed by the creators and contributors. Anyone i
 # Documentation
 A detailed documentation is outlined in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section of the repository. Files, documents, construction materials, instructions, costs and others are all listed and defined over in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section.
 
+For the newbee nerds out there, checkout our [Doxygen](https://ahmad138.github.io/SatRot/ "Doxygen") docummentation for the software.
+
 # Issue Tracking
 If there is any issue or suggestions (including spelling/grammatical errors) to the development of the project, feel free to open an 'issue' on the [issue](https://github.com/Ahmad138/satRot/issues "issue") tab and properly define the issue. The problem will be rectified as soon as possible by the community.
 
