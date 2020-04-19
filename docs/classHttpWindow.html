@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('classHttpWindow.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>This class is used to download file from the api orbitalpredictor.com provides. This has the czml data that has the orbital parameters of satellites attached to them.  
+ <a href="classHttpWindow.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="httpwindow_8h_source.html">httpwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for HttpWindow:</div>
@@ -110,10 +113,13 @@ Collaboration diagram for HttpWindow:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa06dc84217e45ab0bfaba7e4ab03d027"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHttpWindow.html#aa06dc84217e45ab0bfaba7e4ab03d027">HttpWindow</a> (QObject *parent=0)</td></tr>
+<tr class="memdesc:aa06dc84217e45ab0bfaba7e4ab03d027"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor checks for the path to the temporary location to save the downloaded file to.  <a href="#aa06dc84217e45ab0bfaba7e4ab03d027">More...</a><br /></td></tr>
 <tr class="separator:aa06dc84217e45ab0bfaba7e4ab03d027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8366665996f36800cef89d64cd08041"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHttpWindow.html#ab8366665996f36800cef89d64cd08041">~HttpWindow</a> ()</td></tr>
+<tr class="memdesc:ab8366665996f36800cef89d64cd08041"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the destructor for the class.  <a href="#ab8366665996f36800cef89d64cd08041">More...</a><br /></td></tr>
 <tr class="separator:ab8366665996f36800cef89d64cd08041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0f982da3e2d49cdf92cbb203819f153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHttpWindow.html#ab0f982da3e2d49cdf92cbb203819f153">downloadFile</a> ()</td></tr>
+<tr class="memdesc:ab0f982da3e2d49cdf92cbb203819f153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instanciates the download of the file into the specified directory. sets the file name, check if the file exists and overrides it.  <a href="#ab0f982da3e2d49cdf92cbb203819f153">More...</a><br /></td></tr>
 <tr class="separator:ab0f982da3e2d49cdf92cbb203819f153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -122,8 +128,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa6f089df1046cf5e824dee5ecd8d448a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="httpwindow_8h_source.html#l00026">26</a> of file <a class="el" href="httpwindow_8h_source.html">httpwindow.h</a>.</p>
+<div class="textblock"><p>This class is used to download file from the api orbitalpredictor.com provides. This has the czml data that has the orbital parameters of satellites attached to them. </p>
+<dl class="section author"><dt>Author</dt><dd>Ahmad Muhammad (<a href="https://github.com/Ahmad138">https://github.com/Ahmad138</a>) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="httpwindow_8h_source.html#l00021">21</a> of file <a class="el" href="httpwindow_8h_source.html">httpwindow.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa06dc84217e45ab0bfaba7e4ab03d027"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa06dc84217e45ab0bfaba7e4ab03d027">&#9670;&nbsp;</a></span>HttpWindow()</h2>
@@ -148,6 +156,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The constructor checks for the path to the temporary location to save the downloaded file to. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td></td></tr>
@@ -174,7 +184,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="httpwindow_8cpp_source.html#l00026">26</a> of file <a class="el" href="httpwindow_8cpp_source.html">httpwindow.cpp</a>.</p>
+<p>This is the destructor for the class. </p>
+
+<p class="definition">Definition at line <a class="el" href="httpwindow_8cpp_source.html#l00016">16</a> of file <a class="el" href="httpwindow_8cpp_source.html">httpwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +206,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="httpwindow_8cpp_source.html#l00044">44</a> of file <a class="el" href="httpwindow_8cpp_source.html">httpwindow.cpp</a>.</p>
+<p>Instanciates the download of the file into the specified directory. sets the file name, check if the file exists and overrides it. </p>
+
+<p class="definition">Definition at line <a class="el" href="httpwindow_8cpp_source.html#l00030">30</a> of file <a class="el" href="httpwindow_8cpp_source.html">httpwindow.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classHttpWindow_ab0f982da3e2d49cdf92cbb203819f153_icgraph.png" border="0" usemap="#classHttpWindow_ab0f982da3e2d49cdf92cbb203819f153_icgraph" alt=""/></div>
+<map name="classHttpWindow_ab0f982da3e2d49cdf92cbb203819f153_icgraph" id="classHttpWindow_ab0f982da3e2d49cdf92cbb203819f153_icgraph">
+<area shape="rect" id="node2" href="classfileDownloadTest.html#adf133f17a66a78b69dfc47f239b7ba88" title="fileDownloadTest::\l~fileDownloadTest" alt="" coords="232,5,363,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -212,7 +234,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>TODO: describe </p>
 
-<p class="definition">Definition at line <a class="el" href="httpwindow_8h_source.html#l00044">44</a> of file <a class="el" href="httpwindow_8h_source.html">httpwindow.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="httpwindow_8h_source.html#l00040">40</a> of file <a class="el" href="httpwindow_8h_source.html">httpwindow.h</a>.</p>
 
 </div>
 </div>

@@ -8,14 +8,21 @@
 #include <QStandardPaths>
 #include <QTime>
 #include <QTimer>
+#include <QAbstractSocket>
+#include <iomanip>
+#include <thread>
+#include <chrono>
+#include <ctime>
+#include <QMessageBox>
+#include <QNetworkInterface>
+#include <QWebEngineView>
+#include <QHostInfo>
 
 #include "../includes/api.h"
 #include "../includes/tcpserver.h"
 #include "../includes/tcpclient.h"
-//#include "../includes/testmodel.h"
 #include "../includes/customlistmodel.h"
 #include "../includes/satellitelist.h"
-//#include "../includes/digitalclock.h"
 #include "../includes/getgeolocation.h"
 #include "../includes/httpwindow.h"
 #include "../includes/positionmodel.h"
@@ -24,20 +31,7 @@
 #include "../includes/tlemodel.h"
 #include "../includes/customdialog.h"
 
-// this_thread::sleep_for example
-#include <iostream>       // std::cout
-#include <iomanip>        // std::put_time
-#include <thread>         // std::this_thread::sleep_until
-#include <chrono>         // std::chrono::system_clock
-#include <ctime>          // std::time_t, std::tm, std::localtime, std::mktime
-
-#include <QMessageBox>
-#include <QNetworkInterface>
-#include <QWebEngineView>
-#include <QHostInfo>
-
 /***********TCPClient***********/
-#include <QAbstractSocket>
 class TCPClient;
 class QStandardItemModel;
 /***********TCPClient***********/
@@ -53,7 +47,12 @@ QT_END_NAMESPACE
 
 /**
  * @brief
+ *This is the main gui class that handles everything about the gui. It brings all the other classes together into
+ * a unified program.
  *
+ * @authors -> Ahmad Muhammad (https://github.com/Ahmad138)
+ * @authors -> Mohamed Salih
+ * @authors -> Mohamed Salim
  */
 class MainWindow : public QMainWindow
 {
@@ -62,276 +61,306 @@ class MainWindow : public QMainWindow
 protected:
     /**
      * @brief
-     *
-     * @param event
+     *This listens to the close event and overrides.
+     * @param event -> takes in the QCloseEvent from the main GUI
      */
     void closeEvent(QCloseEvent* event) override;
 
 public:
     /**
      * @brief
-     *
-     * @param parent
+     *This is the main constructor of the class. This is where most of the ui and widgets are initiated
+     * @param parent -> take in a nullptr as default
      */
     MainWindow(QWidget* parent = nullptr);
+
     /**
      * @brief
-     *
+     *destructor for the main window
      */
     ~MainWindow();
 
 private slots:
     /**
      * @brief
-     *
-     * @param value
-     */
-//    void on_horizontalSlider_valueChanged(int value);
-
-
-//    /**
-//     * @brief
-//     *
-//     * @param value
-//     */
-//    void on_verticalSlider_valueChanged(int value);
-
-    /**
-     * @brief
-     *
-     */
-    void on_pushButton_clicked();
-    /**
-     * @brief
-     *
-     */
-
-    /**
-     * @brief
-     *
+     *This method fetches the satellite information from the czml file download, to the positions, visual
+     * and radio passes and tle
      */
     void on_getSatData_clicked();
 
     /**
      * @brief
-     *
-     * @param checked
+     *When checked, this sets the datetime to the current datetime
+     * @param checked -> state of the check button
      */
     void on_checkBox_toggled(bool checked);
+
     /**
      * @brief
-     *
+     *Sets the current date time, formats it and displays it
      */
     void showTime();
 
     /**
      * @brief
-     *
+     *Runs the webview and loads the html file to display the map
      */
     void webView();
 
     /**
      * @brief
-     *
+     *This method gets the device location information based on the long and lat of the device.
+     * It gets the information by sending an api request to a ipgeolocation services
      */
     void on_pushButton_5_clicked();
 
     /**
      * @brief
-     *
+     *This method first gets the ip of the system using an api request,
+     * then using that ip, constructs another end point for an api request to obtain the
+     * Long and Lat of the user.
      */
     void on_pushButton_6_clicked();
+
     /**
      * @brief
-     *
-     * @param endpoint
+     *This method downloads the required file from the http server api service of orbitalpredictor.
+     * @param endpoint -> parameter is the api service endpoint to retrieve the file from
      */
     void getCZML(QString endpoint);
 
-    void getSatDetails(QList<QString> endpoint);
     /**
      * @brief
-     *
-     * @param endpoint
+     *This method makes the api call to n2yo to get satellite details such as position,
+     * visaul pass, radio pass and tle for each of the satellites
+     * @param endpoint -> receives the endpoint list
+     */
+    void getSatDetails(QList<QString> endpoint);
+
+    /**
+     * @brief
+     *This method gets the satellite position by calling the api to n2yo using the endpoint
+     * @param endpoint -> api endpoint for the request to be made
      */
     void getSatPos(QString endpoint);
+
     /**
      * @brief
-     *
-     * @param endpoint
+     *This method gets the satellite Visual Pass by calling the api to n2yo using the endpoint
+     * @param endpoint -> api endpoint for the request to be made
      */
     void getSatVisPass(QString endpoint);
+
     /**
      * @brief
-     *
-     * @param endpoint
+     *This method gets the satellite Radio Pass by calling the api to n2yo using the endpoint
+     * @param endpoint -> api endpoint for the request to be made
      */
     void getSatRadPass(QString endpoint);
+
     /**
      * @brief
-     *
-     * @param endpoint
+     *This method gets the satellite TLE by calling the api to n2yo using the endpoint
+     * @param endpoint -> api endpoint for the request to be made
      */
     void getSatTLE(QString endpoint);
 
     /**
      * @brief
-     *
+     *Creates the table view to display the data for each of the satellite detail. it passes
+     * the models to the tableview.
      */
     void tables();
+
     /**
      * @brief
-     *
+     *Updates and refreshes the table data and view
      */
     void updateTable();
+
     /**
      * @brief
-     *
+     *clears the table data and view
      */
     void clearTable();
+
     /**
      * @brief
-     *
-     * @param value
+     *sets value to a changed table position
+     * @param value -> the changed value
      */
     void setValue(QList<QString> value);
+
     /**
      * @brief
-     *
+     *This is a timer for the table to get updated regularly
      */
     void tableTimer();
 
     /**
      * @brief
-     *
+     *Toggles the server to start or stop depending the current configuration
      */
     void toggleStartServer();
+
     /**
      * @brief
-     *
-     * @param msg
+     *logs the received data from the socket connection
+     * @param msg -> the received information from the emitted signal
      */
     void logMessage(const QString& msg);
 
     /**
      * @brief
-     *
-     * @param event
+     *This is the qt resize event called to readjust the webview widget based on the change of the window size
+     * @param event -> event from the event manager
      */
-    void resizeEvent(QResizeEvent* event);
+    void resizeEvent(QResizeEvent* event) Q_DECL_OVERRIDE;
 
+    /**
+     * @brief
+     *Listens to the change on the combo box selection and updates the selected value
+     * @param arg1 -> the index of the selected option
+     */
     void on_sat_currentIndexChanged(const QString& arg1);
 
     /**
      * @brief
-     *
+     *Tries to make a socket connection to the specified ip and port
      */
-    void clientInit();
-    /***********TCPClient***********/
     void attemptConnection();
-    void connectedToServer();
-    void attemptLogin(const QString& userName);
+
     /**
      * @brief
+     *This is executed when there is a successful socket connection
+     */
+    void connectedToServer();
+
+    /**
+     * @brief
+     *This logs a user in with the specified name
      *
+     * @param userName -> gets the username or device name to be added
+     */
+    void attemptLogin(const QString& userName);
+
+    /**
+     * @brief
+     *once we successully log in we enable the ui to display and send messages
      */
     void loggedIn();
+
     /**
      * @brief
-     *
+     *the server rejected the login attempt. display the reason for the rejection in a message box
      * @param reason
      */
     void loginFailed(const QString& reason);
+
     /**
      * @brief
-     *
-     * @param sender
-     * @param text
+     *Once a message is received, we get the name of the person that sends it and the message itself
+     * @param sender -> the sender of the message
+     * @param text -> the message itself
      */
     void messageReceived(const QString& sender, const QString& text);
+
     /**
      * @brief
-     *
+     *This is the method that handles the sending of the message itself.
+     * we use the client to send the message that the user typed
      */
     void sendMessage();
+
     /**
      * @brief
-     *
+     *if the client loses connection to the server
+     *comunicate the event to the user via a message box
      */
     void disconnectedFromServer();
+
     /**
      * @brief
-     *
-     * @param username
+     *Alerts the network of a new user joining in with the name
+     * @param username -> the new user or device that just joined the network
      */
     void userJoined(const QString& username);
+
     /**
      * @brief
-     *
-     * @param username
+     *Alerts the network for when a user leaves with the name
+     * @param username -> the user or device that just left the network
      */
     void userLeft(const QString& username);
+
     /**
      * @brief
-     *
-     * @param socketError
+     *This handles the error of the socket connection
+     * @param socketError -> the error received
      */
     void error(QAbstractSocket::SocketError socketError);
-    /***********TCPClient***********/
 
+    /**
+     * @brief
+     *Sends the information of the satellite to be tracked automatically
+     */
     void on_sendTrack_clicked();
 
-    //Manual scribble
     /**
      * @brief
-     *
+     *This is part of the menu items to open files
      */
     void open();
+
     /**
      * @brief
-     *
+     *This is part of the menu items to save file
      */
     void save();
+
     /**
      * @brief
-     *
+     *This is part of the menu items to change the color of the tracking pen
      */
     void penColor();
+
     /**
      * @brief
-     *
+     *This is part of the menu items to change the with/thickness of the pen
      */
     void penWidth();
+
     /**
      * @brief
-     *
+     *This is part of the menu items that talks about satrot itself
      */
     void about();
+
     /**
      * @brief
-     *
+     *This helps clears the radar so you can have clean screen
      */
     void clearRadar();
 
     /**
      * @brief
-     *
-     * @param QMap<QString
-     * @param angles
+     *This is a slot method that helps get the logged angles
+     * @param QMap<QString -> mapping values
+     * @param angles -> the Az and El angles calculated based on the mouse positions
      */
     void logAngles(QMap<QString, double>& angles);
 
     /**
      * @brief
-     *
-     * @param position
+     *This is event driven slider that gets the position of the Azimuth angle
+     * @param position -> returned value of Az position on event change
      */
     void on_horizontalSlider_sliderMoved(int position);
 
     /**
      * @brief
-     *
-     * @param position
+     *This is event driven slider that gets the position of the Elevation angle
+     * @param position -> returned value of El position on event change
      */
     void on_verticalSlider_sliderMoved(int position);
 
@@ -341,7 +370,6 @@ private:
     TCPClient* m_TCPClient; /**< TODO: describe */
 
     /***********TCPClient***********/
-    QStandardItemModel* m_chatModel;
     QString m_lastUserName;
     /***********TCPClient***********/
 
@@ -435,35 +463,6 @@ private:
     };
 
     //Manual Scribble
-    /**
-     * @brief
-     *
-     */
-    void createActions();
-    /**
-     * @brief
-     *
-     */
-    void createMenus();
-    /**
-     * @brief
-     *
-     * @return bool
-     */
-    bool maybeSave();
-    /**
-     * @brief
-     *
-     * @param fileFormat
-     * @return bool
-     */
-    bool saveFile(const QByteArray& fileFormat);
-    /**
-     * @brief
-     *
-     */
-    void documentation();
-
     ManualScribble* MScribble; /**< TODO: describe */
 
     QMenu* saveAsMenu; /**< TODO: describe */
@@ -479,7 +478,6 @@ private:
     QAction* printAct; /**< TODO: describe */
     QAction* clearScreenAct; /**< TODO: describe */
     QAction* aboutAct; /**< TODO: describe */
-//    QAction *aboutQtAct;
     QAction* documentationAct; /**< TODO: describe */
 
     QString radarFileName = ":/img/img/radar.png"; /**< TODO: describe */
@@ -487,10 +485,44 @@ private:
     QString downloadDirectoryPath; /**< TODO: describe */
     QString m_url; /**< TODO: describe */
 
+
+    /**
+     * @brief
+     *This creates the actions in the menu for the application on top
+     */
+    void createActions();
+
+    /**
+     * @brief
+     *This is the method that handles the menu creation
+     */
+    void createMenus();
+
+    /**
+     * @brief
+     *This is for the dialog that promps the user if they want to save their map
+     * @return bool -> true saves the map and false discards it
+     */
+    bool maybeSave();
+
+    /**
+     * @brief
+     *This is the method that actively save the map
+     * @param fileFormat -> selected file format they want to save it to
+     * @return bool -> true successfully saves it and false failed
+     */
+    bool saveFile(const QByteArray& fileFormat);
+
+    /**
+     * @brief
+     *This is the menu item that displays the documentation of the application
+     */
+    void documentation();
+
 signals:
     /**
      * @brief
-     *
+     *signal that is emitted when there is a value cahnge to the table items
      */
     void valueChanged();
 

@@ -10,6 +10,6 @@ var searchData=
   ['connecttoserver',['connectToServer',['../classTCPClient.html#aa7b2c1d927b954f0e6e0feb13c447a61',1,'TCPClient::connectToServer(const QHostAddress &amp;address, quint16 port)'],['../classTCPClient.html#aa7b2c1d927b954f0e6e0feb13c447a61',1,'TCPClient::connectToServer(const QHostAddress &amp;address, quint16 port)']]],
   ['cppthread',['CppThread',['../classCppThread.html#a72e4a185fe940958ef9966d113c1e57b',1,'CppThread']]],
   ['customdialog',['CustomDialog',['../classCustomDialog.html#a2e8b220b0995111e617638f34f7ab173',1,'CustomDialog::CustomDialog(const QStringList &amp;items)'],['../classCustomDialog.html#a2e8b220b0995111e617638f34f7ab173',1,'CustomDialog::CustomDialog(const QStringList &amp;items)']]],
-  ['customlistmodel',['CustomListModel',['../classCustomListModel.html#a6a9dfff471a701c3f34f005019f345f3',1,'CustomListModel::CustomListModel(QObject *parent=0)'],['../classCustomListModel.html#aad529c6a4d9cac4a48b46c92b26930eb',1,'CustomListModel::CustomListModel(const QStringList &amp;strings, QObject *parent=0)']]],
+  ['customlistmodel',['CustomListModel',['../classCustomListModel.html#a6a9dfff471a701c3f34f005019f345f3',1,'CustomListModel']]],
   ['customscene',['CustomScene',['../classCustomScene.html#a71a90b3b9a29d6cfbc1e967331e1a151',1,'CustomScene']]]
 ];

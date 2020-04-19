@@ -8,10 +8,9 @@
 #include <QPoint>
 #include <QWidget>
 
-//! [0]
 /**
  * @brief
- *
+ * This class is a widget that handles the drawing area for the radar map
  */
 class ManualScribble : public QWidget
 {
@@ -20,21 +19,21 @@ class ManualScribble : public QWidget
 public:
     /**
      * @brief
-     *
+     *constructor of the class
      * @param parent
      */
     ManualScribble(QWidget* parent = nullptr);
 
     /**
      * @brief
-     *
+     *opens an image and loads it
      * @param fileName
      * @return bool
      */
     bool openImage(const QString& fileName);
     /**
      * @brief
-     *
+     * Save the map
      * @param fileName
      * @param fileFormat
      * @return bool

@@ -11,6 +11,8 @@ var annotated_dup =
     [ "CustomScene", "classCustomScene.html", "classCustomScene" ],
     [ "DigitalClock", "classDigitalClock.html", "classDigitalClock" ],
     [ "driverTestCase", "classdriverTestCase.html", "classdriverTestCase" ],
+    [ "fileDownloadTest", "classfileDownloadTest.html", "classfileDownloadTest" ],
+    [ "fileTest", "classfileTest.html", "classfileTest" ],
     [ "GetGeoLocation", "classGetGeoLocation.html", "classGetGeoLocation" ],
     [ "helper", "classhelper.html", "classhelper" ],
     [ "HttpWindow", "classHttpWindow.html", "classHttpWindow" ],

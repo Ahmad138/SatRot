@@ -1,13 +1,7 @@
 #include "../includes/customdialog.h"
 
-/**
- * @brief
- *
- * @param items
- */
 CustomDialog::CustomDialog(const QStringList& items)
 {
-    //setLayout(new QHBoxLayout());
 
     box = new QComboBox;
     box->setEditable(true);
@@ -15,8 +9,6 @@ CustomDialog::CustomDialog(const QStringList& items)
 
     auto hostLabel = new QLabel(tr("&Server name:"));
     hostLabel->setBuddy(box);
-
-    //layout()->addWidget(box);
 
     QPushButton* connectButton = new QPushButton("Connect");
     auto quitButton = new QPushButton(tr("Quit"));
@@ -34,8 +26,6 @@ CustomDialog::CustomDialog(const QStringList& items)
 
     setWindowTitle("Connect to Server");
 
-
-//    layout()->addWidget(ok);
     connect(connectButton, &QPushButton::clicked, this, [this]()
     {
         accept();

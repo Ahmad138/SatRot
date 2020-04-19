@@ -1,13 +1,14 @@
 <map id="SatRot&#45;GUI/GUI&#45;Main/includes/customdialog.h" name="SatRot&#45;GUI/GUI&#45;Main/includes/customdialog.h">
-<area shape="rect" id="node2" href="$SatRot-GUI_2GUI-Main_2includes_2mainwindow_8h.html" title="SatRot&#45;GUI/GUI&#45;Main\l/includes/mainwindow.h" alt="" coords="649,95,811,136"/>
-<area shape="rect" id="node9" href="$RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/mainwindow.h" alt="" coords="1007,95,1195,136"/>
-<area shape="rect" id="node11" href="$RotorDriver-GUI_2RotorDriver_2src_2customdialog_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/customdialog.cpp" alt="" coords="1219,95,1407,136"/>
-<area shape="rect" id="node12" href="$SatRot-GUI_2GUI-Main_2src_2customdialog_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/customdialog.cpp" alt="" coords="1431,95,1581,136"/>
-<area shape="rect" id="node3" href="$apiTest_2moc__mainwindow_8cpp.html" title="Build/apiTest/moc_mainwindow.cpp" alt="" coords="5,191,236,218"/>
-<area shape="rect" id="node4" href="$GUI-Main_2moc__mainwindow_8cpp.html" title="Build/GUI&#45;Main/moc\l_mainwindow.cpp" alt="" coords="260,184,400,225"/>
-<area shape="rect" id="node5" href="$RotorDriver-GUI_2RotorDriver_2src_2main_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/main.cpp" alt="" coords="424,184,612,225"/>
-<area shape="rect" id="node6" href="$RotorDriver-GUI_2RotorDriver_2src_2mainwindow_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/mainwindow.cpp" alt="" coords="636,184,824,225"/>
-<area shape="rect" id="node7" href="$SatRot-GUI_2GUI-Main_2src_2main_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/main.cpp" alt="" coords="848,184,999,225"/>
-<area shape="rect" id="node8" href="$SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/mainwindow.cpp" alt="" coords="1023,184,1173,225"/>
-<area shape="rect" id="node10" href="$RotorDriver_2moc__mainwindow_8cpp.html" title="Build/RotorDriver/moc\l_mainwindow.cpp" alt="" coords="1197,184,1348,225"/>
+<area shape="rect" id="node2" href="$SatRot-GUI_2GUI-Main_2includes_2mainwindow_8h.html" title="SatRot&#45;GUI/GUI&#45;Main\l/includes/mainwindow.h" alt="" coords="784,95,945,136"/>
+<area shape="rect" id="node10" href="$RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/mainwindow.h" alt="" coords="1195,95,1383,136"/>
+<area shape="rect" id="node12" href="$RotorDriver-GUI_2RotorDriver_2src_2customdialog_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/customdialog.cpp" alt="" coords="1407,95,1595,136"/>
+<area shape="rect" id="node13" href="$SatRot-GUI_2GUI-Main_2src_2customdialog_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/customdialog.cpp" alt="" coords="1619,95,1769,136"/>
+<area shape="rect" id="node3" href="$Build_2apiTest_2moc__mainwindow_8cpp.html" title="Build/apiTest/moc_mainwindow.cpp" alt="" coords="5,199,236,225"/>
+<area shape="rect" id="node4" href="$Build_2GUI-Main_2moc__mainwindow_8cpp.html" title="Build/GUI&#45;Main/moc\l_mainwindow.cpp" alt="" coords="260,191,400,233"/>
+<area shape="rect" id="node5" href="$build-SatRot-GUI-Desktop__Qt__5__14__1__GCC__64bit-Release_2GUI-Main_2moc__mainwindow_8cpp.html" title="build&#45;SatRot&#45;GUI&#45;Desktop\l_Qt_5_14_1_GCC_64bit&#45;Release\l/GUI&#45;Main/moc_mainwindow.cpp" alt="" coords="425,184,641,240"/>
+<area shape="rect" id="node6" href="$RotorDriver-GUI_2RotorDriver_2src_2main_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/main.cpp" alt="" coords="665,191,853,233"/>
+<area shape="rect" id="node7" href="$RotorDriver-GUI_2RotorDriver_2src_2mainwindow_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/mainwindow.cpp" alt="" coords="877,191,1065,233"/>
+<area shape="rect" id="node8" href="$SatRot-GUI_2GUI-Main_2src_2main_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/main.cpp" alt="" coords="1089,191,1240,233"/>
+<area shape="rect" id="node9" href="$SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/mainwindow.cpp" alt="" coords="1264,191,1415,233"/>
+<area shape="rect" id="node11" href="$Build_2RotorDriver_2moc__mainwindow_8cpp.html" title="Build/RotorDriver/moc\l_mainwindow.cpp" alt="" coords="1439,191,1589,233"/>
 </map>

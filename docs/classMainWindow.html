@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('classMainWindow.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>This is the main gui class that handles everything about the gui. It brings all the other classes together into a unified program.  
+ <a href="classMainWindow.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainWindow:</div>
@@ -111,6 +114,7 @@ Collaboration diagram for MainWindow:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:a0638f6caa74fbdb76eeb53a4de981258"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a0638f6caa74fbdb76eeb53a4de981258">valueChanged</a> ()</td></tr>
+<tr class="memdesc:a0638f6caa74fbdb76eeb53a4de981258"><td class="mdescLeft">&#160;</td><td class="mdescRight">signal that is emitted when there is a value cahnge to the table items  <a href="#a0638f6caa74fbdb76eeb53a4de981258">More...</a><br /></td></tr>
 <tr class="separator:a0638f6caa74fbdb76eeb53a4de981258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -120,17 +124,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a996c5a2b6f77944776856f08ec30858d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a996c5a2b6f77944776856f08ec30858d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main constructor of the class. This is where most of the ui and widgets are initiated.  <a href="#a996c5a2b6f77944776856f08ec30858d">More...</a><br /></td></tr>
 <tr class="separator:a996c5a2b6f77944776856f08ec30858d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
+<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for the main window  <a href="#ae98d00a93bc118200eeef9f9bba1dba7">More...</a><br /></td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a05fb9d72c044aa3bb7d187b994704e2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainWindow.html#a05fb9d72c044aa3bb7d187b994704e2f">closeEvent</a> (QCloseEvent *event) override</td></tr>
+<tr class="memdesc:a05fb9d72c044aa3bb7d187b994704e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This listens to the close event and overrides.  <a href="#a05fb9d72c044aa3bb7d187b994704e2f">More...</a><br /></td></tr>
 <tr class="separator:a05fb9d72c044aa3bb7d187b994704e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>This is the main gui class that handles everything about the gui. It brings all the other classes together into a unified program. </p>
+<dl class="section author"><dt>Authors</dt><dd>-&gt; Ahmad Muhammad (<a href="https://github.com/Ahmad138">https://github.com/Ahmad138</a>) </dd>
+<dd>
+-&gt; Mohamed Salih </dd>
+<dd>
+-&gt; Mohamed Salim </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h_source.html#l00035">35</a> of file <a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h_source.html">mainwindow.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a996c5a2b6f77944776856f08ec30858d"></a>
@@ -225,9 +238,11 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This is the main constructor of the class. This is where most of the ui and widgets are initiated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td>-&gt; take in a nullptr as default </td></tr>
   </table>
   </dd>
 </dl>
@@ -248,6 +263,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>destructor for the main window </p>
 
 </div>
 </div>
@@ -275,14 +292,16 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>This listens to the close event and overrides. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td></td></tr>
+    <tr><td class="paramname">event</td><td>-&gt; takes in the QCloseEvent from the main GUI </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp_source.html#l01394">1394</a> of file <a class="el" href="SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp_source.html#l01080">1080</a> of file <a class="el" href="SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -332,13 +351,15 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="apiTest_2moc__mainwindow_8cpp_source.html#l00373">373</a> of file <a class="el" href="apiTest_2moc__mainwindow_8cpp_source.html">moc_mainwindow.cpp</a>.</p>
+<p>signal that is emitted when there is a value cahnge to the table items </p>
+
+<p class="definition">Definition at line <a class="el" href="Build_2apiTest_2moc__mainwindow_8cpp_source.html#l00373">373</a> of file <a class="el" href="Build_2apiTest_2moc__mainwindow_8cpp_source.html">moc_mainwindow.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>RotorDriver-GUI/RotorDriver/includes/<a class="el" href="RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h_source.html">mainwindow.h</a></li>
-<li>Build/apiTest/<a class="el" href="apiTest_2moc__mainwindow_8cpp_source.html">moc_mainwindow.cpp</a></li>
+<li>Build/apiTest/<a class="el" href="Build_2apiTest_2moc__mainwindow_8cpp_source.html">moc_mainwindow.cpp</a></li>
 <li>RotorDriver-GUI/RotorDriver/src/<a class="el" href="RotorDriver-GUI_2RotorDriver_2src_2mainwindow_8cpp_source.html">mainwindow.cpp</a></li>
 </ul>
 </div><!-- contents -->

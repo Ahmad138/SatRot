@@ -34,10 +34,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/api.cpp \
-    src/clientthread.cpp \
     src/customdialog.cpp \
-    src/digitalclock.cpp \
-    src/getgeolocation.cpp \
     src/httpwindow.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -56,10 +53,7 @@ SOURCES += \
 
 HEADERS += \
     includes/api.h \
-    includes/clientthread.h \
     includes/customdialog.h \
-    includes/digitalclock.h \
-    includes/getgeolocation.h \
     includes/httpwindow.h \
     includes/mainwindow.h \
     includes/manualscribble.h \

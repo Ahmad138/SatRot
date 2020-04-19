@@ -15,8 +15,12 @@
 /**
  * @brief
  * api class for api requests to api services. This will
- * allow us to make GET, POST request to api services such as NASA, N2YO, celestrak and orbitalpredictor
+ * allow us to make GET, POST request to api services such as NASA, N2YO, celestrak and orbitalpredictor.
  *
+ * Code is derived from https://github.com/Bragaman/QtRestApiRequester
+ * Many thanks to Dmitry Bragin for REST client implementation
+ *
+ * @author: Ahmad Muhammad (https://github.com/Ahmad138)
  */
 class api : public QObject
 {
@@ -123,28 +127,31 @@ private:
 
     /**
      * @brief
-     *
-     * @param data
-     * @return QByteArray
+     *This method maps the varient type to a json format. It allows data to be mapped to a json format for transmission
+     * using POST request
+     * @param data -> user data to be sent
+     * @return QByteArray -> return value after mapping
      */
     QByteArray variantMapToJson(QVariantMap data);
 
     /**
      * @brief
-     *
-     * @param apiStr
-     * @return QNetworkRequest
+     *This method builds and creates the request to be used for the api. It sets the headers and ssl if it
+     * is configured
+     * @param apiStr -> api endpoint for the request
+     * @return QNetworkRequest -> returns a QNetworkRequest for the manager to use
      */
     QNetworkRequest createRequest(const QString& apiStr);
 
     /**
      * @brief
+     * This sends the custom request to the api service and receives the response asynchronously.
      *
-     * @param manager
-     * @param request
-     * @param type
-     * @param data
-     * @return QNetworkReply
+     * @param manager -> Qt network access manager pointer created in the constructor
+     * @param request -> The built request from the createRequest() method.
+     * @param type -> The type of request, either GET, POST, UPDATE, DELETE
+     * @param data -> The data
+     * @return QNetworkReply -> The response form the network itslef. This is parsed as a QNetworkReply
      */
     QNetworkReply* sendCustomRequest(QNetworkAccessManager* manager,
                                      QNetworkRequest& request,
@@ -153,25 +160,27 @@ private:
 
     /**
      * @brief
-     *
-     * @param reply
-     * @return QJsonObject
+     *This parses the JSON reply from the network reply to a QJsonObject that can have
+     * the key-value pairs accessed as objects.
+     * @param reply -> reply from the network
+     * @return QJsonObject -> returned value as an object
      */
     QJsonObject parseReply(QNetworkReply* reply);
 
     /**
      * @brief
+     *Checks for the status of the response when the request has finished.
      *
-     * @param reply
-     * @return bool
+     * @param reply -> takes in the reply as a parameter from the networkreply
+     * @return bool -> returns true if there is an error and false if everything checks out
      */
     bool onFinishRequest(QNetworkReply* reply);
 
     /**
      * @brief
-     *
-     * @param reply
-     * @param obj
+     *This method handles network errors
+     * @param reply -> takes the networkreply as a parameter
+     * @param obj -> the jsonObject parsed is also taken as a parameter to check
      */
     void handleQtNetworkErrors(QNetworkReply* reply, QJsonObject& obj);
     QNetworkAccessManager* manager; /**< TODO: describe */
@@ -179,7 +188,7 @@ private:
 signals:
     /**
      * @brief
-     *
+     *This is a signal that is emitted when there is an error with the network
      */
     void networkError();
 

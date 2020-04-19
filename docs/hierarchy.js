@@ -32,6 +32,8 @@ var hierarchy =
       [ "ClientThread", "classClientThread.html", null ],
       [ "ClientThread", "classClientThread.html", null ],
       [ "driverTestCase", "classdriverTestCase.html", null ],
+      [ "fileDownloadTest", "classfileDownloadTest.html", null ],
+      [ "fileTest", "classfileTest.html", null ],
       [ "HttpWindow", "classHttpWindow.html", null ],
       [ "ServerThread", "classServerThread.html", null ],
       [ "ServerThread", "classServerThread.html", null ],
@@ -80,6 +82,8 @@ var hierarchy =
     [ "stepperDriver", "classstepperDriver.html", null ],
     [ "TCPsockets", "classTCPsockets.html", null ],
     [ "Ui_MainWindow", "classUi__MainWindow.html", [
+      [ "Ui::MainWindow", "classUi_1_1MainWindow.html", null ],
+      [ "Ui::MainWindow", "classUi_1_1MainWindow.html", null ],
       [ "Ui::MainWindow", "classUi_1_1MainWindow.html", null ],
       [ "Ui::MainWindow", "classUi_1_1MainWindow.html", null ],
       [ "Ui::MainWindow", "classUi_1_1MainWindow.html", null ]

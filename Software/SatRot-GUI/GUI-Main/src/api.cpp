@@ -149,10 +149,7 @@ QByteArray api::variantMapToJson(QVariantMap data)
 QNetworkRequest api::createRequest(const QString& apiStr)
 {
     QNetworkRequest request;
-    //QString url = pathTemplate.arg(host).arg(port).arg(apiStr);
     QString url = pathTemplate.arg(host);
-    //qDebug() << url;
-    //std::cout<<url.toUtf8().constData();
     request.setUrl(QUrl(url));
     request.setRawHeader("Content-Type", "application/json");
     if (!token.isEmpty())

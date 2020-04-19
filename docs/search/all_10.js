@@ -17,6 +17,6 @@ var searchData=
   ['pushbutton',['pushButton',['../classUi__MainWindow.html#aa2f2c48d459c5b5eda62071b8d750fed',1,'Ui_MainWindow']]],
   ['pushbutton_5f2',['pushButton_2',['../classUi__MainWindow.html#aabbfd4b71da5cff6bf630124589f6e6a',1,'Ui_MainWindow']]],
   ['pushbutton_5f3',['pushButton_3',['../classUi__MainWindow.html#a6641ad20f506cf9158e8019e3eb9f2e0',1,'Ui_MainWindow']]],
-  ['pushbutton_5f5',['pushButton_5',['../classUi__MainWindow.html#adafdad7c065227c5d14b68d75789cbe2',1,'Ui_MainWindow']]],
-  ['pushbutton_5f6',['pushButton_6',['../classUi__MainWindow.html#a3f20112708231220f3a4f567802130c5',1,'Ui_MainWindow']]]
+  ['pushbutton_5f5',['pushButton_5',['../classUi__MainWindow.html#a2d0c0a1ca72501ee18442bb762769b2a',1,'Ui_MainWindow']]],
+  ['pushbutton_5f6',['pushButton_6',['../classUi__MainWindow.html#acb2085a67d46411eb36816a69e1a82ba',1,'Ui_MainWindow']]]
 ];

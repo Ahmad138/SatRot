@@ -13,17 +13,13 @@
 #endif
 #endif
 
-//! [0]
 ManualScribble::ManualScribble(QWidget* parent)
     : QWidget(parent)
 {
     setAttribute(Qt::WA_StaticContents);
 }
-//! [0]
 
-//! [1]
 bool ManualScribble::openImage(const QString& fileName)
-//! [1] //! [2]
 {
     QImage loadedImage;
     if (!loadedImage.load(fileName))
@@ -36,11 +32,8 @@ bool ManualScribble::openImage(const QString& fileName)
     update();
     return true;
 }
-//! [2]
 
-//! [3]
 bool ManualScribble::saveImage(const QString& fileName, const char* fileFormat)
-//! [3] //! [4]
 {
     QImage visibleImage = image;
     resizeImage(&visibleImage, size());
@@ -52,37 +45,25 @@ bool ManualScribble::saveImage(const QString& fileName, const char* fileFormat)
     }
     return false;
 }
-//! [4]
 
-//! [5]
 void ManualScribble::setPenColor(const QColor& newColor)
-//! [5] //! [6]
 {
     myPenColor = newColor;
 }
-//! [6]
 
-//! [7]
 void ManualScribble::setPenWidth(int newWidth)
-//! [7] //! [8]
 {
     myPenWidth = newWidth;
 }
-//! [8]
 
-//! [9]
 void ManualScribble::clearImage()
-//! [9] //! [10]
 {
     image.fill(qRgb(255, 255, 255));
     modified = true;
     update();
 }
-//! [10]
 
-//! [11]
 void ManualScribble::mousePressEvent(QMouseEvent* event)
-//! [11] //! [12]
 {
     if (event->button() == Qt::LeftButton)
     {
@@ -97,7 +78,6 @@ void ManualScribble::mouseMoveEvent(QMouseEvent* event)
     {
         drawLineTo(event->pos());
         QPoint coordinates = event->pos();
-//      qDebug()<<event->pos();
         moveRefFrame(coordinates);
     }
 }
@@ -111,19 +91,14 @@ void ManualScribble::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
-//! [12] //! [13]
 void ManualScribble::paintEvent(QPaintEvent* event)
-//! [13] //! [14]
 {
     QPainter painter(this);
     QRect dirtyRect = event->rect();
     painter.drawImage(dirtyRect, image, dirtyRect);
 }
-//! [14]
 
-//! [15]
 void ManualScribble::resizeEvent(QResizeEvent* event)
-//! [15] //! [16]
 {
     if (width() > image.width() || height() > image.height())
     {
@@ -134,11 +109,8 @@ void ManualScribble::resizeEvent(QResizeEvent* event)
     }
     QWidget::resizeEvent(event);
 }
-//! [16]
 
-//! [17]
 void ManualScribble::drawLineTo(const QPoint& endPoint)
-//! [17] //! [18]
 {
     QPainter painter(&image);
     painter.setPen(QPen(myPenColor, myPenWidth, Qt::SolidLine, Qt::RoundCap,
@@ -151,11 +123,8 @@ void ManualScribble::drawLineTo(const QPoint& endPoint)
            .adjusted(-rad, -rad, +rad, +rad));
     lastPoint = endPoint;
 }
-//! [18]
 
-//! [19]
 void ManualScribble::resizeImage(QImage* image, const QSize& newSize)
-//! [19] //! [20]
 {
     if (image->size() == newSize)
         return;
@@ -166,16 +135,14 @@ void ManualScribble::resizeImage(QImage* image, const QSize& newSize)
     painter.drawImage(QPoint(0, 0), *image);
     *image = newImage;
 }
-//! [20]
 
-//! [21]
 void ManualScribble::print()
 {
 #if defined(QT_PRINTSUPPORT_LIB) && QT_CONFIG(printdialog)
     QPrinter printer(QPrinter::HighResolution);
 
     QPrintDialog printDialog(&printer, this);
-    //! [21] //! [22]
+
     if (printDialog.exec() == QDialog::Accepted)
     {
         QPainter painter(&printer);
@@ -188,7 +155,7 @@ void ManualScribble::print()
     }
 #endif // QT_CONFIG(printdialog)
 }
-//! [22]
+
 
 void ManualScribble::moveRefFrame(QPoint& coordinates)
 {
@@ -251,10 +218,8 @@ void ManualScribble::moveRefFrame(QPoint& coordinates)
         }
         else
         {
-            //drawLineTo(coordinates);
-        }
 
-        //qDebug()<<"Az: "+ QString::number(angles["Az"]) +" El: "+QString::number(angles["El"]);
+        }
 
         emit logAngles(angles);
     }
