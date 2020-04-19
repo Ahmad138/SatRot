@@ -23,7 +23,6 @@
 #include "../includes/tcpclient.h"
 #include "../includes/customlistmodel.h"
 #include "../includes/satellitelist.h"
-#include "../includes/getgeolocation.h"
 #include "../includes/httpwindow.h"
 #include "../includes/positionmodel.h"
 #include "../includes/visualpassmodel.h"
