@@ -80,7 +80,7 @@ public:
 
     /**
      * @brief
-     *
+     *Each parameter is a section of the table to be filled
      * @param a
      * @param b
      * @param c
