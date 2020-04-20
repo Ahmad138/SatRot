@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['clientthread_2ecpp',['clientthread.cpp',['../RotorDriver-GUI_2RotorDriver_2src_2clientthread_8cpp.html',1,'(Global Namespace)'],['../SatRot-GUI_2GUI-Main_2src_2clientthread_8cpp.html',1,'(Global Namespace)']]],
-  ['clientthread_2eh',['clientthread.h',['../RotorDriver-GUI_2RotorDriver_2includes_2clientthread_8h.html',1,'(Global Namespace)'],['../SatRot-GUI_2GUI-Main_2includes_2clientthread_8h.html',1,'(Global Namespace)']]],
+  ['clientthread_2ecpp',['clientthread.cpp',['../clientthread_8cpp.html',1,'']]],
+  ['clientthread_2eh',['clientthread.h',['../clientthread_8h.html',1,'']]],
   ['cppthread_2eh',['CppThread.h',['../CppThread_8h.html',1,'']]],
   ['customdialog_2ecpp',['customdialog.cpp',['../RotorDriver-GUI_2RotorDriver_2src_2customdialog_8cpp.html',1,'(Global Namespace)'],['../SatRot-GUI_2GUI-Main_2src_2customdialog_8cpp.html',1,'(Global Namespace)']]],
   ['customdialog_2eh',['customdialog.h',['../RotorDriver-GUI_2RotorDriver_2includes_2customdialog_8h.html',1,'(Global Namespace)'],['../SatRot-GUI_2GUI-Main_2includes_2customdialog_8h.html',1,'(Global Namespace)']]],

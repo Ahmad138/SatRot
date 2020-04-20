@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['label',['label',['../classUi__MainWindow.html#a78edcdd12ea78c06d7e80f322c8882f9',1,'Ui_MainWindow']]],
+  ['label',['label',['../classUi__MainWindow.html#ad9c89133780f28e6efa2ec17ceb9cff5',1,'Ui_MainWindow']]],
   ['label_5f10',['label_10',['../classUi__MainWindow.html#a0130582ecf8dfbf621aa87f6d0d702f7',1,'Ui_MainWindow']]],
   ['label_5f11',['label_11',['../classUi__MainWindow.html#a5137915fc613f86173da699e3fc07cc5',1,'Ui_MainWindow']]],
   ['label_5f12',['label_12',['../classUi__MainWindow.html#a1df694de9f13a0ef3efae2c9aa495464',1,'Ui_MainWindow']]],
@@ -15,8 +15,6 @@ var searchData=
   ['latbox',['latBox',['../classUi__MainWindow.html#a71a0a52e7aaac8d693edd678d70cf3ec',1,'Ui_MainWindow']]],
   ['lattxt',['latTxT',['../classUi__MainWindow.html#a40b121aa4c09e2f325072246b3c8e733',1,'Ui_MainWindow']]],
   ['layoutwidget',['layoutWidget',['../classUi__MainWindow.html#ab96ab0f0578098521fa69a75aa5cdde8',1,'Ui_MainWindow']]],
-  ['lcdnumber',['lcdNumber',['../classUi__MainWindow.html#ae7a7c202aa4d1093bd0d57e95adeb934',1,'Ui_MainWindow']]],
-  ['lcdnumber_5f2',['lcdNumber_2',['../classUi__MainWindow.html#a607f0e4e33555432af5c4900c70e3e77',1,'Ui_MainWindow']]],
   ['line',['line',['../classUi__MainWindow.html#a249d59b1188cc69f7e0290da15019085',1,'Ui_MainWindow']]],
   ['line_5f2',['line_2',['../classUi__MainWindow.html#a05cd891c7a6c198155d7559787d29485',1,'Ui_MainWindow']]],
   ['line_5f3',['line_3',['../classUi__MainWindow.html#a3ef6876a5881954fc438e25a56f2b0d4',1,'Ui_MainWindow']]],
@@ -25,8 +23,6 @@ var searchData=
   ['line_5f7',['line_7',['../classUi__MainWindow.html#a03240ff7f2fc3e1198eab7df380ee202',1,'Ui_MainWindow']]],
   ['line_5f8',['line_8',['../classUi__MainWindow.html#a1c7b28a31c0ff8b3cc3543e216f02ea0',1,'Ui_MainWindow']]],
   ['line_5f9',['line_9',['../classUi__MainWindow.html#a72f09c292d2d0003bb170a449310e085',1,'Ui_MainWindow']]],
-  ['lineedit',['lineEdit',['../classUi__MainWindow.html#a9ec10ad6d77a53c0ace94da924121d13',1,'Ui_MainWindow']]],
-  ['listwidget',['listWidget',['../classUi__MainWindow.html#a89e0ee00764ef40b900ae0f190644540',1,'Ui_MainWindow']]],
   ['logeditor',['logEditor',['../classUi__MainWindow.html#a6eb97b11a49bd4d826271736eb4b0ac7',1,'Ui_MainWindow']]],
   ['logo',['logo',['../classUi__MainWindow.html#aa090c9632dcbfece5e61300fa3bd3217',1,'Ui_MainWindow']]],
   ['longbox',['longBox',['../classUi__MainWindow.html#a9e1be744d2b88e1fdc1a792712af80bf',1,'Ui_MainWindow']]],

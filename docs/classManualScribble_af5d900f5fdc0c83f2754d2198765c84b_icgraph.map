@@ -1,6 +1,6 @@
 <map id="ManualScribble::logAngles" name="ManualScribble::logAngles">
 <area shape="rect" id="node2" href="$classManualScribble.html#a509bd85f10f07e7eb42dbb3080344503" title="ManualScribble::penWidth" alt="" coords="725,31,900,57"/>
-<area shape="rect" id="node4" href="$classManualScribble.html#a326d32f27086007b0f2932a61646e8fa" title="[22] " alt="" coords="229,31,439,57"/>
+<area shape="rect" id="node4" href="$classManualScribble.html#a326d32f27086007b0f2932a61646e8fa" title="ManualScribble::moveRefFrame" alt="" coords="229,31,439,57"/>
 <area shape="rect" id="node3" href="$classMainWindow.html#a05fb9d72c044aa3bb7d187b994704e2f" title="This listens to the close event and overrides. " alt="" coords="948,31,1119,57"/>
 <area shape="rect" id="node5" href="$classManualScribble.html#a9f80ac71b68a8e327b468ecbefd76ffe" title="ManualScribble::mouseMove\lEvent" alt="" coords="487,82,677,123"/>
 </map>

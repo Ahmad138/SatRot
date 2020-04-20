@@ -1,14 +1,13 @@
 <map id="SatRot&#45;GUI/GUI&#45;Main/includes/mainwindow.h" name="SatRot&#45;GUI/GUI&#45;Main/includes/mainwindow.h">
-<area shape="rect" id="node18" href="$SatRot-GUI_2GUI-Main_2includes_2api_8h.html" title="../includes/api.h" alt="" coords="726,177,841,203"/>
-<area shape="rect" id="node27" href="$SatRot-GUI_2GUI-Main_2includes_2tcpserver_8h.html" title="../includes/tcpserver.h" alt="" coords="2579,95,2729,121"/>
-<area shape="rect" id="node30" href="$SatRot-GUI_2GUI-Main_2includes_2tcpclient_8h.html" title="../includes/tcpclient.h" alt="" coords="982,95,1129,121"/>
-<area shape="rect" id="node32" href="$customlistmodel_8h.html" title="../includes/customlistmodel.h" alt="" coords="317,95,509,121"/>
-<area shape="rect" id="node39" href="$satellitelist_8h.html" title="../includes/satellitelist.h" alt="" coords="2753,95,2912,121"/>
-<area shape="rect" id="node41" href="$getgeolocation_8h.html" title="../includes/getgeolocation.h" alt="" coords="777,95,958,121"/>
-<area shape="rect" id="node43" href="$httpwindow_8h.html" title="../includes/httpwindow.h" alt="" coords="2937,95,3099,121"/>
-<area shape="rect" id="node46" href="$positionmodel_8h.html" title="../includes/positionmodel.h" alt="" coords="3124,95,3301,121"/>
-<area shape="rect" id="node47" href="$visualpassmodel_8h.html" title="../includes/visualpassmodel.h" alt="" coords="3326,95,3521,121"/>
-<area shape="rect" id="node48" href="$radiopassmodel_8h.html" title="../includes/radiopassmodel.h" alt="" coords="3545,95,3733,121"/>
-<area shape="rect" id="node49" href="$tlemodel_8h.html" title="../includes/tlemodel.h" alt="" coords="3758,95,3905,121"/>
-<area shape="rect" id="node50" href="$SatRot-GUI_2GUI-Main_2includes_2customdialog_8h.html" title="../includes/customdialog.h" alt="" coords="3929,95,4104,121"/>
+<area shape="rect" id="node18" href="$SatRot-GUI_2GUI-Main_2includes_2api_8h.html" title="../includes/api.h" alt="" coords="341,95,456,121"/>
+<area shape="rect" id="node27" href="$SatRot-GUI_2GUI-Main_2includes_2tcpserver_8h.html" title="../includes/tcpserver.h" alt="" coords="2077,95,2227,121"/>
+<area shape="rect" id="node30" href="$SatRot-GUI_2GUI-Main_2includes_2tcpclient_8h.html" title="../includes/tcpclient.h" alt="" coords="1905,95,2052,121"/>
+<area shape="rect" id="node32" href="$customlistmodel_8h.html" title="../includes/customlistmodel.h" alt="" coords="2303,95,2495,121"/>
+<area shape="rect" id="node39" href="$satellitelist_8h.html" title="../includes/satellitelist.h" alt="" coords="2519,95,2678,121"/>
+<area shape="rect" id="node41" href="$httpwindow_8h.html" title="../includes/httpwindow.h" alt="" coords="2703,95,2865,121"/>
+<area shape="rect" id="node45" href="$positionmodel_8h.html" title="../includes/positionmodel.h" alt="" coords="3061,95,3238,121"/>
+<area shape="rect" id="node47" href="$visualpassmodel_8h.html" title="../includes/visualpassmodel.h" alt="" coords="3263,95,3457,121"/>
+<area shape="rect" id="node48" href="$radiopassmodel_8h.html" title="../includes/radiopassmodel.h" alt="" coords="3482,95,3670,121"/>
+<area shape="rect" id="node49" href="$tlemodel_8h.html" title="../includes/tlemodel.h" alt="" coords="2889,95,3036,121"/>
+<area shape="rect" id="node50" href="$SatRot-GUI_2GUI-Main_2includes_2customdialog_8h.html" title="../includes/customdialog.h" alt="" coords="3694,95,3869,121"/>
 </map>

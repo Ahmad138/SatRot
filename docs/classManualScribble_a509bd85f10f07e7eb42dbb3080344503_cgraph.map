@@ -1,10 +1,10 @@
 <map id="ManualScribble::penWidth" name="ManualScribble::penWidth">
-<area shape="rect" id="node2" href="$classManualScribble.html#a09c11140c79edb9f18838977dbaf6dd2" title="[8] " alt="" coords="240,5,423,32"/>
-<area shape="rect" id="node3" href="$classManualScribble.html#a0ffe73fb4b99188afc12bc4bbe027dfc" title="[20] " alt="" coords="259,56,403,83"/>
-<area shape="rect" id="node4" href="$classManualScribble.html#a326d32f27086007b0f2932a61646e8fa" title="[22] " alt="" coords="483,169,692,196"/>
-<area shape="rect" id="node5" href="$classManualScribble.html#a3b9b0e4ff5a5867683755eb6adde457a" title="[10] " alt="" coords="235,158,427,199"/>
+<area shape="rect" id="node2" href="$classManualScribble.html#a09c11140c79edb9f18838977dbaf6dd2" title="ManualScribble::clearImage" alt="" coords="240,5,423,32"/>
+<area shape="rect" id="node3" href="$classManualScribble.html#a0ffe73fb4b99188afc12bc4bbe027dfc" title="ManualScribble::print" alt="" coords="259,56,403,83"/>
+<area shape="rect" id="node4" href="$classManualScribble.html#a326d32f27086007b0f2932a61646e8fa" title="ManualScribble::moveRefFrame" alt="" coords="483,169,692,196"/>
+<area shape="rect" id="node5" href="$classManualScribble.html#a3b9b0e4ff5a5867683755eb6adde457a" title="ManualScribble::mousePress\lEvent" alt="" coords="235,158,427,199"/>
 <area shape="rect" id="node6" href="$classManualScribble.html#a9f80ac71b68a8e327b468ecbefd76ffe" title="ManualScribble::mouseMove\lEvent" alt="" coords="236,223,427,265"/>
 <area shape="rect" id="node7" href="$classManualScribble.html#ae2034974c26f86c060c92be199f61783" title="ManualScribble::mouseRelease\lEvent" alt="" coords="228,289,435,330"/>
-<area shape="rect" id="node8" href="$classManualScribble.html#af386a54d8e28610dbaf2ae9eb5d2c9bb" title="[12] //! [13] " alt="" coords="241,355,422,381"/>
-<area shape="rect" id="node9" href="$classManualScribble.html#a612ad38518d5bb470b6ef9a5720fa874" title="[14] " alt="" coords="237,405,425,432"/>
+<area shape="rect" id="node8" href="$classManualScribble.html#af386a54d8e28610dbaf2ae9eb5d2c9bb" title="ManualScribble::paintEvent" alt="" coords="241,355,422,381"/>
+<area shape="rect" id="node9" href="$classManualScribble.html#a612ad38518d5bb470b6ef9a5720fa874" title="ManualScribble::resizeEvent" alt="" coords="237,405,425,432"/>
 </map>
