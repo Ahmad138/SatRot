@@ -183,6 +183,8 @@ Mohamed Salih :hear_no_evil: :sunglasses:
 Mohamed Salim :see_no_evil:  :blush:
 :robot: [Github](https://github.com/2302420a "Github")
 
+See who did what [here](https://github.com/Ahmad138/SatRot/wiki/Team "Team")
+
 # Support Us 
 You can support us by sending us a thank you note or bringing someone into the vast world of satellite technology. Your support gives us boost to continue maintaining this project. Also give us a shout out whenever possible.  
 # License 
