@@ -153,8 +153,14 @@ NB: If you are facing issues building using 'make', look at this [issue](https:/
 ### Maintain
 Project maintenance will be performed by the creators and contributors. Anyone is free to join us in maintaining and growing this project.
 # Screenshots
-# Examples and Videos
 
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-18%2020-21-41.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-20%2006-30-291.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-20%2006-37-111.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Peek%202020-04-19%2002-45.gif)
+
+# Examples and Videos
+For videos and demonstrations, visit our [YouTube channel](https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw)
 # Documentation
 A detailed documentation is outlined in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section of the repository. Files, documents, construction materials, instructions, costs and others are all listed and defined over in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section.
 
