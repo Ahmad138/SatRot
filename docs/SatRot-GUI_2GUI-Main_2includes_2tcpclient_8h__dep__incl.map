@@ -1,23 +1,14 @@
 <map id="SatRot&#45;GUI/GUI&#45;Main/includes/tcpclient.h" name="SatRot&#45;GUI/GUI&#45;Main/includes/tcpclient.h">
-<area shape="rect" id="node2" href="$SatRot-GUI_2GUI-Main_2includes_2clientthread_8h.html" title="SatRot&#45;GUI/GUI&#45;Main\l/includes/clientthread.h" alt="" coords="437,102,593,143"/>
-<area shape="rect" id="node7" href="$SatRot-GUI_2GUI-Main_2includes_2mainwindow_8h.html" title="SatRot&#45;GUI/GUI&#45;Main\l/includes/mainwindow.h" alt="" coords="1569,102,1730,143"/>
-<area shape="rect" id="node15" href="$Build_2GUI-Main_2moc__tcpclient_8cpp.html" title="Build/GUI&#45;Main/moc\l_tcpclient.cpp" alt="" coords="1931,102,2071,143"/>
-<area shape="rect" id="node16" href="$RotorDriver-GUI_2RotorDriver_2includes_2clientthread_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/clientthread.h" alt="" coords="2095,102,2283,143"/>
-<area shape="rect" id="node18" href="$RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/mainwindow.h" alt="" coords="2307,102,2495,143"/>
-<area shape="rect" id="node20" href="$build-SatRot-GUI-Desktop__Qt__5__14__1__GCC__64bit-Release_2GUI-Main_2moc__tcpclient_8cpp.html" title="build&#45;SatRot&#45;GUI&#45;Desktop\l_Qt_5_14_1_GCC_64bit&#45;Release\l/GUI&#45;Main/moc_tcpclient.cpp" alt="" coords="2520,95,2736,151"/>
-<area shape="rect" id="node21" href="$RotorDriver-GUI_2RotorDriver_2src_2tcpclient_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/tcpclient.cpp" alt="" coords="2761,102,2949,143"/>
-<area shape="rect" id="node22" href="$SatRot-GUI_2GUI-Main_2src_2tcpclient_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/tcpclient.cpp" alt="" coords="2973,102,3123,143"/>
-<area shape="rect" id="node3" href="$apiTest_2moc__clientthread_8cpp.html" title="Build/apiTest/moc_clientthread.cpp" alt="" coords="5,213,232,240"/>
-<area shape="rect" id="node4" href="$GUI-Main_2moc__clientthread_8cpp.html" title="Build/GUI&#45;Main/moc\l_clientthread.cpp" alt="" coords="257,206,397,247"/>
-<area shape="rect" id="node5" href="$RotorDriver-GUI_2RotorDriver_2src_2clientthread_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/clientthread.cpp" alt="" coords="421,206,609,247"/>
-<area shape="rect" id="node6" href="$SatRot-GUI_2GUI-Main_2src_2clientthread_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/clientthread.cpp" alt="" coords="633,206,783,247"/>
-<area shape="rect" id="node8" href="$Build_2apiTest_2moc__mainwindow_8cpp.html" title="Build/apiTest/moc_mainwindow.cpp" alt="" coords="807,213,1038,240"/>
-<area shape="rect" id="node9" href="$Build_2GUI-Main_2moc__mainwindow_8cpp.html" title="Build/GUI&#45;Main/moc\l_mainwindow.cpp" alt="" coords="1062,206,1202,247"/>
-<area shape="rect" id="node10" href="$build-SatRot-GUI-Desktop__Qt__5__14__1__GCC__64bit-Release_2GUI-Main_2moc__mainwindow_8cpp.html" title="build&#45;SatRot&#45;GUI&#45;Desktop\l_Qt_5_14_1_GCC_64bit&#45;Release\l/GUI&#45;Main/moc_mainwindow.cpp" alt="" coords="1227,199,1443,255"/>
-<area shape="rect" id="node11" href="$RotorDriver-GUI_2RotorDriver_2src_2main_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/main.cpp" alt="" coords="1467,206,1655,247"/>
-<area shape="rect" id="node12" href="$RotorDriver-GUI_2RotorDriver_2src_2mainwindow_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/mainwindow.cpp" alt="" coords="1679,206,1867,247"/>
-<area shape="rect" id="node13" href="$SatRot-GUI_2GUI-Main_2src_2main_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/main.cpp" alt="" coords="1891,206,2042,247"/>
-<area shape="rect" id="node14" href="$SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/mainwindow.cpp" alt="" coords="2066,206,2217,247"/>
-<area shape="rect" id="node17" href="$RotorDriver_2moc__clientthread_8cpp.html" title="Build/RotorDriver/moc\l_clientthread.cpp" alt="" coords="2241,206,2391,247"/>
-<area shape="rect" id="node19" href="$Build_2RotorDriver_2moc__mainwindow_8cpp.html" title="Build/RotorDriver/moc\l_mainwindow.cpp" alt="" coords="2415,206,2566,247"/>
+<area shape="rect" id="node2" href="$SatRot-GUI_2GUI-Main_2includes_2mainwindow_8h.html" title="SatRot&#45;GUI/GUI&#45;Main\l/includes/mainwindow.h" alt="" coords="444,95,605,136"/>
+<area shape="rect" id="node8" href="$moc__tcpclient_8cpp.html" title="Build/GUI&#45;Main/moc\l_tcpclient.cpp" alt="" coords="728,95,868,136"/>
+<area shape="rect" id="node9" href="$clientthread_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/clientthread.h" alt="" coords="892,95,1080,136"/>
+<area shape="rect" id="node11" href="$RotorDriver-GUI_2RotorDriver_2includes_2mainwindow_8h.html" title="RotorDriver&#45;GUI/RotorDriver\l/includes/mainwindow.h" alt="" coords="1104,95,1292,136"/>
+<area shape="rect" id="node12" href="$RotorDriver-GUI_2RotorDriver_2src_2tcpclient_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/tcpclient.cpp" alt="" coords="1316,95,1504,136"/>
+<area shape="rect" id="node13" href="$SatRot-GUI_2GUI-Main_2src_2tcpclient_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/tcpclient.cpp" alt="" coords="1528,95,1679,136"/>
+<area shape="rect" id="node3" href="$moc__mainwindow_8cpp.html" title="Build/GUI&#45;Main/moc\l_mainwindow.cpp" alt="" coords="5,184,145,225"/>
+<area shape="rect" id="node4" href="$RotorDriver-GUI_2RotorDriver_2src_2main_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/main.cpp" alt="" coords="169,184,357,225"/>
+<area shape="rect" id="node5" href="$RotorDriver-GUI_2RotorDriver_2src_2mainwindow_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/mainwindow.cpp" alt="" coords="381,184,569,225"/>
+<area shape="rect" id="node6" href="$SatRot-GUI_2GUI-Main_2src_2main_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/main.cpp" alt="" coords="593,184,744,225"/>
+<area shape="rect" id="node7" href="$SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp.html" title="SatRot&#45;GUI/GUI&#45;Main\l/src/mainwindow.cpp" alt="" coords="768,184,919,225"/>
+<area shape="rect" id="node10" href="$clientthread_8cpp.html" title="RotorDriver&#45;GUI/RotorDriver\l/src/clientthread.cpp" alt="" coords="943,184,1131,225"/>
 </map>

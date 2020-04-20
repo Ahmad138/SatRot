@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['helper',['helper',['../classhelper.html',1,'']]],
-  ['httpwindow',['HttpWindow',['../classHttpWindow.html',1,'']]]
+  ['mainwindow',['MainWindow',['../classUi_1_1MainWindow.html',1,'Ui::MainWindow'],['../classMainWindow.html',1,'MainWindow']]],
+  ['manualscribble',['ManualScribble',['../classManualScribble.html',1,'']]]
 ];

@@ -6,7 +6,7 @@ var dir_9f70ff853d521bc6d9fdfefbf66a0952 =
     [ "blink.h", "blink_8h.html", [
       [ "blink", "classblink.html", "classblink" ]
     ] ],
-    [ "clientthread.h", "RotorDriver-GUI_2RotorDriver_2includes_2clientthread_8h.html", [
+    [ "clientthread.h", "clientthread_8h.html", [
       [ "ClientThread", "classClientThread.html", "classClientThread" ]
     ] ],
     [ "CppThread.h", "CppThread_8h.html", [

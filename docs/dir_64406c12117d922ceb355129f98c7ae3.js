@@ -1,12 +1,9 @@
 var dir_64406c12117d922ceb355129f98c7ae3 =
 [
     [ "api.cpp", "SatRot-GUI_2GUI-Main_2src_2api_8cpp.html", null ],
-    [ "clientthread.cpp", "SatRot-GUI_2GUI-Main_2src_2clientthread_8cpp.html", null ],
     [ "customdialog.cpp", "SatRot-GUI_2GUI-Main_2src_2customdialog_8cpp.html", null ],
     [ "customlistmodel.cpp", "customlistmodel_8cpp.html", null ],
     [ "customscene.cpp", "customscene_8cpp.html", null ],
-    [ "digitalclock.cpp", "digitalclock_8cpp.html", null ],
-    [ "getgeolocation.cpp", "getgeolocation_8cpp.html", null ],
     [ "httpwindow.cpp", "httpwindow_8cpp.html", null ],
     [ "main.cpp", "SatRot-GUI_2GUI-Main_2src_2main_8cpp.html", "SatRot-GUI_2GUI-Main_2src_2main_8cpp" ],
     [ "mainwindow.cpp", "SatRot-GUI_2GUI-Main_2src_2mainwindow_8cpp.html", null ],

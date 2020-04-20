@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7eapitestcase',['~apiTestCase',['../classapiTestCase.html#a044e875d056c933ffa0af3c0e2153dc6',1,'apiTestCase']]],
-  ['_7eclientthread',['~ClientThread',['../classClientThread.html#a7d9131c33261203409522c9fde3b26b1',1,'ClientThread::~ClientThread()'],['../classClientThread.html#a7d9131c33261203409522c9fde3b26b1',1,'ClientThread::~ClientThread()']]],
+  ['_7eclientthread',['~ClientThread',['../classClientThread.html#a7d9131c33261203409522c9fde3b26b1',1,'ClientThread']]],
   ['_7ecppthread',['~CppThread',['../classCppThread.html#acb878b98309e602a54ce33ef9dbba69f',1,'CppThread']]],
   ['_7edrivertestcase',['~driverTestCase',['../classdriverTestCase.html#a14226575acd64960204bd760736a695e',1,'driverTestCase']]],
   ['_7efiledownloadtest',['~fileDownloadTest',['../classfileDownloadTest.html#adf133f17a66a78b69dfc47f239b7ba88',1,'fileDownloadTest']]],

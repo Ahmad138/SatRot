@@ -3,9 +3,6 @@ var dir_48ba2970f94aa223d31c3324359ee30f =
     [ "api.h", "SatRot-GUI_2GUI-Main_2includes_2api_8h.html", [
       [ "api", "classapi.html", "classapi" ]
     ] ],
-    [ "clientthread.h", "SatRot-GUI_2GUI-Main_2includes_2clientthread_8h.html", [
-      [ "ClientThread", "classClientThread.html", "classClientThread" ]
-    ] ],
     [ "customdialog.h", "SatRot-GUI_2GUI-Main_2includes_2customdialog_8h.html", [
       [ "CustomDialog", "classCustomDialog.html", "classCustomDialog" ]
     ] ],
@@ -14,12 +11,6 @@ var dir_48ba2970f94aa223d31c3324359ee30f =
     ] ],
     [ "customscene.h", "customscene_8h.html", [
       [ "CustomScene", "classCustomScene.html", "classCustomScene" ]
-    ] ],
-    [ "digitalclock.h", "digitalclock_8h.html", [
-      [ "DigitalClock", "classDigitalClock.html", "classDigitalClock" ]
-    ] ],
-    [ "getgeolocation.h", "getgeolocation_8h.html", [
-      [ "GetGeoLocation", "classGetGeoLocation.html", "classGetGeoLocation" ]
     ] ],
     [ "httpwindow.h", "httpwindow_8h.html", [
       [ "HttpWindow", "classHttpWindow.html", "classHttpWindow" ]
