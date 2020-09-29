@@ -1,5 +1,0 @@
-<map id="TCPServer::stopAllClients" name="TCPServer::stopAllClients">
-<area shape="rect" id="node2" href="$classTCPServer.html#af1df9d80f25034148ed588e7fa2d4ab7" title="TCPServer::incomingConnection" alt="" coords="229,5,443,32"/>
-<area shape="rect" id="node3" href="$classTCPServer.html#ade0635052b5b82999afb1af93efaf037" title="TCPServer::stopServer" alt="" coords="257,56,415,83"/>
-<area shape="rect" id="node4" href="$classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="491,56,679,83"/>
-</map>

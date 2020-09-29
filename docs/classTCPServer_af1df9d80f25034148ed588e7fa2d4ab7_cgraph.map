@@ -1,6 +1,0 @@
-<map id="TCPServer::incomingConnection" name="TCPServer::incomingConnection">
-<area shape="rect" id="node2" href="$classServerThread.html#a02dd4955acbe9a6a1a0a7c05a1cab116" title="ServerThread::setSocketDescriptor" alt="" coords="267,5,493,32"/>
-<area shape="rect" id="node3" href="$classServerThread.html#a1a007b61f53a885219ff09261ec448bf" title="ServerThread::disconnect\lFromClient" alt="" coords="295,57,465,98"/>
-<area shape="rect" id="node4" href="$classServerThread.html#af66678590db86b364832b651acba04b3" title="ServerThread::sendJson" alt="" coords="298,123,462,149"/>
-<area shape="rect" id="node5" href="$classServerThread.html#a70b6d91d30a7073d73e6bf3d2a43cf48" title="ServerThread::userName" alt="" coords="541,148,709,175"/>
-</map>

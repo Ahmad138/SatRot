@@ -1,5 +1,0 @@
-<map id="TCPs::TCPs" name="TCPs::TCPs">
-<area shape="rect" id="node2" href="$classTCPs.html#a83d6226244f9a60eff17103ea802611c" title="TCPs::onNewConnection" alt="" coords="152,31,323,57"/>
-<area shape="rect" id="node3" href="$classTCPs.html#ae14cb7fc449dde7538b3df298a9e7435" title="TCPs::onReadyRead" alt="" coords="399,5,545,32"/>
-<area shape="rect" id="node4" href="$classTCPs.html#a5eb7f8eff0051a6789576190e233fae3" title="TCPs::onSocketStateChanged" alt="" coords="371,56,573,83"/>
-</map>

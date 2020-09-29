@@ -1,7 +1,0 @@
-<map id="ServerThread::userName" name="ServerThread::userName">
-<area shape="rect" id="node2" href="$classServerThread.html#af66678590db86b364832b651acba04b3" title="ServerThread::sendJson" alt="" coords="234,5,398,32"/>
-<area shape="rect" id="node3" href="$classTCPServer.html#af1df9d80f25034148ed588e7fa2d4ab7" title="TCPServer::incomingConnection" alt="" coords="459,44,672,71"/>
-<area shape="rect" id="node4" href="$classServerThread.html#a24cd06cf3b4d90ad2f3d71847da5e861" title="ServerThread::setUserName" alt="" coords="221,107,411,133"/>
-<area shape="rect" id="node5" href="$classTCPServer.html#ade0635052b5b82999afb1af93efaf037" title="TCPServer::stopServer" alt="" coords="486,120,645,147"/>
-<area shape="rect" id="node6" href="$classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="720,120,908,147"/>
-</map>
