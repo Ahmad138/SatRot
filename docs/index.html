@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>read me</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="satrot---taking-everyone-to-space--satellite----earth_africa---crescent_moon---telescope---space_invader-stars--rocket">SatRot - Taking Everyone to Space  📡    🌍   🌙   🔭   👾 🌠  🚀</h1>
+<p><a href="https://travis-ci.org/Ahmad138/SatRot"><img src="https://travis-ci.org/Ahmad138/SatRot.svg?branch=master" alt="Build Status"></a><br>
+<img src="https://img.shields.io/badge/version-v1.0-yellowgreen" alt="Version"><br>
+<a href="https://github.com/Ahmad138/SatRot/issues"><img src="https://img.shields.io/github/issues/Ahmad138/SatRot" alt="GitHub issues"></a><br>
+<img src="https://img.shields.io/github/issues-closed-raw/ahmad138/satrot?color=red" alt="GitHub closed issues"><br>
+<img src="https://img.shields.io/github/issues-pr-closed/ahmad138/satrot?color=brown" alt="GitHub closed pull requests"><br>
+<a href="https://github.com/Ahmad138/SatRot/network"><img src="https://img.shields.io/github/forks/Ahmad138/SatRot" alt="GitHub forks"></a><br>
+<a href="https://github.com/Ahmad138/SatRot/stargazers"><img src="https://img.shields.io/github/stars/Ahmad138/SatRot?color=orange" alt="GitHub stars"></a><br>
+<a href="https://github.com/Ahmad138/SatRot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Ahmad138/SatRot" alt="GitHub license"></a><br>
+<img src="https://img.shields.io/github/languages/code-size/ahmad138/satrot" alt="GitHub code size in bytes"><br>
+<img src="https://img.shields.io/github/repo-size/ahmad138/satrot" alt="GitHub repo size"><br>
+<img src="https://img.shields.io/twitter/follow/sat_rot?style=social" alt="Twitter Follow"></p>
+<p align="center">
+<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Logo/SatRot%20logo.png?raw=true" width="20%" height="20%" alt="SatRot Logo">
+</p>
+<h1 id="table-of-contents---ledger">Table of Contents   📒</h1>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#what-is-satrot?">What is SatRot?</a></li>
+<li><a href="#how-satrot-works">How SatRot works</a>
+<ul>
+<li><a href="#applications-usefulness">Applications/Usefulness</a></li>
+</ul>
+</li>
+<li><a href="#who-is-satrot-for?">Who is SatRot for?</a></li>
+<li><a href="#requirements">Requirements</a>
+<ul>
+<li><a href="#mechanical">Mechanical</a></li>
+<li><a href="#electrical-and-electronics">Electrical and Electronics</a></li>
+<li><a href="#software">Software</a>
+<ul>
+<li><a href="#dependencies-and-packages">Dependencies and Packages</a></li>
+<li><a href="#device-and-operating-system">Device and Operating System</a></li>
+</ul>
+</li>
+<li><a href="#telecom">Telecom</a></li>
+</ul>
+</li>
+<li><a href="#how-to">How to:</a>
+<ul>
+<li><a href="#build-and-install">Build and install</a></li>
+<li><a href="#use">Use</a></li>
+<li><a href="#maintain">Maintain</a></li>
+</ul>
+</li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#examples-and-videos">Examples and Videos</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#issue-tracking">Issue Tracking</a></li>
+<li><a href="#social-media-@sat_rot">Social Media @sat_rot</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#support-us">Support Us</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h1 id="a-namemotivationamotivation---muscle--fire"><a></a>Motivation   💪  🔥</h1>
+<p>There has being alot of interest buzzing around ever since the space race started in 1955. Equipments and materials to communicate with satellites especially low earth orbit (LEO) satellites have being expensive and inaccessible. These satellites (both natural and artificial) move really fast across the sky. Hand tracking becomes tedious and tiring. Solar panels also need to follow the sun across the sky for 90° incident rays so as to increase it’s efficiency.</p>
+<p>This is where <strong>satRot</strong> comes in. SatRot takes everyone interested into the domain of the amateur satellite observation or communication community.</p>
+<h1 id="what-is-satrot----sparkles">What is SatRot?    ✨</h1>
+<p><strong>SatRot</strong> is a very cheap, modular and smart satellite rotator. It has the ability to automatically and manually control a load device such as an antenna for satellite communications, solar panel to track sun, telescope to observe patch of the night sky and others. The construction materials are so cheap and easy to build that high school students can DIY build the system.</p>
+<p>The GUI has 2 main modes. A manual mode that a user can use to manually track a celestrial body using a mouse on the system. this provides a solid flexiblity for serach and observation of the sky. The second mode is the automatic mode. This mode allows the user to set a satellite to track whenever the satellite comes into view. This can be used to automatically transmit or receive information from satellite when it rises and before setting. This uses a kernal interrupt so as not to monopolize CPU resources. Ability to search and predict which and when satellites are coming over your location anywhere on earth.</p>
+<h1 id="how-satrot-works---wrench">How SatRot works   🔧</h1>
+<p align="center">
+<img src="https://github.com/Ahmad138/SatRot/blob/master/Documents/Images/Block%20Diagrams/Satellite%20Rotator%20Block%20Diagram.jpg?raw=true" width="110%">
+</p>
+<h2 id="applicationsusefulness">Applications/Usefulness</h2>
+<ul>
+<li>Can be used to track fast moving satellites. Especially those in LEO with short fly by times.</li>
+<li>Solar panel can be mounted to track the sun and increase its efficiency</li>
+<li>Can be used as a teaching aid for young students about satellite technologies</li>
+<li>Telescope can be mounted on it and used to track a celestrial body in the sky</li>
+<li>Tracking the ISS and the activities on-board becomes possible</li>
+<li>When Starlink becomes fully operational, SatRot could be used to gain internet access anywhere in the world.</li>
+</ul>
+<h1 id="who-is-satrot-for--heart_eyes">Who is SatRot for?  😍</h1>
+<p><strong>SatRot</strong> is for anyone interested in the realm of satellite technology, telecommunications, amateur radio, application of raspberry pi. In short, anyone is free to join, use and participate in the SatRot project.</p>
+<h1 id="requirements--eyes">Requirements  👀</h1>
+<h3 id="mechanical--nut_and_bolt">Mechanical  🔩</h3>
+<p>The mechanical requirements are not much. Most of the parts will be printed using a 3D printer and few fastening bolts, nuts and screws. (N.B: due to the covid-19 issue the world is facing, we cannot access the workshops to complete the mechanical parts). Bellow are the few items required at the moment.</p>
+<ul>
+<li>Access to 3D printing</li>
+<li>M2.5 bolts and nuts</li>
+<li>Brass or plastic spaces</li>
+<li>Tripod stand</li>
+</ul>
+<p>see <a href="https://github.com/Ahmad138/SatRot/wiki/Mechanical-Requirements">wiki</a> for full mechanical requirements.</p>
+<h3 id="electrical-and-electronics--pager">Electrical and Electronics  📟</h3>
+<p>We wanted to make satrot modular, portable and completely standalone. This required some components that need to provide adequate power and control. Below are some requirements.</p>
+<ul>
+<li>A4988 stepper driver chips</li>
+<li>MPU-9250</li>
+<li>Nema17 2A stepper motors</li>
+<li>12V batteries</li>
+</ul>
+<p>see <a href="https://github.com/Ahmad138/SatRot/wiki/Mechanical-Requirements">wiki</a> for full EE reequirements. A soldering skill and basic circuit knowledge is also required.</p>
+<h3 id="software--computer">Software  💻</h3>
+<p>The main coding language is C/C++ and as such, a basic understanding of C/C++ is required. The software engineering heavily relies on a GUI development. Qt development package is the ideal package for a project like this.</p>
+<h4 id="dependencies-and-packages">Dependencies and Packages</h4>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># C++14</span>
+
+- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -qq g++-6
+- <span class="token function">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+- <span class="token function">sudo</span> <span class="token function">apt-get</span> --yes <span class="token function">install</span> qt5-default qt514-meta-full qt514tools qt514webengine qt514base qt514imageformats qt514svg libqt5webkit5-dev qt514charts-no-lgpl qt514xmlpatterns
+- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> zlib1g-dev g++ cmake doxygen graphviz libboost-all-dev libssl-dev
+<span class="token comment"># only on the raspberry pi</span>
+- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> wiringpi 
+</code></pre>
+<p>Proceed to the software development section on <a href="https://github.com/Ahmad138/SatRot/wiki/Software-Requirements">wiki</a> for more info.</p>
+<h4 id="device-and-operating-system">Device and Operating System</h4>
+<p>The device used for the project is a <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" title="raspberry pi 3 B">raspberry pi 3 B</a> with the <a href="https://www.raspberrypi.org/downloads/raspbian/" title="raspbian">raspbian</a> (GNU/Linux) operating system installed on it.</p>
+<h3 id="telecom---satellite">Telecom   📡</h3>
+<p>This section requires majorly:</p>
+<ul>
+<li>Custom antenna</li>
+<li>RTL-SDR</li>
+<li>RG58 50ohm cable</li>
+<li>SMA connectors</li>
+</ul>
+<p>more on <a href="https://github.com/Ahmad138/SatRot/wiki/Telecommunication-Requirements">wiki</a></p>
+<h1 id="how-to-...">How to …</h1>
+<h3 id="build-and-install">Build and install</h3>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> clone https://github.com/Ahmad138/SatRot.git
+
+<span class="token comment"># To install main-GUI on ubuntu</span>
+<span class="token function">cd</span> satrot/Software/SatRot-GUI
+<span class="token function">mkdir</span> build <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> build
+qmake <span class="token punctuation">..</span>
+<span class="token function">make</span>
+
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token function">cd</span> GUI-Main
+./GUI-Main
+
+<span class="token comment"># To install RotorDriver-GUI on raspberrypi 3</span>
+<span class="token function">cd</span> satrot/Software/RotorDriver-GUI
+<span class="token function">mkdir</span> build <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> build
+qmake <span class="token punctuation">..</span>
+<span class="token function">make</span>
+
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token function">cd</span> RotorDriver
+./RotorDriver
+
+<span class="token comment"># To run tests, cd into each module test you want to perform and run it. for example:</span>
+<span class="token function">cd</span> build/apiTest
+<span class="token function">make</span> check
+
+</code></pre>
+<p>NB: If you are facing issues building using ‘make’, look at this <a href="https://github.com/Ahmad138/SatRot/issues/61">issue</a> and see if it applies to you. if not, open a new issue and ask for help.</p>
+<h3 id="use">Use</h3>
+<h3 id="maintain">Maintain</h3>
+<p>Project maintenance will be performed by the creators and contributors. Anyone is free to join us in maintaining and growing this project.</p>
+<h1 id="screenshots">Screenshots</h1>
+<h1 id="examples-and-videos">Examples and Videos</h1>
+<h1 id="documentation">Documentation</h1>
+<p>A detailed documentation is outlined in the <a href="https://github.com/Ahmad138/satRot/wiki" title="wiki">wiki</a> section of the repository. Files, documents, construction materials, instructions, costs and others are all listed and defined over in the <a href="https://github.com/Ahmad138/satRot/wiki" title="wiki">wiki</a> section.</p>
+<p>For the newbee nerds out there, checkout our <a href="https://ahmad138.github.io/SatRot/" title="Doxygen">Doxygen</a> docummentation for the software.</p>
+<h1 id="issue-tracking">Issue Tracking</h1>
+<p>If there is any issue or suggestions (including spelling/grammatical errors) to the development of the project, feel free to open an ‘issue’ on the <a href="https://github.com/Ahmad138/satRot/issues" title="issue">issue</a> tab and properly define the issue. The problem will be rectified as soon as possible by the community.</p>
+<h1 id="social-media-sat_rot">Social Media @sat_rot</h1>
+<p>Like, Follow, Share to stay updated and help us grow the community.</p>
+<p align="center">
+<a href="https://www.twitter.com/sat_rot" target="_blank">
+<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/twitter.png?raw=true" width="10%"></a> <a href="https://www.facebook.com/SatRot-109843980689069" target="_blank"><img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/facebook.png?raw=true" width="10%"></a> <a href="https://www.instagram.com/sat_rot/" target="_blank"> <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/instagram.png?raw=true" width="10%"></a> <a href="https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw" target="_blank"> <img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/Social%20media/youtube.png?raw=true" width="10%"> </a> 
+</p>
+<h1 id="authors">Authors</h1>
+<p>Ahmad Muhammad   🙈 🤓<br>
+🤖 <a href="https://github.com/Ahmad138" title="Github">Github</a> | 🐦 <a href="https://twitter.com/ahmadmf01" title="Twitter">Twitter</a> |  🤡 <a href="http://www.facebook.com/amfaruk01" title="Facebook">Facebook</a></p>
+<p>Mohamed Salih 🙉 😎<br>
+🤖 <a href="https://github.com/sonOFsalah-2425778" title="Github">Github</a></p>
+<p>Mohamed Salim 🙈  😊<br>
+🤖 <a href="https://github.com/2302420a" title="Github">Github</a></p>
+<h1 id="support-us">Support Us</h1>
+<p>You can support us by sending us a thank you note or bringing someone into the vast world of satellite technology. Your support gives us boost to continue maintaining this project. Also give us a shout out whenever possible.</p>
+<h1 id="license">License</h1>
+<p><strong>The MIT License</strong></p>
+<p align="center">  
+<img src="https://github.com/Ahmad138/satRot/blob/master/Documents/Images/Logo/OSIApproved.png?raw=true" width="10%" height="10%">
+</p>
+<p>Copyright © 2020  - SatRot</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+</body>
+
+</html>

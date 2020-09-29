@@ -153,10 +153,18 @@ NB: If you are facing issues building using 'make', look at this [issue](https:/
 ### Maintain
 Project maintenance will be performed by the creators and contributors. Anyone is free to join us in maintaining and growing this project.
 # Screenshots
-# Examples and Videos
 
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-18%2020-21-41.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-20%2006-30-291.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Screenshot%20from%202020-04-20%2006-37-111.png)
+![](https://github.com/Ahmad138/SatRot/blob/master/Software/Images/Peek%202020-04-19%2002-45.gif)
+
+# Examples and Videos
+For videos and demonstrations, visit our [YouTube channel](https://www.youtube.com/channel/UCDHKf9GR-runCQVeQGb74Bw)
 # Documentation
 A detailed documentation is outlined in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section of the repository. Files, documents, construction materials, instructions, costs and others are all listed and defined over in the [wiki](https://github.com/Ahmad138/satRot/wiki "wiki") section.
+
+For the newbee nerds out there, checkout our [Doxygen](https://ahmad138.github.io/SatRot/ "Doxygen") docummentation for the software.
 
 # Issue Tracking
 If there is any issue or suggestions (including spelling/grammatical errors) to the development of the project, feel free to open an 'issue' on the [issue](https://github.com/Ahmad138/satRot/issues "issue") tab and properly define the issue. The problem will be rectified as soon as possible by the community.
@@ -180,6 +188,8 @@ Mohamed Salih :hear_no_evil: :sunglasses:
 
 Mohamed Salim :see_no_evil:  :blush:
 :robot: [Github](https://github.com/2302420a "Github")
+
+See who did what [here](https://github.com/Ahmad138/SatRot/wiki/Team "Team")
 
 # Support Us 
 You can support us by sending us a thank you note or bringing someone into the vast world of satellite technology. Your support gives us boost to continue maintaining this project. Also give us a shout out whenever possible.  
